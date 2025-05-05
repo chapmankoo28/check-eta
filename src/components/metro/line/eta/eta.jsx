@@ -122,7 +122,7 @@ export default function ETA({ line, dir, station, now_line }) {
                                         <Flex gap="1" align="baseline">
                                             <Text size="2">往</Text>
                                             <Text size="5">
-                                                {get_station_name(line, dir, i.dest) ?? ""}
+                                                {get_station_name(line, dir, i.dest)}
                                                 {i.route === "RAC" ? " 經馬場" : ""}
                                             </Text>
                                         </Flex>

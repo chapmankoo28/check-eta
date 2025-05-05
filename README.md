@@ -21,7 +21,7 @@ For the latest information, please visit their official website above.
 
 ## Usage
 
-![image of the home page](src/res/img/bus_1.png)
+![image of the home page](public/bus_1.png)
 
 ### For Bus 查詢巴士
 
@@ -30,12 +30,12 @@ For the latest information, please visit their official website above.
 2. Choose the route
    選擇路線
 
-![bus search page](src/res/img/bus_2.png)
+![bus search page](public/bus_2.png)
 
 3. Choose the stop
    選擇巴士站
 
-![bus stop list](src/res/img/bus_3.png)
+![bus stop list](public/bus_3.png)
 
 -   You can swap the route direction
     可以調轉方向
@@ -47,12 +47,12 @@ For the latest information, please visit their official website above.
 1. Choose the line you want to check
    選擇您想查詢的路線
 
-![metro line page](src/res/img/mtr_1.png)
+![metro line page](public/mtr_1.png)
 
 2. Choose the stop
    選擇地鐵站
 
-![metro stop list](src/res/img/mtr_2.png)
+![metro stop list](public/mtr_2.png)
 
 -   You can swap the line direction
     可以調轉方向

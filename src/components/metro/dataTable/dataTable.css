@@ -4,9 +4,9 @@
     cursor: pointer;
 }
 
-/* .metro-data-card:hover {
-    background-color: var(--gray-3);
-} */
+.metro-data-card:hover {
+    background-color: var(--gray-5);
+}
 
 .mtr-line-color {
     width: 2.5em;

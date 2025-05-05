@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, Separator, Flex, Heading, Tooltip } from "@radix-ui/themes";
+import logo from "/logo.webp"
 import "./banner.css";
 
 export default function Banner({ type, setSearchParams }) {
@@ -10,7 +11,10 @@ export default function Banner({ type, setSearchParams }) {
                     <Flex align="center" width="auto" justify="between" mb="2">
                         <Tooltip content="About this project">
                             <a href="https://github.com/chapmankoo28/check-eta">
-                                <Heading id="nav-title">幾時到</Heading>
+                                <Flex align="center" width="auto" justify="between">
+                                    <img src={logo} alt="Logo" width="38" height="38" />
+                                    <Heading id="nav-title">幾時到</Heading>
+                                </Flex>
                             </a>
                         </Tooltip>
                         <button onClick={() => setSearchParams({ type: "bus" })}>

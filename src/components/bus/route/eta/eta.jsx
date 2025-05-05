@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Flex, Text, Heading, Tooltip, Separator } from "@radix-ui/themes";
 import Loading from "../../../loading/loading";
 import api_config from "../../../../res/json/api_config.json";
-import "./eta.css";
 
 export default function ETA({ co, route, bound, service, stop }) {
     const [loading, setLoading] = useState(true);
@@ -146,6 +145,7 @@ export default function ETA({ co, route, bound, service, stop }) {
                         const eta_in_min = Math.ceil((new Date(i.eta) - now) / 1000 / 60);
                         return (
                             <>
+                            <React.Fragment key={"eta" + i.seq + count + i.eta_seq}>
                                 <Separator
                                     key={
                                         "separator" + count + i.seq + i.eta_seq
@@ -154,7 +154,7 @@ export default function ETA({ co, route, bound, service, stop }) {
                                     size="4"
                                 />
                                 <Flex
-                                    key={"eta"+ i.seq + count}
+                                    key={"eta_flex"+ i.seq + count}
                                     direction="row"
                                     gap="3"
                                     justify="between"
@@ -182,6 +182,7 @@ export default function ETA({ co, route, bound, service, stop }) {
                                         {eta_in_min > 0 && <Text>分鐘</Text>}
                                     </Flex>
                                 </Flex>
+                                </React.Fragment>
                             </>
                         );
                     })

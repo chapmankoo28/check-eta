@@ -35,8 +35,8 @@ export default function DataTable({ q, setSearchParams, get_bus_company_info }) 
                                             {i.route}
                                         </Text>
                                         <Flex mr="auto" direction="column" align="start">
-                                            <Text className={"bus-co-color " + get_bus_company_info(i.co, i.route)["code"].toLowerCase() ?? ""}>
-                                                {get_bus_company_info(i.co, i.route)["name_tc"] ?? ""}
+                                            <Text className={"bus-co-color " + get_bus_company_info(i.co, i.route)["code"].toLowerCase()}>
+                                                {get_bus_company_info(i.co, i.route)["name_tc"]}
                                             </Text>
                                             <Text as="div">
                                                 <Flex gap="1" align="baseline">

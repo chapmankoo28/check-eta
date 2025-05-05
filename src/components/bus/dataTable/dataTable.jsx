@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Flex, Text, Card } from "@radix-ui/themes";
+import { get_bus_company_info } from "../../../utils/busUtils";
 import allRoutesData from "../../../res/json/all_route_list.json";
 import "./dataTable.css";
 
@@ -12,7 +13,7 @@ const filtered_routes = (q) => {
     });
 };
 
-export default function DataTable({ q, setSearchParams, get_bus_company_info }) {
+export default function DataTable({ q, setSearchParams }) {
     const query = q.toLowerCase();
     const routes = useMemo(() => {
         return filtered_routes(query);
@@ -45,7 +46,6 @@ export default function DataTable({ q, setSearchParams, get_bus_company_info }) 
                                                 </Flex>
                                             </Text>
                                             <Text as="div" size="2" color="gray">
-                                                {/* {i.bound === "O" ? "Outbound" : "Inbound"}*/}
                                                 {i.service_type !== "1" ? "特別班" : ""}
                                             </Text>
                                         </Flex>

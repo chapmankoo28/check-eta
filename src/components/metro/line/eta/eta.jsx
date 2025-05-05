@@ -16,16 +16,10 @@ export default function ETA({ line, dir, station, now_line }) {
 
     const get_eta = async (line, station) => {
         if (!line || !station) return {};
-        console.count("CALLED get_eta", line, station);
         try {
-            const api =
-                api_config.data.find((i) => {
-                    return i.co.toUpperCase() === "MTR";
-                }) ?? {};
-            // console.log(api);
+            const api = api_config.data.find((i) => { return i.co.toUpperCase() === "MTR"; }) ?? {};
+            
             const url = `${api["base_url"]}${api["api"]["line"]}${line}&${api["api"]["sta"]}${station}&${api["api"]["lang"]}TC/`;
-
-            console.count(url);
 
             const response = await fetch(url);
 
@@ -44,7 +38,6 @@ export default function ETA({ line, dir, station, now_line }) {
 
     const get_filtered_eta_data = async (isMounted) => {
         const DIR_MAP = { DT: "DOWN", UT: "UP" };
-        console.count("CALLED get_filtered_eta_data");
         try {
             const data = await get_eta(line, station);
             if (isMounted) {
@@ -91,7 +84,7 @@ export default function ETA({ line, dir, station, now_line }) {
 
         return () => {
             clearInterval(interval);
-            // isMounted = false;
+            isMounted = false;
         };
     }, [line, dir, station]);
 
@@ -113,7 +106,6 @@ export default function ETA({ line, dir, station, now_line }) {
                     <Loading />
                 ) : etaData.length > 0 ? (
                     etaData.map((i, count) => {
-                        // const eta_in_min = Math.ceil((new Date(i.time) - now) / 1000 / 60);
                         return (
                             <>
                                 <Separator key={btoa("separator" + count + i.seq)} orientation="horizontal" size="4" />

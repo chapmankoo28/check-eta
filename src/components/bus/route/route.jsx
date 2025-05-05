@@ -1,78 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Flex, Text } from "@radix-ui/themes";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Avatar from "@radix-ui/react-avatar";
 import Loading from "../../loading/loading";
-import allRoutesData from "../../../res/json/all_route_list.json";
 import ETA from "./eta/eta";
-import api_config from "../../../res/json/api_config.json";
 import NowRouteInfo from "./nowRouteInfo/nowRouteInfo";
 import L from "leaflet";
+import { get_bus_company_info, get_route_info, get_stop_data, get_stop_list } from "../../../utils/busUtils";
 
-export default function Route({ co, route, bound, service, stop, setSearchParams, get_bus_company_info }) {
+export default function Route({ co, route, bound, service, stop, setSearchParams }) {
     const [stopData, setStopData] = useState([]);
     const [nowRoute, setNowRoute] = useState({});
     const [loading, setLoading] = useState(true);
     const [stopDataObj, setStopDataObj] = useState({});
-
-    const get_stop_list = useCallback(async (co, route, bound, service, abortSignal) => {
-        // if (Object.keys(get_route_info(co, route, bound, service) ?? {}).length === 0) return [];
-        try {
-            if (abortSignal) {
-                const api = api_config.data.find((item) => item.co.toLowerCase() === co.toLowerCase()) ?? {};
-
-                const b = bound.toLowerCase() === "o" ? "outbound" : "inbound";
-                const url = `${api["base_url"]}${api["api"]["route-stop"]}${route.toUpperCase()}/${b}/`;
-                const s = co.toLowerCase() === "kmb" ? service : "";
-
-                const response = await fetch(url + s);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                return result.data;
-            }
-        } catch (error) {
-            console.error("ERROR: fetching stop data. Info:", error);
-        }
-        return []
-    }, []);
-
-    const get_route_info = useCallback((co, route, bound, service) => {
-        if (!co || !route || !bound || !service) return {};
-
-        const res =
-            allRoutesData["data"].find((i) => {
-                return i.route === route && i.co === co && i.bound === bound && i.service_type === service;
-            }) ?? {};
-
-        if (Object.keys(res).length === 0) {
-            console.log("CHECK SWAP BOUND STOP LIST");
-            const swap_bound = bound === "O" ? "I" : "O";
-            return get_route_info(co, route, swap_bound, service) ?? {};
-        }
-
-        return res;
-    }, []);
-
-    const get_stop_data = useCallback(async (co, stopID, abortSignal) => {
-        if (!co || !stopID) return "";
-        try {
-            if (abortSignal) {
-                const api = api_config.data.find((item) => item.co.toUpperCase() === co.toUpperCase()) ?? {};
-                const url = `${api.base_url}${api["api"]["stop"]}${stopID.toUpperCase()}`;
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const result = await response.json();
-                return result.data;
-            }
-        } catch (error) {
-            console.error("ERROR: fetching stop name. Info:", error);
-        }
-        return ""
-    }, []);
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -141,7 +81,6 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
                     const userLng = position.coords.longitude;
                     let minDistance = Infinity;
                     let closestStop = "";
-                    let closestStopIndex = -1;
                     
                     console.log("User location:", userLat, userLng);
                     const userLocat = L.latLng(userLat, userLng);
@@ -157,7 +96,6 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
                     }
                     
                     if (closestStop && minDistance <= 1000) {
-                        closestStopIndex = stopData.findIndex(item => item.stop === closestStop);
                         console.log("Closest stop:", closestStop, "Distance:", minDistance.toFixed(2), "m");
                         
                         setSearchParams(
@@ -209,7 +147,7 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
     return (
         <>
             <Flex direction="column" gap="3" align="center">
-                <NowRouteInfo co={co} route={route} bound={bound} service={service} nowRoute={nowRoute} setSearchParams={setSearchParams} />
+                <NowRouteInfo co={co} route={route} nowRoute={nowRoute} setSearchParams={setSearchParams} />
                 {loading ? (
                     <Loading />
                 ) : (

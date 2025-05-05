@@ -17,35 +17,17 @@ export default function Bus() {
 
     const is_selected_route = co ? true : false;
 
-    const get_bus_company_info = (co, route) => {
-        const COMPANY_NAMES = {
-            CTB: "城巴",
-            KMB: "九巴",
-            LWB: "龍運",
-        };
-        const LWB_PATTERN = /^(A|E|NA|R|S|X)/;
-        const NOT_LWB_ROUTES = ["X6C", "X42C", "X42P", "X89D", "X90", "R33", "R42"];
-        const isLWBRoute = (route) => LWB_PATTERN.test(route) && !NOT_LWB_ROUTES.includes(route);
-        if (co === "CTB") {
-            return { name_tc: COMPANY_NAMES.CTB, code: "CTB" };
-        }
-        if (co === "KMB" && isLWBRoute(route)) {
-            return { name_tc: COMPANY_NAMES.LWB, code: "LWB" };
-        }
-        return { name_tc: COMPANY_NAMES.KMB, code: "KMB" };
-    };
-
     return (
         <>
             {is_selected_route ? (
-                <Route co={co} route={route} bound={bound} service={service} stop={stop} setSearchParams={setSearchParams} get_bus_company_info={get_bus_company_info} />
+                <Route co={co} route={route} bound={bound} service={service} stop={stop} setSearchParams={setSearchParams} />
             ) : (
                 <Flex direction="column" gap="0">
                     <Heading size="8" weight="light" align="center" m="1" id="title-bus">
                         巴士幾時到
                     </Heading>
                     <SearchBar q={q} setSearchParams={setSearchParams} />
-                    <DataTable q={q} get_bus_company_info={get_bus_company_info} setSearchParams={setSearchParams} />
+                    <DataTable q={q} setSearchParams={setSearchParams} />
                 </Flex>
             )}
         </>

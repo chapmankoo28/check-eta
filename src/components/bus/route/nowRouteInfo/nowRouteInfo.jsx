@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Flex, Text, Heading, Tooltip } from "@radix-ui/themes";
 import "./nowRouteInfo.css";
 
-export default function NowRouteInfo({ co, route, bound, service, nowRoute, setSearchParams }) {
+export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
     const [rotate, setRotate] = useState(false);
 
     const handle_swap_bound = () => {

@@ -1,5 +1,5 @@
 {
-    "timestamp": "2024-01-14T17:47:50+08:00",
+    "timestamp": "2025-05-05T18:20:05+08:00",
     "data": [
         {
             "co": "KMB",
@@ -48,8 +48,8 @@
             "service_type": "1",
             "orig_en": "TIN TSZ",
             "orig_tc": "天慈",
-            "dest_en": "LOK MA CHAU STATION",
-            "dest_tc": "落馬洲站"
+            "dest_en": "LOK MA CHAU STATION (FUTIAN)",
+            "dest_tc": "落馬洲站(福田)"
         },
         {
             "co": "KMB",
@@ -58,26 +58,16 @@
             "service_type": "2",
             "orig_en": "MA WANG ROAD (SAN SHUI HOUSE)",
             "orig_tc": "媽橫路(山水樓)",
-            "dest_en": "LOK MA CHAU STATION",
-            "dest_tc": "落馬洲站"
-        },
-        {
-            "co": "KMB",
-            "route": "B1",
-            "bound": "O",
-            "service_type": "3",
-            "orig_en": "TIN YAN ESTATE",
-            "orig_tc": "天恩邨",
-            "dest_en": "LOK MA CHAU STATION",
-            "dest_tc": "落馬洲站"
+            "dest_en": "LOK MA CHAU STATION (FUTIAN)",
+            "dest_tc": "落馬洲站(福田)"
         },
         {
             "co": "KMB",
             "route": "B1",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "LOK MA CHAU STATION",
-            "orig_tc": "落馬洲站",
+            "orig_en": "LOK MA CHAU STATION (FUTIAN)",
+            "orig_tc": "落馬洲站(福田)",
             "dest_en": "TIN TSZ",
             "dest_tc": "天慈"
         },
@@ -86,20 +76,40 @@
             "route": "B1",
             "bound": "I",
             "service_type": "2",
-            "orig_en": "LOK MA CHAU STATION",
-            "orig_tc": "落馬洲站",
+            "orig_en": "LOK MA CHAU STATION (FUTIAN)",
+            "orig_tc": "落馬洲站(福田)",
             "dest_en": "MA WANG ROAD (SAN SHUI HOUSE)",
             "dest_tc": "媽橫路(山水樓)"
         },
         {
             "co": "KMB",
-            "route": "B1",
-            "bound": "I",
-            "service_type": "3",
-            "orig_en": "LOK MA CHAU STATION",
-            "orig_tc": "落馬洲站",
-            "dest_en": "TIN YAN ESTATE",
-            "dest_tc": "天恩邨"
+            "route": "HK1",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "STAR FERRY",
+            "orig_tc": "尖沙咀碼頭",
+            "dest_en": "STAR FERRY(CIRCULAR)",
+            "dest_tc": "尖沙咀碼頭(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "PB1A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TAI PO MEGA MALL (TAI WO ROAD)",
+            "orig_tc": "大埔超級城(太和路)",
+            "dest_en": "SAI SHA GO PARK (From Tai Po) (Circular)",
+            "dest_tc": "西沙 GO PARK  (由大埔出發 循環行走)"
+        },
+        {
+            "co": "KMB",
+            "route": "PBS1",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TSUEN WAN",
+            "orig_tc": "荃灣",
+            "dest_en": "MA WAN(From Tsuen Wan) (Circular)",
+            "dest_tc": "馬灣(由荃灣出發 循環行走)"
         },
         {
             "co": "KMB",
@@ -110,6 +120,16 @@
             "orig_tc": "東涌站",
             "dest_en": "Airport (Circular)",
             "dest_tc": "機場(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "SP1",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "dest_tc": "坑口(北)(將軍澳醫院)"
         },
         {
             "co": "KMB",
@@ -136,8 +156,8 @@
             "route": "1",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Felix Villas",
-            "orig_tc": "摩星嶺",
+            "orig_en": "Central (Macau Ferry)",
+            "orig_tc": "中環 (港澳碼頭)",
             "dest_en": "Happy Valley (Upper)",
             "dest_tc": "跑馬地 (上)"
         },
@@ -148,8 +168,8 @@
             "service_type": "1",
             "orig_en": "Happy Valley (Upper)",
             "orig_tc": "跑馬地 (上)",
-            "dest_en": "Felix Villas",
-            "dest_tc": "摩星嶺"
+            "dest_en": "Central (Macau Ferry)",
+            "dest_tc": "中環 (港澳碼頭)"
         },
         {
             "co": "CTB",
@@ -208,6 +228,26 @@
             "service_type": "1",
             "orig_en": "Tsim Sha Tsui",
             "orig_tc": "尖沙咀",
+            "dest_en": "Central (Star Ferry)",
+            "dest_tc": "中環 (天星碼頭)"
+        },
+        {
+            "co": "CTB",
+            "route": "H1S",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Central (Star Ferry)",
+            "orig_tc": "中環 (天星碼頭)",
+            "dest_en": "West Kowloon Cultural District",
+            "dest_tc": "西九文化區"
+        },
+        {
+            "co": "CTB",
+            "route": "H1S",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "West Kowloon Cultural District",
+            "orig_tc": "西九文化區",
             "dest_en": "Central (Star Ferry)",
             "dest_tc": "中環 (天星碼頭)"
         },
@@ -413,6 +453,46 @@
         },
         {
             "co": "KMB",
+            "route": "PB2",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "MA WAN",
+            "orig_tc": "馬灣",
+            "dest_en": "CENTRAL(From Ma Wan) (Circular)",
+            "dest_tc": "中環 (由馬灣出發 循環行走)"
+        },
+        {
+            "co": "KMB",
+            "route": "PB2A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CENTRAL HARBOURFRONT",
+            "orig_tc": "中環海濱",
+            "dest_en": "WEST KOWLOON CULTURAL DISTRICT",
+            "dest_tc": "西九文化區"
+        },
+        {
+            "co": "KMB",
+            "route": "PB2B",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "SHEK MUN STATION",
+            "orig_tc": "石門站",
+            "dest_en": "WEST KOWLOON CULTURAL DISTRICT (From Sha Tin)",
+            "dest_tc": "西九龍文化區 (由沙田出發 循環行走)"
+        },
+        {
+            "co": "KMB",
+            "route": "PBS2",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CENTRAL",
+            "orig_tc": "中環",
+            "dest_en": "MA WAN(From Central) (Circular)",
+            "dest_tc": "馬灣 (由中環出發 循環行走)"
+        },
+        {
+            "co": "KMB",
             "route": "W2",
             "bound": "O",
             "service_type": "1",
@@ -540,6 +620,26 @@
             "orig_tc": "西九文化區",
             "dest_en": "Central (Star Ferry)",
             "dest_tc": "中環(天星碼頭)"
+        },
+        {
+            "co": "CTB",
+            "route": "SP2",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "Mong Kok",
+            "dest_tc": "旺角"
+        },
+        {
+            "co": "CTB",
+            "route": "SP2",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Mong Kok",
+            "orig_tc": "旺角",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
         },
         {
             "co": "KMB",
@@ -733,6 +833,36 @@
         },
         {
             "co": "KMB",
+            "route": "PB3A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK",
+            "orig_tc": "啟德",
+            "dest_en": "HARNOUR NORTH",
+            "dest_tc": "北角匯"
+        },
+        {
+            "co": "KMB",
+            "route": "PB3B",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TSUEN WAN",
+            "orig_tc": "荃灣",
+            "dest_en": "NORTH POINT(From Tsuen Wan) (Circular)",
+            "dest_tc": "北角(由荃灣出發 循環行走)"
+        },
+        {
+            "co": "KMB",
+            "route": "SP3",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "CHING FU COURT",
+            "dest_tc": "青富苑"
+        },
+        {
+            "co": "KMB",
             "route": "W3",
             "bound": "O",
             "service_type": "1",
@@ -852,14 +982,34 @@
             "dest_tc": "屯門市中心"
         },
         {
+            "co": "CTB",
+            "route": "H3",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Hong Kong Observation Wheel / Central (Star Ferry)",
+            "orig_tc": "香港摩天輪／中環碼頭 - 天星小輪",
+            "dest_en": "Stanley Village / Stanley Market",
+            "dest_tc": "赤柱村／赤柱市集"
+        },
+        {
+            "co": "CTB",
+            "route": "H3",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Stanley Village / Stanley Market",
+            "orig_tc": "赤柱村／赤柱市集",
+            "dest_en": "Hong Kong Observation Wheel / Central (Star Ferry)",
+            "dest_tc": "香港摩天輪／中環碼頭 - 天星小輪"
+        },
+        {
             "co": "KMB",
             "route": "W4",
             "bound": "O",
             "service_type": "1",
             "orig_en": "HIGH SPEED RAIL (WEST KOWLOON STATION)",
             "orig_tc": "高鐵(西九龍站)",
-            "dest_en": "HONG KONG PALACE MUSEUM",
-            "dest_tc": "香港故宮文化博物館"
+            "dest_en": "HONG KONG PALACE MUSEUM (CIRCULAR)",
+            "dest_tc": "香港故宮文化博物館(循環線)"
         },
         {
             "co": "CTB",
@@ -900,6 +1050,26 @@
             "orig_tc": "中環 (交易廣場)",
             "dest_en": "Wah Fu (South)",
             "dest_tc": "華富 (南)"
+        },
+        {
+            "co": "CTB",
+            "route": "H4",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Stanley Village / Stanley Market",
+            "orig_tc": "赤柱村／赤柱市集",
+            "dest_en": "Hong Kong Observation Wheel / Central (Star Ferry)",
+            "dest_tc": "香港摩天輪／中環碼頭 - 天星小輪"
+        },
+        {
+            "co": "CTB",
+            "route": "H4",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Hong Kong Observation Wheel / Central (Star Ferry)",
+            "orig_tc": "香港摩天輪／中環碼頭 - 天星小輪",
+            "dest_en": "Stanley Village / Stanley Market",
+            "dest_tc": "赤柱村／赤柱市集"
         },
         {
             "co": "KMB",
@@ -1053,31 +1223,41 @@
         },
         {
             "co": "KMB",
-            "route": "5X",
+            "route": "5R",
             "bound": "O",
-            "service_type": "1",
-            "orig_en": "TSZ WAN SHAN (CENTRAL)",
-            "orig_tc": "慈雲山(中)",
-            "dest_en": "STAR FERRY",
-            "dest_tc": "尖沙咀碼頭"
+            "service_type": "4",
+            "orig_en": "NGAU TAU KOK STATION",
+            "orig_tc": "牛頭角站",
+            "dest_en": "SHING FUNG ROAD",
+            "dest_tc": "承豐道"
         },
         {
             "co": "KMB",
-            "route": "5X",
-            "bound": "I",
+            "route": "5R",
+            "bound": "O",
+            "service_type": "5",
+            "orig_en": "KAI TAK (SHENG KING STREET)",
+            "orig_tc": "啟德(承景街)",
+            "dest_en": "KWUN TONG (apm)",
+            "dest_tc": "觀塘 (apm)"
+        },
+        {
+            "co": "KMB",
+            "route": "SP5A",
+            "bound": "O",
             "service_type": "1",
-            "orig_en": "STAR FERRY",
-            "orig_tc": "尖沙咀碼頭",
-            "dest_en": "TSZ WAN SHAN (CENTRAL)",
-            "dest_tc": "慈雲山(中)"
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "TUEN MUN PIER HEAD",
+            "dest_tc": "屯門碼頭"
         },
         {
             "co": "CTB",
             "route": "5B",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Kennedy Town",
-            "orig_tc": "堅尼地城",
+            "orig_en": "Felix Villas / Kennedy Town",
+            "orig_tc": "摩星嶺／堅尼地城",
             "dest_en": "Causeway Bay / Hong Kong Stadium",
             "dest_tc": "銅鑼灣／香港大球場"
         },
@@ -1088,8 +1268,8 @@
             "service_type": "1",
             "orig_en": "Causeway Bay / Hong Kong Stadium",
             "orig_tc": "銅鑼灣／香港大球場",
-            "dest_en": "Kennedy Town",
-            "dest_tc": "堅尼地城"
+            "dest_en": "Felix Villas / Kennedy Town",
+            "dest_tc": "摩星嶺／堅尼地城"
         },
         {
             "co": "CTB",
@@ -1193,6 +1373,26 @@
         },
         {
             "co": "KMB",
+            "route": "6E",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CHEUNG SHA WAN (SO UK ESTATE)",
+            "orig_tc": "長沙灣(蘇屋邨)",
+            "dest_en": "LEI YUE MUN ESTATE",
+            "dest_tc": "鯉魚門邨"
+        },
+        {
+            "co": "KMB",
+            "route": "6E",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "LEI YUE MUN ESTATE",
+            "orig_tc": "鯉魚門邨",
+            "dest_en": "CHEUNG SHA WAN (SO UK ESTATE)",
+            "dest_tc": "長沙灣(蘇屋邨)"
+        },
+        {
+            "co": "KMB",
             "route": "6F",
             "bound": "O",
             "service_type": "1",
@@ -1260,6 +1460,16 @@
             "orig_tc": "美孚",
             "dest_en": "KOWLOON CITY FERRY",
             "dest_tc": "九龍城碼頭"
+        },
+        {
+            "co": "KMB",
+            "route": "SP6",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "TIN HENG ESTATE",
+            "dest_tc": "天恆邨"
         },
         {
             "co": "KMB",
@@ -1392,6 +1602,16 @@
             "dest_tc": "竹園邨(循環線)"
         },
         {
+            "co": "KMB",
+            "route": "SP7",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "SHEUNG SHUI",
+            "dest_tc": "上水"
+        },
+        {
             "co": "CTB",
             "route": "7",
             "bound": "O",
@@ -1508,8 +1728,8 @@
             "service_type": "1",
             "orig_en": "DISNEYLAND",
             "orig_tc": "迪士尼樂園",
-            "dest_en": "Lantau Link Interchange (Circular)",
-            "dest_tc": "青嶼幹線轉車站"
+            "dest_en": "Lantau Link BBI (Circular)",
+            "dest_tc": "青嶼幹線轉車站(循環線)"
         },
         {
             "co": "KMB",
@@ -1518,18 +1738,8 @@
             "service_type": "2",
             "orig_en": "DISNEYLAND",
             "orig_tc": "迪士尼樂園",
-            "dest_en": "Lantau Link Interchange (Circular)",
-            "dest_tc": "青嶼幹線轉車站"
-        },
-        {
-            "co": "KMB",
-            "route": "R8",
-            "bound": "O",
-            "service_type": "3",
-            "orig_en": "DISNEYLAND",
-            "orig_tc": "迪士尼樂園",
-            "dest_en": "Lantau Link Interchange",
-            "dest_tc": "青嶼幹線轉車站"
+            "dest_en": "Lantau Link BBI (Circular)",
+            "dest_tc": "青嶼幹線轉車站(循環線)"
         },
         {
             "co": "CTB",
@@ -1656,20 +1866,20 @@
             "route": "N8",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Exhibition Centre Station",
-            "orig_tc": "會展站",
-            "dest_en": "Heng Fa Chuen",
-            "dest_tc": "杏花邨"
+            "orig_en": "Heng Fa Chuen (Citybus Chong Fu Road Garage)",
+            "orig_tc": "杏花邨 (城巴創富道車廠)",
+            "dest_en": "Quarry Bay",
+            "dest_tc": "鰂魚涌"
         },
         {
             "co": "CTB",
             "route": "N8",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Heng Fa Chuen",
-            "orig_tc": "杏花邨",
-            "dest_en": "Exhibition Centre Station",
-            "dest_tc": "會展站"
+            "orig_en": "Quarry Bay",
+            "orig_tc": "鰂魚涌",
+            "dest_en": "Heng Fa Chuen (Citybus Chong Fu Road Garage)",
+            "dest_tc": "杏花邨 (城巴創富道車廠)"
         },
         {
             "co": "CTB",
@@ -1778,8 +1988,8 @@
             "service_type": "1",
             "orig_en": "TUEN MUN STATION",
             "orig_tc": "屯門站",
-            "dest_en": "HEUNG YUEN WAI CONTROL POINT",
-            "dest_tc": "香園圍口岸"
+            "dest_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "dest_tc": "香園圍口岸(蓮塘)"
         },
         {
             "co": "KMB",
@@ -1788,16 +1998,26 @@
             "service_type": "2",
             "orig_en": "YUEN LONG (LONG YAT ROAD)",
             "orig_tc": "元朗(朗日路)",
-            "dest_en": "HEUNG YUEN WAI CONTROL POINT",
-            "dest_tc": "香園圍口岸"
+            "dest_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "dest_tc": "香園圍口岸(蓮塘)"
+        },
+        {
+            "co": "KMB",
+            "route": "B9",
+            "bound": "O",
+            "service_type": "3",
+            "orig_en": "TUEN MUN STATION",
+            "orig_tc": "屯門站",
+            "dest_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "dest_tc": "香園圍口岸(蓮塘)"
         },
         {
             "co": "KMB",
             "route": "B9",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "HEUNG YUEN WAI CONTROL POINT",
-            "orig_tc": "香園圍口岸",
+            "orig_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "orig_tc": "香園圍口岸(蓮塘)",
             "dest_en": "TUEN MUN STATION",
             "dest_tc": "屯門站"
         },
@@ -1806,10 +2026,30 @@
             "route": "B9",
             "bound": "I",
             "service_type": "2",
-            "orig_en": "HEUNG YUEN WAI CONTROL POINT",
-            "orig_tc": "香園圍口岸",
+            "orig_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "orig_tc": "香園圍口岸(蓮塘)",
             "dest_en": "YUEN LONG (YOHO MALL)",
             "dest_tc": "元朗(形點)"
+        },
+        {
+            "co": "KMB",
+            "route": "B9A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "YUEN LONG (WEST)",
+            "orig_tc": "元朗(西)",
+            "dest_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "dest_tc": "香園圍口岸(蓮塘)"
+        },
+        {
+            "co": "KMB",
+            "route": "B9A",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "HEUNG YUEN WAI CONTROL POINT (LIANTANG)",
+            "orig_tc": "香園圍口岸(蓮塘)",
+            "dest_en": "YUEN LONG (WEST)",
+            "dest_tc": "元朗(西)"
         },
         {
             "co": "CTB",
@@ -1853,6 +2093,26 @@
         },
         {
             "co": "CTB",
+            "route": "SP9",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "LOHAS Park",
+            "dest_tc": "日出康城"
+        },
+        {
+            "co": "CTB",
+            "route": "SP9",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "LOHAS Park",
+            "orig_tc": "日出康城",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
+        },
+        {
+            "co": "CTB",
             "route": "X9",
             "bound": "O",
             "service_type": "1",
@@ -1880,6 +2140,16 @@
             "orig_tc": "彩雲",
             "dest_en": "TAI KOK TSUI (CIRCULAR)",
             "dest_tc": "大角咀(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "SP10",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "CENTRAL (MACAU FERRY)",
+            "dest_tc": "中環(港澳碼頭)"
         },
         {
             "co": "CTB",
@@ -1940,6 +2210,26 @@
             "orig_tc": "機場 / 港珠澳大橋香港口岸",
             "dest_en": "Ap Lei Chau (Lee Lok Street)",
             "dest_tc": "鴨脷洲 (利樂街)"
+        },
+        {
+            "co": "CTB",
+            "route": "SP10",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "Central (Macau Ferry)",
+            "dest_tc": "中環 (港澳碼頭)"
+        },
+        {
+            "co": "CTB",
+            "route": "SP10",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Central (Macau Ferry)",
+            "orig_tc": "中環 (港澳碼頭)",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
         },
         {
             "co": "KMB",
@@ -2242,6 +2532,26 @@
             "dest_tc": "迪士尼樂園"
         },
         {
+            "co": "CTB",
+            "route": "SP11",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "Siu Sai Wan (Island Resort)",
+            "dest_tc": "小西灣 (藍灣半島)"
+        },
+        {
+            "co": "CTB",
+            "route": "SP11",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Siu Sai Wan (Island Resort)",
+            "orig_tc": "小西灣 (藍灣半島)",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
+        },
+        {
             "co": "KMB",
             "route": "12",
             "bound": "O",
@@ -2290,6 +2600,16 @@
             "orig_tc": "海麗邨",
             "dest_en": "Hung Hom Station",
             "dest_tc": "紅磡站"
+        },
+        {
+            "co": "KMB",
+            "route": "SP12",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAI TAK SPORTS PARK",
+            "orig_tc": "啟德體育園",
+            "dest_en": "LOK MA CHAU",
+            "dest_tc": "落馬洲"
         },
         {
             "co": "CTB",
@@ -2390,6 +2710,26 @@
             "orig_tc": "機場 / 港珠澳大橋香港口岸",
             "dest_en": "Heng Fa Chuen",
             "dest_tc": "杏花邨"
+        },
+        {
+            "co": "CTB",
+            "route": "SP12",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "Lok Ma Chau (San Tin)",
+            "dest_tc": "落馬洲 (新田)"
+        },
+        {
+            "co": "CTB",
+            "route": "SP12",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Lok Ma Chau (San Tin)",
+            "orig_tc": "落馬洲 (新田)",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
         },
         {
             "co": "KMB",
@@ -2766,20 +3106,20 @@
             "route": "15C",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Central (Star Ferry)",
-            "orig_tc": "中環 (天星碼頭)",
-            "dest_en": "Garden Road (Lower Peak Tram Station)",
-            "dest_tc": "花園道 (山頂纜車總站)"
+            "orig_en": "Central (Hong Kong Observation Wheel)",
+            "orig_tc": "中環 (香港摩天輪)",
+            "dest_en": "Garden Road",
+            "dest_tc": "花園道"
         },
         {
             "co": "CTB",
             "route": "15C",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Garden Road (Lower Peak Tram Station)",
-            "orig_tc": "花園道 (山頂纜車總站)",
-            "dest_en": "Central (Star Ferry)",
-            "dest_tc": "中環 (天星碼頭)"
+            "orig_en": "Garden Road",
+            "orig_tc": "花園道",
+            "dest_en": "Central (Hong Kong Observation Wheel)",
+            "dest_tc": "中環 (香港摩天輪)"
         },
         {
             "co": "CTB",
@@ -2894,12 +3234,42 @@
         {
             "co": "KMB",
             "route": "17",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "KOWLOON BAY STATION",
+            "orig_tc": "九龍灣站",
+            "dest_en": "HO MAN TIN (OI MAN ESTATE)",
+            "dest_tc": "何文田(愛民邨)"
+        },
+        {
+            "co": "KMB",
+            "route": "17",
+            "bound": "O",
+            "service_type": "3",
+            "orig_en": "PRINCE EDWARD ROAD EAST (RICHLAND GARDENS)",
+            "orig_tc": "太子道東(麗晶花園)",
+            "dest_en": "HO MAN TIN (OI MAN ESTATE)",
+            "dest_tc": "何文田(愛民邨)"
+        },
+        {
+            "co": "KMB",
+            "route": "17",
             "bound": "I",
             "service_type": "1",
             "orig_en": "HO MAN TIN (OI MAN ESTATE)",
             "orig_tc": "何文田(愛民邨)",
             "dest_en": "KWUN TONG (YUE MAN SQUARE)",
             "dest_tc": "觀塘(裕民坊)"
+        },
+        {
+            "co": "KMB",
+            "route": "PN17",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "MOKO MONG KOK",
+            "orig_tc": "旺角MOKO",
+            "dest_en": "TSIM SHA TSUI EAST",
+            "dest_tc": "尖東"
         },
         {
             "co": "CTB",
@@ -2930,6 +3300,16 @@
             "orig_tc": "長沙灣(海達邨)",
             "dest_en": "OI MAN (CIRCULAR)",
             "dest_tc": "愛民(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "PN18",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CARMEL ROAD STANLEY",
+            "orig_tc": "赤柱佳美道",
+            "dest_en": "WAN CHAI",
+            "dest_tc": "灣仔"
         },
         {
             "co": "CTB",
@@ -2992,6 +3372,26 @@
             "dest_tc": "筲箕灣"
         },
         {
+            "co": "KMB",
+            "route": "19",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "ANDERSON",
+            "orig_tc": "安達臣",
+            "dest_en": "DIAMOND HILL (CIRCULAR)",
+            "dest_tc": "鑽石山(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "PN19",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "SAI KUNG MEI YU STREET",
+            "orig_tc": "西貢美裕街",
+            "dest_en": "TSIM SHA TSUI EAST",
+            "dest_tc": "尖東"
+        },
+        {
             "co": "CTB",
             "route": "19P",
             "bound": "O",
@@ -3010,6 +3410,16 @@
             "orig_tc": "跑馬地 (上)",
             "dest_en": "Shau Kei Wan",
             "dest_tc": "筲箕灣"
+        },
+        {
+            "co": "KMB",
+            "route": "PN20",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KWAI CHUNG HING FONG ROAD",
+            "orig_tc": "葵涌興芳路",
+            "dest_en": "WAN CHAI GOLDEN BAUHINIA SQUARE",
+            "dest_tc": "灣仔金紫荊廣場"
         },
         {
             "co": "CTB",
@@ -3038,7 +3448,7 @@
             "service_type": "1",
             "orig_en": "Kai Tak Cruise Terminal (via: Mong Kok)",
             "orig_tc": "啟德郵輪碼頭 (經:旺角)",
-            "dest_en": "High Speed Rail West Kowloon Station (via: Mong Kok)",
+            "dest_en": "HSR West Kowloon Station (via: Mong Kok)",
             "dest_tc": "高鐵西九龍站 (經:旺角)"
         },
         {
@@ -3046,7 +3456,7 @@
             "route": "20A",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "High Speed Rail West Kowloon Station (via: Mong Kok)",
+            "orig_en": "HSR West Kowloon Station (via: Mong Kok)",
             "orig_tc": "高鐵西九龍站 (經:旺角)",
             "dest_en": "Kai Tak Cruise Terminal (via: Mong Kok)",
             "dest_tc": "啟德郵輪碼頭 (經:旺角)"
@@ -3058,16 +3468,16 @@
             "service_type": "1",
             "orig_en": "Kai Tak Cruise Terminal",
             "orig_tc": "啟德郵輪碼頭",
-            "dest_en": "Tsim Sha Tsui",
-            "dest_tc": "尖沙咀"
+            "dest_en": "Tsim Sha Tsui / High Speed Rail West Kowloon Station",
+            "dest_tc": "尖沙咀／高鐵西九龍站"
         },
         {
             "co": "CTB",
             "route": "20R",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Tsim Sha Tsui",
-            "orig_tc": "尖沙咀",
+            "orig_en": "Tsim Sha Tsui / High Speed Rail West Kowloon Station",
+            "orig_tc": "尖沙咀／高鐵西九龍站",
             "dest_en": "Kai Tak Cruise Terminal",
             "dest_tc": "啟德郵輪碼頭"
         },
@@ -3476,8 +3886,8 @@
             "route": "E22",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Lam Tin (Ping Tin Street)",
-            "orig_tc": "藍田 (平田街)",
+            "orig_en": "Lam Tin (North)",
+            "orig_tc": "藍田 (北)",
             "dest_en": "SKYCITY",
             "dest_tc": "航天城"
         },
@@ -3488,8 +3898,8 @@
             "service_type": "1",
             "orig_en": "SKYCITY",
             "orig_tc": "航天城",
-            "dest_en": "Lam Tin (Ping Tin Street)",
-            "dest_tc": "藍田 (平田街)"
+            "dest_en": "Lam Tin (North)",
+            "dest_tc": "藍田 (北)"
         },
         {
             "co": "CTB",
@@ -3870,6 +4280,26 @@
             "orig_tc": "機場 (經港珠澳大橋香港口岸)",
             "dest_en": "Kai Tak (via Tsim Sha Tsui)",
             "dest_tc": "啟德 (經尖沙咀)"
+        },
+        {
+            "co": "CTB",
+            "route": "A25S",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kai Tak Sports Park",
+            "orig_tc": "啟德體育園",
+            "dest_en": "Airport (via HZMB Hong Kong Port)",
+            "dest_tc": "機場 (經港珠澳大橋香港口岸)"
+        },
+        {
+            "co": "CTB",
+            "route": "A25S",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Airport (via HZMB Hong Kong Port)",
+            "orig_tc": "機場 (經港珠澳大橋香港口岸)",
+            "dest_en": "Kai Tak Sports Park",
+            "dest_tc": "啟德體育園"
         },
         {
             "co": "KMB",
@@ -4292,6 +4722,26 @@
             "dest_tc": "元朗站"
         },
         {
+            "co": "KMB",
+            "route": "NA30",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "LEI MUK SHUE",
+            "orig_tc": "梨木樹",
+            "dest_en": "HZMB Hong Kong Port",
+            "dest_tc": "港珠澳大橋香港口岸"
+        },
+        {
+            "co": "KMB",
+            "route": "NA30",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "HZMB Hong Kong Port",
+            "orig_tc": "港珠澳大橋香港口岸",
+            "dest_en": "LEI MUK SHUE",
+            "dest_tc": "梨木樹"
+        },
+        {
             "co": "CTB",
             "route": "30X",
             "bound": "O",
@@ -4598,8 +5048,8 @@
             "service_type": "1",
             "orig_en": "KWAI FONG (SOUTH)",
             "orig_tc": "葵芳(南)",
-            "dest_en": "SKYCITY Bus Terminus",
-            "dest_tc": "航天城巴士總站"
+            "dest_en": "SKYCITY",
+            "dest_tc": "航天城"
         },
         {
             "co": "KMB",
@@ -4608,16 +5058,16 @@
             "service_type": "2",
             "orig_en": "KWAI FONG (SOUTH)",
             "orig_tc": "葵芳(南)",
-            "dest_en": "SKYCITY Bus Terminus",
-            "dest_tc": "航天城巴士總站"
+            "dest_en": "SKYCITY",
+            "dest_tc": "航天城"
         },
         {
             "co": "KMB",
             "route": "E32",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "SKYCITY Bus Terminus",
-            "orig_tc": "航天城巴士總站",
+            "orig_en": "SKYCITY",
+            "orig_tc": "航天城",
             "dest_en": "KWAI FONG (SOUTH)",
             "dest_tc": "葵芳(南)"
         },
@@ -4626,8 +5076,8 @@
             "route": "E32",
             "bound": "I",
             "service_type": "2",
-            "orig_en": "SKYCITY Bus Terminus",
-            "orig_tc": "航天城巴士總站",
+            "orig_en": "SKYCITY",
+            "orig_tc": "航天城",
             "dest_en": "KWAI FONG (SOUTH)",
             "dest_tc": "葵芳(南)"
         },
@@ -4963,16 +5413,6 @@
         },
         {
             "co": "KMB",
-            "route": "R33P",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "DISNEYLAND",
-            "orig_tc": "迪士尼樂園",
-            "dest_en": "SIU HONG STATION (SOUTH)",
-            "dest_tc": "兆康站(南)"
-        },
-        {
-            "co": "KMB",
             "route": "X33",
             "bound": "O",
             "service_type": "1",
@@ -5023,6 +5463,16 @@
         },
         {
             "co": "KMB",
+            "route": "34",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "FU ON HOUSE, TAI WO HAU ROAD",
+            "orig_tc": "大窩口道富安樓",
+            "dest_en": "KWAI SHING (CENTRAL)",
+            "dest_tc": "葵盛(中)"
+        },
+        {
+            "co": "KMB",
             "route": "34M",
             "bound": "O",
             "service_type": "1",
@@ -5068,16 +5518,6 @@
             "service_type": "2",
             "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
             "orig_tc": "機場(地面運輸中心)",
-            "dest_en": "HUNG SHUI KIU (HUNG YUEN ROAD)",
-            "dest_tc": "洪水橋(洪元路)"
-        },
-        {
-            "co": "KMB",
-            "route": "R34",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "DISNEYLAND",
-            "orig_tc": "迪士尼樂園",
             "dest_en": "HUNG SHUI KIU (HUNG YUEN ROAD)",
             "dest_tc": "洪水橋(洪元路)"
         },
@@ -5343,21 +5783,41 @@
         },
         {
             "co": "KMB",
+            "route": "E36C",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "YUEN LONG (TAK YIP STREET)",
+            "orig_tc": "元朗(德業街)",
+            "dest_en": "AIRCRAFT MAINTENANCE AREA",
+            "dest_tc": "飛機維修區"
+        },
+        {
+            "co": "KMB",
+            "route": "E36C",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "AIRCRAFT MAINTENANCE AREA",
+            "orig_tc": "飛機維修區",
+            "dest_en": "YUEN LONG (TAK YIP STREET)",
+            "dest_tc": "元朗(德業街)"
+        },
+        {
+            "co": "KMB",
             "route": "E36P",
             "bound": "O",
             "service_type": "1",
             "orig_en": "SHEUNG TSUEN",
             "orig_tc": "上村",
-            "dest_en": "SKYCITY Bus Terminus",
-            "dest_tc": "航天城巴士總站"
+            "dest_en": "SKYCITY",
+            "dest_tc": "航天城"
         },
         {
             "co": "KMB",
             "route": "E36P",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "SKYCITY Bus Terminus",
-            "orig_tc": "航天城巴士總站",
+            "orig_en": "SKYCITY",
+            "orig_tc": "航天城",
             "dest_en": "SHEUNG TSUEN",
             "dest_tc": "上村"
         },
@@ -5434,6 +5894,16 @@
         {
             "co": "KMB",
             "route": "37",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "OLYMPIC STATION",
+            "orig_tc": "奧運站",
+            "dest_en": "KWAI SHING (CENTRAL)",
+            "dest_tc": "葵盛(中)"
+        },
+        {
+            "co": "KMB",
+            "route": "37",
             "bound": "I",
             "service_type": "1",
             "orig_en": "KWAI SHING (CENTRAL)",
@@ -5450,6 +5920,16 @@
             "orig_tc": "葵興站",
             "dest_en": "KWAI SHING CENTRAL (CIRCULAR)",
             "dest_tc": "葵盛中(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "37X",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KWAI CHUNG ESTATE",
+            "orig_tc": "葵涌邨",
+            "dest_en": "YAU MA TEI",
+            "dest_tc": "油麻地"
         },
         {
             "co": "KMB",
@@ -5744,8 +6224,28 @@
         {
             "co": "KMB",
             "route": "A38",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "TSUEN WAN (ALLWAY GARDENS)",
+            "orig_tc": "荃灣(荃威花園)",
+            "dest_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
+            "dest_tc": "機場(地面運輸中心)"
+        },
+        {
+            "co": "KMB",
+            "route": "A38",
             "bound": "I",
             "service_type": "1",
+            "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
+            "orig_tc": "機場(地面運輸中心)",
+            "dest_en": "TSUEN WAN (ALLWAY GARDENS)",
+            "dest_tc": "荃灣(荃威花園)"
+        },
+        {
+            "co": "KMB",
+            "route": "A38",
+            "bound": "I",
+            "service_type": "2",
             "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
             "orig_tc": "機場(地面運輸中心)",
             "dest_en": "TSUEN WAN (ALLWAY GARDENS)",
@@ -5843,13 +6343,13 @@
         },
         {
             "co": "KMB",
-            "route": "40A",
-            "bound": "I",
+            "route": "40B",
+            "bound": "O",
             "service_type": "1",
-            "orig_en": "PING TIN",
-            "orig_tc": "平田",
-            "dest_en": "KWAI HING STATION",
-            "dest_tc": "葵興站"
+            "orig_en": "KWAI CHUNG ESTATE",
+            "orig_tc": "葵涌邨",
+            "dest_en": "PING TIN",
+            "dest_tc": "平田"
         },
         {
             "co": "KMB",
@@ -5884,6 +6384,16 @@
         {
             "co": "KMB",
             "route": "40P",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "SHEK YAM EAST ESTATE",
+            "orig_tc": "石蔭東邨",
+            "dest_en": "KWUN TONG FERRY",
+            "dest_tc": "觀塘碼頭"
+        },
+        {
+            "co": "KMB",
+            "route": "40P",
             "bound": "I",
             "service_type": "1",
             "orig_en": "KWUN TONG FERRY",
@@ -5905,11 +6415,11 @@
             "co": "KMB",
             "route": "40X",
             "bound": "O",
-            "service_type": "2",
-            "orig_en": "MA ON SHAN TOWN CENTRE",
-            "orig_tc": "馬鞍山市中心",
-            "dest_en": "KWAI CHUNG ESTATE",
-            "dest_tc": "葵涌邨"
+            "service_type": "3",
+            "orig_en": "WU KAI SHA STATION",
+            "orig_tc": "烏溪沙站",
+            "dest_en": "KWAI FONG (SOUTH)",
+            "dest_tc": "葵芳(南)"
         },
         {
             "co": "KMB",
@@ -5938,16 +6448,6 @@
             "service_type": "1",
             "orig_en": "HZMB Hong Kong Port",
             "orig_tc": "港珠澳大橋香港口岸",
-            "dest_en": "WU KAI SHA STATION",
-            "dest_tc": "烏溪沙站"
-        },
-        {
-            "co": "KMB",
-            "route": "R40",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "DISNEYLAND",
-            "orig_tc": "迪士尼樂園",
             "dest_en": "WU KAI SHA STATION",
             "dest_tc": "烏溪沙站"
         },
@@ -6188,16 +6688,16 @@
             "service_type": "1",
             "orig_en": "TAI PO TAU",
             "orig_tc": "大埔頭",
-            "dest_en": "SKYCITY Bus Terminus",
-            "dest_tc": "航天城巴士總站"
+            "dest_en": "SKYCITY",
+            "dest_tc": "航天城"
         },
         {
             "co": "KMB",
             "route": "E41",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "SKYCITY Bus Terminus",
-            "orig_tc": "航天城巴士總站",
+            "orig_en": "SKYCITY",
+            "orig_tc": "航天城",
             "dest_en": "TAI PO TAU",
             "dest_tc": "大埔頭"
         },
@@ -6230,16 +6730,6 @@
             "orig_tc": "港珠澳大橋香港口岸",
             "dest_en": "SHUI CHUEN O",
             "dest_tc": "水泉澳"
-        },
-        {
-            "co": "KMB",
-            "route": "R41",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "DISNEYLAND",
-            "orig_tc": "迪士尼樂園",
-            "dest_en": "TAI PO TAU",
-            "dest_tc": "大埔頭"
         },
         {
             "co": "CTB",
@@ -6426,8 +6916,8 @@
             "route": "N42",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Yiu On Bus Terminus",
-            "orig_tc": "耀安巴士總站",
+            "orig_en": "YIU ON",
+            "orig_tc": "耀安",
             "dest_en": "TUNG CHUNG STATION",
             "dest_tc": "東涌站"
         },
@@ -6438,8 +6928,8 @@
             "service_type": "1",
             "orig_en": "TUNG CHUNG STATION",
             "orig_tc": "東涌站",
-            "dest_en": "Yiu On Bus Terminus",
-            "dest_tc": "耀安巴士總站"
+            "dest_en": "YIU ON",
+            "dest_tc": "耀安"
         },
         {
             "co": "KMB",
@@ -6478,16 +6968,6 @@
             "service_type": "1",
             "orig_en": "TAI WAI STATION",
             "orig_tc": "大圍站",
-            "dest_en": "DISNEYLAND",
-            "dest_tc": "迪士尼樂園"
-        },
-        {
-            "co": "KMB",
-            "route": "R42D",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHATIN CENTRAL",
-            "orig_tc": "沙田巿中心",
             "dest_en": "DISNEYLAND",
             "dest_tc": "迪士尼樂園"
         },
@@ -6588,7 +7068,7 @@
             "service_type": "2",
             "orig_en": "TSING YI MARKET",
             "orig_tc": "青衣街市",
-            "dest_en": "TSUEN WAN WEST STATION",
+            "dest_en": "TSUEN WAN WEST",
             "dest_tc": "荃灣西站"
         },
         {
@@ -6710,6 +7190,16 @@
             "orig_tc": "石蔭",
             "dest_en": "HONG KONG SCIENCE PARK",
             "dest_tc": "香港科學園"
+        },
+        {
+            "co": "KMB",
+            "route": "43S",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "HONG KONG SCIENCE PARK",
+            "orig_tc": "香港科學園",
+            "dest_en": "SHEK YAM",
+            "dest_tc": "石蔭"
         },
         {
             "co": "KMB",
@@ -6882,6 +7372,26 @@
             "dest_tc": "田灣"
         },
         {
+            "co": "CTB",
+            "route": "43R",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Kennedy Town Station",
+            "orig_tc": "堅尼地城站",
+            "dest_en": "Kennedy Town",
+            "dest_tc": "堅尼地城"
+        },
+        {
+            "co": "CTB",
+            "route": "43R",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Kennedy Town",
+            "orig_tc": "堅尼地城",
+            "dest_en": "Kennedy Town Station",
+            "dest_tc": "堅尼地城站"
+        },
+        {
             "co": "KMB",
             "route": "44",
             "bound": "O",
@@ -6990,26 +7500,6 @@
             "orig_tc": "葵芳站",
             "dest_en": "MEI TIN",
             "dest_tc": "美田"
-        },
-        {
-            "co": "KMB",
-            "route": "46R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI WAI STATION",
-            "orig_tc": "大圍站",
-            "dest_en": "NGONG SHUEN CHAU BARRACKS",
-            "dest_tc": "昂船洲軍營"
-        },
-        {
-            "co": "KMB",
-            "route": "46R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "NGONG SHUEN CHAU BARRACKS",
-            "orig_tc": "昂船洲軍營",
-            "dest_en": "TAI WAI STATION",
-            "dest_tc": "大圍站"
         },
         {
             "co": "KMB",
@@ -7174,6 +7664,16 @@
         {
             "co": "KMB",
             "route": "A47X",
+            "bound": "O",
+            "service_type": "4",
+            "orig_en": "TAI PO (TAI WO)",
+            "orig_tc": "大埔(太和)",
+            "dest_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
+            "dest_tc": "機場(地面運輸中心)"
+        },
+        {
+            "co": "KMB",
+            "route": "A47X",
             "bound": "I",
             "service_type": "1",
             "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
@@ -7196,6 +7696,16 @@
             "route": "A47X",
             "bound": "I",
             "service_type": "3",
+            "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
+            "orig_tc": "機場(地面運輸中心)",
+            "dest_en": "TAI PO (TAI WO)",
+            "dest_tc": "大埔(太和)"
+        },
+        {
+            "co": "KMB",
+            "route": "A47X",
+            "bound": "I",
+            "service_type": "4",
             "orig_en": "AIRPORT (GROUND TRANSPORTATION CENTRE)",
             "orig_tc": "機場(地面運輸中心)",
             "dest_en": "TAI PO (TAI WO)",
@@ -7348,6 +7858,26 @@
             "service_type": "1",
             "orig_en": "TSEUNG KWAN O INDUSTRIAL ESTATE",
             "orig_tc": "將軍澳工業邨",
+            "dest_en": "CHING FU COURT",
+            "dest_tc": "青富苑"
+        },
+        {
+            "co": "KMB",
+            "route": "49A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CHING FU COURT",
+            "orig_tc": "青富苑",
+            "dest_en": "TSUEN WAN WEST STATION",
+            "dest_tc": "荃灣西站"
+        },
+        {
+            "co": "KMB",
+            "route": "49A",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "TSUEN WAN WEST STATION",
+            "orig_tc": "荃灣西站",
             "dest_en": "CHING FU COURT",
             "dest_tc": "青富苑"
         },
@@ -7523,23 +8053,13 @@
         },
         {
             "co": "KMB",
-            "route": "52S",
+            "route": "52P",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TUEN MUN ROAD BBI",
-            "orig_tc": "屯門公路轉車站",
-            "dest_en": "TSANG TSUI",
-            "dest_tc": "曾咀"
-        },
-        {
-            "co": "KMB",
-            "route": "52S",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "TSANG TSUI",
-            "orig_tc": "曾咀",
-            "dest_en": "TUEN MUN ROAD BBI",
-            "dest_tc": "屯門轉車站"
+            "orig_en": "SO KWUN WAT",
+            "orig_tc": "掃管笏",
+            "dest_en": "MONG KOK (PARK AVENUE)",
+            "dest_tc": "旺角(柏景灣)"
         },
         {
             "co": "KMB",
@@ -7548,16 +8068,6 @@
             "service_type": "1",
             "orig_en": "TUEN MUN CENTRAL",
             "orig_tc": "屯門巿中心",
-            "dest_en": "MONG KOK (PARK AVENUE)",
-            "dest_tc": "旺角(柏景灣)"
-        },
-        {
-            "co": "KMB",
-            "route": "52X",
-            "bound": "O",
-            "service_type": "2",
-            "orig_en": "SO KWUN WAT",
-            "orig_tc": "掃管笏",
             "dest_en": "MONG KOK (PARK AVENUE)",
             "dest_tc": "旺角(柏景灣)"
         },
@@ -7682,32 +8192,32 @@
             "dest_tc": "屯門 (菁田及和田)"
         },
         {
-            "co": "KMB",
-            "route": "56S",
+            "co": "CTB",
+            "route": "X55",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TUEN MUN STATION",
-            "orig_tc": "屯門站",
-            "dest_en": "TSANG TSUI",
-            "dest_tc": "曾咀"
+            "orig_en": "AsiaWorld-Expo",
+            "orig_tc": "亞洲國際博覽館",
+            "dest_en": "AsiaWorld-Expo",
+            "dest_tc": "亞洲國際博覽館"
         },
         {
-            "co": "KMB",
-            "route": "56S",
+            "co": "CTB",
+            "route": "X55",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "TSANG TSUI",
-            "orig_tc": "曾咀",
-            "dest_en": "TUEN MUN STATION",
-            "dest_tc": "屯門站"
+            "orig_en": "AsiaWorld-Expo",
+            "orig_tc": "亞洲國際博覽館",
+            "dest_en": "AsiaWorld-Expo",
+            "dest_tc": "亞洲國際博覽館"
         },
         {
             "co": "CTB",
             "route": "56",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Tuen Mun (Ching Tin and Wo Tin)",
-            "orig_tc": "屯門 (菁田及和田)",
+            "orig_en": "Tuen Mun (Wo Tin and Ching Tin)",
+            "orig_tc": "屯門 (和田及菁田)",
             "dest_en": "Sheung Shui (Tin Ping Estate)",
             "dest_tc": "上水 (天平邨)"
         },
@@ -7718,16 +8228,16 @@
             "service_type": "1",
             "orig_en": "Sheung Shui (Tin Ping Estate)",
             "orig_tc": "上水 (天平邨)",
-            "dest_en": "Tuen Mun (Ching Tin and Wo Tin)",
-            "dest_tc": "屯門 (菁田及和田)"
+            "dest_en": "Tuen Mun (Wo Tin and Ching Tin)",
+            "dest_tc": "屯門 (和田及菁田)"
         },
         {
             "co": "CTB",
             "route": "56A",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Tuen Mun (Ching Tin and Wo Tin)",
-            "orig_tc": "屯門 (菁田及和田)",
+            "orig_en": "Tuen Mun (Wo Tin and Ching Tin)",
+            "orig_tc": "屯門 (和田及菁田)",
             "dest_en": "Queen’s Hill Fanling (via: Sheung Shui Station)",
             "dest_tc": "粉嶺皇后山 (經:上水站)"
         },
@@ -7738,8 +8248,8 @@
             "service_type": "1",
             "orig_en": "Queen’s Hill Fanling (via: Sheung Shui Station)",
             "orig_tc": "粉嶺皇后山 (經:上水站)",
-            "dest_en": "Tuen Mun (Ching Tin and Wo Tin)",
-            "dest_tc": "屯門 (菁田及和田)"
+            "dest_en": "Tuen Mun (Wo Tin and Ching Tin)",
+            "dest_tc": "屯門 (和田及菁田)"
         },
         {
             "co": "CTB",
@@ -7923,16 +8433,6 @@
         },
         {
             "co": "KMB",
-            "route": "59R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "TUEN MUN PIER HEAD",
-            "dest_tc": "屯門碼頭"
-        },
-        {
-            "co": "KMB",
             "route": "59X",
             "bound": "O",
             "service_type": "1",
@@ -7993,26 +8493,6 @@
         },
         {
             "co": "KMB",
-            "route": "60R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TUEN MUN CENTRAL",
-            "orig_tc": "屯門巿中心",
-            "dest_en": "KMB TUEN MUN DEPOT",
-            "dest_tc": "九巴屯門廠"
-        },
-        {
-            "co": "KMB",
-            "route": "60R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "KMB TUEN MUN DEPOT",
-            "orig_tc": "九巴屯門廠",
-            "dest_en": "TUEN MUN CENTRAL",
-            "dest_tc": "屯門巿中心"
-        },
-        {
-            "co": "KMB",
             "route": "60X",
             "bound": "O",
             "service_type": "1",
@@ -8039,7 +8519,7 @@
             "orig_en": "TUEN MUN (YAU OI SOUTH)",
             "orig_tc": "屯門(友愛南)",
             "dest_en": "TUEN MUN ROAD BBI - URBAN BOUND",
-            "dest_tc": "屯門轉車站- 市區方向"
+            "dest_tc": "屯門公路轉車站- 市區方向"
         },
         {
             "co": "KMB",
@@ -8080,26 +8560,6 @@
             "orig_tc": "荃灣站",
             "dest_en": "SO KWUN WAT",
             "dest_tc": "掃管笏"
-        },
-        {
-            "co": "KMB",
-            "route": "61S",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TUEN MUN CENTRAL",
-            "orig_tc": "屯門巿中心",
-            "dest_en": "WO HOP SHEK",
-            "dest_tc": "和合石"
-        },
-        {
-            "co": "KMB",
-            "route": "61S",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "WO HOP SHEK",
-            "orig_tc": "和合石",
-            "dest_en": "TUEN MUN CENTRAL",
-            "dest_tc": "屯門巿中心"
         },
         {
             "co": "KMB",
@@ -8170,26 +8630,6 @@
             "orig_tc": "鯉魚門邨",
             "dest_en": "SIU HONG STATION (SOUTH)",
             "dest_tc": "兆康站(南)"
-        },
-        {
-            "co": "KMB",
-            "route": "63R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO MARKET STATION",
-            "orig_tc": "大埔墟站",
-            "dest_en": "LAM TSUEN WISHING TREE",
-            "dest_tc": "林村許願樹"
-        },
-        {
-            "co": "KMB",
-            "route": "63R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "LAM TSUEN WISHING TREE",
-            "orig_tc": "林村許願樹",
-            "dest_en": "TAI PO MARKET STATION",
-            "dest_tc": "大埔墟站"
         },
         {
             "co": "KMB",
@@ -8286,8 +8726,8 @@
             "route": "64X",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "YUEN LONG (WEST)",
-            "orig_tc": "元朗(西)",
+            "orig_en": "HUNG SHUI KIU (HUNG YUEN ROAD)",
+            "orig_tc": "洪水橋(洪元路)",
             "dest_en": "HONG KONG SCIENCE PARK",
             "dest_tc": "香港科學園"
         },
@@ -8300,16 +8740,6 @@
             "orig_tc": "機場(地面運輸中心)",
             "dest_en": "TUNG CHUNG (YAT TUNG)",
             "dest_tc": "東涌(逸東)"
-        },
-        {
-            "co": "KMB",
-            "route": "N64P",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO MARKET STATION",
-            "orig_tc": "大埔墟站",
-            "dest_en": "NG TUNG CHAI (PAK NGAU SHEK)",
-            "dest_tc": "梧桐寨 (白牛石)"
         },
         {
             "co": "KMB",
@@ -8386,20 +8816,10 @@
             "route": "65K",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "LAM KAM ROAD (KADOORIE FARM)",
-            "orig_tc": "林錦公路(嘉道理農場)",
+            "orig_en": "NG TUNG CHAI (PAK NGAU SHEK)",
+            "orig_tc": "梧桐寨 (白牛石)",
             "dest_en": "TAI PO CENTRAL",
             "dest_tc": "大埔中心"
-        },
-        {
-            "co": "KMB",
-            "route": "65R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "TIN SHUI",
-            "dest_tc": "天瑞"
         },
         {
             "co": "KMB",
@@ -8533,16 +8953,6 @@
         },
         {
             "co": "KMB",
-            "route": "67R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "HUNG SHUI KIU (HUNG FUK ESTATE)",
-            "dest_tc": "洪水橋(洪福邨)"
-        },
-        {
-            "co": "KMB",
             "route": "67X",
             "bound": "O",
             "service_type": "1",
@@ -8640,26 +9050,6 @@
             "orig_tc": "元朗(西)",
             "dest_en": "TSUEN WAN STATION",
             "dest_tc": "荃灣站"
-        },
-        {
-            "co": "KMB",
-            "route": "68R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "YOHO MALL (YUEN LONG)",
-            "orig_tc": "元朗 形點",
-            "dest_en": "TAI TONG",
-            "dest_tc": "大棠"
-        },
-        {
-            "co": "KMB",
-            "route": "68R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "TAI TONG",
-            "orig_tc": "大棠",
-            "dest_en": "YOHO MALL (YUEN LONG)",
-            "dest_tc": "元朗 形點"
         },
         {
             "co": "KMB",
@@ -8823,13 +9213,13 @@
         },
         {
             "co": "KMB",
-            "route": "70R",
+            "route": "70K",
             "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDON (WUI MAN ROAD)",
-            "orig_tc": "佐敦 (匯民道)",
-            "dest_en": "FANLING (LUEN WO HUI)",
-            "dest_tc": "粉嶺(聯和墟)"
+            "service_type": "2",
+            "orig_en": "SHEUNG SHUI (CHING HO)",
+            "orig_tc": "上水(清河)",
+            "dest_en": "FANLING (WAH MING)",
+            "dest_tc": "粉嶺(華明)"
         },
         {
             "co": "KMB",
@@ -9043,11 +9433,21 @@
         },
         {
             "co": "KMB",
+            "route": "72K",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
+            "dest_en": "TAI WO (CIRCULAR)",
+            "dest_tc": "太和 (循環線)"
+        },
+        {
+            "co": "KMB",
             "route": "72X",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TAI PO CENTRAL",
-            "orig_tc": "大埔中心",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
             "dest_en": "MONG KOK (PARK AVENUE)",
             "dest_tc": "旺角(柏景灣)"
         },
@@ -9058,8 +9458,8 @@
             "service_type": "1",
             "orig_en": "MONG KOK (PARK AVENUE)",
             "orig_tc": "旺角(柏景灣)",
-            "dest_en": "TAI PO CENTRAL",
-            "dest_tc": "大埔中心"
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
         },
         {
             "co": "CTB",
@@ -9293,26 +9693,6 @@
         },
         {
             "co": "KMB",
-            "route": "73S",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "FANLING STATION",
-            "orig_tc": "粉嶺站",
-            "dest_en": "WO HOP SHEK (KIU TAU ROAD)",
-            "dest_tc": "和合石(橋頭路)"
-        },
-        {
-            "co": "KMB",
-            "route": "73S",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "WO HOP SHEK (KIU TAU ROAD)",
-            "orig_tc": "和合石(橋頭路)",
-            "dest_en": "FANLING STATION",
-            "dest_tc": "粉嶺站"
-        },
-        {
-            "co": "KMB",
             "route": "73X",
             "bound": "O",
             "service_type": "1",
@@ -9403,6 +9783,26 @@
         },
         {
             "co": "KMB",
+            "route": "74",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
+            "dest_en": "YAU TONG",
+            "dest_tc": "油塘"
+        },
+        {
+            "co": "KMB",
+            "route": "74",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "YAU TONG",
+            "orig_tc": "油塘",
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
+        },
+        {
+            "co": "KMB",
             "route": "74A",
             "bound": "O",
             "service_type": "1",
@@ -9446,16 +9846,6 @@
             "route": "74C",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "KAU LUNG HANG",
-            "orig_tc": "九龍坑",
-            "dest_en": "KWUN TONG FERRY",
-            "dest_tc": "觀塘碼頭"
-        },
-        {
-            "co": "KMB",
-            "route": "74C",
-            "bound": "O",
-            "service_type": "2",
             "orig_en": "KAU LUNG HANG",
             "orig_tc": "九龍坑",
             "dest_en": "KWUN TONG FERRY",
@@ -9656,10 +10046,20 @@
             "route": "T74",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TAI PO TAI WO",
-            "orig_tc": "大埔太和",
+            "orig_en": "NG TUNG CHAI (PAK NGAU SHEK)",
+            "orig_tc": "梧桐寨 (白牛石)",
             "dest_en": "KWUN TONG FERRY",
             "dest_tc": "觀塘碼頭"
+        },
+        {
+            "co": "KMB",
+            "route": "T74",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "KWUN TONG FERRY",
+            "orig_tc": "觀塘碼頭",
+            "dest_en": "NG TUNG CHAI (PAK NGAU SHEK)",
+            "dest_tc": "梧桐寨 (白牛石)"
         },
         {
             "co": "KMB",
@@ -9698,26 +10098,6 @@
             "service_type": "2",
             "orig_en": "TAI MEI TUK",
             "orig_tc": "大美督",
-            "dest_en": "TAI PO MARKET STATION",
-            "dest_tc": "大埔墟站"
-        },
-        {
-            "co": "KMB",
-            "route": "75R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO MARKET STATION",
-            "orig_tc": "大埔墟站",
-            "dest_en": "LUNG MEI BEACH",
-            "dest_tc": "龍尾泳灘"
-        },
-        {
-            "co": "KMB",
-            "route": "75R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "LUNG MEI BEACH",
-            "orig_tc": "龍尾泳灘",
             "dest_en": "TAI PO MARKET STATION",
             "dest_tc": "大埔墟站"
         },
@@ -9773,6 +10153,16 @@
         },
         {
             "co": "KMB",
+            "route": "76",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "YAU POK ROAD PUBLIC HOUSING (SOUTH)",
+            "orig_tc": "攸壆路簡約公屋 (南)",
+            "dest_en": "SHEUNG SHUI STATION (CHOI YUEN ROAD) (CIRCULAR)",
+            "dest_tc": "上水站 (彩園路) (循環線)"
+        },
+        {
+            "co": "KMB",
             "route": "76K",
             "bound": "O",
             "service_type": "1",
@@ -9800,26 +10190,6 @@
             "orig_tc": "朗屏邨",
             "dest_en": "SHEUNG SHUI (CHING HO)",
             "dest_tc": "上水(清河)"
-        },
-        {
-            "co": "KMB",
-            "route": "76S",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "FANLING STATION",
-            "orig_tc": "粉嶺站",
-            "dest_en": "WO HOP SHEK",
-            "dest_tc": "和合石"
-        },
-        {
-            "co": "KMB",
-            "route": "76S",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "WO HOP SHEK",
-            "orig_tc": "和合石",
-            "dest_en": "FANLING STATION",
-            "dest_tc": "粉嶺站"
         },
         {
             "co": "CTB",
@@ -9868,8 +10238,8 @@
             "service_type": "3",
             "orig_en": "SHEUNG SHUI",
             "orig_tc": "上水",
-            "dest_en": "KAM SHEUNG ROAD STATION",
-            "dest_tc": "錦上路站"
+            "dest_en": "PAT HEUNG ROAD",
+            "dest_tc": "八鄉路"
         },
         {
             "co": "KMB",
@@ -9948,8 +10318,8 @@
             "service_type": "1",
             "orig_en": "SHA TAU KOK",
             "orig_tc": "沙頭角",
-            "dest_en": "FANLING STATION (FUK YING SEEN KOON)",
-            "dest_tc": "粉嶺站(蓬瀛仙館)"
+            "dest_en": "SHEUNG SHUI (TAI PING)",
+            "dest_tc": "上水(太平)"
         },
         {
             "co": "KMB",
@@ -10034,32 +10404,12 @@
         {
             "co": "KMB",
             "route": "78K",
-            "bound": "O",
-            "service_type": "2",
-            "orig_en": "SHEUNG SHUI",
-            "orig_tc": "上水",
-            "dest_en": "SHA TAU KOK",
-            "dest_tc": "沙頭角"
-        },
-        {
-            "co": "KMB",
-            "route": "78K",
             "bound": "I",
             "service_type": "1",
             "orig_en": "SHA TAU KOK",
             "orig_tc": "沙頭角",
             "dest_en": "SHEUNG SHUI (TAI PING)",
             "dest_tc": "上水(太平)"
-        },
-        {
-            "co": "KMB",
-            "route": "78K",
-            "bound": "I",
-            "service_type": "2",
-            "orig_en": "SHA TAU KOK",
-            "orig_tc": "沙頭角",
-            "dest_en": "SHEUNG SHUI",
-            "dest_tc": "上水"
         },
         {
             "co": "KMB",
@@ -10112,16 +10462,6 @@
             "dest_tc": "上水"
         },
         {
-            "co": "KMB",
-            "route": "R78",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "FANLING STATION",
-            "orig_tc": "粉嶺站",
-            "dest_en": "SAN WAI BARRACKS(CIRCULAR)",
-            "dest_tc": "新圍軍營(循環線)"
-        },
-        {
             "co": "CTB",
             "route": "78",
             "bound": "O",
@@ -10158,6 +10498,26 @@
             "service_type": "1",
             "orig_en": "Kai Tak (Via: Kwun Tong)",
             "orig_tc": "啟德 (經: 觀塘)",
+            "dest_en": "Queen's Hill Fanling",
+            "dest_tc": "粉嶺皇后山"
+        },
+        {
+            "co": "CTB",
+            "route": "78P",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Queen's Hill Fanling",
+            "orig_tc": "粉嶺皇后山",
+            "dest_en": "Kwun Tong",
+            "dest_tc": "觀塘"
+        },
+        {
+            "co": "CTB",
+            "route": "78P",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Kwun Tong",
+            "orig_tc": "觀塘",
             "dest_en": "Queen's Hill Fanling",
             "dest_tc": "粉嶺皇后山"
         },
@@ -10223,12 +10583,32 @@
         },
         {
             "co": "CTB",
+            "route": "79",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Queen's Hill Fanling (via: Tai Po)",
+            "orig_tc": "粉嶺皇后山 (經:大埔)",
+            "dest_en": "Tai Wai Station (via: Tai Po)",
+            "dest_tc": "大圍站 (經:大埔)"
+        },
+        {
+            "co": "CTB",
+            "route": "79",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Tai Wai Station (via: Tai Po)",
+            "orig_tc": "大圍站 (經:大埔)",
+            "dest_en": "Queen's Hill Fanling (via: Tai Po)",
+            "dest_tc": "粉嶺皇后山 (經:大埔)"
+        },
+        {
+            "co": "CTB",
             "route": "79P",
             "bound": "O",
             "service_type": "1",
             "orig_en": "Queen's Hill Fanling",
             "orig_tc": "粉嶺皇后山",
-            "dest_en": "HSR West Kowloon Station",
+            "dest_en": "High Speed Rail West Kowloon Station",
             "dest_tc": "高鐵西九龍站"
         },
         {
@@ -10236,7 +10616,7 @@
             "route": "79P",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "HSR West Kowloon Station",
+            "orig_en": "High Speed Rail West Kowloon Station",
             "orig_tc": "高鐵西九龍站",
             "dest_en": "Queen's Hill Fanling",
             "dest_tc": "粉嶺皇后山"
@@ -10393,6 +10773,26 @@
         },
         {
             "co": "KMB",
+            "route": "T80",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "MEI TIN",
+            "orig_tc": "美田",
+            "dest_en": "KOWLOON BAY",
+            "dest_tc": "九龍灣"
+        },
+        {
+            "co": "KMB",
+            "route": "T80",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "HIN KENG",
+            "orig_tc": "顯徑",
+            "dest_en": "KOWLOON BAY",
+            "dest_tc": "九龍灣"
+        },
+        {
+            "co": "KMB",
             "route": "81",
             "bound": "O",
             "service_type": "1",
@@ -10463,13 +10863,13 @@
         },
         {
             "co": "KMB",
-            "route": "81S",
+            "route": "81X",
             "bound": "O",
             "service_type": "1",
             "orig_en": "MEI TIN",
             "orig_tc": "美田",
-            "dest_en": "NATHAN ROAD (PUBLIC SQUARE STREET)",
-            "dest_tc": "彌敦道(眾坊街)"
+            "dest_en": "MONG KOK (BUTE STREET)",
+            "dest_tc": "旺角 (弼街)"
         },
         {
             "co": "CTB",
@@ -10568,38 +10968,18 @@
             "service_type": "1",
             "orig_en": "MEI TIN",
             "orig_tc": "美田",
-            "dest_en": "YUEN CHAU KOK",
-            "dest_tc": "圓洲角"
+            "dest_en": "YU CHUI COURT",
+            "dest_tc": "愉翠苑"
         },
         {
             "co": "KMB",
             "route": "82K",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "YUEN CHAU KOK",
-            "orig_tc": "圓洲角",
+            "orig_en": "YU CHUI COURT",
+            "orig_tc": "愉翠苑",
             "dest_en": "MEI TIN",
             "dest_tc": "美田"
-        },
-        {
-            "co": "KMB",
-            "route": "82P",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHEK MUN ESTATE",
-            "orig_tc": "碩門邨",
-            "dest_en": "DIAMOND HILL STATION",
-            "dest_tc": "鑽石山站"
-        },
-        {
-            "co": "KMB",
-            "route": "82P",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "DIAMOND HILL STATION",
-            "orig_tc": "鑽石山站",
-            "dest_en": "SHEK MUN ESTATE",
-            "dest_tc": "碩門邨"
         },
         {
             "co": "KMB",
@@ -10796,8 +11176,8 @@
             "route": "85",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "FO TAN   (SHAN MEI ST)",
-            "orig_tc": "火炭(山尾街)",
+            "orig_en": "FO TAN CHUN YEUNG ESTATE",
+            "orig_tc": "火炭駿洋邨",
             "dest_en": "KOWLOON CITY FERRY",
             "dest_tc": "九龍城碼頭"
         },
@@ -10808,8 +11188,8 @@
             "service_type": "1",
             "orig_en": "KOWLOON CITY FERRY",
             "orig_tc": "九龍城碼頭",
-            "dest_en": "FO TAN   (SHAN MEI ST)",
-            "dest_tc": "火炭(山尾街)"
+            "dest_en": "FO TAN CHUN YEUNG ESTATE",
+            "dest_tc": "火炭駿洋邨"
         },
         {
             "co": "KMB",
@@ -10843,16 +11223,6 @@
         },
         {
             "co": "KMB",
-            "route": "85B",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "KOWLOON CITY FERRY",
-            "orig_tc": "九龍城碼頭",
-            "dest_en": "CHUN SHEK",
-            "dest_tc": "秦石"
-        },
-        {
-            "co": "KMB",
             "route": "85K",
             "bound": "O",
             "service_type": "1",
@@ -10883,6 +11253,26 @@
         },
         {
             "co": "KMB",
+            "route": "85P",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "NAI CHUNG",
+            "orig_tc": "泥涌",
+            "dest_en": "HUNG HOM (HUNG LUEN ROAD)",
+            "dest_tc": "紅磡(紅鸞道)"
+        },
+        {
+            "co": "KMB",
+            "route": "85P",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "HUNG HOM (HUNG LUEN ROAD)",
+            "orig_tc": "紅磡(紅鸞道)",
+            "dest_en": "NAI CHUNG",
+            "dest_tc": "泥涌"
+        },
+        {
+            "co": "KMB",
             "route": "85S",
             "bound": "O",
             "service_type": "1",
@@ -10898,16 +11288,6 @@
             "service_type": "1",
             "orig_en": "MA ON SHAN TOWN CENTRE",
             "orig_tc": "馬鞍山市中心",
-            "dest_en": "HUNG HOM (HUNG LUEN ROAD)",
-            "dest_tc": "紅磡(紅鸞道)"
-        },
-        {
-            "co": "KMB",
-            "route": "85X",
-            "bound": "O",
-            "service_type": "2",
-            "orig_en": "WU KAI SHA STATION",
-            "orig_tc": "烏溪沙站",
             "dest_en": "HUNG HOM (HUNG LUEN ROAD)",
             "dest_tc": "紅磡(紅鸞道)"
         },
@@ -11093,26 +11473,6 @@
         },
         {
             "co": "KMB",
-            "route": "N86",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "KAM YING COURT",
-            "orig_tc": "錦英苑",
-            "dest_en": "SHATIN STATION",
-            "dest_tc": "沙田站"
-        },
-        {
-            "co": "KMB",
-            "route": "N86",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "SHATIN STATION",
-            "orig_tc": "沙田站",
-            "dest_en": "KAM YING COURT",
-            "dest_tc": "錦英苑"
-        },
-        {
-            "co": "KMB",
             "route": "87B",
             "bound": "O",
             "service_type": "1",
@@ -11130,6 +11490,26 @@
             "orig_tc": "維港灣",
             "dest_en": "SUN TIN WAI",
             "dest_tc": "新田圍"
+        },
+        {
+            "co": "KMB",
+            "route": "87C",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "KAM YING COURT",
+            "orig_tc": "錦英苑",
+            "dest_en": "HUNG HOM STATION",
+            "dest_tc": "紅磡站"
+        },
+        {
+            "co": "KMB",
+            "route": "87C",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "HUNG HOM STATION",
+            "orig_tc": "紅磡站",
+            "dest_en": "KAM YING COURT",
+            "dest_tc": "錦英苑"
         },
         {
             "co": "KMB",
@@ -11326,8 +11706,8 @@
             "route": "88X",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "FO TAN CHUN YEUNG ESTATE",
-            "orig_tc": "火炭駿洋邨",
+            "orig_en": "SUI WO COURT",
+            "orig_tc": "穗禾苑",
             "dest_en": "PING TIN",
             "dest_tc": "平田"
         },
@@ -11336,8 +11716,8 @@
             "route": "88X",
             "bound": "O",
             "service_type": "2",
-            "orig_en": "FO TAN CHUN YEUNG ESTATE",
-            "orig_tc": "火炭駿洋邨",
+            "orig_en": "SUI WO COURT",
+            "orig_tc": "穗禾苑",
             "dest_en": "PING TIN",
             "dest_tc": "平田"
         },
@@ -11348,8 +11728,8 @@
             "service_type": "1",
             "orig_en": "PING TIN",
             "orig_tc": "平田",
-            "dest_en": "FO TAN CHUN YEUNG ESTATE",
-            "dest_tc": "火炭駿洋邨"
+            "dest_en": "SUI WO COURT",
+            "dest_tc": "穗禾苑"
         },
         {
             "co": "KMB",
@@ -11358,8 +11738,8 @@
             "service_type": "2",
             "orig_en": "PING TIN",
             "orig_tc": "平田",
-            "dest_en": "FO TAN CHUN YEUNG ESTATE",
-            "dest_tc": "火炭駿洋邨"
+            "dest_en": "SUI WO COURT",
+            "dest_tc": "穗禾苑"
         },
         {
             "co": "CTB",
@@ -11513,13 +11893,33 @@
         },
         {
             "co": "KMB",
+            "route": "89P",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "HANG HONG STREET",
+            "orig_tc": "恒康街",
+            "dest_en": "LAM TIN STATION",
+            "dest_tc": "藍田站"
+        },
+        {
+            "co": "KMB",
+            "route": "89P",
+            "bound": "O",
+            "service_type": "3",
+            "orig_en": "MA ON SHAN TOWN CENTRE",
+            "orig_tc": "馬鞍山市中心",
+            "dest_en": "LAM TIN STATION",
+            "dest_tc": "藍田站"
+        },
+        {
+            "co": "KMB",
             "route": "89S",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "YUEN CHAU KOK",
-            "orig_tc": "圓洲角",
-            "dest_en": "WU KAI SHA STATION (CIRCULAR)",
-            "dest_tc": "烏溪沙站(循環線)"
+            "orig_en": "SHUI CHUEN O",
+            "orig_tc": "水泉澳",
+            "dest_en": "WU KAI SHA STATION",
+            "dest_tc": "烏溪沙站"
         },
         {
             "co": "KMB",
@@ -11530,6 +11930,16 @@
             "orig_tc": "水泉澳",
             "dest_en": "WU KAI SHA STATION",
             "dest_tc": "烏溪沙站"
+        },
+        {
+            "co": "KMB",
+            "route": "89S",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "WU KAI SHA STATION",
+            "orig_tc": "烏溪沙站",
+            "dest_en": "SHUI CHUEN O",
+            "dest_tc": "水泉澳"
         },
         {
             "co": "KMB",
@@ -11600,26 +12010,6 @@
             "orig_tc": "將軍澳(彩明)",
             "dest_en": "SHEK MUN ESTATE",
             "dest_tc": "碩門邨"
-        },
-        {
-            "co": "KMB",
-            "route": "90R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHATIN STATION",
-            "orig_tc": "沙田站",
-            "dest_en": "KMB SHATIN DEPOT",
-            "dest_tc": "九巴沙田車廠"
-        },
-        {
-            "co": "KMB",
-            "route": "90R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "KMB SHATIN DEPOT",
-            "orig_tc": "九巴沙田車廠",
-            "dest_en": "SHATIN STATION",
-            "dest_tc": "沙田站"
         },
         {
             "co": "CTB",
@@ -11733,6 +12123,16 @@
         },
         {
             "co": "KMB",
+            "route": "91B",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "HANG HAU STATION",
+            "orig_tc": "坑口站",
+            "dest_en": "HKUST",
+            "dest_tc": "香港科技大學"
+        },
+        {
+            "co": "KMB",
             "route": "91M",
             "bound": "O",
             "service_type": "1",
@@ -11763,16 +12163,6 @@
         },
         {
             "co": "KMB",
-            "route": "91M",
-            "bound": "I",
-            "service_type": "3",
-            "orig_en": "DIAMOND HILL STATION",
-            "orig_tc": "鑽石山站",
-            "dest_en": "H.K.U.S.T (NORTH)",
-            "dest_tc": "香港科技大學(北)"
-        },
-        {
-            "co": "KMB",
             "route": "91P",
             "bound": "O",
             "service_type": "1",
@@ -11793,23 +12183,13 @@
         },
         {
             "co": "KMB",
-            "route": "91R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CLEAR WATER BAY",
-            "orig_tc": "清水灣",
-            "dest_en": "TSEUNG KWAN O (CHOI MING)",
-            "dest_tc": "將軍澳(彩明)"
-        },
-        {
-            "co": "KMB",
             "route": "91S",
             "bound": "O",
             "service_type": "1",
             "orig_en": "CLEAR WATER BAY",
             "orig_tc": "清水灣",
-            "dest_en": "TSEUNG KWAN O TUNNEL BBI",
-            "dest_tc": "將軍澳隧道轉車站"
+            "dest_en": "KWUN TONG",
+            "dest_tc": "觀塘"
         },
         {
             "co": "CTB",
@@ -11864,8 +12244,28 @@
         {
             "co": "KMB",
             "route": "92",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "SAI KUNG",
+            "orig_tc": "西貢",
+            "dest_en": "DIAMOND HILL STATION",
+            "dest_tc": "鑽石山站"
+        },
+        {
+            "co": "KMB",
+            "route": "92",
             "bound": "I",
             "service_type": "1",
+            "orig_en": "DIAMOND HILL STATION",
+            "orig_tc": "鑽石山站",
+            "dest_en": "SAI KUNG",
+            "dest_tc": "西貢"
+        },
+        {
+            "co": "KMB",
+            "route": "92",
+            "bound": "I",
+            "service_type": "2",
             "orig_en": "DIAMOND HILL STATION",
             "orig_tc": "鑽石山站",
             "dest_en": "SAI KUNG",
@@ -12042,26 +12442,6 @@
             "dest_tc": "黃石碼頭"
         },
         {
-            "co": "KMB",
-            "route": "R94",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO TAI WO",
-            "orig_tc": "大埔太和",
-            "dest_en": "WONG SHEK PIER",
-            "dest_tc": "黃石碼頭"
-        },
-        {
-            "co": "KMB",
-            "route": "R94",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "WONG SHEK PIER",
-            "orig_tc": "黃石碼頭",
-            "dest_en": "TAI PO TAI WO",
-            "dest_tc": "大埔太和"
-        },
-        {
             "co": "CTB",
             "route": "94A",
             "bound": "O",
@@ -12123,31 +12503,11 @@
         },
         {
             "co": "CTB",
-            "route": "95",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Ap Lei Chau Estate / Lee Nam Road Industrial Area",
-            "orig_tc": "鴨脷洲邨 / 利南道工業區",
-            "dest_en": "Aberdeen / Shek Pai Wan",
-            "dest_tc": "香港仔 / 石排灣"
-        },
-        {
-            "co": "CTB",
-            "route": "95",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "Aberdeen / Shek Pai Wan",
-            "orig_tc": "香港仔 / 石排灣",
-            "dest_en": "Ap Lei Chau Estate / Lee Nam Road Industrial Area",
-            "dest_tc": "鴨脷洲邨 / 利南道工業區"
-        },
-        {
-            "co": "CTB",
             "route": "95C",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Ap Lei Chau Estate",
-            "orig_tc": "鴨脷洲邨",
+            "orig_en": "Ap Lei Chau Estate / Lee Nam Industrial Area",
+            "orig_tc": "鴨脷洲邨 / 利南工業區",
             "dest_en": "Chi Fu Fa Yuen",
             "dest_tc": "置富花園"
         },
@@ -12158,8 +12518,8 @@
             "service_type": "1",
             "orig_en": "Chi Fu Fa Yuen",
             "orig_tc": "置富花園",
-            "dest_en": "Ap Lei Chau Estate",
-            "dest_tc": "鴨脷洲邨"
+            "dest_en": "Ap Lei Chau Estate / Lee Nam Industrial Area",
+            "dest_tc": "鴨脷洲邨 / 利南工業區"
         },
         {
             "co": "CTB",
@@ -12188,6 +12548,16 @@
             "service_type": "1",
             "orig_en": "HONG SING GARDEN",
             "orig_tc": "康盛花園",
+            "dest_en": "TAI PO INDUSTRIAL ESTATE",
+            "dest_tc": "大埔工業邨"
+        },
+        {
+            "co": "KMB",
+            "route": "96",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "PARK CENTRAL",
+            "orig_tc": "將軍澳中心",
             "dest_en": "TAI PO INDUSTRIAL ESTATE",
             "dest_tc": "大埔工業邨"
         },
@@ -12306,16 +12676,6 @@
             "route": "98B",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
-            "orig_tc": "坑口(北)(將軍澳醫院)",
-            "dest_en": "KWUN TONG",
-            "dest_tc": "觀塘"
-        },
-        {
-            "co": "KMB",
-            "route": "98B",
-            "bound": "O",
-            "service_type": "2",
             "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
             "orig_tc": "坑口(北)(將軍澳醫院)",
             "dest_en": "KWUN TONG",
@@ -12446,8 +12806,8 @@
             "route": "98S",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "LOHAS PARK STATION",
-            "orig_tc": "康城站",
+            "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "orig_tc": "坑口(北)(將軍澳醫院)",
             "dest_en": "MEI FOO",
             "dest_tc": "美孚"
         },
@@ -12458,8 +12818,8 @@
             "service_type": "1",
             "orig_en": "MEI FOO",
             "orig_tc": "美孚",
-            "dest_en": "LOHAS PARK STATION",
-            "dest_tc": "康城站"
+            "dest_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "dest_tc": "坑口(北)(將軍澳醫院)"
         },
         {
             "co": "CTB",
@@ -12942,6 +13302,26 @@
             "dest_tc": "堅尼地城／中環"
         },
         {
+            "co": "CTB",
+            "route": "104R",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Central (Ferry Piers)",
+            "orig_tc": "中環碼頭",
+            "dest_en": "Mong Kok",
+            "dest_tc": "旺角"
+        },
+        {
+            "co": "CTB",
+            "route": "104R",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Mong Kok",
+            "orig_tc": "旺角",
+            "dest_en": "Central (Ferry Piers)",
+            "dest_tc": "中環碼頭"
+        },
+        {
             "co": "KMB",
             "route": "106",
             "bound": "O",
@@ -13193,16 +13573,6 @@
         },
         {
             "co": "KMB",
-            "route": "108R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WAN CHAI (HKCEC)",
-            "orig_tc": "灣仔(會展)",
-            "dest_en": "KAI YIP",
-            "dest_tc": "啟業"
-        },
-        {
-            "co": "KMB",
             "route": "109",
             "bound": "O",
             "service_type": "1",
@@ -13294,26 +13664,6 @@
         {
             "co": "KMB",
             "route": "111",
-            "bound": "O",
-            "service_type": "3",
-            "orig_en": "MA TAU CHUNG ROAD",
-            "orig_tc": "馬頭涌道",
-            "dest_en": "CENTRAL (MACAU FERRY)",
-            "dest_tc": "中環(港澳碼頭)"
-        },
-        {
-            "co": "KMB",
-            "route": "111",
-            "bound": "O",
-            "service_type": "9",
-            "orig_en": "NING YUEN STREET, SAN PO KONG",
-            "orig_tc": "新蒲崗寧遠街",
-            "dest_en": "CENTRAL (MACAU FERRY)",
-            "dest_tc": "中環(港澳碼頭)"
-        },
-        {
-            "co": "KMB",
-            "route": "111",
             "bound": "I",
             "service_type": "1",
             "orig_en": "CENTRAL (MACAU FERRY)",
@@ -13340,16 +13690,6 @@
             "orig_tc": "中環(港澳碼頭)",
             "dest_en": "CHOI FOOK",
             "dest_tc": "彩福"
-        },
-        {
-            "co": "KMB",
-            "route": "111R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WAN CHAI (HKCEC)",
-            "orig_tc": "灣仔(會展)",
-            "dest_en": "KWUN TONG (YUE MAN SQUARE)",
-            "dest_tc": "觀塘(裕民坊)"
         },
         {
             "co": "CTB",
@@ -13572,6 +13912,16 @@
             "dest_tc": "慈雲山(中)"
         },
         {
+            "co": "KMB",
+            "route": "N116",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "NORTH POINT",
+            "orig_tc": "北角",
+            "dest_en": "TSZ WAN SHAN (CENTRAL)",
+            "dest_tc": "慈雲山(中)"
+        },
+        {
             "co": "CTB",
             "route": "116",
             "bound": "O",
@@ -13610,16 +13960,6 @@
             "orig_tc": "跑馬地(下)",
             "dest_en": "SHAM SHUI PO (YEN CHOW ST)",
             "dest_tc": "深水埗(欽州街)"
-        },
-        {
-            "co": "KMB",
-            "route": "117R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CAUSEWAY BAY (COTTON PATH)",
-            "orig_tc": "銅鑼灣(棉花路)",
-            "dest_en": "MONG KOK (BUTE STREET)",
-            "dest_tc": "旺角(弼街)"
         },
         {
             "co": "CTB",
@@ -13880,56 +14220,6 @@
             "orig_tc": "美孚",
             "dest_en": "Shau Kei Wan",
             "dest_tc": "筲箕灣"
-        },
-        {
-            "co": "KMB",
-            "route": "134R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WAN CHAI (HKCEC)",
-            "orig_tc": "灣仔(會展)",
-            "dest_en": "TSUEN WAN (BAYVIEW GARDEN)",
-            "dest_tc": "荃灣(灣景花園)"
-        },
-        {
-            "co": "KMB",
-            "route": "148R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WAN CHAI(HKCEC)",
-            "orig_tc": "灣仔(會展)",
-            "dest_en": "TSING YI (CHEUNG ON ESTATE)",
-            "dest_tc": "青衣(長安邨)"
-        },
-        {
-            "co": "KMB",
-            "route": "160R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CENTRAL (CENTRAL FERRY PIERS)",
-            "orig_tc": "中環(渡輪碼頭)",
-            "dest_en": "HUNG SHUI KIU (HUNG FUK ESTATE)",
-            "dest_tc": "洪水橋(洪福邨)"
-        },
-        {
-            "co": "KMB",
-            "route": "168R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CENTRAL (CENTRAL FERRY PIERS)",
-            "orig_tc": "中環(渡輪碼頭)",
-            "dest_en": "YUEN LONG (WEST)",
-            "dest_tc": "元朗(西)"
-        },
-        {
-            "co": "KMB",
-            "route": "168R",
-            "bound": "O",
-            "service_type": "2",
-            "orig_en": "WAN CHAI (HKCECE)",
-            "orig_tc": "灣仔會展",
-            "dest_en": "YUEN LONG (WEST)",
-            "dest_tc": "元朗(西)"
         },
         {
             "co": "KMB",
@@ -14212,14 +14502,24 @@
             "dest_tc": "鴨脷洲邨"
         },
         {
-            "co": "KMB",
-            "route": "178R",
+            "co": "CTB",
+            "route": "173R",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "CENTRAL (CENTRAL FERRY PIERS)",
-            "orig_tc": "中環(渡輪碼頭)",
-            "dest_en": "FANLING (LUEN WO HUI)",
-            "dest_tc": "粉嶺(聯和墟)"
+            "orig_en": "Stanley",
+            "orig_tc": "赤柱",
+            "dest_en": "Tsim Sha Tsui (Mody Road)",
+            "dest_tc": "尖沙咀(麼地道)"
+        },
+        {
+            "co": "CTB",
+            "route": "173R",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Tsim Sha Tsui (Mody Road)",
+            "orig_tc": "尖沙咀(麼地道)",
+            "dest_en": "Stanley",
+            "dest_tc": "赤柱"
         },
         {
             "co": "KMB",
@@ -14340,16 +14640,6 @@
             "orig_tc": "沙田 (廣源)",
             "dest_en": "Central (Macau Ferry)",
             "dest_tc": "中環 (港澳碼頭)"
-        },
-        {
-            "co": "KMB",
-            "route": "191R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WAN CHAI (HKCEC)",
-            "orig_tc": "灣仔(會展)",
-            "dest_en": "LOHAS PARK STATION",
-            "dest_tc": "康城站"
         },
         {
             "co": "KMB",
@@ -14633,16 +14923,6 @@
         },
         {
             "co": "KMB",
-            "route": "R215",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "LAM TIN (KWONG TIN ESTATE)",
-            "orig_tc": "藍田(廣田邨)",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖東麼地道"
-        },
-        {
-            "co": "KMB",
             "route": "216M",
             "bound": "O",
             "service_type": "1",
@@ -14650,16 +14930,6 @@
             "orig_tc": "藍田站",
             "dest_en": "YAU TONG STATION (CIRCULAR)",
             "dest_tc": "油塘站(循環線)"
-        },
-        {
-            "co": "KMB",
-            "route": "216R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JOADAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "SHUN TIN",
-            "dest_tc": "順天"
         },
         {
             "co": "KMB",
@@ -14736,20 +15006,30 @@
             "route": "224X",
             "bound": "O",
             "service_type": "3",
-            "orig_en": "KAI TAK (KAI CHING ESTATE)",
-            "orig_tc": "啟德(啟晴邨)",
-            "dest_en": "KAI YIP",
-            "dest_tc": "啟業"
+            "orig_en": "KAI TAK BUS TERMINUS",
+            "orig_tc": "啟德巴士總站",
+            "dest_en": "TSIM SHA TSUI EAST (CIRCULAR)",
+            "dest_tc": "尖沙咀東(循環線)"
         },
         {
             "co": "KMB",
-            "route": "225R",
+            "route": "230R",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "JORDAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "WONG TAI SIN",
-            "dest_tc": "黃大仙"
+            "orig_en": "KOWLOON STATION",
+            "orig_tc": "九龍站",
+            "dest_en": "MA WAN (PAK YAN ROAD)",
+            "dest_tc": "馬灣(珀欣路)"
+        },
+        {
+            "co": "KMB",
+            "route": "230R",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "MA WAN (PAK YAN ROAD)",
+            "orig_tc": "馬灣(珀欣路)",
+            "dest_en": "KOWLOON STATION",
+            "dest_tc": "九龍站"
         },
         {
             "co": "KMB",
@@ -14778,6 +15058,16 @@
             "service_type": "1",
             "orig_en": "SHAM TSENG (SEA CREST VILLA)",
             "orig_tc": "深井(浪翠園)",
+            "dest_en": "TSUEN WAN WEST STATION",
+            "dest_tc": "荃灣西站"
+        },
+        {
+            "co": "KMB",
+            "route": "234A",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "TSING LUNG TAU TSUEN",
+            "orig_tc": "青龍頭村",
             "dest_en": "TSUEN WAN WEST STATION",
             "dest_tc": "荃灣西站"
         },
@@ -14913,26 +15203,6 @@
         },
         {
             "co": "KMB",
-            "route": "236R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Jordan(Wui Man Road)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "Tsuen Wan Station",
-            "dest_tc": "荃灣站"
-        },
-        {
-            "co": "KMB",
-            "route": "237A",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "KWAI SHING (CENTRAL)",
-            "orig_tc": "葵盛(中)",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
-        },
-        {
-            "co": "KMB",
             "route": "N237",
             "bound": "O",
             "service_type": "1",
@@ -14993,16 +15263,6 @@
         },
         {
             "co": "KMB",
-            "route": "239R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Jordan(Wui Man Road)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "TSUEN WAN (ALLWAY GARDENS)",
-            "dest_tc": "荃灣(荃威花園)"
-        },
-        {
-            "co": "KMB",
             "route": "240X",
             "bound": "O",
             "service_type": "1",
@@ -15020,16 +15280,6 @@
             "orig_tc": "葵興站",
             "dest_en": "WONG NAI TAU",
             "dest_tc": "黃泥頭"
-        },
-        {
-            "co": "KMB",
-            "route": "241R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Jordan(Wui Man Road)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "TSING YI (CHEUNG CHING ESTATE)",
-            "dest_tc": "青衣(長青邨)"
         },
         {
             "co": "KMB",
@@ -15056,16 +15306,6 @@
             "route": "N241",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "HUNG HOM STATION",
-            "orig_tc": "紅磡站",
-            "dest_en": "TSING YI (CHEUNG WANG ESTATE)",
-            "dest_tc": "青衣(長宏邨)"
-        },
-        {
-            "co": "KMB",
-            "route": "N241",
-            "bound": "O",
-            "service_type": "2",
             "orig_en": "HUNG HOM STATION",
             "orig_tc": "紅磡站",
             "dest_en": "TSING YI (CHEUNG WANG ESTATE)",
@@ -15153,16 +15393,6 @@
         },
         {
             "co": "KMB",
-            "route": "246R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Jordan(Wui Man Road)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "KWAI CHUNG (LAI YIU ESTATE)",
-            "dest_tc": "葵涌(麗瑤邨)"
-        },
-        {
-            "co": "KMB",
             "route": "248M",
             "bound": "O",
             "service_type": "1",
@@ -15178,7 +15408,7 @@
             "service_type": "1",
             "orig_en": "TSING YI STATION",
             "orig_tc": "青衣站",
-            "dest_en": "MAYFAIR GARDEN (CIRCULAR)",
+            "dest_en": "MAYFAIR GARDENS (CIRCULAR)",
             "dest_tc": "美景花園(循環線)"
         },
         {
@@ -15330,16 +15560,6 @@
             "orig_tc": "美孚",
             "dest_en": "TUEN MUN (SAM SHING ESTATE)",
             "dest_tc": "屯門(三聖邨)"
-        },
-        {
-            "co": "KMB",
-            "route": "254R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "YOHO MALL",
-            "orig_tc": "形點",
-            "dest_en": "SHEK KONG BARRACKS (CIRCULAR)",
-            "dest_tc": "石崗軍營 (循環線)"
         },
         {
             "co": "KMB",
@@ -15523,6 +15743,16 @@
         },
         {
             "co": "KMB",
+            "route": "259X",
+            "bound": "I",
+            "service_type": "3",
+            "orig_en": "LAM WAH STREET PLAYGROUND",
+            "orig_tc": "臨華街遊樂場",
+            "dest_en": "TUEN MUN (LUNG MUN OASIS)",
+            "dest_tc": "屯門(龍門居)"
+        },
+        {
+            "co": "KMB",
             "route": "260B",
             "bound": "O",
             "service_type": "1",
@@ -15610,16 +15840,6 @@
             "orig_tc": "美孚",
             "dest_en": "TUEN MUN PIER HEAD",
             "dest_tc": "屯門碼頭"
-        },
-        {
-            "co": "KMB",
-            "route": "R260",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TUEN MUN PIER HEAD",
-            "orig_tc": "屯門碼頭",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
         },
         {
             "co": "CTB",
@@ -15733,16 +15953,6 @@
         },
         {
             "co": "KMB",
-            "route": "R261",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TUEN MUN (SAM SHING ESTATE)",
-            "orig_tc": "屯門(三聖邨)",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
-        },
-        {
-            "co": "KMB",
             "route": "263",
             "bound": "O",
             "service_type": "1",
@@ -15808,16 +16018,16 @@
             "service_type": "1",
             "orig_en": "TUEN MUN STATION",
             "orig_tc": "屯門站",
-            "dest_en": "TAI PO INDUSTRIAL ESTATE",
-            "dest_tc": "大埔工業邨"
+            "dest_en": "EDUCATION UNIVERSITY OF HONG KONG",
+            "dest_tc": "香港教育大學"
         },
         {
             "co": "KMB",
             "route": "263C",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "TAI PO INDUSTRIAL ESTATE",
-            "orig_tc": "大埔工業邨",
+            "orig_en": "EDUCATION UNIVERSITY OF HONG KONG",
+            "orig_tc": "香港教育大學",
             "dest_en": "TUEN MUN STATION",
             "dest_tc": "屯門站"
         },
@@ -15883,13 +16093,33 @@
         },
         {
             "co": "KMB",
+            "route": "265P",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TIN YAN ESTATE",
+            "orig_tc": "天恩邨",
+            "dest_en": "TSUEN WAN STATION",
+            "dest_tc": "荃灣站"
+        },
+        {
+            "co": "KMB",
+            "route": "265P",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "CHUNG ON STREET TSUEN WAN",
+            "orig_tc": "荃灣眾安街",
+            "dest_en": "TIN YAN ESTATE",
+            "dest_tc": "天恩邨"
+        },
+        {
+            "co": "KMB",
             "route": "265S",
             "bound": "O",
             "service_type": "1",
             "orig_en": "TIN SHUI WAI TOWN CENTRE",
             "orig_tc": "天水圍市中心",
-            "dest_en": "TAI PO INDUSTRIAL ESTATE",
-            "dest_tc": "大埔工業邨"
+            "dest_en": "EDUCATION UNIVERSITY OF HONG KONG",
+            "dest_tc": "香港教育大學"
         },
         {
             "co": "KMB",
@@ -15898,8 +16128,8 @@
             "service_type": "2",
             "orig_en": "TIN SHUI WAI TOWN CENTRE",
             "orig_tc": "天水圍市中心",
-            "dest_en": "TAI PO INDUSTRIAL ESTATE",
-            "dest_tc": "大埔工業邨"
+            "dest_en": "EDUCATION UNIVERSITY OF HONG KONG",
+            "dest_tc": "香港教育大學"
         },
         {
             "co": "KMB",
@@ -15933,6 +16163,26 @@
         },
         {
             "co": "KMB",
+            "route": "268",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "YAU POK ROAD PUBLIC HOUSING (SOUTH)",
+            "orig_tc": "攸壆路簡約公屋 (南)",
+            "dest_en": "PAT HEUNG ROAD",
+            "dest_tc": "八鄉路"
+        },
+        {
+            "co": "KMB",
+            "route": "268",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "PAT HEUNG ROAD",
+            "orig_tc": "八鄉路",
+            "dest_en": "YAU POK ROAD PUBLIC HOUSING (SOUTH)",
+            "dest_tc": "攸壆路簡約公屋 (南)"
+        },
+        {
+            "co": "KMB",
             "route": "268A",
             "bound": "O",
             "service_type": "1",
@@ -15958,6 +16208,16 @@
             "service_type": "1",
             "orig_en": "LONG PING STATION",
             "orig_tc": "朗屏站",
+            "dest_en": "HUNG HOM (HUNG LUEN ROAD)",
+            "dest_tc": "紅磡(紅鸞道)"
+        },
+        {
+            "co": "KMB",
+            "route": "268B",
+            "bound": "O",
+            "service_type": "3",
+            "orig_en": "HUNG FUK ESTATE HUNG YUEN ROAD",
+            "orig_tc": "洪元路(洪福邨)",
             "dest_en": "HUNG HOM (HUNG LUEN ROAD)",
             "dest_tc": "紅磡(紅鸞道)"
         },
@@ -15998,6 +16258,16 @@
             "service_type": "1",
             "orig_en": "KWUN TONG FERRY",
             "orig_tc": "觀塘碼頭",
+            "dest_en": "LONG PING STATION",
+            "dest_tc": "朗屏站"
+        },
+        {
+            "co": "KMB",
+            "route": "268C",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "TING FU STREET KWUN TONG",
+            "orig_tc": "觀塘定富街",
             "dest_en": "LONG PING STATION",
             "dest_tc": "朗屏站"
         },
@@ -16244,8 +16514,28 @@
         {
             "co": "KMB",
             "route": "269S",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "TIN SHUI WAI TOWN CENTRE",
+            "orig_tc": "天水圍市中心",
+            "dest_en": "KWUN TONG FERRY",
+            "dest_tc": "觀塘碼頭"
+        },
+        {
+            "co": "KMB",
+            "route": "269S",
             "bound": "I",
             "service_type": "1",
+            "orig_en": "KWUN TONG FERRY",
+            "orig_tc": "觀塘碼頭",
+            "dest_en": "TIN SHUI WAI TOWN CENTRE",
+            "dest_tc": "天水圍市中心"
+        },
+        {
+            "co": "KMB",
+            "route": "269S",
+            "bound": "I",
+            "service_type": "2",
             "orig_en": "KWUN TONG FERRY",
             "orig_tc": "觀塘碼頭",
             "dest_en": "TIN SHUI WAI TOWN CENTRE",
@@ -16290,16 +16580,6 @@
             "orig_tc": "美孚",
             "dest_en": "TIN TSZ",
             "dest_tc": "天慈"
-        },
-        {
-            "co": "KMB",
-            "route": "R269",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TIN TSZ",
-            "orig_tc": "天慈",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
         },
         {
             "co": "KMB",
@@ -16383,6 +16663,16 @@
         },
         {
             "co": "KMB",
+            "route": "270B",
+            "bound": "I",
+            "service_type": "3",
+            "orig_en": "OLYMPIC STATION",
+            "orig_tc": "奧運站",
+            "dest_en": "SHEUNG SHUI",
+            "dest_tc": "上水"
+        },
+        {
+            "co": "KMB",
             "route": "270C",
             "bound": "O",
             "service_type": "1",
@@ -16413,6 +16703,16 @@
         },
         {
             "co": "KMB",
+            "route": "270D",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "SHAM SHUI PO (YEN CHOW ST)",
+            "orig_tc": "深水埗(欽州街)",
+            "dest_en": "FANLING (LUEN WO HUI)",
+            "dest_tc": "粉嶺(聯和墟)"
+        },
+        {
+            "co": "KMB",
             "route": "270P",
             "bound": "O",
             "service_type": "1",
@@ -16440,16 +16740,6 @@
             "orig_tc": "尖沙咀東(麼地道)",
             "dest_en": "FANLING (LUEN WO HUI)",
             "dest_tc": "粉嶺(聯和墟)"
-        },
-        {
-            "co": "KMB",
-            "route": "R270",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHEUNG SHUI",
-            "orig_tc": "上水",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
         },
         {
             "co": "KMB",
@@ -16500,6 +16790,26 @@
             "orig_tc": "佐敦(西九龍站)",
             "dest_en": "TAI PO (FU HENG)",
             "dest_tc": "大埔(富亨)"
+        },
+        {
+            "co": "KMB",
+            "route": "271A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
+            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
+            "dest_tc": "尖沙咀東(麼地道)"
+        },
+        {
+            "co": "KMB",
+            "route": "271A",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "TSIM SHA TSUI EAST (MODY ROAD)",
+            "orig_tc": "尖沙咀東(麼地道)",
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
         },
         {
             "co": "KMB",
@@ -16583,16 +16893,6 @@
         },
         {
             "co": "KMB",
-            "route": "R271",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO (FU HENG)",
-            "orig_tc": "大埔(富亨)",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
-        },
-        {
-            "co": "KMB",
             "route": "272A",
             "bound": "O",
             "service_type": "1",
@@ -16608,8 +16908,8 @@
             "service_type": "2",
             "orig_en": "UNIVERSITY STATION",
             "orig_tc": "大學站",
-            "dest_en": "FO CHUN ROAD",
-            "dest_tc": "科進路"
+            "dest_en": "POK YIN ROAD",
+            "dest_tc": "博研路"
         },
         {
             "co": "KMB",
@@ -16620,6 +16920,16 @@
             "orig_tc": "白石角",
             "dest_en": "UNIVERSITY STATION",
             "dest_tc": "大學站"
+        },
+        {
+            "co": "KMB",
+            "route": "272A",
+            "bound": "O",
+            "service_type": "4",
+            "orig_en": "UNIVERSITY STATION",
+            "orig_tc": "大學站",
+            "dest_en": "PAK SHEK KOK (CIRCULAR)",
+            "dest_tc": "白石角(循環線)"
         },
         {
             "co": "KMB",
@@ -16664,6 +16974,16 @@
         {
             "co": "KMB",
             "route": "272P",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
+            "dest_en": "KWAI HING STATION",
+            "dest_tc": "葵興站"
+        },
+        {
+            "co": "KMB",
+            "route": "272P",
             "bound": "I",
             "service_type": "1",
             "orig_en": "KWAI HING STATION",
@@ -16673,13 +16993,13 @@
         },
         {
             "co": "KMB",
-            "route": "272R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDON (WUI MAN ROAD)",
-            "orig_tc": "佐敦 (匯民道)",
-            "dest_en": "TAI PO (TAI WO)",
-            "dest_tc": "大埔(太和)"
+            "route": "272P",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "KWAI HING STATION",
+            "orig_tc": "葵興站",
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
         },
         {
             "co": "KMB",
@@ -16773,6 +17093,16 @@
         },
         {
             "co": "KMB",
+            "route": "273B",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "SHEUNG SHUI (CHING HO)",
+            "orig_tc": "上水(清河)",
+            "dest_en": "SHEUNG SHUI STATION",
+            "dest_tc": "上水站(只往上水站)"
+        },
+        {
+            "co": "KMB",
             "route": "273C",
             "bound": "O",
             "service_type": "1",
@@ -16830,6 +17160,16 @@
             "orig_tc": "粉嶺站",
             "dest_en": "FANLING (WAH MING)",
             "dest_tc": "粉嶺(華明)"
+        },
+        {
+            "co": "KMB",
+            "route": "N273",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "CHOI YUEN",
+            "orig_tc": "彩園",
+            "dest_en": "SHEUNG SHUI (CHOI YUEN)",
+            "dest_tc": "上水(彩園)"
         },
         {
             "co": "KMB",
@@ -17020,6 +17360,26 @@
             "orig_tc": "上水",
             "dest_en": "TIN SHUI WAI STATION",
             "dest_tc": "天水圍站"
+        },
+        {
+            "co": "KMB",
+            "route": "N276",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TIN TSZ",
+            "orig_tc": "天慈",
+            "dest_en": "SAN TIN PUBLIC TRANSPORT INTERCHANGE",
+            "dest_tc": "新田運輸交匯處"
+        },
+        {
+            "co": "KMB",
+            "route": "N276",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "SAN TIN PUBLIC TRANSPORT INTERCHANGE",
+            "orig_tc": "新田運輸交匯處",
+            "dest_en": "TIN TSZ",
+            "dest_tc": "天慈"
         },
         {
             "co": "KMB",
@@ -17263,6 +17623,16 @@
         },
         {
             "co": "KMB",
+            "route": "279X",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "TSING YI STATION",
+            "orig_tc": "青衣站",
+            "dest_en": "SHEUNG SHUI STATION",
+            "dest_tc": "上水站"
+        },
+        {
+            "co": "KMB",
             "route": "280X",
             "bound": "O",
             "service_type": "1",
@@ -17296,10 +17666,10 @@
             "route": "281",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "SUN TIN WAI",
-            "orig_tc": "新田圍",
-            "dest_en": "TAI WAI STATION (CIRCULAR)",
-            "dest_tc": "大圍站 (循環線)"
+            "orig_en": "TAI WAI STATION",
+            "orig_tc": "大圍站",
+            "dest_en": "SUN TIN WAI (CIRCULAR)",
+            "dest_tc": "新田圍 (循環線)"
         },
         {
             "co": "KMB",
@@ -17340,26 +17710,6 @@
             "orig_tc": "尖沙咀海防道",
             "dest_en": "KWONG YUEN",
             "dest_tc": "廣源"
-        },
-        {
-            "co": "KMB",
-            "route": "281M",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SUN TIN WAI",
-            "orig_tc": "新田圍",
-            "dest_en": "KOWLOON TONG STATION",
-            "dest_tc": "九龍塘站"
-        },
-        {
-            "co": "KMB",
-            "route": "281M",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "KOWLOON TONG STATION",
-            "orig_tc": "九龍塘站",
-            "dest_en": "SUN TIN WAI",
-            "dest_tc": "新田圍"
         },
         {
             "co": "KMB",
@@ -17423,16 +17773,6 @@
         },
         {
             "co": "KMB",
-            "route": "R283",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHEK MUN ESTATE",
-            "orig_tc": "碩門邨",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
-        },
-        {
-            "co": "KMB",
             "route": "284",
             "bound": "O",
             "service_type": "1",
@@ -17483,6 +17823,16 @@
         },
         {
             "co": "KMB",
+            "route": "286A",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "SHATIN WAI",
+            "orig_tc": "沙田圍",
+            "dest_en": "CHEUNG SHA WAN (CIRCULAR)",
+            "dest_tc": "長沙灣 (循環線)"
+        },
+        {
+            "co": "KMB",
             "route": "286C",
             "bound": "O",
             "service_type": "1",
@@ -17500,16 +17850,6 @@
             "orig_tc": "長沙灣(海達邨)",
             "dest_en": "LEE ON",
             "dest_tc": "利安"
-        },
-        {
-            "co": "KMB",
-            "route": "286M",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "MA ON SHAN TOWN CENTRE",
-            "orig_tc": "馬鞍山市中心",
-            "dest_en": "DIAMOND HILL STATION (CIRCULAR)",
-            "dest_tc": "鑽石山站(循環線)"
         },
         {
             "co": "KMB",
@@ -17538,8 +17878,18 @@
             "service_type": "2",
             "orig_en": "HIN KENG",
             "orig_tc": "顯徑",
-            "dest_en": "SHAM SHUI PO",
-            "dest_tc": "深水埗"
+            "dest_en": "SHAM SHUI PO (CIRCULAR)",
+            "dest_tc": "深水埗(循環線)"
+        },
+        {
+            "co": "KMB",
+            "route": "287",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "UNIVERSITY STATION",
+            "orig_tc": "大學站",
+            "dest_en": "GO PARK Sai Sha (CIRCULAR)",
+            "dest_tc": "西沙 GO PARK (循環線)"
         },
         {
             "co": "KMB",
@@ -17558,18 +17908,8 @@
             "service_type": "1",
             "orig_en": "SHUI CHUEN O",
             "orig_tc": "水泉澳",
-            "dest_en": "MONG KOK",
-            "dest_tc": "旺角"
-        },
-        {
-            "co": "KMB",
-            "route": "287R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDON (WUI MAN ROAD)",
-            "orig_tc": "佐敦 (匯民道)",
-            "dest_en": "WU KAI SHA STATION",
-            "dest_tc": "烏溪沙站"
+            "dest_en": "YAU MA TEI",
+            "dest_tc": "油麻地"
         },
         {
             "co": "KMB",
@@ -17590,16 +17930,6 @@
             "orig_tc": "尖沙咀東(麼地道)",
             "dest_en": "WU KAI SHA STATION",
             "dest_tc": "烏溪沙站"
-        },
-        {
-            "co": "KMB",
-            "route": "R287",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "WU KAI SHA STATION",
-            "orig_tc": "烏溪沙站",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
         },
         {
             "co": "KMB",
@@ -17636,8 +17966,8 @@
             "route": "288B",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "FO TAN   (SHAN MEI ST)",
-            "orig_tc": "火炭(山尾街)",
+            "orig_en": "FO TAN CHUN YEUNG ESTATE",
+            "orig_tc": "火炭駿洋邨",
             "dest_en": "SHUI CHUEN O",
             "dest_tc": "水泉澳"
         },
@@ -17650,16 +17980,6 @@
             "orig_tc": "水泉澳",
             "dest_en": "HIN KENG",
             "dest_tc": "顯徑"
-        },
-        {
-            "co": "KMB",
-            "route": "288C",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "HIN KENG",
-            "orig_tc": "顯徑",
-            "dest_en": "SHUI CHUEN O (UPPER)",
-            "dest_tc": "水泉澳(上)"
         },
         {
             "co": "KMB",
@@ -17706,8 +18026,8 @@
             "route": "290",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TSEUNG KWAN O (CHOI MING)",
-            "orig_tc": "將軍澳(彩明)",
+            "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "orig_tc": "坑口(北)(將軍澳醫院)",
             "dest_en": "TSUEN WAN WEST STATION",
             "dest_tc": "荃灣西站"
         },
@@ -17718,8 +18038,8 @@
             "service_type": "1",
             "orig_en": "TSUEN WAN WEST STATION",
             "orig_tc": "荃灣西站",
-            "dest_en": "TSEUNG KWAN O (CHOI MING)",
-            "dest_tc": "將軍澳(彩明)"
+            "dest_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "dest_tc": "坑口(北)(將軍澳醫院)"
         },
         {
             "co": "KMB",
@@ -17753,26 +18073,6 @@
         },
         {
             "co": "KMB",
-            "route": "290B",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TSEUNG KWAN O INDUSTRIAL ESTATE",
-            "orig_tc": "將軍澳工業邨",
-            "dest_en": "TSUEN WAN WEST STATION",
-            "dest_tc": "荃灣西站"
-        },
-        {
-            "co": "KMB",
-            "route": "290B",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "TSUEN WAN WEST STATION",
-            "orig_tc": "荃灣西站",
-            "dest_en": "TSEUNG KWAN O INDUSTRIAL ESTATE",
-            "dest_tc": "將軍澳工業邨"
-        },
-        {
-            "co": "KMB",
             "route": "290E",
             "bound": "O",
             "service_type": "1",
@@ -17798,6 +18098,16 @@
             "service_type": "1",
             "orig_en": "LOHAS PARK STATION",
             "orig_tc": "康城站",
+            "dest_en": "TSUEN WAN WEST STATION",
+            "dest_tc": "荃灣西站"
+        },
+        {
+            "co": "KMB",
+            "route": "290X",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "TIU KENG LENG STATION",
+            "orig_tc": "調景嶺站",
             "dest_en": "TSUEN WAN WEST STATION",
             "dest_tc": "荃灣西站"
         },
@@ -18043,31 +18353,11 @@
         },
         {
             "co": "KMB",
-            "route": "298C",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "LOHAS PARK STATION",
-            "orig_tc": "康城站",
-            "dest_en": "MEI FOO",
-            "dest_tc": "美孚"
-        },
-        {
-            "co": "KMB",
-            "route": "298C",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "MEI FOO",
-            "orig_tc": "美孚",
-            "dest_en": "LOHAS PARK STATION",
-            "dest_tc": "康城站"
-        },
-        {
-            "co": "KMB",
             "route": "298E",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "HANG HAU STATION",
-            "orig_tc": "坑口站",
+            "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "orig_tc": "坑口(北)(將軍澳醫院)",
             "dest_en": "TSEUNG KWAN O INDUSTRIAL ESTATE (CIRCULAR)",
             "dest_tc": "將軍澳工業邨(循環線)"
         },
@@ -18076,20 +18366,10 @@
             "route": "298F",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "HANG HAU STATION",
-            "orig_tc": "坑口站",
+            "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
+            "orig_tc": "坑口(北)(將軍澳醫院)",
             "dest_en": "TSEUNG KWAN O INDUSTRIAL ESTATE (CIRCULAR)",
             "dest_tc": "將軍澳工業邨(循環線)"
-        },
-        {
-            "co": "KMB",
-            "route": "298R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "JORDAN (WUI MAN ROAD)",
-            "orig_tc": "佐敦(匯民道)",
-            "dest_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
-            "dest_tc": "坑口(北)(將軍澳醫院)"
         },
         {
             "co": "KMB",
@@ -18098,28 +18378,18 @@
             "service_type": "1",
             "orig_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
             "orig_tc": "坑口(北)(將軍澳醫院)",
-            "dest_en": "CHEUNG SHA WAN (KOM TSUN STREET)",
-            "dest_tc": "長沙灣(甘泉街)"
+            "dest_en": "MEI FOO",
+            "dest_tc": "美孚"
         },
         {
             "co": "KMB",
             "route": "298X",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "CHEUNG SHA WAN (KOM TSUN STREET)",
-            "orig_tc": "長沙灣(甘泉街)",
+            "orig_en": "MEI FOO",
+            "orig_tc": "美孚",
             "dest_en": "HANG HAU (NORTH) (TSEUNG KWAN O HOSPITAL)",
             "dest_tc": "坑口(北)(將軍澳醫院)"
-        },
-        {
-            "co": "KMB",
-            "route": "R298",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "HONG SING GARDEN",
-            "orig_tc": "康盛花園",
-            "dest_en": "TSIM SHA TSUI EAST (MODY ROAD)",
-            "dest_tc": "尖沙咀東(麼地道)"
         },
         {
             "co": "KMB",
@@ -18264,6 +18534,16 @@
         {
             "co": "KMB",
             "route": "307P",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
+            "dest_en": "CAUSEWAY BAY (TIN HAU)",
+            "dest_tc": "銅鑼灣(天后)"
+        },
+        {
+            "co": "KMB",
+            "route": "307P",
             "bound": "I",
             "service_type": "1",
             "orig_en": "CAUSEWAY BAY (TIN HAU)",
@@ -18273,11 +18553,21 @@
         },
         {
             "co": "KMB",
+            "route": "307P",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "CAUSEWAY BAY (TIN HAU)",
+            "orig_tc": "銅鑼灣(天后)",
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
+        },
+        {
+            "co": "KMB",
             "route": "N307",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TAI PO CENTRAL",
-            "orig_tc": "大埔中心",
+            "orig_en": "TAI WO",
+            "orig_tc": "太和",
             "dest_en": "SHEUNG WAN",
             "dest_tc": "上環"
         },
@@ -18288,18 +18578,8 @@
             "service_type": "1",
             "orig_en": "CENTRAL (MACAU FERRY)",
             "orig_tc": "中環(港澳碼頭)",
-            "dest_en": "TAI PO CENTRAL",
-            "dest_tc": "大埔中心"
-        },
-        {
-            "co": "KMB",
-            "route": "R307",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "TAI PO TING TAI ROAD",
-            "orig_tc": "大埔汀太路",
-            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
-            "dest_tc": "銅鑼灣 (維多利亞公園)"
+            "dest_en": "TAI WO",
+            "dest_tc": "太和"
         },
         {
             "co": "CTB",
@@ -18348,16 +18628,16 @@
             "service_type": "1",
             "orig_en": "Tin Hau Station",
             "orig_tc": "天后站",
-            "dest_en": "Tai Po (Ting Tai Road)",
-            "dest_tc": "大埔 (汀太路)"
+            "dest_en": "Tai Po (Ting Tai Road / Fu Tip)",
+            "dest_tc": "大埔 (汀太路／富蝶)"
         },
         {
             "co": "CTB",
             "route": "307P",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Tai Po (Ting Tai Road)",
-            "orig_tc": "大埔 (汀太路)",
+            "orig_en": "Tai Po (Ting Tai Road / Fu Tip)",
+            "orig_tc": "大埔 (汀太路／富蝶)",
             "dest_en": "Tin Hau Station",
             "dest_tc": "天后站"
         },
@@ -18368,16 +18648,16 @@
             "service_type": "1",
             "orig_en": "Sheung Wan",
             "orig_tc": "上環",
-            "dest_en": "Tai Po Centre",
-            "dest_tc": "大埔中心"
+            "dest_en": "Tai Wo",
+            "dest_tc": "太和"
         },
         {
             "co": "CTB",
             "route": "N307",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Tai Po Centre",
-            "orig_tc": "大埔中心",
+            "orig_en": "Tai Wo",
+            "orig_tc": "太和",
             "dest_en": "Sheung Wan",
             "dest_tc": "上環"
         },
@@ -18422,6 +18702,26 @@
             "dest_tc": "馬灣(珀欣路)"
         },
         {
+            "co": "CTB",
+            "route": "347",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Admiralty (West)",
+            "orig_tc": "金鐘 (西)",
+            "dest_en": "Aberdeen (via Victoria Road)",
+            "dest_tc": "香港仔 (經域多利道)"
+        },
+        {
+            "co": "CTB",
+            "route": "347",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Aberdeen (via Victoria Road)",
+            "orig_tc": "香港仔 (經域多利道)",
+            "dest_en": "Admiralty (West)",
+            "dest_tc": "金鐘 (西)"
+        },
+        {
             "co": "KMB",
             "route": "N368",
             "bound": "O",
@@ -18443,11 +18743,21 @@
         },
         {
             "co": "KMB",
+            "route": "N368",
+            "bound": "I",
+            "service_type": "2",
+            "orig_en": "CENTRAL (MACAU FERRY)",
+            "orig_tc": "中環(港澳碼頭)",
+            "dest_en": "YUEN LONG (WEST)",
+            "dest_tc": "元朗(西)"
+        },
+        {
+            "co": "KMB",
             "route": "373",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "SHEUNG SHUI",
-            "orig_tc": "上水",
+            "orig_en": "FANLING (LUEN WO HUI)",
+            "orig_tc": "粉嶺(聯和墟)",
             "dest_en": "CENTRAL (HONG KONG STATION)",
             "dest_tc": "中環(香港站)"
         },
@@ -18458,8 +18768,8 @@
             "service_type": "1",
             "orig_en": "CENTRAL (HONG KONG STATION)",
             "orig_tc": "中環(香港站)",
-            "dest_en": "SHEUNG SHUI",
-            "dest_tc": "上水"
+            "dest_en": "FANLING (LUEN WO HUI)",
+            "dest_tc": "粉嶺(聯和墟)"
         },
         {
             "co": "KMB",
@@ -18543,6 +18853,66 @@
         },
         {
             "co": "CTB",
+            "route": "580",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "GO PARK Sai Sha",
+            "orig_tc": "西沙GO PARK",
+            "dest_en": "Sha Tin Central",
+            "dest_tc": "沙田市中心"
+        },
+        {
+            "co": "CTB",
+            "route": "580",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Sha Tin Central",
+            "orig_tc": "沙田市中心",
+            "dest_en": "GO PARK Sai Sha",
+            "dest_tc": "西沙GO PARK"
+        },
+        {
+            "co": "CTB",
+            "route": "581",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Sai Sha and Shap Sze Heung",
+            "orig_tc": "西沙及十四鄉",
+            "dest_en": "Ma On Shan Town Centre (Via Wu Kai Sha Station)",
+            "dest_tc": "馬鞍山市中心 (經烏溪沙站)"
+        },
+        {
+            "co": "CTB",
+            "route": "581",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Ma On Shan Town Centre (Via Wu Kai Sha Station)",
+            "orig_tc": "馬鞍山市中心 (經烏溪沙站)",
+            "dest_en": "Sai Sha and Shap Sze Heung",
+            "dest_tc": "西沙及十四鄉"
+        },
+        {
+            "co": "CTB",
+            "route": "582",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Pak Shek Kok (Via University Station)",
+            "orig_tc": "白石角 (經大學站)",
+            "dest_en": "Sai Sha and Shap Sze Heung",
+            "dest_tc": "西沙及十四鄉"
+        },
+        {
+            "co": "CTB",
+            "route": "582",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Sai Sha and Shap Sze Heung",
+            "orig_tc": "西沙及十四鄉",
+            "dest_en": "Pak Shek Kok (Via University Station)",
+            "dest_tc": "白石角 (經大學站)"
+        },
+        {
+            "co": "CTB",
             "route": "592",
             "bound": "O",
             "service_type": "1",
@@ -18568,18 +18938,38 @@
             "service_type": "1",
             "orig_en": "South Horizons",
             "orig_tc": "海怡半島",
-            "dest_en": "Aberdeen",
-            "dest_tc": "香港仔"
+            "dest_en": "Shek Pai Wan (via Aberdeen)",
+            "dest_tc": "石排灣 (經香港仔)"
         },
         {
             "co": "CTB",
             "route": "595",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Aberdeen",
-            "orig_tc": "香港仔",
+            "orig_en": "Shek Pai Wan (via Aberdeen)",
+            "orig_tc": "石排灣 (經香港仔)",
             "dest_en": "South Horizons",
             "dest_tc": "海怡半島"
+        },
+        {
+            "co": "KMB",
+            "route": "600",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "ANDERSON",
+            "orig_tc": "安達臣",
+            "dest_en": "CENTRAL (RUMSEY STREET)",
+            "dest_tc": "中環(林士街)"
+        },
+        {
+            "co": "KMB",
+            "route": "600",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "CENTRAL (RUMSEY STREET)",
+            "orig_tc": "中環(林士街)",
+            "dest_en": "ANDERSON",
+            "dest_tc": "安達臣"
         },
         {
             "co": "KMB",
@@ -18628,6 +19018,16 @@
             "service_type": "1",
             "orig_en": "SHEUNG WAN",
             "orig_tc": "上環",
+            "dest_en": "PO TAT",
+            "dest_tc": "寶達"
+        },
+        {
+            "co": "KMB",
+            "route": "N601",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "ADMIRALTY STATION (EAST)",
+            "orig_tc": "金鐘站(東)",
             "dest_en": "PO TAT",
             "dest_tc": "寶達"
         },
@@ -18730,16 +19130,6 @@
             "orig_tc": "中環(渡輪碼頭)",
             "dest_en": "PING TIN",
             "dest_tc": "平田"
-        },
-        {
-            "co": "KMB",
-            "route": "603R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CENTRAL HARBOURFRONT",
-            "orig_tc": "中環海濱",
-            "dest_en": "ON TAI (WEST) (WO TAI HOUSE)",
-            "dest_tc": "安泰(西)(和泰樓)"
         },
         {
             "co": "KMB",
@@ -18928,16 +19318,16 @@
             "service_type": "1",
             "orig_en": "Siu Sai Wan (Island Resort)",
             "orig_tc": "小西灣 (藍灣半島)",
-            "dest_en": "Kowloon City (Shing Tak Street)",
-            "dest_tc": "九龍城 (盛德街)"
+            "dest_en": "Kai Tak",
+            "dest_tc": "啟德"
         },
         {
             "co": "CTB",
             "route": "608P",
             "bound": "I",
             "service_type": "1",
-            "orig_en": "Kowloon City (Shing Tak Street)",
-            "orig_tc": "九龍城 (盛德街)",
+            "orig_en": "Kai Tak",
+            "orig_tc": "啟德",
             "dest_en": "Siu Sai Wan (Island Resort)",
             "dest_tc": "小西灣 (藍灣半島)"
         },
@@ -19373,26 +19763,6 @@
         },
         {
             "co": "KMB",
-            "route": "N673",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CENTRAL (HONG KONG STATION)",
-            "orig_tc": "中環(香港站)",
-            "dest_en": "SHEUNG SHUI",
-            "dest_tc": "上水"
-        },
-        {
-            "co": "KMB",
-            "route": "R673",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHEUNG SHUI (CHING HO)",
-            "orig_tc": "上水(清河)",
-            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
-            "dest_tc": "銅鑼灣 (維多利亞公園)"
-        },
-        {
-            "co": "KMB",
             "route": "678",
             "bound": "O",
             "service_type": "1",
@@ -19410,16 +19780,6 @@
             "orig_tc": "銅鑼灣(東院道)",
             "dest_en": "SHEUNG SHUI",
             "dest_tc": "上水"
-        },
-        {
-            "co": "KMB",
-            "route": "R678",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "SHEUNG SHUI",
-            "orig_tc": "上水",
-            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
-            "dest_tc": "銅鑼灣 (維多利亞公園)"
         },
         {
             "co": "CTB",
@@ -19550,16 +19910,6 @@
             "orig_tc": "中環(港澳碼頭)",
             "dest_en": "KAM YING COURT",
             "dest_tc": "錦英苑"
-        },
-        {
-            "co": "KMB",
-            "route": "R680",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "KAM YING COURT",
-            "orig_tc": "錦英苑",
-            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
-            "dest_tc": "銅鑼灣 (維多利亞公園)"
         },
         {
             "co": "CTB",
@@ -19702,16 +20052,6 @@
             "dest_tc": "耀安"
         },
         {
-            "co": "KMB",
-            "route": "N681",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "CENTRAL (CENTRAL FERRY PIERS)",
-            "orig_tc": "中環(渡輪碼頭)",
-            "dest_en": "MA ON SHAN TOWN CENTRE",
-            "dest_tc": "馬鞍山市中心"
-        },
-        {
             "co": "CTB",
             "route": "681",
             "bound": "O",
@@ -19810,26 +20150,6 @@
             "orig_tc": "柴灣 (東)",
             "dest_en": "Shui Chuen O Estate",
             "dest_tc": "水泉澳邨"
-        },
-        {
-            "co": "CTB",
-            "route": "682C",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "City One Shatin",
-            "orig_tc": "沙田第一城",
-            "dest_en": "North Point",
-            "dest_tc": "北角"
-        },
-        {
-            "co": "CTB",
-            "route": "682C",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "North Point",
-            "orig_tc": "北角",
-            "dest_en": "City One Shatin",
-            "dest_tc": "沙田第一城"
         },
         {
             "co": "CTB",
@@ -20090,26 +20410,6 @@
             "orig_tc": "旺角",
             "dest_en": "Hoi Ying Estate",
             "dest_tc": "海盈邨"
-        },
-        {
-            "co": "CTB",
-            "route": "701R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Hong Kong Coliseum",
-            "orig_tc": "香港體育館",
-            "dest_en": "So Uk",
-            "dest_tc": "蘇屋"
-        },
-        {
-            "co": "CTB",
-            "route": "701R",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "So Uk",
-            "orig_tc": "蘇屋",
-            "dest_en": "Hong Kong Coliseum",
-            "dest_tc": "香港體育館"
         },
         {
             "co": "CTB",
@@ -20473,26 +20773,6 @@
         },
         {
             "co": "CTB",
-            "route": "795P",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Tseung Kwan O Industrial Estate",
-            "orig_tc": "將軍澳工業邨",
-            "dest_en": "Cheung Sha Wan (Hoi Tat)",
-            "dest_tc": "長沙灣 (海達)"
-        },
-        {
-            "co": "CTB",
-            "route": "795P",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "Cheung Sha Wan (Hoi Tat)",
-            "orig_tc": "長沙灣 (海達)",
-            "dest_en": "Tseung Kwan O Industrial Estate",
-            "dest_tc": "將軍澳工業邨"
-        },
-        {
-            "co": "CTB",
             "route": "795X",
             "bound": "O",
             "service_type": "1",
@@ -20516,8 +20796,8 @@
             "route": "796P",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "LOHAS Park (via: Sheung Tak)",
-            "orig_tc": "日出康城 (經:尚德)",
+            "orig_en": "Tseung Kwan O Station",
+            "orig_tc": "將軍澳站",
             "dest_en": "Tsim Sha Tsui (East)",
             "dest_tc": "尖沙咀(東)"
         },
@@ -20528,8 +20808,8 @@
             "service_type": "1",
             "orig_en": "Tsim Sha Tsui (East)",
             "orig_tc": "尖沙咀(東)",
-            "dest_en": "LOHAS Park (via: Sheung Tak)",
-            "dest_tc": "日出康城 (經:尚德)"
+            "dest_en": "Tseung Kwan O Station",
+            "dest_tc": "將軍澳站"
         },
         {
             "co": "CTB",
@@ -20596,7 +20876,7 @@
             "route": "N796",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Lohas Park",
+            "orig_en": "LOHAS Park",
             "orig_tc": "日出康城",
             "dest_en": "Mongkok (via Tsim Sha Tsui)",
             "dest_tc": "旺角 (經尖沙咀)"
@@ -20608,7 +20888,7 @@
             "service_type": "1",
             "orig_en": "Mongkok (via Tsim Sha Tsui)",
             "orig_tc": "旺角 (經尖沙咀)",
-            "dest_en": "Lohas Park",
+            "dest_en": "LOHAS Park",
             "dest_tc": "日出康城"
         },
         {
@@ -20630,26 +20910,6 @@
             "orig_tc": "新蒲崗",
             "dest_en": "LOHAS Park / Tseung Kwan O Industrial Estate",
             "dest_tc": "日出康城／將軍澳工業邨"
-        },
-        {
-            "co": "CTB",
-            "route": "X797",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Tiu Keng Leng Station",
-            "orig_tc": "調景嶺站",
-            "dest_en": "Fire and Ambulance Services Academy",
-            "dest_tc": "消防及救護學院"
-        },
-        {
-            "co": "CTB",
-            "route": "X797",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "Fire and Ambulance Services Academy",
-            "orig_tc": "消防及救護學院",
-            "dest_en": "Tiu Keng Leng Station",
-            "dest_tc": "調景嶺站"
         },
         {
             "co": "CTB",
@@ -20690,26 +20950,6 @@
             "orig_tc": "沙田站",
             "dest_en": "Tseung Kwan O (Hong Sing Garden)",
             "dest_tc": "將軍澳 (康盛花園)"
-        },
-        {
-            "co": "CTB",
-            "route": "798B",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "LOHAS Park",
-            "orig_tc": "日出康城",
-            "dest_en": "Sha Tin Station",
-            "dest_tc": "沙田站"
-        },
-        {
-            "co": "CTB",
-            "route": "798B",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "Sha Tin Station",
-            "orig_tc": "沙田站",
-            "dest_en": "LOHAS Park",
-            "dest_tc": "日出康城"
         },
         {
             "co": "CTB",
@@ -21046,8 +21286,8 @@
             "route": "907C",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "TAI PO TAU",
-            "orig_tc": "大埔頭",
+            "orig_en": "FU TIP BUS TERMINUS",
+            "orig_tc": "富蝶總站",
             "dest_en": "WAN CHAI (CONVENTION CENTRE)",
             "dest_tc": "灣仔(會展)"
         },
@@ -21058,8 +21298,28 @@
             "service_type": "1",
             "orig_en": "ADMIRALTY STATION",
             "orig_tc": "金鐘站",
-            "dest_en": "TAI PO TAU",
-            "dest_tc": "大埔頭"
+            "dest_en": "FU TIP BUS TERMINUS",
+            "dest_tc": "富蝶總站"
+        },
+        {
+            "co": "KMB",
+            "route": "907D",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "TAI PO (TING TAI ROAD)",
+            "orig_tc": "大埔 (汀太路)",
+            "dest_en": "SIU SAI WAN",
+            "dest_tc": "小西灣"
+        },
+        {
+            "co": "KMB",
+            "route": "907D",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "SIU SAI WAN",
+            "orig_tc": "小西灣",
+            "dest_en": "TAI PO (TING TAI ROAD)",
+            "dest_tc": "大埔 (汀太路)"
         },
         {
             "co": "CTB",
@@ -21086,8 +21346,8 @@
             "route": "907C",
             "bound": "O",
             "service_type": "1",
-            "orig_en": "Tai Po Tau",
-            "orig_tc": "大埔頭",
+            "orig_en": "Tai Po (Fu Tip)",
+            "orig_tc": "大埔 (富蝶)",
             "dest_en": "Wan Chai (HKCEC)",
             "dest_tc": "灣仔 (會議展覽中心)"
         },
@@ -21098,8 +21358,28 @@
             "service_type": "1",
             "orig_en": "Wan Chai (HKCEC)",
             "orig_tc": "灣仔 (會議展覽中心)",
-            "dest_en": "Tai Po Tau",
-            "dest_tc": "大埔頭"
+            "dest_en": "Tai Po (Fu Tip)",
+            "dest_tc": "大埔 (富蝶)"
+        },
+        {
+            "co": "CTB",
+            "route": "907D",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Tai Po (Ting Tai Road)",
+            "orig_tc": "大埔 (汀太路)",
+            "dest_en": "Siu Sai Wan Sports Ground",
+            "dest_tc": "小西灣運動場"
+        },
+        {
+            "co": "CTB",
+            "route": "907D",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Siu Sai Wan Sports Ground",
+            "orig_tc": "小西灣運動場",
+            "dest_en": "Tai Po (Ting Tai Road)",
+            "dest_tc": "大埔 (汀太路)"
         },
         {
             "co": "KMB",
@@ -21483,16 +21763,6 @@
         },
         {
             "co": "KMB",
-            "route": "936R",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "HONG KONG STADIUM",
-            "orig_tc": "香港大球場",
-            "dest_en": "TSUEN WAN (BAYVIEW GARDEN)",
-            "dest_tc": "荃灣(灣景花園)"
-        },
-        {
-            "co": "KMB",
             "route": "R936",
             "bound": "O",
             "service_type": "1",
@@ -21730,26 +22000,6 @@
             "orig_tc": "天后站",
             "dest_en": "Cheung Wang Estate",
             "dest_tc": "長宏邨"
-        },
-        {
-            "co": "CTB",
-            "route": "R948",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "Tsing Yi (Cheung Wang Estate)",
-            "orig_tc": "青衣 (長宏邨)",
-            "dest_en": "Causeway Bay (Victoria Park)",
-            "dest_tc": "銅鑼灣 (維多利亞公園)"
-        },
-        {
-            "co": "CTB",
-            "route": "R948",
-            "bound": "I",
-            "service_type": "1",
-            "orig_en": "Causeway Bay (Victoria Park)",
-            "orig_tc": "銅鑼灣 (維多利亞公園)",
-            "dest_en": "Tsing Yi (Cheung Wang Estate)",
-            "dest_tc": "青衣 (長宏邨)"
         },
         {
             "co": "CTB",
@@ -22102,6 +22352,16 @@
             "dest_tc": "銅鑼灣(維園)"
         },
         {
+            "co": "KMB",
+            "route": "961S",
+            "bound": "O",
+            "service_type": "2",
+            "orig_en": "TUEN MUN (LEUNG KING ESTATE)",
+            "orig_tc": "屯門(良景邨)",
+            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
+            "dest_tc": "銅鑼灣(維園)"
+        },
+        {
             "co": "CTB",
             "route": "962",
             "bound": "O",
@@ -22333,6 +22593,16 @@
         },
         {
             "co": "KMB",
+            "route": "968",
+            "bound": "I",
+            "service_type": "3",
+            "orig_en": "FLEMING ROAD",
+            "orig_tc": "菲林明道",
+            "dest_en": "YUEN LONG (WEST)",
+            "dest_tc": "元朗(西)"
+        },
+        {
+            "co": "KMB",
             "route": "968A",
             "bound": "O",
             "service_type": "1",
@@ -22390,16 +22660,6 @@
             "orig_tc": "銅鑼灣(天后)",
             "dest_en": "YUEN LONG (WEST)",
             "dest_tc": "元朗(西)"
-        },
-        {
-            "co": "KMB",
-            "route": "R968",
-            "bound": "O",
-            "service_type": "1",
-            "orig_en": "YUEN LONG (FUNG CHEUNG ROAD)",
-            "orig_tc": "元朗(鳳翔路)",
-            "dest_en": "CAUSEWAY BAY (VICTORIA PARK)",
-            "dest_tc": "銅鑼灣(維多利亞公園)"
         },
         {
             "co": "CTB",
@@ -22640,6 +22900,26 @@
             "orig_tc": "海麗邨",
             "dest_en": "Aberdeen (Shek Pai Wan)",
             "dest_tc": "香港仔 (石排灣)"
+        },
+        {
+            "co": "CTB",
+            "route": "971R",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Cyberport  (via Victoria Road)",
+            "orig_tc": "數碼港 (經域多利道)",
+            "dest_en": "Mong Kok",
+            "dest_tc": "旺角"
+        },
+        {
+            "co": "CTB",
+            "route": "971R",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Mong Kok",
+            "orig_tc": "旺角",
+            "dest_en": "Cyberport  (via Victoria Road)",
+            "dest_tc": "數碼港 (經域多利道)"
         },
         {
             "co": "CTB",
@@ -23070,6 +23350,26 @@
             "orig_tc": "西灣河",
             "dest_en": "Sha Tin Wai",
             "dest_tc": "沙田圍"
+        },
+        {
+            "co": "CTB",
+            "route": "987",
+            "bound": "O",
+            "service_type": "1",
+            "orig_en": "Sai Wan Ho",
+            "orig_tc": "西灣河",
+            "dest_en": "Fo Tan (Chun Yeung Estate)",
+            "dest_tc": "火炭(駿洋邨)"
+        },
+        {
+            "co": "CTB",
+            "route": "987",
+            "bound": "I",
+            "service_type": "1",
+            "orig_en": "Fo Tan (Chun Yeung Estate)",
+            "orig_tc": "火炭(駿洋邨)",
+            "dest_en": "Sai Wan Ho",
+            "dest_tc": "西灣河"
         },
         {
             "co": "CTB",

@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Flex, Text, Heading, Tooltip, Separator } from "@radix-ui/themes";
 import Loading from "../../../loading/loading";
-import api_config from "../../../../res/json/api_config.json";
+import { get_eta } from "../../../../utils/busUtils";
 
 export default function ETA({ co, route, bound, service, stop }) {
     const [loading, setLoading] = useState(true);
     const [etaData, setEtaData] = useState([]);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(false)
 
     const now = new Date();
     const hr = now.getHours().toString().padStart(2, "0");
@@ -14,35 +14,7 @@ export default function ETA({ co, route, bound, service, stop }) {
     const sec = now.getSeconds().toString().padStart(2, "0");
     const time = `${hr}:${min}:${sec}`;
 
-    const get_eta = async (co, route, service, stop) => {
-        console.count("CALLED get_eta");
-        try {
-            const api =
-                api_config.data.find(
-                    (item) => item.co.toLowerCase() === co.toLowerCase(),
-                ) ?? {};
-
-            const url = `${api["base_url"]}${api["api"]["eta"]}${stop.toUpperCase()}/${route.toUpperCase()}/`;
-            const s = co.toLowerCase() === "kmb" ? service : "";
-
-            console.count(url + s);
-
-            const response = await fetch(url + s);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const result = await response.json();
-            // console.log(result);
-            return result.data;
-        } catch (error) {
-            console.error("ERROR: fetching stop data. Info:", error);
-            setError(true);
-        }
-    };
-
     const get_filtered_eta_data = useCallback(async (isMounted) => {
-        console.count("CALLED get_filtered_eta_data");
         try {
             const data = await get_eta(co, route, service, stop);
             if (isMounted) {
@@ -57,6 +29,7 @@ export default function ETA({ co, route, bound, service, stop }) {
                     );
                 }
                 setLoading(false);
+                setError(false)
             }
         } catch (error) {
             if (isMounted) {
@@ -65,7 +38,7 @@ export default function ETA({ co, route, bound, service, stop }) {
                     error,
                 );
                 setLoading(false);
-                setError(true);
+                setError(true)
             }
         }
     }, [bound, co, route, service, stop]);

@@ -28,28 +28,3 @@
 #loading {
     margin: 5em auto;
 }
-
-
-/* #icon-sync {
-    font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
-    font-size: 5rem;
-    padding-top: 0.825rem;
-    padding-bottom: 0.275rem;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    background-color: transparent;
-    margin: 5rem auto;
-    animation-name: rotate;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(-360deg);
-    }
-} */

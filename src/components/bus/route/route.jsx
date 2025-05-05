@@ -39,10 +39,10 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
                 setLoading(false);
 
                 if (stop) {
-                    console.log("scrolling");
+                    console.log("scrolling...");
                     scrollToElement(stop);
                 } else {
-                    console.log("finding");
+                    console.log("finding the closest stop...");
                     findClosestStop(namesObject);
                 }
             } catch (error) {

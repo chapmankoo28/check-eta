@@ -59,8 +59,8 @@ For the latest information, please visit their official website above.
 -   ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.
     ETA 每三十秒自動更新一次，亦可以手動取得最新的 ETA
 
-## Acknowledgments
+## Built With
 
--   [data.gov.hk(資料一線通)](https://data.gov.hk/)
+-   [Material Design Icons](https://fonts.google.com/icons)
 -   [Radix UI](https://www.radix-ui.com/)
 -   [React](https://react.dev/)

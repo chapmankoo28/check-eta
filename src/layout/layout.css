@@ -1,0 +1,162 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.border {
+    /* FOR DEBUG */
+    border: 1px solid red;
+}
+
+@media (max-width: 500px) {
+    #main-container {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+/* For PCs */
+
+@media (min-width: 1024px) {
+    #main-container {
+        width: 600px;
+        margin: auto;
+    }
+}
+
+.icon-refresh[state="loading"] {
+    animation: rotate 1s infinite cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.AvatarRoot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+    user-select: none;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 18px;
+}
+
+.AvatarFallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: 500;
+}
+
+button,
+h3 {
+    all: unset;
+}
+
+.AccordionRoot {
+    width: 97%;
+}
+
+.AccordionTrigger {
+    width: 100%;
+}
+
+.AccordionCard,
+.AccordionItem {
+    cursor: pointer;
+}
+
+.AccordionItem:hover {
+    border-radius: var(--radius-4);
+    background-color: var(--gray-3);
+}
+
+.AccordionContent {
+    overflow: hidden;
+}
+
+.AccordionContent[data-state="open"] {
+    animation: slideDown 300ms cubic-bezier(1, 0, 0, 1);
+}
+
+.AccordionContent[data-state="closed"] {
+    animation: slideUp 300ms cubic-bezier(1, 0, 0, 1);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+
+.AccordionTrigger[data-state="open"]>.AccordionTriggerContent>.icon-chevron {
+    transform: rotate(180deg);
+}
+
+@keyframes slideDown {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+.eta-min {
+    font-variation-settings: "wght" 600, "wdth" 50;
+}
+
+.icon-chevron {
+    font-size: 2rem;
+    transition: transform 300ms cubic-bezier(1, 0, 0, 1);
+    padding: 10px;
+    border-radius: 18px;
+    user-select: none;
+}
+
+.icon-chevron:hover {
+    background-color: var(--gray-5);
+}
+
+.icon-refresh {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 18px;
+    user-select: none;
+}
+
+.icon-refresh:hover {
+    background-color: var(--gray-5);
+}
+
+.stop-seq {
+    font-variation-settings: "wght" 600, "wdth" 50;
+}

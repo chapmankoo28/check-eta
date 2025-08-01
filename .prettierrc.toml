@@ -1,8 +1,0 @@
-"trailingComma" = "es5"
-"printWidth" = 100
-"semi" = true
-"useTabs" = false
-"tabWidth" = 2
-"singleQuote" = true
-"arrowParens" = "always"
-"plugins" = ["prettier-plugin-organize-imports"]

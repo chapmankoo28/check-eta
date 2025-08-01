@@ -5,7 +5,8 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "esModuleInterop": true
   },
   "include": ["vite.config.js"]
 }

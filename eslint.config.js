@@ -1,48 +1,48 @@
-import pluginJs from '@eslint/js';
-import googleConfig from 'eslint-config-google';
+import eslintReact from '@eslint-react/eslint-plugin';
+import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import pluginReact from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import { customRules } from './eslint.custom.js';
 
-export default [
-  { ignores: ['node_modules/', 'dist/'] },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
-      parserOptions: {
-        ecmaFeatures: { jsx: true },
-      },
-    },
-  },
-  pluginJs.configs.recommended,
+export default tseslint.config(
+  { ignores: ['**/node_modules/*', '**/dist/*'] },
+  eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintReact.configs.recommended,
   {
-    ...pluginReact.configs.flat.recommended,
-    rules: {
-      ...pluginReact.configs.flat.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
+    plugins: {
+      'react-hooks': reactHooks
     },
-    settings: {
-      react: {
-        version: 'detect',
+    rules: {
+      ...reactHooks.configs['recommended-latest'].rules
+    }
+  },
+  {
+    files: ['src/**/*.{js,jsx}'],
+    languageOptions: {
+      parserOptions: {
+        project: true,
       },
-    },
+      globals: {
+        ...globals.browser
+      }
+    }
   },
-  googleConfig,
-  {
-    // override google config
-    rules: {
-      'require-jsdoc': 'off',
-      'valid-jsdoc': 'off',
-      'new-cap': 'off',
-      'max-len': ['error', { code: 100 }],
-    },
-  },
-  eslintConfigPrettier,
-];
+  ...tseslint.config({
+    files: ['src/**/*.{ts,tsx}'],
+    extends: tseslint.configs.strictTypeChecked,
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname
+      },
+      globals: {
+        ...globals.browser
+      }
+    }
+  }),
+  ...customRules,
+  eslintConfigPrettier
+);

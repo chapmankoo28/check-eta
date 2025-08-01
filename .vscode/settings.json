@@ -5,7 +5,5 @@
       "mode": "auto"
     }
   ],
-  "[toml]": {
-    "editor.defaultFormatter": "tamasfe.even-better-toml"
-  }
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

@@ -16,12 +16,12 @@ export default function Banner({ type, setSearchParams }) {
                 </Flex>
               </a>
             </Tooltip>
-            <button onClick={() => setSearchParams({ type: 'bus' })}>
+            <button type='button' onClick={() => setSearchParams({ type: 'bus' })}>
               <Text className={type === 'bus' ? 'active' : ''} id="nav-bus">
                 🚍巴士
               </Text>
             </button>
-            <button onClick={() => setSearchParams({ type: 'metro' })}>
+            <button type='button' onClick={() => setSearchParams({ type: 'metro' })}>
               <Text className={type === 'metro' ? 'active' : ''} id="nav-metro">
                 🚇鐡路
               </Text>

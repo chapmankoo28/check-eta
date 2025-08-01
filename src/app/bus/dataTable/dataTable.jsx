@@ -7,8 +7,8 @@ import './dataTable.css';
 
 const filteredRoutes = (q) => {
   const Q_ROUTE_REGEX = /^[^0-9a-zA-Z]+$/g;
-
-  if (q.length === 0 || Q_ROUTE_REGEX.test(q)) return [];
+  
+  if (q.trim().length === 0 || Q_ROUTE_REGEX.test(q)) return [];
   return allRoutesData['data'].filter((i) => {
     return i.route.toLowerCase().includes(q);
   });
@@ -25,10 +25,10 @@ export default function DataTable({ q, setSearchParams }) {
       {routes.length > 0 ? (
         <>
           <Flex direction="column" gap="3" align="center">
-            {routes.map((i, count) => (
+            {routes.map((i) => (
               <Card
                 className="bus-data-card"
-                key={'route' + count + i.route}
+                key={`route-${i.co}-${i.route}-${i.bound}-${i.service_type}`}
                 onClick={() => {
                   setSearchParams(
                     {
@@ -36,7 +36,7 @@ export default function DataTable({ q, setSearchParams }) {
                       co: i.co,
                       route: i.route,
                       bound: i.bound,
-                      service: i.service_type,
+                      service: i.service_type
                     },
                     { replace: false }
                   );

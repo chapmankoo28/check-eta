@@ -34,16 +34,16 @@ export default function Line({ line, dir, station, setSearchParams }) {
 
         <Accordion.Root type="single" className="AccordionRoot" defaultValue={station}>
           <Flex mt="5" direction="column" gap="3" justify="center">
-            {nowLine[dir].map((i, count) => (
+            {nowLine[dir].map((i) => (
               <Accordion.Item
                 id={i['Station Code']}
                 className="AccordionItem"
                 value={i['Station Code']}
-                key={'stop' + i['Station Code'] + count}
+                key={'stop' + i['Station Code']}
               >
                 <Card
                   className="AccordionCard"
-                  key={'stop' + i['Station Code'] + count}
+                  key={'stop' + i['Station Code']}
                   onClick={() => {
                     setSearchParams(
                       { type: 'metro', line: i['Line Code'], dir: dir, station: i['Station Code'] },

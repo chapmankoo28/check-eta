@@ -33,7 +33,7 @@ export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
             </div>
 
             <Tooltip content="調轉方向">
-              <button onClick={handleSwapBound}>
+              <button type='button' onClick={handleSwapBound}>
                 <IconSwap status={rotate ? 'loading' : ''} />
               </button>
             </Tooltip>

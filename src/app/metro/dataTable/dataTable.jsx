@@ -9,10 +9,10 @@ export default function DataTable({ setSearchParams }) {
   return (
     <>
       <Flex direction="column" gap="3" align="center">
-        {lines.map((i, index) => {
+        {lines.map((i) => {
           return (
             <Card
-              key={'Line' + i['Station ID'] + index}
+              key={`Line-${i['Line Code']}`}
               className="metro-data-card"
               onClick={() => {
                 setSearchParams(

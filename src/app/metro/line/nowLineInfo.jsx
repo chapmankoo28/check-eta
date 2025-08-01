@@ -31,7 +31,7 @@ export default function NowLineInfo({ dir, setSearchParams, now_line: nowLine })
           <Text size="5">{nowLine[dir][nowLine[dir].length - 1]['Chinese Name']}</Text>
         </Flex>
         <Tooltip content="切換方向">
-          <button onClick={handleSwapBound}>
+          <button type='button' onClick={handleSwapBound}>
             <IconSwap state={rotate ? 'loading' : ''} />
           </button>
         </Tooltip>

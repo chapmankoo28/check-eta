@@ -86,24 +86,20 @@ export default function ETA({ co, route, bound, service, stop }) {
 
     let hasShownNoSchedule = false;
 
-    return etaData.map((i, count) => {
+    return etaData.map((i) => {
       if (!i.eta && i.rmk_tc) {
         return (
-          <Heading key={`rmk-${count}`} size="5" weight="light" m="auto" align="center">
+          <Heading key={`rmk-${i.seq}`} size="5" weight="light" m="auto" align="center">
             {i.rmk_tc}
           </Heading>
         );
       } else if (i.eta) {
         const etaInMin = Math.ceil((new Date(i.eta) - now) / 1000 / 60);
         return (
-          <React.Fragment key={`eta-${i.seq}-${count}-${i.eta_seq}`}>
-            <Separator
-              key={`separator-${count}-${i.seq}-${i.eta_seq}`}
-              orientation="horizontal"
-              size="4"
-            />
+          <React.Fragment key={`eta-${i.seq}-${i.eta_seq}`}>
+            <Separator key={`separator-${i.seq}-${i.eta_seq}`} orientation="horizontal" size="4" />
             <Flex
-              key={`eta_flex-${i.seq}-${count}`}
+              key={`eta_flex-${i.seq}`}
               direction="row"
               gap="3"
               justify="between"
@@ -130,7 +126,7 @@ export default function ETA({ co, route, bound, service, stop }) {
       } else if (!hasShownNoSchedule) {
         hasShownNoSchedule = true;
         return (
-          <Heading key={`no-schedule-${count}`} size="5" weight="light" m="auto" align="center">
+          <Heading key={`no-schedule`} size="5" weight="light" m="auto" align="center">
             暫無班次
           </Heading>
         );
@@ -145,7 +141,7 @@ export default function ETA({ co, route, bound, service, stop }) {
       <Flex gap="2" justify="between" align="center" mt="5" mb="1">
         <Text>最後更新時間：{time}</Text>
         <Tooltip content="更新" key={'updated_time'}>
-          <button onClick={getFilteredEtaData}>
+          <button type='button' onClick={getFilteredEtaData}>
             <IconRefresh />
           </button>
         </Tooltip>

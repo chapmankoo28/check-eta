@@ -2,7 +2,7 @@ import { IconRefresh } from '@/components/icon/icon-refresh';
 import Loading from '@/components/loading/loading';
 import apiConfig from '@/res/json/api_config.json';
 import { Flex, Heading, Separator, Text, Tooltip } from '@radix-ui/themes';
-import { useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 
 export default function ETA({ line, dir, station, now_line: nowLine }) {
   const [loading, setLoading] = useState(true);
@@ -40,23 +40,26 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
     }
   };
 
-  const getFilteredEtaData = async (isMounted) => {
-    const DIR_MAP = { DT: 'DOWN', UT: 'UP' };
-    try {
-      const data = await getEta(line, station);
-      if (isMounted) {
-        const eta = data[DIR_MAP[dir]] ?? [];
-        setEtaData(eta);
-        setLoading(false);
+  const getFilteredEtaData = useCallback(
+    async (isMounted) => {
+      const DIR_MAP = { DT: 'DOWN', UT: 'UP' };
+      try {
+        const data = await getEta(line, station);
+        if (isMounted) {
+          const eta = data[DIR_MAP[dir]] ?? [];
+          setEtaData(eta);
+          setLoading(false);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error('ERROR: fetching filtered eta data. Info:', error);
+          setLoading(false);
+          setError(true);
+        }
       }
-    } catch (error) {
-      if (isMounted) {
-        console.error('ERROR: fetching filtered eta data. Info:', error);
-        setLoading(false);
-        setError(true);
-      }
-    }
-  };
+    },
+    [line, dir, station]
+  );
 
   const getStationName = (line, dir, station) => {
     console.log('CALLED get_station_name', line, dir, station);
@@ -87,14 +90,14 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
       clearInterval(interval);
       isMounted = false;
     };
-  }, [line, dir, station]);
+  }, [line, dir, station, getFilteredEtaData]);
 
   return (
     <Flex direction="column" gap="2">
       <Flex gap="2" justify="between" align="center" mt="5" mb="1">
         <Text>最後更新時間：{time} </Text>
         <Tooltip content="更新">
-          <button onClick={getFilteredEtaData}>
+          <button type="button" onClick={getFilteredEtaData}>
             <IconRefresh state={loading ? 'loading' : 'done'} />
           </button>
         </Tooltip>
@@ -104,17 +107,11 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
         {loading ? (
           <Loading />
         ) : etaData.length > 0 ? (
-          etaData.map((i, count) => {
+          etaData.map((i) => {
             return (
-              <>
-                <Separator key={'separator' + count + i.seq} orientation="horizontal" size="4" />
-                <Flex
-                  key={'eta' + count + i.seq}
-                  direction="row"
-                  gap="3"
-                  justify="between"
-                  align="center"
-                >
+              <Fragment key={i.seq}>
+                <Separator key={'separator' + i.seq} orientation="horizontal" size="4" />
+                <Flex key={'eta' + i.seq} direction="row" gap="3" justify="between" align="center">
                   <Flex direction="column" gap="1" align="start">
                     <Flex gap="1" align="baseline">
                       <Text size="2">往</Text>
@@ -140,7 +137,7 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
                     {i.ttnt > 1 && <Text>分鐘</Text>}
                   </Flex>
                 </Flex>
-              </>
+              </Fragment>
             );
           })
         ) : (

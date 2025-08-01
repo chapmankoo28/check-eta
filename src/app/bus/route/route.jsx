@@ -8,7 +8,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import * as Avatar from '@radix-ui/react-avatar';
 import { Card, Flex, Text } from '@radix-ui/themes';
 import L from 'leaflet';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 export default function Route({ co, route, bound, service, stop, setSearchParams }) {
   const [stopData, setStopData] = useState([]);
@@ -61,7 +61,7 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
         if (element) {
           element.scrollIntoView({
             behavior: 'smooth',
-            block: 'center',
+            block: 'center'
           });
           console.log('Scrolled to stop:', elementId);
         } else {
@@ -137,7 +137,7 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
         {
           enableHighAccuracy: true,
           timeout: 10000,
-          maximumAge: 0,
+          maximumAge: 0
         }
       );
     };
@@ -147,7 +147,7 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
     return () => {
       abortController.abort();
     };
-  }, [co, route, bound, service, getRouteInfo, getStopList, getStopData]);
+  }, [co, route, bound, service]);
 
   return (
     <>
@@ -179,12 +179,11 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
                   </Text>
                 ) : (
                   <>
-                    {stopData.map((i, count) => (
-                      <>
+                    {stopData.map((i) => (
+                      <Fragment key={`${i.stop}-${i.seq}-${i.service_type}`}>
                         <Accordion.Item id={i.stop} className="AccordionItem" value={i.stop}>
                           <Card
                             className="AccordionCard"
-                            key={'stop' + i.stop + count}
                             onClick={() => {
                               setSearchParams(
                                 (prev) => {
@@ -232,7 +231,7 @@ export default function Route({ co, route, bound, service, stop, setSearchParams
                             </Accordion.Content>
                           </Card>
                         </Accordion.Item>
-                      </>
+                      </Fragment>
                     ))}
                   </>
                 )}

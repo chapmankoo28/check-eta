@@ -1,16 +1,16 @@
-import { Flex, Heading } from '@radix-ui/themes';
-import { useSearchParams } from 'react-router-dom';
-import DataTable from './dataTable/dataTable';
-import Line from './line/line';
-import './metro.css';
+import { Flex, Heading } from '@radix-ui/themes'
+import { useSearchParams } from 'react-router-dom'
+import DataTable from './dataTable/dataTable'
+import Line from './line/line'
+import './metro.css'
 
 export default function Metro() {
-  const [searchParams, setSearchParams] = useSearchParams({ line: '', dir: '', station: '' });
-  const line = searchParams.get('line')?.trim() ?? '';
-  const dir = searchParams.get('dir')?.trim() ?? '';
-  const station = searchParams.get('station')?.trim() ?? '';
+  const [searchParams, setSearchParams] = useSearchParams({ line: '', dir: '', station: '' })
+  const line = searchParams.get('line')?.trim() ?? ''
+  const dir = searchParams.get('dir')?.trim() ?? ''
+  const station = searchParams.get('station')?.trim() ?? ''
 
-  const isSelectedLine = line ? true : false;
+  const isSelectedLine = !!line
 
   return (
     <>
@@ -26,5 +26,5 @@ export default function Metro() {
         </Flex>
       )}
     </>
-  );
+  )
 }

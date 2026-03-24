@@ -1,4 +1,4 @@
-import { Icon } from './icon';
+import { Icon } from './icon'
 
 export function IconClose({ size = 32, rotate }) {
   return (
@@ -10,5 +10,5 @@ export function IconClose({ size = 32, rotate }) {
         'm256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z'
       }
     />
-  );
+  )
 }

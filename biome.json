@@ -18,11 +18,11 @@
     "rules": {
       "recommended": true,
       "style": {
+        "useBlockStatements": "warn",
         "useConsistentMemberAccessibility": "error",
         "useConsistentArrayType": "error",
         "noInferrableTypes": "error",
         "noNamespace": "error",
-        "useBlockStatements": "error",
         "useConsistentObjectDefinitions": "warn",
         "useNamingConvention": {
           "level": "error",

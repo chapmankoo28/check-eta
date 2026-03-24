@@ -1,96 +1,98 @@
-import { IconRefresh } from '@/components/icon/icon-refresh';
-import Loading from '@/components/loading/loading';
-import apiConfig from '@/res/json/api_config.json';
-import { Flex, Heading, Separator, Text, Tooltip } from '@radix-ui/themes';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { IconRefresh } from '@/components/icon/icon-refresh'
+import Loading from '@/components/loading/loading'
+import apiConfig from '@/res/json/api_config.json'
+import { Flex, Heading, Separator, Text, Tooltip } from '@radix-ui/themes'
+import { Fragment, useEffect, useState } from 'react'
 
 export default function ETA({ line, dir, station, now_line: nowLine }) {
-  const [loading, setLoading] = useState(true);
-  const [etaData, setEtaData] = useState([]);
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true)
+  const [etaData, setEtaData] = useState([])
+  const [error, setError] = useState(false)
 
-  const now = new Date();
-  const hr = now.getHours().toString().padStart(2, '0');
-  const min = now.getMinutes().toString().padStart(2, '0');
-  const sec = now.getSeconds().toString().padStart(2, '0');
-  const time = `${hr}:${min}:${sec}`;
+  const now = new Date()
+  const hr = now.getHours().toString().padStart(2, '0')
+  const min = now.getMinutes().toString().padStart(2, '0')
+  const sec = now.getSeconds().toString().padStart(2, '0')
+  const time = `${hr}:${min}:${sec}`
 
   const getEta = async (line, station) => {
-    if (!line || !station) return {};
+    if (!line || !station) {
+      return {}
+    }
     try {
       const api =
         apiConfig.data.find((i) => {
-          return i.co.toUpperCase() === 'MTR';
-        }) ?? {};
+          return i.co.toUpperCase() === 'MTR'
+        }) ?? {}
 
-      const url = `${api['base_url']}${api['api']['line']}${line}&${api['api']['sta']}${station}&${api['api']['lang']}TC/`;
+      const url = `${api.base_url}${api.api.line}${line}&${api.api.sta}${station}&${api.api.lang}TC/`
 
-      const response = await fetch(url);
+      const response = await fetch(url)
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status}`)
       }
 
-      const result = await response.json();
+      const result = await response.json()
       // console.log(result.data[`${line}-${station}`]);
-      return result.data[`${line}-${station}`];
+      return result.data[`${line}-${station}`]
     } catch (error) {
-      console.error('ERROR: fetching stop data. Info:', error);
-      setError(true);
+      console.error('ERROR: fetching stop data. Info:', error)
+      setError(true)
     }
-  };
+  }
 
-  const getFilteredEtaData = useCallback(
-    async (isMounted) => {
-      const DIR_MAP = { DT: 'DOWN', UT: 'UP' };
-      try {
-        const data = await getEta(line, station);
-        if (isMounted) {
-          const eta = data[DIR_MAP[dir]] ?? [];
-          setEtaData(eta);
-          setLoading(false);
-        }
-      } catch (error) {
-        if (isMounted) {
-          console.error('ERROR: fetching filtered eta data. Info:', error);
-          setLoading(false);
-          setError(true);
-        }
+  const getFilteredEtaData = async (isMounted) => {
+    const dirMap = { dt: 'DOWN', ut: 'UP' }
+    try {
+      const data = await getEta(line, station)
+      if (isMounted) {
+        const eta = data[dirMap[dir]] ?? []
+        setEtaData(eta)
+        setLoading(false)
       }
-    },
-    [line, dir, station]
-  );
+    } catch (error) {
+      if (isMounted) {
+        console.error('ERROR: fetching filtered eta data. Info:', error)
+        setLoading(false)
+        setError(true)
+      }
+    }
+  }
 
   const getStationName = (line, dir, station) => {
-    console.log('CALLED get_station_name', line, dir, station);
-    if (!line || !dir || !station) return '';
+    console.log('CALLED get_station_name', line, dir, station)
+    if (!line || !dir || !station) {
+      return ''
+    }
     if (line === 'EAL' && station === 'LMC') {
       const res =
         nowLine['LMC-' + dir].find((i) => {
-          return i['Station Code'] === station;
-        })['Chinese Name'] ?? 'NOT FOUND';
-      return res;
+          return i['Station Code'] === station
+        })['Chinese Name'] ?? 'NOT FOUND'
+      return res
     }
 
     const res =
       nowLine[dir].find((i) => {
-        return i['Station Code'] === station;
-      })['Chinese Name'] ?? 'NOT FOUND';
+        return i['Station Code'] === station
+      })['Chinese Name'] ?? 'NOT FOUND'
 
-    return res;
-  };
+    return res
+  }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we want update every 30s, also every time line/dir/station changes
   useEffect(() => {
-    let isMounted = true;
-    setLoading(true);
-    getFilteredEtaData(isMounted);
-    const interval = setInterval(() => getFilteredEtaData(isMounted), 30000);
+    let isMounted = true
+    setLoading(true)
+    getFilteredEtaData(isMounted)
+    const interval = setInterval(() => getFilteredEtaData(isMounted), 30000)
 
     return () => {
-      clearInterval(interval);
-      isMounted = false;
-    };
-  }, [line, dir, station, getFilteredEtaData]);
+      clearInterval(interval)
+      isMounted = false
+    }
+  }, [line, dir, station])
 
   return (
     <Flex direction="column" gap="2">
@@ -110,8 +112,8 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
           etaData.map((i) => {
             return (
               <Fragment key={i.seq}>
-                <Separator key={'separator' + i.seq} orientation="horizontal" size="4" />
-                <Flex key={'eta' + i.seq} direction="row" gap="3" justify="between" align="center">
+                <Separator key={`separator${i.seq}`} orientation="horizontal" size="4" />
+                <Flex key={`eta${i.seq}`} direction="row" gap="3" justify="between" align="center">
                   <Flex direction="column" gap="1" align="start">
                     <Flex gap="1" align="baseline">
                       <Text size="2">往</Text>
@@ -138,7 +140,7 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
                   </Flex>
                 </Flex>
               </Fragment>
-            );
+            )
           })
         ) : (
           <Heading size="5" weight="light" mt="5" mb="5" m="auto" align="center">
@@ -147,5 +149,5 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
         )}
       </Flex>
     </Flex>
-  );
+  )
 }

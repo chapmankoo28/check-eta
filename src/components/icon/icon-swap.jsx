@@ -1,4 +1,4 @@
-import { Icon } from './icon';
+import { Icon } from './icon'
 
 export function IconSwap({ size = 48, color = '#adadad', status = '' }) {
   return (
@@ -11,5 +11,5 @@ export function IconSwap({ size = 48, color = '#adadad', status = '' }) {
       size={size}
       color={color}
     />
-  );
+  )
 }

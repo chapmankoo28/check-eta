@@ -20,7 +20,8 @@ export function Icon({
       height={size}
       viewBox="0 -960 960 960"
     >
+      <title>An icon</title>
       <path d={path} />
     </svg>
-  );
+  )
 }

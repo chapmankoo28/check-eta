@@ -1,26 +1,26 @@
-import { IconOpenInNew } from '@/components/icon/icon-open-in-new';
-import { IconSwap } from '@/components/icon/icon-swap';
-import { Flex, Heading, Tooltip } from '@radix-ui/themes';
-import { useState } from 'react';
-import './nowRouteInfo.css';
+import { IconOpenInNew } from '@/components/icon/icon-open-in-new'
+import { IconSwap } from '@/components/icon/icon-swap'
+import { Flex, Heading, Tooltip } from '@radix-ui/themes'
+import { useState } from 'react'
+import './nowRouteInfo.css'
 
 export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
-  const [rotate, setRotate] = useState(false);
+  const [rotate, setRotate] = useState(false)
 
   const handleSwapBound = () => {
     setSearchParams(
       (prev) => {
-        prev.set('bound', prev.get('bound') === 'O' ? 'I' : 'O');
-        return prev;
+        prev.set('bound', prev.get('bound') === 'O' ? 'I' : 'O')
+        return prev
       },
       { replace: true }
-    );
-    setRotate(true);
+    )
+    setRotate(true)
     setTimeout(() => {
       // The timeout should match the animation duration
-      setRotate(false);
-    }, 500);
-  };
+      setRotate(false)
+    }, 500)
+  }
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
             </div>
 
             <Tooltip content="調轉方向">
-              <button type='button' onClick={handleSwapBound}>
+              <button type="button" onClick={handleSwapBound}>
                 <IconSwap status={rotate ? 'loading' : ''} />
               </button>
             </Tooltip>
@@ -42,8 +42,8 @@ export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
             target="_blank"
             href={
               co === 'KMB'
-                ? 'https://search.kmb.hk/KMBWebSite/?action=routesearch&route=' + route
-                : 'https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=' + route
+                ? `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=${route}`
+                : `https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=${route}`
             }
             rel="noreferrer"
           >
@@ -54,10 +54,8 @@ export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
           </a>
         </>
       ) : (
-        <>
-          <Heading id="now-route-dest">搵唔到呢條線……</Heading>
-        </>
+        <Heading id="now-route-dest">搵唔到呢條線……</Heading>
       )}
     </>
-  );
+  )
 }

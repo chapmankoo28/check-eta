@@ -1,35 +1,35 @@
 {
-    "timestamp": "2024-01-14T16:31:24+08:00",
-    "data": [
-        {
-            "co": "CTB",
-            "base_url": "https://rt.data.gov.hk/v2/transport/citybus/",
-            "api": {
-                "company": "company/CTB/",
-                "route": "route/CTB/",
-                "stop": "stop/",
-                "route-stop": "route-stop/CTB/",
-                "eta": "eta/CTB/"
-            }
-        },
-        {
-            "co": "KMB",
-            "base_url": "https://data.etabus.gov.hk/v1/transport/kmb/",
-            "api": {
-                "route": "route/",
-                "stop": "stop/",
-                "route-stop": "route-stop/",
-                "eta": "eta/"
-            }
-        },
-        {
-            "co": "MTR",
-            "base_url": " https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?",
-            "api": {
-                "line": "line=",
-                "sta": "sta=",
-                "lang": "lang="
-            }
-        }
-    ]
+  "timestamp": "2024-01-14T16:31:24+08:00",
+  "data": [
+    {
+      "co": "CTB",
+      "base_url": "https://rt.data.gov.hk/v2/transport/citybus/",
+      "api": {
+        "company": "company/CTB/",
+        "route": "route/CTB/",
+        "stop": "stop/",
+        "route-stop": "route-stop/CTB/",
+        "eta": "eta/CTB/"
+      }
+    },
+    {
+      "co": "KMB",
+      "base_url": "https://data.etabus.gov.hk/v1/transport/kmb/",
+      "api": {
+        "route": "route/",
+        "stop": "stop/",
+        "route-stop": "route-stop/",
+        "eta": "eta/"
+      }
+    },
+    {
+      "co": "MTR",
+      "base_url": " https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?",
+      "api": {
+        "line": "line=",
+        "sta": "sta=",
+        "lang": "lang="
+      }
+    }
+  ]
 }

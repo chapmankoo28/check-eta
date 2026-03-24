@@ -1,37 +1,37 @@
-import { IconClose } from '@/components/icon/icon-close';
-import { IconButton, TextField } from '@radix-ui/themes';
-import { useEffect, useRef } from 'react';
-import './searchBar.css';
+import { IconClose } from '@/components/icon/icon-close'
+import { IconButton, TextField } from '@radix-ui/themes'
+import { useEffect, useRef } from 'react'
+import './searchBar.css'
 
 export default function SearchBar({ q, setSearchParams }) {
-  const inputRef = useRef(null);
+  const inputRef = useRef(null)
 
   const clearInputBox = () => {
     setSearchParams(
       (prev) => {
-        prev.set('q', '');
-        return prev;
+        prev.set('q', '')
+        return prev
       },
       { replace: true }
-    );
-    inputRef.current?.focus();
-  };
+    )
+    inputRef.current?.focus()
+  }
 
   const handleInputChange = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     setSearchParams(
       (prev) => {
-        prev.set('q', e.target.value);
-        return prev;
+        prev.set('q', e.target.value)
+        return prev
       },
       { replace: true }
-    );
-  };
+    )
+  }
 
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    inputRef.current?.focus()
+  }, [])
 
   return (
     <TextField.Root id="search-bar">
@@ -58,5 +58,5 @@ export default function SearchBar({ q, setSearchParams }) {
         </TextField.Slot>
       )}
     </TextField.Root>
-  );
+  )
 }

@@ -1,3 +1,5 @@
 .radix-themes {
-    --default-font-family: "Roboto Flex", -apple-system, BlinkMacSystemFont, "Helvetica", "SF Pro", "Segoe UI", "Roboto", sans-serif, "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji";
+  --default-font-family:
+    'Roboto Flex', -apple-system, BlinkMacSystemFont, 'Helvetica', 'SF Pro', 'Segoe UI', 'Roboto',
+    sans-serif, 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI Emoji';
 }

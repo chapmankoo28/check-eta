@@ -27,7 +27,7 @@ export const getStopList = async (co, route, bound, service, abortSignal) => {
 
       const b = bound.toLowerCase() === 'o' ? 'outbound' : 'inbound'
       const url = `${api.base_url}${api.api['route-stop']}${route.toUpperCase()}/${b}`
-      const s = co.toLowerCase() === 'kmb' ? service : ''
+      const s = co.toLowerCase() === 'kmb' ? `/${service}` : ''
 
       const response = await fetch(url + s)
       if (!response.ok) {

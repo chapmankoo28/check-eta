@@ -65,7 +65,14 @@ export default function DataTable({ q, setSearchParams }) {
                   <Text as="div">
                     <Flex gap="1" align="baseline">
                       <Text>往</Text>
-                      <Text size="5" truncate>
+                      <Text
+                        size="5"
+                        style={{
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
                         {i.dest_tc}
                       </Text>
                     </Flex>

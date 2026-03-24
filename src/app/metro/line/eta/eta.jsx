@@ -43,11 +43,12 @@ export default function ETA({ line, dir, station, now_line: nowLine }) {
   }
 
   const getFilteredEtaData = async (isMounted) => {
-    const dirMap = { dt: 'DOWN', ut: 'UP' }
+    // biome-ignore lint/style/useNamingConvention: MTR API uses uppercase directions!!!
+    const dirMap = { DT: 'DOWN', UT: 'UP' }
     try {
       const data = await getEta(line, station)
       if (isMounted) {
-        const eta = data[dirMap[dir]] ?? []
+        const eta = data?.[dirMap[dir]] ?? []
         setEtaData(eta)
         setLoading(false)
       }

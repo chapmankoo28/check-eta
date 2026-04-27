@@ -8,7 +8,7 @@
         "company": "company/CTB/",
         "route": "route/CTB/",
         "stop": "stop/",
-        "route-stop": "route-stop/CTB/",
+        "route_stop": "route-stop/CTB/",
         "eta": "eta/CTB/"
       }
     },
@@ -18,7 +18,7 @@
       "api": {
         "route": "route/",
         "stop": "stop/",
-        "route-stop": "route-stop/",
+        "route_stop": "route-stop/",
         "eta": "eta/"
       }
     },

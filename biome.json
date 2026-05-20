@@ -8,7 +8,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["src/**/*", "!node_modules", "!dist"]
+    "includes": ["**", "!!**/node_modules", "!!**/dist"]
   },
   "formatter": {
     "enabled": false
@@ -24,12 +24,7 @@
         "noInferrableTypes": "error",
         "noNamespace": "error",
         "useConsistentObjectDefinitions": "warn",
-        "useNamingConvention": {
-          "level": "error",
-          "options": {
-            "strictCase": false
-          }
-        }
+        "useNamingConvention": "error"
       },
       "suspicious": {
         "noVar": "error",

@@ -1,1 +1,22 @@
-@import "tailwindcss";
+@source '../../node_modules/@cloudflare/kumo/dist/**/*.{js,jsx,ts,tsx}';
+@import '@cloudflare/kumo/styles/tailwind';
+@import 'tailwindcss';
+
+@theme {
+  --color-ael: #1c7670;
+  --color-drl: #f550a6;
+  --color-eal: #5eb6e4;
+  --color-isl: #0860a8;
+  --color-ktl: #1a9431;
+  --color-sil: #b5bd00;
+  --color-tcl: #fe7f1d;
+  --color-tkl: #6b208b;
+  --color-tml: #9a3b26;
+  --color-twl: #ff0000;
+
+  --color-kmb: #e60012;
+  --color-ctb-yellow: #fedd00;
+  --color-ctb-blue: #0057b8;
+  /* background-image: linear-gradient(110deg, var(--ctb) 65%, #0057b8 35%); */
+  --color-lwb: #fe5000;
+}

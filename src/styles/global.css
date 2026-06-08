@@ -19,4 +19,14 @@
   --color-ctb-blue: #0057b8;
   /* background-image: linear-gradient(110deg, var(--ctb) 65%, #0057b8 35%); */
   --color-lwb: #fe5000;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-mono: Consolas, 'SF Mono', Monaco, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
 }

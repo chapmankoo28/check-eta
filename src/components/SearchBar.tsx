@@ -1,10 +1,9 @@
 import { InputGroup } from '@cloudflare/kumo'
 import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react'
-import { useEffect, useRef, useState, type ChangeEvent } from 'react'
+import { useEffect, useRef, type ChangeEvent } from 'react'
 
-export function SearchBar({ q }: { q: string }) {
+export function SearchBar({ q, onSearch }: { q: string; onSearch: (q: string) => void }) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [value, setValue] = useState(q)
 
   const updateUrl = (newQ: string) => {
     const url = new URL(window.location.href)
@@ -17,13 +16,13 @@ export function SearchBar({ q }: { q: string }) {
   }
 
   const clearInputBox = () => {
-    setValue('')
+    onSearch('')
     updateUrl('')
     inputRef.current?.focus()
   }
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
+    onSearch(e.target.value)
     updateUrl(e.target.value)
   }
 
@@ -38,12 +37,12 @@ export function SearchBar({ q }: { q: string }) {
       </InputGroup.Addon>
       <InputGroup.Input
         ref={inputRef}
-        value={value}
+        value={q}
         placeholder="請輸入路線"
         aria-label="請輸入路線"
         onChange={handleInputChange}
       />
-      {value.length !== 0 && (
+      {q.length !== 0 && (
         <InputGroup.Addon align="end" className="pr-1">
           <InputGroup.Button
             shape="square"

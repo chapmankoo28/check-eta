@@ -16,22 +16,15 @@ This project is named Check ETA. It is a React app that allows users to check th
 
 ## COMMANDS
 
-### Check For Errors
+### After Code Changes
 
-Focus ONLY on fixing errors directly related to your code changes. Do NOT attempt to fix unrelated errors in the codebase.
-
-```bash
-bunx tsgo --noEmit # since tsgo is used in this project
-bunx astro check
-bunx biome check --write <file_path>
-```
-
-### Format Code
-
-Focus ONLY on formatting code directly related to your changes. Do NOT run format commands like `bun run format` or `bunx prettier --write .` for the entire codebase.
+Run these checks in order after every code change. Focus ONLY on errors directly related to your changes. Do NOT fix unrelated errors.
 
 ```bash
-bunx prettier --write <file_path>
+bunx tsgo --noEmit    # 1. type-check (tsgo is used in this project)
+bunx astro check       # 2. Astro validation
+bunx biome check --write <file_path>   # 3. lint + auto-fix
+bunx prettier --write <file_path>      # 4. format
 ```
 
 ### Run Development Server

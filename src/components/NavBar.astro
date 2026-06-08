@@ -1,8 +1,12 @@
 ---
 import { Logo } from '@/assets/logo'
+import { cn } from '@cloudflare/kumo'
+import { BusIcon, SubwayIcon } from '@phosphor-icons/react'
+
+const pathname = Astro.url.pathname
 ---
 
-<header class="mx-auto mt-px mb-2.5 w-full">
+<header class="px-2 py-1 w-full border-b">
   <div class="flex items-center justify-between">
     <a href="https://github.com/chapmankoo28/check-eta">
       <div class="flex items-center gap-2">
@@ -10,18 +14,28 @@ import { Logo } from '@/assets/logo'
         <span class="cursor-pointer select-none rounded-md p-2 text-2xl">幾時到</span>
       </div>
     </a>
+
     <div class="flex gap-2">
       <a href="/bus">
-        <span class="cursor-pointer select-none rounded-md p-2 text-2xl hover:bg-gray-100">
-          🚍巴士
-        </span>
+        <div
+          class={cn(
+            'cursor-pointer select-none rounded-md py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-kumo-brand-hover',
+            pathname === '/bus' && ' border-kumo-brand text-white'
+          )}
+        >
+          <BusIcon weight="fill" /> 巴士
+        </div>
       </a>
       <a href="/mtr">
-        <span class="cursor-pointer select-none rounded-md p-2 text-2xl hover:bg-gray-100">
-          🚇鐡路
-        </span>
+        <div
+          class={cn(
+            'cursor-pointer select-none rounded-md py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-kumo-brand-hover',
+            pathname === '/mtr' && ' border-kumo-brand  text-white'
+          )}
+        >
+          <SubwayIcon weight="fill" /> 鐡路
+        </div>
       </a>
     </div>
   </div>
-  <hr class="border-t-4" />
 </header>

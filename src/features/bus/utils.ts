@@ -2,7 +2,7 @@
 import type { KmbRoute } from '@/features/bus/types'
 import allRoutesData from '@/res/json/all_route_list.json'
 
-export const getBusCompanyInfo = (co: string, route: string): { name_tc: string; code: string } => {
+export function getBusCompanyInfo(co: string, route: string): { name: string; code: string } {
   const companyNames = {
     CTB: '城巴',
     KMB: '九巴',
@@ -12,20 +12,28 @@ export const getBusCompanyInfo = (co: string, route: string): { name_tc: string;
   const isLwbRoute = (route: string) =>
     /^(A|E|NA|R|S|X)/.test(route) && !notLwbRoutes.includes(route)
   if (co === 'CTB') {
-    return { name_tc: companyNames.CTB, code: 'CTB' }
+    return { name: companyNames.CTB, code: 'CTB' }
   }
   if (co === 'KMB' && isLwbRoute(route)) {
-    return { name_tc: companyNames.LWB, code: 'LWB' }
+    return { name: companyNames.LWB, code: 'LWB' }
   }
-  return { name_tc: companyNames.KMB, code: 'KMB' }
+  return { name: companyNames.KMB, code: 'KMB' }
 }
 
-export const getRouteInfo = (
+export function getBusCompanyName(co: string, route: string): string {
+  return getBusCompanyInfo(co, route).name
+}
+
+export function getBusCompanyCode(co: string, route: string): string {
+  return getBusCompanyInfo(co, route).code
+}
+
+export function getRouteInfo(
   co: string,
   route: string,
   bound: string,
   service: string
-): KmbRoute | Record<string, never> => {
+): KmbRoute | Record<string, never> {
   if (!co || !route || !bound || !service) {
     return {}
   }

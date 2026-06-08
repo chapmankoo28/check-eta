@@ -1,6 +1,6 @@
 ---
 import '@/styles/global.css'
-
+import { Font } from 'astro:assets'
 interface Props {
   title?: string
 }
@@ -8,10 +8,13 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<html lang="zh-hk" class="dark">
+<html lang="zh-hk" data-mode="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Font cssVariable="--font-inter" />
+    <Font cssVariable="--font-noto-sans-hk" />
+    <Font cssVariable="--font-noto-sans-sc" />
     <title>{`${title ? `${title} |` : ''} 幾時到`}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />

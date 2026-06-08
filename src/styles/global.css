@@ -17,7 +17,6 @@
   --color-kmb: #e60012;
   --color-ctb-yellow: #fedd00;
   --color-ctb-blue: #0057b8;
-  /* background-image: linear-gradient(110deg, var(--ctb) 65%, #0057b8 35%); */
   --color-lwb: #fe5000;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -38,6 +37,20 @@
   }
 }
 
+@utility bg-ctb {
+  background-image: linear-gradient(110deg, var(--color-ctb-yellow) 65%, var(--color-ctb-blue) 35%);
+}
+
+@utility bg-kmb {
+  background-color: var(--color-kmb);
+}
+
+@utility bg-lwb {
+  background-color: var(--color-lwb);
+}
+
 :root {
   --radius: 0.5rem;
+  font-family: 'Inter', 'Noto Sans HK', 'Noto Sans SC', system-ui, sans-serif;
+  font-optical-sizing: auto;
 }

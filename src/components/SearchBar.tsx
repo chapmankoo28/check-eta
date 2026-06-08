@@ -1,8 +1,16 @@
-import { InputGroup } from '@cloudflare/kumo'
+import { cn, InputGroup } from '@cloudflare/kumo'
 import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react'
 import { useEffect, useRef, type ChangeEvent } from 'react'
 
-export function SearchBar({ q, onSearch }: { q: string; onSearch: (q: string) => void }) {
+export function SearchBar({
+  q,
+  onSearch,
+  className,
+}: {
+  q: string
+  onSearch: (q: string) => void
+  className?: string
+}) {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const updateUrl = (newQ: string) => {
@@ -31,7 +39,7 @@ export function SearchBar({ q, onSearch }: { q: string; onSearch: (q: string) =>
   }, [])
 
   return (
-    <InputGroup className="w-full max-w-xl">
+    <InputGroup className={cn('w-full max-w-xl', className)} size="lg">
       <InputGroup.Addon>
         <MagnifyingGlassIcon />
       </InputGroup.Addon>

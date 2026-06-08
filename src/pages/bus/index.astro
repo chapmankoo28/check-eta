@@ -1,17 +1,19 @@
 ---
 import NavBar from '@/components/NavBar.astro'
-import { BusRouteList } from '@/components/BusRouteList'
+import { BusRouteList } from '@/components/bus/BusRouteList'
 import Main from '@/layouts/Main.astro'
 import RootLayout from '@/layouts/RootLayout.astro'
-
-const q = Astro.url.searchParams.get('q') || ''
+import { Text } from '@cloudflare/kumo'
 ---
 
 <RootLayout>
   <div class="flex flex-col justify-start space-y-10">
     <NavBar />
-    <Main className="max-w-none">
-      <BusRouteList q={q} client:only="react" />
+    <Main>
+      <div class="grid place-content-center p-5">
+        <Text variant="heading1" as="h1">巴士幾時到</Text>
+      </div>
+      <BusRouteList client:only="react" />
     </Main>
   </div>
 </RootLayout>

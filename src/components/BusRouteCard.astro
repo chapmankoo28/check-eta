@@ -1,0 +1,30 @@
+---
+import { getBusCompanyInfo } from '@/features/bus/utils'
+import { ArrowRightIcon } from '@phosphor-icons/react'
+
+const { route, operator, destination, bound, serviceType } = Astro.props
+
+interface Props {
+  route: string
+  operator: string
+  destination: string
+  bound: string
+  serviceType?: string
+}
+
+const op = getBusCompanyInfo(operator, route).name_tc
+// className={`bus-co-color ${getBusCompanyInfo(i.co, i.route).code.toLowerCase()}`}
+const st = serviceType !== '1' ? '特別班' : ''
+---
+
+<div>
+  <div>
+    {route}
+  </div>
+  <div>
+    {op}
+    {destination}
+    {st}
+  </div>
+  <ArrowRightIcon />
+</div>

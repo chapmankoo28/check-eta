@@ -1,12 +1,6 @@
-export function Logo() {
+export function Logo({ w = 40, className }: { w?: number; className?: string }) {
   return (
-    <svg
-      width="512"
-      height="512"
-      viewBox="0 0 512 512"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width={w} height={w} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
       <title>Logo of CheckETA</title>
       <rect x="127.719" y="136.882" width="253.507" height="289.14" fill="black" />
       <path

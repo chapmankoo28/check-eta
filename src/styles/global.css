@@ -25,6 +25,17 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --font-mono: Consolas, 'SF Mono', Monaco, monospace;
+
+  --animate-rotate: rotate 0.2s ease-in-out;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 :root {

@@ -34,16 +34,8 @@ const ThemeProviderContext = createContext<ThemeProviderState>({
 function applyTheme(theme: Theme) {
   const root = document.documentElement
   root.classList.remove('light', 'dark')
-
-  const resolved =
-    theme === themeMode.light
-      ? window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
-      : theme
-
-  root.classList.add(resolved)
-  root.style.colorScheme = resolved
+  root.classList.add(theme)
+  root.style.colorScheme = theme
 }
 
 export function ThemeProvider({
@@ -56,26 +48,22 @@ export function ThemeProvider({
 
   useEffect(() => {
     const stored = localStorage.getItem(storageKey)
-    setThemeState(stored === 'light' || stored === 'dark' ? stored : defaultTheme)
+    if (stored === 'light' || stored === 'dark') {
+      setThemeState(stored)
+    } else {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+      setThemeState(systemTheme)
+    }
     setMounted(true)
-  }, [defaultTheme, storageKey])
+  }, [storageKey])
 
   useEffect(() => {
     if (!mounted) {
       return
     }
     applyTheme(theme)
-  }, [theme, mounted])
-
-  useEffect(() => {
-    if (!mounted || theme !== themeMode.light) {
-      return
-    }
-
-    const media = window.matchMedia('(prefers-color-scheme: dark)')
-    const onChange = () => applyTheme(themeMode.light)
-    media.addEventListener('change', onChange)
-    return () => media.removeEventListener('change', onChange)
   }, [theme, mounted])
 
   const setTheme = (next: Theme) => {

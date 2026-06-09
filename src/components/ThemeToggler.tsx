@@ -1,28 +1,17 @@
 // Based on https://ui.shadcn.com/docs/dark-mode/astro
 
-import type { Theme } from '@/components/ThemeProvider'
+import { useTheme } from '@/components/ThemeProvider'
 import { Button } from '@/components/ui/button'
 import { MoonIcon, SunIcon } from '@phosphor-icons/react'
-import { useEffect, useState } from 'react'
 
 export function ThemeToggler({ className }: { className?: string }) {
-  const [theme, setThemeState] = useState<Theme>('light')
-
-  useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains('dark')
-    setThemeState(isDarkMode ? 'dark' : 'light')
-  }, [])
-
-  useEffect(() => {
-    const isDark = theme === 'dark'
-    document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
-  }, [theme])
+  const { theme, setTheme } = useTheme()
 
   return (
     <Button
       variant="secondary"
       size="icon"
-      onClick={() => setThemeState(theme === 'light' ? 'dark' : 'light')}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className={className}
     >
       <SunIcon className="size-5 scale-100 rotate-0 transition-all duration-200 dark:scale-0 dark:-rotate-90" />

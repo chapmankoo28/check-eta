@@ -1,6 +1,7 @@
 import { getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@phosphor-icons/react'
+import { Link } from '@tanstack/react-router'
 
 export function BusRouteCard({
   route,
@@ -19,8 +20,9 @@ export function BusRouteCard({
   const coCode = getBusCompanyCode(operator, route)
 
   return (
-    <a
-      href={`/bus?route=${route}&operator=${operator}&destination=${destination}&bound=${bound}&serviceType=${serviceType}`}
+    <Link
+      to="/bus/$co/$route/$bound/$service"
+      params={{ co: operator, route, bound, service: serviceType ?? '1' }}
     >
       <div className="flex flex-row items-center justify-between space-x-2 rounded-md border p-1 hover:bg-accent">
         <div className="w-20 text-center text-3xl font-bold">{route}</div>
@@ -37,11 +39,11 @@ export function BusRouteCard({
               {coName}
             </div>
             <span className="text-2xl font-semibold">{destination}</span>
-            {serviceType !== '1' ? <span className="text-muted-foreground"> 特別班</span> : ''}
+            {serviceType !== '1' ? <span className="text-muted-foreground">特別班</span> : ''}
           </div>
         </div>
         <ArrowRightIcon />
       </div>
-    </a>
+    </Link>
   )
 }

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MtrIndexRouteImport } from './routes/mtr/index'
 import { Route as BusIndexRouteImport } from './routes/bus/index'
+import { Route as BusCoRouteBoundServiceRouteImport } from './routes/bus/$co.$route.$bound.$service'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const BusIndexRoute = BusIndexRouteImport.update({
   path: '/bus/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusCoRouteBoundServiceRoute = BusCoRouteBoundServiceRouteImport.update({
+  id: '/bus/$co/$route/$bound/$service',
+  path: '/bus/$co/$route/$bound/$service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bus/': typeof BusIndexRoute
   '/mtr/': typeof MtrIndexRoute
+  '/bus/$co/$route/$bound/$service': typeof BusCoRouteBoundServiceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bus': typeof BusIndexRoute
   '/mtr': typeof MtrIndexRoute
+  '/bus/$co/$route/$bound/$service': typeof BusCoRouteBoundServiceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bus/': typeof BusIndexRoute
   '/mtr/': typeof MtrIndexRoute
+  '/bus/$co/$route/$bound/$service': typeof BusCoRouteBoundServiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bus/' | '/mtr/'
+  fullPaths: '/' | '/bus/' | '/mtr/' | '/bus/$co/$route/$bound/$service'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bus' | '/mtr'
-  id: '__root__' | '/' | '/bus/' | '/mtr/'
+  to: '/' | '/bus' | '/mtr' | '/bus/$co/$route/$bound/$service'
+  id: '__root__' | '/' | '/bus/' | '/mtr/' | '/bus/$co/$route/$bound/$service'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BusIndexRoute: typeof BusIndexRoute
   MtrIndexRoute: typeof MtrIndexRoute
+  BusCoRouteBoundServiceRoute: typeof BusCoRouteBoundServiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bus/$co/$route/$bound/$service': {
+      id: '/bus/$co/$route/$bound/$service'
+      path: '/bus/$co/$route/$bound/$service'
+      fullPath: '/bus/$co/$route/$bound/$service'
+      preLoaderRoute: typeof BusCoRouteBoundServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BusIndexRoute: BusIndexRoute,
   MtrIndexRoute: MtrIndexRoute,
+  BusCoRouteBoundServiceRoute: BusCoRouteBoundServiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

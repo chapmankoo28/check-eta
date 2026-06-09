@@ -8,9 +8,9 @@
   "arrowParens": "always",
   "endOfLine": "lf",
   "plugins": [
+    "prettier-plugin-astro",
     "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss",
-    "prettier-plugin-astro"
+    "prettier-plugin-tailwindcss"
   ],
   "overrides": [
     {
@@ -20,5 +20,5 @@
       }
     }
   ],
-  "tailwindConfig": "./src/styles/global.css"
+  "tailwindStylesheet": "./src/styles/global.css"
 }

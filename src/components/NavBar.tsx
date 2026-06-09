@@ -22,7 +22,7 @@ export function NavBar() {
             <div
               className={cn(
                 'flex cursor-pointer flex-row items-center justify-between gap-2 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
-                pathname === '/bus' && 'border-primary'
+                pathname.includes('/bus') && 'border-primary'
               )}
             >
               <BusIcon weight="fill" /> 巴士
@@ -32,7 +32,7 @@ export function NavBar() {
             <div
               className={cn(
                 'flex cursor-pointer flex-row items-center justify-between gap-2 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
-                pathname === '/mtr' && 'border-primary'
+                pathname.includes('/mtr') && 'border-primary'
               )}
             >
               <SubwayIcon weight="fill" /> 鐡路

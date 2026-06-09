@@ -1,5 +1,6 @@
+import { Badge } from '@/components/ui/badge'
 import { getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
-import { Badge, Text, cn } from '@cloudflare/kumo'
+import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@phosphor-icons/react'
 
 export function BusRouteCard({
@@ -19,21 +20,22 @@ export function BusRouteCard({
   const coCode = getBusCompanyCode(operator, route)
 
   return (
-    <div className="border-kumo-fill flex flex-row items-center justify-between space-x-2 rounded-md border p-1">
+    <div className="flex flex-row items-center justify-between space-x-2 rounded-md border p-1">
       <div className="w-20 text-center text-3xl font-bold">{route}</div>
       <div className="flex flex-1 items-start">
         <div className="flex flex-col">
           <Badge
+            variant="outline"
             className={cn(
               coCode === 'CTB' && 'bg-ctb text-black',
               coCode === 'KMB' && 'bg-kmb text-white',
               coCode === 'LWB' && 'bg-lwb text-white'
             )}
           >
-            <span className="font-medium">{coName}</span>
+            {coName}
           </Badge>
           <span className="text-3xl font-semibold">{destination}</span>
-          {serviceType !== '1' ? <Text variant="secondary"> 特別班</Text> : ''}
+          {serviceType !== '1' ? <span className="text-muted-foreground"> 特別班</span> : ''}
         </div>
       </div>
       <ArrowRightIcon />

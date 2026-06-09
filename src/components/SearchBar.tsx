@@ -1,4 +1,10 @@
-import { cn, InputGroup } from '@cloudflare/kumo'
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from '@/components/ui/input-group'
+import { cn } from '@/lib/utils'
 import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react'
 import { useEffect, useRef, type ChangeEvent } from 'react'
 
@@ -39,11 +45,11 @@ export function SearchBar({
   }, [])
 
   return (
-    <InputGroup className={cn('w-full max-w-xl', className)} size="lg">
-      <InputGroup.Addon>
+    <InputGroup className={cn('w-full max-w-xl', className)}>
+      <InputGroupAddon align="inline-start">
         <MagnifyingGlassIcon />
-      </InputGroup.Addon>
-      <InputGroup.Input
+      </InputGroupAddon>
+      <InputGroupInput
         ref={inputRef}
         value={q}
         placeholder="請輸入路線"
@@ -51,14 +57,11 @@ export function SearchBar({
         onChange={handleInputChange}
       />
       {q.length !== 0 && (
-        <InputGroup.Addon align="end" className="pr-1">
-          <InputGroup.Button
-            shape="square"
-            icon={XIcon}
-            aria-label="Clear search"
-            onClick={clearInputBox}
-          />
-        </InputGroup.Addon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton aria-label="Clear search" onClick={clearInputBox}>
+            <XIcon />
+          </InputGroupButton>
+        </InputGroupAddon>
       )}
     </InputGroup>
   )

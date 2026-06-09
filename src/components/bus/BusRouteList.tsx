@@ -1,7 +1,6 @@
 import { BusRouteCard } from '@/components/bus/BusRouteCard'
 import { SearchBar } from '@/components/SearchBar'
 import allRoutesData from '@/res/json/all_route_list.json'
-import { Text } from '@cloudflare/kumo'
 import { useState } from 'react'
 
 export function BusRouteList() {
@@ -26,7 +25,7 @@ function RouteList({ q }: { q: string }) {
   if (!q) {
     return (
       <div className="grid flex-1 place-content-center">
-        <Text variant="secondary">請輸入路線</Text>
+        <span className="text-muted-foreground">請輸入路線</span>
       </div>
     )
   }
@@ -34,7 +33,7 @@ function RouteList({ q }: { q: string }) {
   if (routes.length === 0) {
     return (
       <div className="grid flex-1 place-content-center">
-        <Text variant="error">搵唔到您輸入的路線</Text>
+        <span className="text-destructive">搵唔到您輸入的路線</span>
       </div>
     )
   }

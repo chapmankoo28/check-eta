@@ -1,6 +1,6 @@
 ---
 import { Logo } from '@/assets/logo'
-import { cn } from '@cloudflare/kumo'
+import { cn } from '@/lib/utils'
 import { BusIcon, SubwayIcon } from '@phosphor-icons/react'
 
 const pathname = Astro.url.pathname
@@ -19,8 +19,8 @@ const pathname = Astro.url.pathname
       <a href="/bus">
         <div
           class={cn(
-            'cursor-pointer select-none rounded-md py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-kumo-brand-hover',
-            pathname === '/bus' && ' border-kumo-brand text-white'
+            'cursor-pointer select-none rounded-md text-foreground py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-muted',
+            pathname === '/bus' && 'border-primary '
           )}
         >
           <BusIcon weight="fill" /> 巴士
@@ -29,8 +29,8 @@ const pathname = Astro.url.pathname
       <a href="/mtr">
         <div
           class={cn(
-            'cursor-pointer select-none rounded-md py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-kumo-brand-hover',
-            pathname === '/mtr' && ' border-kumo-brand  text-white'
+            'cursor-pointer select-none rounded-md text-foreground  py-1 px-3 flex flex-row justify-between items-center gap-2 border-2 border-transparent hover:bg-muted',
+            pathname === '/mtr' && 'border-primary  '
           )}
         >
           <SubwayIcon weight="fill" /> 鐡路

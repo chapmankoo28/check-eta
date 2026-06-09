@@ -1,6 +1,9 @@
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Spinner } from '@/components/ui/spinner'
 import { getEta } from '@/features/bus/api'
 import type { CtbEta, KmbEta } from '@/features/bus/types'
-import { Loader, RefreshButton, Text } from '@cloudflare/kumo'
+import { ArrowsClockwiseIcon } from '@phosphor-icons/react'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
 export default function Eta({
@@ -83,13 +86,13 @@ export default function Eta({
 
   const renderEtaData = () => {
     if (loading) {
-      return <Loader />
+      return <Spinner className="size-8" />
     }
 
     if (etaData.length === 0) {
       return (
         <div className="m-auto text-center">
-          <Text size="lg">查詢唔到班次，請再試一次。</Text>
+          <span className="text-lg">查詢唔到班次，請再試一次。</span>
         </div>
       )
     }
@@ -97,7 +100,7 @@ export default function Eta({
     if (etaData.every((i) => !i.eta && !i.rmk_tc)) {
       return (
         <div className="m-auto text-center">
-          <Text size="lg">暫無班次</Text>
+          <span className="text-lg">暫無班次</span>
         </div>
       )
     }
@@ -108,34 +111,30 @@ export default function Eta({
       if (!i.eta && i.rmk_tc) {
         return (
           <div key={`rmk-${i.seq}`} className="m-auto text-center">
-            <Text size="lg">{i.rmk_tc}</Text>
+            <span className="text-lg">{i.rmk_tc}</span>
           </div>
         )
       } else if (i.eta) {
         const etaInMin = Math.ceil((new Date(i.eta).getTime() - now.getTime()) / 1000 / 60)
         return (
           <Fragment key={`eta-${i.seq}-${i.eta_seq}`}>
-            <hr key={`separator-${i.seq}-${i.eta_seq}`} className="border-kumo-hairline" />
+            <Separator key={`separator-${i.seq}-${i.eta_seq}`} />
             <div
               key={`eta_flex-${i.seq}`}
               className="flex flex-row items-center justify-between gap-3"
             >
               <div className="flex flex-col items-start gap-1">
                 <div className="flex items-baseline gap-1">
-                  <Text size="base">往</Text>
-                  <Text size="lg">{i.dest_tc}</Text>
+                  <span>往</span>
+                  <span className="text-lg">{i.dest_tc}</span>
                 </div>
-                <Text size="sm" variant="secondary">
-                  {i.rmk_tc}
-                </Text>
+                <span className="text-sm text-muted-foreground">{i.rmk_tc}</span>
               </div>
               <div className="flex items-baseline gap-2">
                 <span className="eta-min">
-                  <Text variant="heading2" as="span">
-                    {etaInMin > 0 ? etaInMin : '即將抵達'}
-                  </Text>
+                  <span className="text-2xl font-bold">{etaInMin > 0 ? etaInMin : '即將抵達'}</span>
                 </span>
-                {etaInMin > 0 && <Text>分鐘</Text>}
+                {etaInMin > 0 && <span>分鐘</span>}
               </div>
             </div>
           </Fragment>
@@ -144,7 +143,7 @@ export default function Eta({
         hasShownNoSchedule = true
         return (
           <div key="no-schedule" className="m-auto text-center">
-            <Text size="lg">暫無班次</Text>
+            <span className="text-lg">暫無班次</span>
           </div>
         )
       }
@@ -156,9 +155,12 @@ export default function Eta({
   return (
     <div className="flex flex-col gap-2">
       <div className="mt-5 mb-1 flex items-center justify-between gap-2">
-        <Text>最後更新時間：{time}</Text>
+        <span>最後更新時間：{time}</span>
 
-        <RefreshButton onClick={getFilteredEtaData}> 更新</RefreshButton>
+        <Button variant="outline" onClick={() => getFilteredEtaData({})}>
+          <ArrowsClockwiseIcon data-icon="inline-start" />
+          更新
+        </Button>
       </div>
 
       <div className="flex flex-col justify-center gap-2">{renderEtaData()}</div>

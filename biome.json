@@ -8,7 +8,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!!**/node_modules", "!!**/dist", "!!**/.astro"]
+    "includes": ["**", "!!**/src/components/ui/*", "!!**/node_modules", "!!**/dist", "!!**/.astro"]
   },
   "formatter": {
     "enabled": false

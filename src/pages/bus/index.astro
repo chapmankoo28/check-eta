@@ -3,7 +3,6 @@ import NavBar from '@/components/NavBar.astro'
 import { BusRouteList } from '@/components/bus/BusRouteList'
 import Main from '@/layouts/Main.astro'
 import RootLayout from '@/layouts/RootLayout.astro'
-import { Text } from '@cloudflare/kumo'
 ---
 
 <RootLayout>
@@ -11,7 +10,7 @@ import { Text } from '@cloudflare/kumo'
     <NavBar />
     <Main>
       <div class="grid place-content-center p-5">
-        <Text variant="heading1" as="h1">巴士幾時到</Text>
+        <h1 class="text-3xl font-bold">巴士幾時到</h1>
       </div>
       <BusRouteList client:only="react" />
     </Main>

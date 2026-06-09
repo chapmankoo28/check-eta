@@ -1,4 +1,4 @@
-import { Button } from '@cloudflare/kumo/components/button'
+import { Button } from '@/components/ui/button'
 import { ArrowsDownUpIcon, ArrowSquareOutIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 
@@ -24,8 +24,12 @@ export default function NowRouteInfo({ co, route, nowRoute, setSearchParams }) {
               <span>{nowRoute.dest_tc}</span>
             </div>
 
-            <Button onClick={handleSwapBound}>
-              <ArrowsDownUpIcon className={rotate ? 'animate-rotate' : ''} /> 調轉方向
+            <Button variant="outline" onClick={handleSwapBound}>
+              <ArrowsDownUpIcon
+                className={rotate ? 'animate-rotate' : ''}
+                data-icon="inline-start"
+              />{' '}
+              調轉方向
             </Button>
           </div>
           <a

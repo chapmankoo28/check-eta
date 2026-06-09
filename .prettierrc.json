@@ -19,5 +19,6 @@
         "parser": "astro"
       }
     }
-  ]
+  ],
+  "tailwindConfig": "./src/styles/global.css"
 }

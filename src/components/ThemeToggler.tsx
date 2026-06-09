@@ -1,6 +1,6 @@
 // Based on https://ui.shadcn.com/docs/dark-mode/astro
 
-import type { Theme } from '@/components/theme-provider'
+import type { Theme } from '@/components/ThemeProvider'
 import { Button } from '@/components/ui/button'
 import { MoonIcon, SunIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'

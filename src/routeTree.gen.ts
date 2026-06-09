@@ -9,72 +9,58 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as MtrRouteImport } from './routes/mtr'
-import { Route as BusRouteImport } from './routes/bus'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MtrIndexRouteImport } from './routes/mtr/index'
+import { Route as BusIndexRouteImport } from './routes/bus/index'
 
-const MtrRoute = MtrRouteImport.update({
-  id: '/mtr',
-  path: '/mtr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BusRoute = BusRouteImport.update({
-  id: '/bus',
-  path: '/bus',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MtrIndexRoute = MtrIndexRouteImport.update({
+  id: '/mtr/',
+  path: '/mtr/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusIndexRoute = BusIndexRouteImport.update({
+  id: '/bus/',
+  path: '/bus/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/bus': typeof BusRoute
-  '/mtr': typeof MtrRoute
+  '/bus/': typeof BusIndexRoute
+  '/mtr/': typeof MtrIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/bus': typeof BusRoute
-  '/mtr': typeof MtrRoute
+  '/bus': typeof BusIndexRoute
+  '/mtr': typeof MtrIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/bus': typeof BusRoute
-  '/mtr': typeof MtrRoute
+  '/bus/': typeof BusIndexRoute
+  '/mtr/': typeof MtrIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bus' | '/mtr'
+  fullPaths: '/' | '/bus/' | '/mtr/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/bus' | '/mtr'
-  id: '__root__' | '/' | '/bus' | '/mtr'
+  id: '__root__' | '/' | '/bus/' | '/mtr/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BusRoute: typeof BusRoute
-  MtrRoute: typeof MtrRoute
+  BusIndexRoute: typeof BusIndexRoute
+  MtrIndexRoute: typeof MtrIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/mtr': {
-      id: '/mtr'
-      path: '/mtr'
-      fullPath: '/mtr'
-      preLoaderRoute: typeof MtrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/bus': {
-      id: '/bus'
-      path: '/bus'
-      fullPath: '/bus'
-      preLoaderRoute: typeof BusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mtr/': {
+      id: '/mtr/'
+      path: '/mtr'
+      fullPath: '/mtr/'
+      preLoaderRoute: typeof MtrIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bus/': {
+      id: '/bus/'
+      path: '/bus'
+      fullPath: '/bus/'
+      preLoaderRoute: typeof BusIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BusRoute: BusRoute,
-  MtrRoute: MtrRoute,
+  BusIndexRoute: BusIndexRoute,
+  MtrIndexRoute: MtrIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

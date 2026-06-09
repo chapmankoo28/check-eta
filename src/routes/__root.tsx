@@ -1,4 +1,5 @@
 import { NavBar } from '@/components/NavBar'
+import { themeMode, ThemeProvider } from '@/components/ThemeProvider'
 import { Button } from '@/components/ui/button'
 import {
   Empty,
@@ -21,7 +22,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <>
+    <ThemeProvider defaultTheme={themeMode.light} storageKey="theme">
       <div className="flex flex-col justify-start space-y-10">
         <NavBar />
         <Main>
@@ -39,7 +40,7 @@ function RootComponent() {
           ]}
         />
       )}
-    </>
+    </ThemeProvider>
   )
 }
 

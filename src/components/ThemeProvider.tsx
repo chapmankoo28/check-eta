@@ -1,7 +1,7 @@
 import { ScriptOnce } from '@tanstack/react-router'
 import { createContext, useContext, useEffect, useState } from 'react'
 
-const themeMode = {
+export const themeMode = {
   light: 'light',
   dark: 'dark',
 } as const

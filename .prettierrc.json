@@ -7,18 +7,6 @@
   "singleQuote": true,
   "arrowParens": "always",
   "endOfLine": "lf",
-  "plugins": [
-    "prettier-plugin-astro",
-    "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss"
-  ],
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ],
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
   "tailwindStylesheet": "./src/styles/global.css"
 }

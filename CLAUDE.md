@@ -26,9 +26,8 @@ Run these checks in order after every code change. Focus ONLY on errors directly
 
 ```bash
 bunx tsgo --noEmit    # 1. type-check (tsgo is used in this project)
-bunx astro check       # 2. Astro validation
-bunx biome check --write <file_path>   # 3. lint + auto-fix
-bunx prettier --write <file_path>      # 4. format
+bunx biome check --write <file_path>   # 2. lint + auto-fix
+bunx prettier --write <file_path>      # 3. format
 ```
 
 ### Run Development Server
@@ -49,7 +48,9 @@ bunx --bun shadcn@latest add <component>    # Add a component
 
 - "@biomejs/biome": "2.3.8"
 - "@typescript/native-preview": "^7.0.0-dev.20260607.1"
-- "astro": "^6.4.4"
-- "@astrojs/react": "^5.0.7"
+- "@tanstack/react-query": "^5.101.0"
+- "@tanstack/react-router": "latest"
 - "react": "^19.2.7"
 - "tailwindcss": "^4.1.16"
+- "vite": "^8.0.0"
+- "zod": "^4.4.3"

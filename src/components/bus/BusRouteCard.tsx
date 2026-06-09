@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge'
 import { getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@phosphor-icons/react'
@@ -20,25 +19,29 @@ export function BusRouteCard({
   const coCode = getBusCompanyCode(operator, route)
 
   return (
-    <div className="flex flex-row items-center justify-between space-x-2 rounded-md border p-1">
-      <div className="w-20 text-center text-3xl font-bold">{route}</div>
-      <div className="flex flex-1 items-start">
-        <div className="flex flex-col">
-          <Badge
-            variant="outline"
-            className={cn(
-              coCode === 'CTB' && 'bg-ctb text-black',
-              coCode === 'KMB' && 'bg-kmb text-white',
-              coCode === 'LWB' && 'bg-lwb text-white'
-            )}
-          >
-            {coName}
-          </Badge>
-          <span className="text-3xl font-semibold">{destination}</span>
-          {serviceType !== '1' ? <span className="text-muted-foreground"> 特別班</span> : ''}
+    <a
+      href={`/bus?route=${route}&operator=${operator}&destination=${destination}&bound=${bound}&serviceType=${serviceType}`}
+    >
+      <div className="flex flex-row items-center justify-between space-x-2 rounded-md border p-1 hover:bg-accent">
+        <div className="w-20 text-center text-3xl font-bold">{route}</div>
+        <div className="flex flex-1 items-start">
+          <div className="flex flex-col">
+            <div
+              className={cn(
+                'h-fit w-fit rounded-full px-1 text-sm font-medium',
+                coCode === 'CTB' && 'bg-ctb text-black',
+                coCode === 'KMB' && 'bg-kmb text-white',
+                coCode === 'LWB' && 'bg-lwb text-white'
+              )}
+            >
+              {coName}
+            </div>
+            <span className="text-2xl font-semibold">{destination}</span>
+            {serviceType !== '1' ? <span className="text-muted-foreground"> 特別班</span> : ''}
+          </div>
         </div>
+        <ArrowRightIcon />
       </div>
-      <ArrowRightIcon />
-    </div>
+    </a>
   )
 }

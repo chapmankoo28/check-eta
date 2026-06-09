@@ -58,7 +58,13 @@ export function SearchBar({
       />
       {q.length !== 0 && (
         <InputGroupAddon align="inline-end">
-          <InputGroupButton aria-label="Clear search" onClick={clearInputBox}>
+          <InputGroupButton
+            variant="destructive"
+            size="icon-sm"
+            className="rounded-full"
+            aria-label="Clear search"
+            onClick={clearInputBox}
+          >
             <XIcon />
           </InputGroupButton>
         </InputGroupAddon>

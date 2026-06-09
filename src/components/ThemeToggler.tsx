@@ -1,15 +1,9 @@
 // Based on https://ui.shadcn.com/docs/dark-mode/astro
 
+import type { Theme } from '@/components/theme-provider'
 import { Button } from '@/components/ui/button'
 import { MoonIcon, SunIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
-
-const themeMode = {
-  light: 'light',
-  dark: 'dark',
-} as const
-
-type Theme = (typeof themeMode)[keyof typeof themeMode]
 
 export function ThemeToggler({ className }: { className?: string }) {
   const [theme, setThemeState] = useState<Theme>('light')

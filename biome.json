@@ -8,7 +8,14 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!!**/src/components/ui/*", "!!**/node_modules", "!!**/dist", "!!**/.astro"]
+    "includes": [
+      "**",
+      "!!**/src/components/ui/*",
+      "!!**/node_modules",
+      "!!**/dist",
+      "!**/src/routeTree.gen.ts",
+      "!**/src/styles/global.css"
+    ]
   },
   "formatter": {
     "enabled": false
@@ -45,17 +52,6 @@
     "enabled": false
   },
   "overrides": [
-    {
-      "includes": ["**/*.astro"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          }
-        }
-      }
-    },
     {
       "includes": [
         "src/features/bus/types.ts",

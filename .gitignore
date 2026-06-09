@@ -1,31 +1,29 @@
-# build output
 dist/
-# generated types
-.astro/
+dist-ssr/
 
-# dependencies
+.tanstack
+
 node_modules/
 
-# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
-# environment variables
 .env
 .env.production
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.local
 
-# macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
 .idea/
+
+.nitro
+.wrangler
+.output
+.vinxi
+__unconfig*
+todos.json
 
 # tmp files
 tmp/

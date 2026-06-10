@@ -30,8 +30,7 @@
         "useConsistentArrayType": "error",
         "noInferrableTypes": "error",
         "noNamespace": "error",
-        "useConsistentObjectDefinitions": "warn",
-        "useNamingConvention": "error"
+        "useConsistentObjectDefinitions": "warn"
       },
       "suspicious": {
         "noVar": "error",

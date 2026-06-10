@@ -27,7 +27,7 @@ function RootComponent() {
   return (
     <ThemeProvider defaultTheme={themeMode.light} storageKey="theme">
       <QueryClientProvider client={queryClient}>
-        <div className="flex flex-col justify-start space-y-10">
+        <div className="flex flex-col justify-start">
           <NavBar />
           <Main>
             <Outlet />

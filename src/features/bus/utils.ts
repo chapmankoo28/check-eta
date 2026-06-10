@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/style/useNamingConvention: required by the API */
-import type { KmbRoute } from '@/features/bus/types'
+import type { RouteListEntry } from '@/features/bus/types'
 import allRoutesData from '@/res/json/all_route_list.json'
 
 export function getBusCompanyInfo(co: string, route: string): { name: string; code: string } {
@@ -33,21 +33,25 @@ export function getRouteInfo(
   route: string,
   bound: string,
   service: string
-): KmbRoute | Record<string, never> {
+): RouteListEntry | null {
   if (!co || !route || !bound || !service) {
-    return {}
+    return null
   }
 
-  const res =
-    (allRoutesData.data as KmbRoute[]).find((i) => {
-      return i.route === route && i.co === co && i.bound === bound && i.service_type === service
-    }) ?? ({} as KmbRoute)
+  let res = allRoutesData.data.find((i) => {
+    return i.route === route && i.co === co && i.bound === bound && i.service_type === service
+  })
 
-  if (Object.keys(res).length === 0) {
-    console.log('CHECK SWAP BOUND STOP LIST')
+  if (!res) {
     const swapBound = bound === 'O' ? 'I' : 'O'
-    return getRouteInfo(co, route, swapBound, service) ?? {}
+    const swapBoundRes = allRoutesData.data.find((i) => {
+      return i.route === route && i.co === co && i.bound === swapBound && i.service_type === service
+    })
+    if (!swapBoundRes) {
+      return null
+    }
+    res = swapBoundRes
   }
 
-  return res
+  return res as RouteListEntry
 }

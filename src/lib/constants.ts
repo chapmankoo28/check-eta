@@ -1,0 +1,1 @@
+export const ETA_REFETCH_INTERVAL = 30_000

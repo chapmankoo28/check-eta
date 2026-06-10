@@ -1,6 +1,6 @@
 export const busCo = {
   kmb: 'KMB',
-  ctb: 'ctb',
+  ctb: 'CTB',
 } as const
 export type BusCo = (typeof busCo)[keyof typeof busCo]
 
@@ -151,5 +151,16 @@ export interface KmbEta {
 }
 
 export type KmbETAResponse = ApiResponse<KmbEta[]>
+
+export type RouteListEntry = {
+  co: typeof busCo.kmb | typeof busCo.ctb
+  route: string
+  bound: 'I' | 'O'
+  service_type: string
+  orig_en: string
+  orig_tc: string
+  dest_en: string
+  dest_tc: string
+}
 export type KmbStopETAResponse = ApiResponse<KmbEta[]>
 export type KmbRouteETAResponse = ApiResponse<KmbEta[]>

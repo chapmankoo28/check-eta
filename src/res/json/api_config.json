@@ -3,28 +3,28 @@
   "data": [
     {
       "co": "CTB",
-      "base_url": "https://rt.data.gov.hk/v2/transport/citybus/",
+      "baseUrl": "https://rt.data.gov.hk/v2/transport/citybus/",
       "api": {
         "company": "company/CTB/",
         "route": "route/CTB/",
         "stop": "stop/",
-        "route_stop": "route-stop/CTB/",
+        "routeStop": "route-stop/CTB/",
         "eta": "eta/CTB/"
       }
     },
     {
       "co": "KMB",
-      "base_url": "https://data.etabus.gov.hk/v1/transport/kmb/",
+      "baseUrl": "https://data.etabus.gov.hk/v1/transport/kmb/",
       "api": {
         "route": "route/",
         "stop": "stop/",
-        "route_stop": "route-stop/",
+        "routeStop": "route-stop/",
         "eta": "eta/"
       }
     },
     {
       "co": "MTR",
-      "base_url": " https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?",
+      "baseUrl": " https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?",
       "api": {
         "line": "line=",
         "sta": "sta=",

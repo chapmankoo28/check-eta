@@ -20,20 +20,10 @@
   --color-ctb-yellow: #fedd00;
   --color-ctb-blue: #0057b8;
   --color-lwb: #fe5000;
-
-  --animate-rotate: rotate 0.2s ease-in-out;
-  @keyframes rotate {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
 }
 
 @utility bg-ctb {
-  background-image: linear-gradient(110deg, var(--color-ctb-yellow) 65%, var(--color-ctb-blue) 35%);
+  background-image: linear-gradient(110deg, var(--color-ctb-yellow) 64%, var(--color-ctb-blue) 66%);
 }
 
 @utility bg-kmb {

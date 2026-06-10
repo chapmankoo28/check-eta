@@ -1,3 +1,9 @@
+export const busCo = {
+  kmb: 'KMB',
+  ctb: 'ctb',
+} as const
+export type BusCo = (typeof busCo)[keyof typeof busCo]
+
 // Shared envelope
 
 export interface ApiResponse<T> {
@@ -15,7 +21,7 @@ export interface ApiError {
 // Citybus
 
 export interface CtbCompany {
-  co: string
+  co: typeof busCo.ctb
   name_tc: string
   name_en: string
   name_sc: string
@@ -26,7 +32,7 @@ export interface CtbCompany {
 export type CtbCompanyResponse = ApiResponse<CtbCompany>
 
 export interface CtbRoute {
-  co: string
+  co: typeof busCo.ctb
   route: string
   orig_en: string
   orig_tc: string
@@ -52,7 +58,7 @@ export interface CtbStop {
 export type CtbStopResponse = ApiResponse<CtbStop>
 
 export interface CtbRouteStop {
-  co: string
+  co: typeof busCo.ctb
   route: string
   dir: 'I' | 'O'
   seq: number
@@ -63,7 +69,7 @@ export interface CtbRouteStop {
 export type CTBRouteStopResponse = ApiResponse<CtbRouteStop[]>
 
 export interface CtbEta {
-  co: string
+  co: typeof busCo.ctb
   route: string
   dir: 'I' | 'O'
   seq: number
@@ -84,7 +90,7 @@ export type CTBETAResponse = ApiResponse<CtbEta[]>
 // KMB
 
 export interface KmbRoute {
-  co: string
+  co: typeof busCo.kmb
   route: string
   bound: 'I' | 'O'
   service_type: string
@@ -114,7 +120,7 @@ export type KmbStopResponse = ApiResponse<KmbStop>
 export type KmbStopListResponse = ApiResponse<KmbStop[]>
 
 export interface KmbRouteStop {
-  co: string
+  co: typeof busCo.kmb
   route: string
   bound: 'I' | 'O'
   service_type: string
@@ -127,7 +133,7 @@ export type KmbRouteStopResponse = ApiResponse<KmbRouteStop[]>
 export type KmbRouteStopListResponse = ApiResponse<KmbRouteStop[]>
 
 export interface KmbEta {
-  co: string
+  co: typeof busCo.kmb
   route: string
   dir: 'I' | 'O'
   service_type: number

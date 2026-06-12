@@ -10,7 +10,8 @@ import {
 } from '@/components/ui/empty'
 import { Main } from '@/layouts/Main'
 import '@/styles/global.css'
-import { HouseSimpleIcon, SealQuestionIcon } from '@phosphor-icons/react'
+import { HouseIcon } from '@phosphor-icons/react'
+import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
@@ -51,27 +52,24 @@ function RootComponent() {
 
 function NotFound() {
   return (
-    <div className="flex h-svh flex-col justify-start space-y-10">
-      <NavBar />
-      <div className="grid flex-1 place-content-center">
-        <Empty>
-          <EmptyMedia variant="icon">
-            <SealQuestionIcon />
-          </EmptyMedia>
-          <EmptyTitle>Page Not Found</EmptyTitle>
-          <EmptyDescription>
-            The link might be broken or the page may have been removed.
-          </EmptyDescription>
-          <EmptyContent>
-            <Link to="/">
-              <Button aria-label="Back to home page">
-                <HouseSimpleIcon data-icon="inline-start" />
-                Back to home page
-              </Button>
-            </Link>
-          </EmptyContent>
-        </Empty>
-      </div>
+    <div className="grid flex-1 place-content-center">
+      <Empty>
+        <EmptyMedia variant="icon">
+          <QuestionMarkIcon className="size-8" />
+        </EmptyMedia>
+        <EmptyTitle>Page Not Found</EmptyTitle>
+        <EmptyDescription>
+          The link might be broken or the page may have been removed.
+        </EmptyDescription>
+        <EmptyContent>
+          <Link to="/">
+            <Button aria-label="Back to home page">
+              <HouseIcon data-icon="inline-start" />
+              Back to home page
+            </Button>
+          </Link>
+        </EmptyContent>
+      </Empty>
     </div>
   )
 }

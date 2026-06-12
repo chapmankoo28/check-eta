@@ -10,12 +10,13 @@ import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { Spinner } from '@/components/ui/spinner'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
-import { busCo, getRouteInfo } from '@/features/bus/utils'
-import { cn } from '@/lib/utils'
+import type { CtbStop, KmbStop } from '@/features/bus/types'
+import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
+import { cn, scrollToElement } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
 import { createFileRoute, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import z from 'zod'
 
 export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
@@ -33,6 +34,12 @@ function RouteComponent() {
   const { co, route, bound, service } = Route.useParams()
   const { stop } = Route.useSearch()
 
+  // Scrolls to the stop element only when:
+  // 1. A stop is already in the URL on first page load
+  // 2. The closest stop was auto-detected
+  // Clicking an accordion item does NOT trigger scroll.
+  const shouldScroll = useRef(Boolean(stop))
+
   const nowRouteInfo = getRouteInfo(co, route, bound, service)
   const { data: routeStops, isLoading: isLoadingRouteStops } = useBusRouteStops({
     co,
@@ -43,7 +50,11 @@ function RouteComponent() {
 
   const stopIds = useMemo(() => [...new Set(routeStops?.map((s) => s.stop) ?? [])], [routeStops])
 
-  const { isPending: isStopInfoPending, stopNameMap } = useQueries({
+  const {
+    isPending: isStopInfoPending,
+    stopNameMap,
+    stopMap,
+  } = useQueries({
     queries: stopIds.map((id) => getStopInfoQueryOptions(co, id)),
     combine: (results) => ({
       isPending: results.some((r) => r.isPending),
@@ -53,8 +64,42 @@ function RouteComponent() {
         }
         return map
       }, new Map<string, string>()),
+      stopMap: results.reduce(
+        (map, r) => {
+          if (r.data) {
+            map[r.data.stop] = r.data as CtbStop | KmbStop
+          }
+          return map
+        },
+        {} as Record<string, CtbStop | KmbStop>
+      ),
     }),
   })
+
+  useEffect(() => {
+    const find = async () => {
+      // wait for stopMap
+      if (!stop && Object.keys(stopMap).length > 0) {
+        const closest = await findClosestStop(stopMap)
+        // user may have scrolled to a different stop
+        // before the closest stop is found
+        if (closest && !stop) {
+          shouldScroll.current = true
+          navigate({
+            search: (prev) => ({ ...prev, stop: closest }),
+            resetScroll: false,
+            replace: true,
+          })
+        }
+      }
+    }
+    find()
+  }, [stopMap, navigate])
+
+  if (stop && shouldScroll.current) {
+    shouldScroll.current = false
+    scrollToElement(stop)
+  }
 
   if ((co !== busCo.kmb && co !== busCo.ctb) || !nowRouteInfo) {
     return (
@@ -145,7 +190,11 @@ function RouteComponent() {
 
 function BusStop({ nameTc, stopId, seq }: { nameTc?: string; stopId: string; seq: number }) {
   return (
-    <AccordionItem value={stopId} className="border-b px-4 last:border-b-0 hover:bg-accent">
+    <AccordionItem
+      id={stopId}
+      value={stopId}
+      className="border-b px-4 last:border-b-0 hover:bg-accent"
+    >
       <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
         <div
           className={cn(`grid size-7 shrink-0 place-content-center rounded-md border font-medium`)}

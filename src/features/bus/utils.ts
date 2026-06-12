@@ -1,5 +1,5 @@
-/** biome-ignore-all lint/style/useNamingConvention: required by the API */
-import type { RouteListEntry } from '@/features/bus/types'
+import type { CtbStop, KmbStop, RouteListEntry } from '@/features/bus/types'
+import { haversineDistance } from '@/lib/utils'
 import allRoutesData from '@/res/json/all_route_list.json'
 
 export const busCo = {
@@ -83,4 +83,48 @@ export function getRouteInfo(
   const swapBound = bound === 'O' ? 'I' : 'O'
   const swapKey = `${co}|${route}|${swapBound}|${service}`
   return routeInfoMap.get(swapKey) ?? null
+}
+
+export function findClosestStop(
+  stopMap: Record<string, CtbStop | KmbStop>
+): Promise<string | null> {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error('Geolocation is not supported by your browser'))
+      return
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLat = position.coords.latitude
+        const userLng = position.coords.longitude
+        let minDistance = Infinity
+        let closestStop = ''
+
+        for (const stop of Object.values(stopMap)) {
+          const distance = haversineDistance(
+            userLat,
+            userLng,
+            parseFloat(stop.lat as string),
+            parseFloat(stop.long as string)
+          )
+
+          if (distance < minDistance) {
+            minDistance = distance
+            closestStop = stop.stop
+          }
+        }
+
+        if (closestStop && minDistance <= 500) {
+          console.log('Closest stop:', closestStop, 'Distance:', minDistance.toFixed(2), 'm')
+          resolve(closestStop)
+        } else {
+          console.log(`Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`)
+          resolve(null)
+        }
+      },
+      (error) => reject(error),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
+    )
+  })
 }

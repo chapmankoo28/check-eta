@@ -8,10 +8,10 @@ This app can check the ETA of these companies for now:
 
 本應用程式現可查詢以下公司的ETA：
 
--   [KMB](https://www.kmb.hk/)
--   [LWB](https://www.kmb.hk/)
--   [Citybus](https://www.citybus.com.hk/home/default.aspx?intLangID=2)
--   [MTR](https://www.mtr.com.hk/ch/customer/main/index.html)
+- [KMB](https://www.kmb.hk/)
+- [LWB](https://www.kmb.hk/)
+- [Citybus](https://www.citybus.com.hk/home/default.aspx?intLangID=2)
+- [MTR](https://www.mtr.com.hk/ch/customer/main/index.html)
 
 This app uses data from [data.gov.hk(資料一線通)](https://data.gov.hk/).
 For the latest information, please visit their official website above.
@@ -37,10 +37,10 @@ For the latest information, please visit their official website above.
 
 ![bus stop list](public/bus_3.png)
 
--   You can swap the route direction
-    可以調轉方向
--   ETA will be updated every 60 sec. You can also get the latest ETA by clicking the update button.
-    ETA 每六十秒自動更新一次，亦可以手動取得最新的 ETA
+- You can swap the route direction
+  可以調轉方向
+- ETA will be updated every 60 sec. You can also get the latest ETA by clicking the update button.
+  ETA 每六十秒自動更新一次，亦可以手動取得最新的 ETA
 
 ### For Metro 查詢地鐵
 
@@ -54,13 +54,34 @@ For the latest information, please visit their official website above.
 
 ![metro stop list](public/mtr_2.png)
 
--   You can swap the line direction
-    可以調轉方向
--   ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.
-    ETA 每三十秒自動更新一次，亦可以手動取得最新的 ETA
+- You can swap the line direction
+  可以調轉方向
+- ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.
+  ETA 每三十秒自動更新一次，亦可以手動取得最新的 ETA
 
 ## Built With
 
--   [Material Design Icons](https://fonts.google.com/icons)
--   [Radix UI](https://www.radix-ui.com/)
--   [React](https://react.dev/)
+- Phosphor Icons
+- React 19
+- shadcn/ui components
+- Tailwind CSS
+- Tanstack/react-query
+- Tanstack/react-router
+- typescript/native-preview (tsgo)
+- Vite
+
+## Differences from legacy version
+
+This app was rewritten in 2026. Here's the diff:
+
+| Before                | After                |
+| --------------------- | -------------------- |
+| JavaScript            | TypeScript           |
+| CSS                   | Tailwind CSS         |
+| Radix UI              | shadcn/ui components |
+| React Router          | Tanstack Router      |
+| Material Design Icons | Phosphor Icons       |
+
+## Acknowledgements
+
+- The bus route header design was inspired by [hcrk9/signmaker/](https://github.com/hcrk9/signmaker/).

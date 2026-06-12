@@ -28,6 +28,13 @@ export function getBusCompanyCode(co: string, route: string): string {
   return getBusCompanyInfo(co, route).code
 }
 
+const routeInfoMap = new Map<string, RouteListEntry>(
+  allRoutesData.data.map((entry) => [
+    `${entry.co}|${entry.route}|${entry.bound}|${entry.service_type}`,
+    entry as RouteListEntry,
+  ])
+)
+
 export function getRouteInfo(
   co: string,
   route: string,
@@ -38,20 +45,13 @@ export function getRouteInfo(
     return null
   }
 
-  let res = allRoutesData.data.find((i) => {
-    return i.route === route && i.co === co && i.bound === bound && i.service_type === service
-  })
-
-  if (!res) {
-    const swapBound = bound === 'O' ? 'I' : 'O'
-    const swapBoundRes = allRoutesData.data.find((i) => {
-      return i.route === route && i.co === co && i.bound === swapBound && i.service_type === service
-    })
-    if (!swapBoundRes) {
-      return null
-    }
-    res = swapBoundRes
+  const key = `${co}|${route}|${bound}|${service}`
+  const direct = routeInfoMap.get(key)
+  if (direct) {
+    return direct
   }
 
-  return res as RouteListEntry
+  const swapBound = bound === 'O' ? 'I' : 'O'
+  const swapKey = `${co}|${route}|${swapBound}|${service}`
+  return routeInfoMap.get(swapKey) ?? null
 }

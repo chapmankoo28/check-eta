@@ -1,17 +1,28 @@
+import { BusStopIcon } from '@/assets/icons'
 import NowRouteInfo from '@/components/NowBusRouteInfo'
+import { SwapBoundButton } from '@/components/SwapBoundButton'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { Spinner } from '@/components/ui/spinner'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
 import { busCo } from '@/features/bus/types'
 import { getRouteInfo } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
+import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import {
+  createFileRoute,
+  useCanGoBack,
+  useNavigate,
+  useParams,
+  useRouter,
+} from '@tanstack/react-router'
 import { useMemo } from 'react'
 import z from 'zod'
 
@@ -23,7 +34,11 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
 })
 
 function RouteComponent() {
+  const router = useRouter()
+  const params = useParams({ from: '/bus/$co/$route/$bound/$service' })
   const navigate = useNavigate({ from: '/bus/$co/$route/$bound/$service' })
+  const canGoBack = useCanGoBack()
+
   const { co, route, bound, service } = Route.useParams()
   const { stop } = Route.useSearch()
 
@@ -52,16 +67,30 @@ function RouteComponent() {
 
   if ((co !== busCo.kmb && co !== busCo.ctb) || !nowRouteInfo) {
     return (
-      <div>
-        <span>搵唔到呢條線……</span>
-      </div>
-    )
-  }
-
-  if (!routeStops) {
-    return (
-      <div>
-        <span>搵唔到巴士站，請嘗試切換方向。</span>
+      <div className="flex flex-col items-center">
+        <Empty>
+          <EmptyHeader>
+            <EmptyMedia>
+              <BusIcon className="size-8" />
+              <QuestionMarkIcon className="size-8" />
+            </EmptyMedia>
+            <EmptyTitle>搵唔到呢條線</EmptyTitle>
+          </EmptyHeader>
+          <EmptyContent>
+            <Button
+              aria-label="Back to bus page"
+              onClick={() => {
+                if (canGoBack) {
+                  router.history.back()
+                } else {
+                  navigate({ to: '/' })
+                }
+              }}
+            >
+              返回
+            </Button>
+          </EmptyContent>
+        </Empty>
       </div>
     )
   }
@@ -74,6 +103,27 @@ function RouteComponent() {
           <Spinner className="size-8" />
         </div>
       </div>
+    )
+  }
+
+  if (!routeStops || routeStops.length === 0) {
+    return (
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia>
+            <BusStopIcon />
+            <QuestionMarkIcon className="size-8" />
+          </EmptyMedia>
+          <EmptyTitle>搵唔到巴士站，試下調轉方向</EmptyTitle>
+        </EmptyHeader>
+        <EmptyContent>
+          <SwapBoundButton
+            handleSwapBound={() =>
+              navigate({ params: { ...params, bound: params.bound === 'O' ? 'I' : 'O' } })
+            }
+          />
+        </EmptyContent>
+      </Empty>
     )
   }
 

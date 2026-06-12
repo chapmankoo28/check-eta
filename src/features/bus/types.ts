@@ -157,8 +157,6 @@ export type RouteListEntry = {
   route: string
   bound: 'I' | 'O'
   service_type: string
-  orig_en: string
-  orig_tc: string
   dest_en: string
   dest_tc: string
 }

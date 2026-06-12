@@ -3,6 +3,7 @@ import { ThemeToggler } from '@/components/ThemeToggler'
 import { cn } from '@/lib/utils'
 import { BusIcon, SubwayIcon } from '@phosphor-icons/react'
 import { Link, useLocation } from '@tanstack/react-router'
+import type { PropsWithChildren } from 'react'
 
 export function NavBar() {
   const { pathname } = useLocation()
@@ -18,31 +19,42 @@ export function NavBar() {
         </a>
 
         <div className="flex gap-2">
-          <Link to="/bus">
-            <div
-              className={cn(
-                'flex cursor-pointer flex-row items-center justify-between gap-2 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
-                pathname.includes('/bus') && 'border-primary'
-              )}
-            >
-              <BusIcon weight="fill" /> 巴士
-            </div>
-          </Link>
-          <Link to="/mtr">
-            <div
-              className={cn(
-                'flex cursor-pointer flex-row items-center justify-between gap-2 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
-                pathname.includes('/mtr') && 'border-primary'
-              )}
-            >
-              <SubwayIcon weight="fill" /> 鐡路
-            </div>
-          </Link>
+          <NavBarItem className={cn(pathname.includes('/bus') && 'border-primary')} path="/bus">
+            <BusIcon className="size-8" weight={pathname.includes('/bus') ? 'fill' : undefined} />
+            <span className="text-lg">巴士</span>
+          </NavBarItem>
+
+          <NavBarItem className={cn(pathname.includes('/mtr') && 'border-primary')} path="/mtr">
+            <SubwayIcon
+              className="size-8"
+              weight={pathname.includes('/mtr') ? 'fill' : undefined}
+            />
+            <span className="text-lg">鐡路</span>
+          </NavBarItem>
         </div>
         <div className="flex justify-end">
           <ThemeToggler />
         </div>
       </div>
     </header>
+  )
+}
+
+function NavBarItem({
+  path,
+  children,
+  className,
+}: PropsWithChildren<{ path: string; className?: string }>) {
+  return (
+    <Link to={path}>
+      <div
+        className={cn(
+          'flex cursor-pointer flex-row items-center justify-between gap-1 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
+          className
+        )}
+      >
+        {children}
+      </div>
+    </Link>
   )
 }

@@ -1,4 +1,4 @@
-import { busCoBg, getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
+import { busCoBg, getBusCompanyCode } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@phosphor-icons/react'
 import { Link } from '@tanstack/react-router'
@@ -16,7 +16,6 @@ export function BusRouteCard({
   bound: string
   serviceType?: string
 }) {
-  const coName = getBusCompanyName(operator, route)
   const coCode = getBusCompanyCode(operator, route)
 
   return (
@@ -24,20 +23,16 @@ export function BusRouteCard({
       to="/bus/$co/$route/$bound/$service"
       params={{ co: operator, route, bound, service: serviceType ?? '1' }}
     >
-      <div className="flex flex-row items-center justify-between space-x-2 rounded-md border p-1 hover:bg-accent">
-        <div className="w-20 text-center text-3xl font-bold">{route}</div>
-        <div className="flex flex-1 items-start">
-          <div className="flex flex-col">
-            <div
-              className={cn('h-fit w-fit rounded-full px-1 text-sm font-medium', busCoBg[coCode])}
-            >
-              {coName}
-            </div>
-            <span className="text-2xl font-semibold">{destination}</span>
-            {serviceType !== '1' ? <span className="text-muted-foreground">特別班</span> : ''}
-          </div>
+      <div className="flex flex-row items-center justify-between rounded-md border p-1 hover:bg-accent">
+        <div className="flex w-35 items-baseline gap-1">
+          <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
+          <span className="text-5xl font-medium">{route}</span>
         </div>
-        <ArrowRightIcon />
+        <div className="flex flex-1 flex-col items-start">
+          <span className="text-2xl">{destination}</span>
+          {serviceType !== '1' ? <span className="text-sm text-muted-foreground">特別班</span> : ''}
+        </div>
+        <ArrowRightIcon className="size-6" />
       </div>
     </Link>
   )

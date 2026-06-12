@@ -9,6 +9,7 @@ import { useNavigate, useParams } from '@tanstack/react-router'
 export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: RouteListEntry }) {
   const params = useParams({ from: '/bus/$co/$route/$bound/$service' })
   const navigate = useNavigate({ from: '/bus/$co/$route/$bound/$service' })
+
   const coCode = getBusCompanyCode(co, nowRoute.route)
   const coWebsites = {
     KMB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=${nowRoute.route}`,
@@ -19,17 +20,14 @@ export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
   return (
     <>
       <div className="sticky top-0 z-10 w-full bg-background">
-        <div className="mx-auto flex w-full max-w-xl flex-row place-items-baseline justify-between gap-5 py-2">
-          <div className="flex flex-row place-items-baseline gap-2">
-            <div className={cn('h-10 w-3', busCoBg[coCode])}></div>
+        <div className="mx-auto flex w-full max-w-xl items-center justify-between gap-1 py-1">
+          <div className="mr-1 flex place-items-baseline gap-1.5">
+            <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
             <span className="text-5xl font-medium">{nowRoute.route}</span>
           </div>
-          <div className="flex min-w-0 flex-1 flex-row place-items-baseline gap-2">
-            <span className="text-lg">往</span>
-            <span className="text-3xl">{nowRoute.dest_tc}</span>
-          </div>
+          <span className="flex-1 text-center text-2xl">{nowRoute.dest_tc}</span>
           <SwapBoundButton
-            className="shrink-0 self-center"
+            className="shrink-0"
             handleSwapBound={() =>
               navigate({
                 params: { ...params, bound: params.bound === 'O' ? 'I' : 'O' },

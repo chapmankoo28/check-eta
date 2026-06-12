@@ -39,7 +39,7 @@ export function getBusCompanyInfo(
     'X90',
   ]
   const isLwbRoute = (route: string) =>
-    /^(A|E|N|R|S|X)/.test(route) && !notLwbRoutes.includes(route)
+    /^(A|E|NA|R|S|X)/.test(route) && !notLwbRoutes.includes(route)
   if (co === 'CTB') {
     return { name: companyNames.CTB, code: busCo.ctb }
   }

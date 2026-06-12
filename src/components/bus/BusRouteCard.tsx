@@ -1,4 +1,4 @@
-import { getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
+import { busCoBg, getBusCompanyCode, getBusCompanyName } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from '@phosphor-icons/react'
 import { Link } from '@tanstack/react-router'
@@ -29,12 +29,7 @@ export function BusRouteCard({
         <div className="flex flex-1 items-start">
           <div className="flex flex-col">
             <div
-              className={cn(
-                'h-fit w-fit rounded-full px-1 text-sm font-medium',
-                coCode === 'CTB' && 'bg-ctb text-black',
-                coCode === 'KMB' && 'bg-kmb text-white',
-                coCode === 'LWB' && 'bg-lwb text-white'
-              )}
+              className={cn('h-fit w-fit rounded-full px-1 text-sm font-medium', busCoBg[coCode])}
             >
               {coName}
             </div>

@@ -1,6 +1,5 @@
 import { BusStopIcon } from '@/assets/icons'
 import NowRouteInfo from '@/components/NowBusRouteInfo'
-import { SwapBoundButton } from '@/components/SwapBoundButton'
 import {
   Accordion,
   AccordionContent,
@@ -11,8 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { Spinner } from '@/components/ui/spinner'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
-import { busCo } from '@/features/bus/types'
-import { getRouteInfo } from '@/features/bus/utils'
+import { busCo, getRouteInfo } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
@@ -108,22 +106,18 @@ function RouteComponent() {
 
   if (!routeStops || routeStops.length === 0) {
     return (
-      <Empty>
-        <EmptyHeader>
-          <EmptyMedia>
-            <BusStopIcon />
-            <QuestionMarkIcon className="size-8" />
-          </EmptyMedia>
-          <EmptyTitle>搵唔到巴士站，試下調轉方向</EmptyTitle>
-        </EmptyHeader>
-        <EmptyContent>
-          <SwapBoundButton
-            handleSwapBound={() =>
-              navigate({ params: { ...params, bound: params.bound === 'O' ? 'I' : 'O' } })
-            }
-          />
-        </EmptyContent>
-      </Empty>
+      <div>
+        <NowRouteInfo co={co} nowRoute={nowRouteInfo} />
+        <Empty>
+          <EmptyHeader>
+            <EmptyMedia>
+              <BusStopIcon />
+              <QuestionMarkIcon className="size-8" />
+            </EmptyMedia>
+            <EmptyTitle>搵唔到巴士站，試下調轉方向</EmptyTitle>
+          </EmptyHeader>
+        </Empty>
+      </div>
     )
   }
 
@@ -145,7 +139,6 @@ function RouteComponent() {
           return (
             <BusStop
               key={`${i.route}-${i.seq}-${i.stop}`}
-              co={co}
               nameTc={stopNameMap.get(i.stop)}
               stopId={i.stop}
               seq={i.seq}
@@ -157,23 +150,13 @@ function RouteComponent() {
   )
 }
 
-function BusStop({
-  co,
-  nameTc,
-  stopId,
-  seq,
-}: {
-  co: string
-  nameTc?: string
-  stopId: string
-  seq: number
-}) {
-  const bg = co === busCo.kmb ? 'bg-kmb text-white' : 'bg-ctb text-black'
-
+function BusStop({ nameTc, stopId, seq }: { nameTc?: string; stopId: string; seq: number }) {
   return (
     <AccordionItem value={stopId} className="border-b px-4 last:border-b-0 hover:bg-accent">
-      <AccordionTrigger className="flex flex-row items-center gap-2 text-lg hover:no-underline">
-        <div className={cn(`grid size-8 shrink-0 place-content-center rounded-md font-bold`, bg)}>
+      <AccordionTrigger className="flex flex-row items-center gap-2 text-lg font-normal hover:no-underline">
+        <div
+          className={cn(`grid size-8 shrink-0 place-content-center rounded-md border font-bold`)}
+        >
           {seq}
         </div>
         <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${stopId}」的巴士站`}</div>

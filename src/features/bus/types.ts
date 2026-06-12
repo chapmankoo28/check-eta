@@ -1,7 +1,5 @@
-export const busCo = {
-  kmb: 'KMB',
-  ctb: 'CTB',
-} as const
+import type { busCo } from '@/features/bus/utils'
+
 export type BusCo = (typeof busCo)[keyof typeof busCo]
 
 // Shared envelope

@@ -1,5 +1,5 @@
 import { NavBar } from '@/components/NavBar'
-import { themeMode, ThemeProvider } from '@/components/ThemeProvider'
+import { Providers } from '@/components/Providers'
 import { Button } from '@/components/ui/button'
 import {
   Empty,
@@ -13,7 +13,6 @@ import '@/styles/global.css'
 import { HouseIcon } from '@phosphor-icons/react'
 import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 
@@ -22,31 +21,27 @@ export const Route = createRootRoute({
   notFoundComponent: NotFound,
 })
 
-const queryClient = new QueryClient()
-
 function RootComponent() {
   return (
-    <ThemeProvider defaultTheme={themeMode.light} storageKey="theme">
-      <QueryClientProvider client={queryClient}>
-        <div className="flex flex-col justify-start">
-          <NavBar />
-          <Main>
-            <Outlet />
-          </Main>
-        </div>
-        {import.meta.env.DEV && (
-          <TanStackDevtools
-            config={{ position: 'bottom-right' }}
-            plugins={[
-              {
-                name: 'TanStack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-            ]}
-          />
-        )}
-      </QueryClientProvider>
-    </ThemeProvider>
+    <Providers>
+      <div className="flex flex-col justify-start">
+        <NavBar />
+        <Main>
+          <Outlet />
+        </Main>
+      </div>
+      {import.meta.env.DEV && (
+        <TanStackDevtools
+          config={{ position: 'bottom-right' }}
+          plugins={[
+            {
+              name: 'TanStack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
+      )}
+    </Providers>
   )
 }
 

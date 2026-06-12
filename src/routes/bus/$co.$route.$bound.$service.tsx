@@ -146,9 +146,9 @@ function RouteComponent() {
 function BusStop({ nameTc, stopId, seq }: { nameTc?: string; stopId: string; seq: number }) {
   return (
     <AccordionItem value={stopId} className="border-b px-4 last:border-b-0 hover:bg-accent">
-      <AccordionTrigger className="flex flex-row items-center gap-2 text-lg font-normal hover:no-underline">
+      <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
         <div
-          className={cn(`grid size-8 shrink-0 place-content-center rounded-md border font-bold`)}
+          className={cn(`grid size-7 shrink-0 place-content-center rounded-md border font-medium`)}
         >
           {seq}
         </div>

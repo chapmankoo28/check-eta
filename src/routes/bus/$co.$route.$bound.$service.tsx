@@ -14,13 +14,7 @@ import { busCo, getRouteInfo } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
-import {
-  createFileRoute,
-  useCanGoBack,
-  useNavigate,
-  useParams,
-  useRouter,
-} from '@tanstack/react-router'
+import { createFileRoute, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
 import { useMemo } from 'react'
 import z from 'zod'
 
@@ -33,7 +27,6 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
 
 function RouteComponent() {
   const router = useRouter()
-  const params = useParams({ from: '/bus/$co/$route/$bound/$service' })
   const navigate = useNavigate({ from: '/bus/$co/$route/$bound/$service' })
   const canGoBack = useCanGoBack()
 

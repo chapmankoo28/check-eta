@@ -1,12 +1,12 @@
-import {
-  busCo,
-  type CtbEta,
-  type CtbRouteStop,
-  type CtbStop,
-  type KmbEta,
-  type KmbRouteStop,
-  type KmbStop,
+import type {
+  CtbEta,
+  CtbRouteStop,
+  CtbStop,
+  KmbEta,
+  KmbRouteStop,
+  KmbStop,
 } from '@/features/bus/types'
+import { busCo } from '@/features/bus/utils'
 import { ETA_REFETCH_INTERVAL } from '@/lib/constants'
 import apiConfig from '@/res/json/api_config.json'
 import { useQuery } from '@tanstack/react-query'

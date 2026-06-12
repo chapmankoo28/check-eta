@@ -8,7 +8,7 @@ export function NavBar() {
   const { pathname } = useLocation()
 
   return (
-    <header className="w-full border-b px-2 py-1">
+    <header className="w-full border-b px-2 py-1 dark:bg-black">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center">
         <a href="https://github.com/chapmankoo28/check-eta">
           <div className="flex items-center gap-2">

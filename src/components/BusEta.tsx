@@ -67,7 +67,7 @@ export function BusEta({
             disabled={isFetching}
           >
             {isFetching ? (
-              <Spinner />
+              <Spinner className="size-5 text-foreground" />
             ) : showTick ? (
               <CheckIcon weight="bold" className="size-5 text-success" data-icon="inline-start" />
             ) : (

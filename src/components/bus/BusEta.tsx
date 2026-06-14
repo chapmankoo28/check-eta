@@ -4,7 +4,7 @@ import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useBusEta } from '@/features/bus/hooks'
 import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
-import { userDistanceToStop } from '@/features/bus/utils'
+import { getBusCompanyCode, userDistanceToStop } from '@/features/bus/utils'
 import { cn, formatTime, timeDiffInMinutes } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
@@ -23,6 +23,7 @@ export function BusEta({
   stop: CtbStop | KmbStop
 }) {
   const stopId = stop.stop
+
   const {
     data,
     isLoading: isLoadingEta,
@@ -52,7 +53,7 @@ export function BusEta({
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 sm:ml-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1 font-light">
           {dest !== null && <span>{`距離 ${dest.toFixed(0)} 米`} </span>}
@@ -93,7 +94,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
   if (eta.every((i) => !i.eta && !i.rmk_tc)) {
     return (
       <div className="text-center">
-        <span className="text-lg text-secondary">暫無班次</span>
+        <span className="text-lg text-secondary-foreground">暫無班次</span>
       </div>
     )
   }
@@ -114,6 +115,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
           return null
         }
 
+        const coCode = getBusCompanyCode(i.co, i.route)
         const etaDate = new Date(i.eta)
         const etaInMin = Math.ceil(timeDiffInMinutes(now, etaDate))
         return (
@@ -121,7 +123,10 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
             key={`eta-${i.seq}-${i.eta_seq}`}
             className={cn(
               'flex flex-col items-center justify-center rounded-md border bg-secondary',
-              index === 0 ? 'h-30 w-30' : 'h-24 w-24'
+              index === 0 ? 'h-30 w-30' : 'h-24 w-24',
+              coCode === 'KMB' && 'border-kmb',
+              coCode === 'CTB' && 'border-ctb-yellow',
+              coCode === 'LWB' && 'border-lwb'
             )}
           >
             <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>

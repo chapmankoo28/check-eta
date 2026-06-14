@@ -12,13 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
-import {
-  busCo,
-  busCoBg,
-  findClosestStop,
-  getBusCompanyCode,
-  getRouteInfo,
-} from '@/features/bus/utils'
+import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
 import { cn, scrollToElement } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
@@ -40,13 +34,13 @@ function RouteComponent() {
 
   const { co, route, bound, service } = Route.useParams()
   const { stop } = Route.useSearch()
-  const coCode = getBusCompanyCode(co, route)
 
   // Scrolls to the stop element only when:
   // 1. A stop is already in the URL on first page load
   // 2. The closest stop was auto-detected
   // Clicking an accordion item does NOT trigger scroll.
   const shouldScroll = useRef(Boolean(stop))
+  const autoDetected = useRef(false)
 
   const nowRouteInfo = getRouteInfo(co, route, bound, service)
   const { data: routeStops, isLoading: isLoadingRouteStops } = useBusRouteStops({
@@ -83,8 +77,6 @@ function RouteComponent() {
       ),
     }),
   })
-
-  const autoDetected = useRef(false)
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Don't want to find when "stop" changes
   useEffect(() => {
@@ -178,9 +170,7 @@ function RouteComponent() {
           })
         }
       >
-        {routeStops.map((i, idx, arr) => {
-          const isFirst = idx === 0
-          const isLast = idx === arr.length - 1
+        {routeStops.map((i) => {
           const nameTc = stopNameMap.get(i.stop)
           return (
             <AccordionItem
@@ -189,29 +179,17 @@ function RouteComponent() {
               value={i.stop}
               className="relative border-b px-4 last:border-b-0"
             >
-              <div
-                className={cn(
-                  'absolute left-8 w-px',
-                  isFirst && 'top-8 h-[calc(100%-2rem)]',
-                  isLast && 'top-0 h-8',
-                  !isFirst && !isLast && 'top-0 h-full',
-                  busCoBg[coCode]
-                )}
-              />
               <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
                 <div
                   className={cn(
-                    `relative z-10 grid size-8 shrink-0 place-content-center rounded-full border bg-background font-medium`,
-                    coCode === 'KMB' && 'border-kmb',
-                    coCode === 'CTB' && 'border-ctb',
-                    coCode === 'LWB' && 'border-lwb'
+                    `relative z-10 grid size-8 shrink-0 place-content-center rounded-full border bg-background font-medium`
                   )}
                 >
                   {i.seq}
                 </div>
                 <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${i.stop}」的巴士站`}</div>
               </AccordionTrigger>
-              <AccordionContent className={'ml-10'}>
+              <AccordionContent>
                 <BusEta
                   co={co}
                   route={route}

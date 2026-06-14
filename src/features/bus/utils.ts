@@ -1,4 +1,5 @@
 import type { CtbStop, KmbStop, RouteListEntry } from '@/features/bus/types'
+import { POSITION_TTL } from '@/lib/constants'
 import { haversineDistance } from '@/lib/utils'
 import allRoutesData from '@/res/json/all_route_list.json'
 
@@ -25,6 +26,8 @@ export const coWebsites = {
   LWB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=`,
   CTB: `https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=`,
 } as const
+
+let cachedPosition: { lat: number; lng: number; ts: number } | null = null
 
 export function getBusCompanyInfo(
   co: string,
@@ -91,7 +94,11 @@ export function getRouteInfo(
   return routeInfoMap.get(swapKey) ?? null
 }
 
-export function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | null> {
+function getUserPosition(): Promise<{ lat: number; lng: number }> {
+  if (cachedPosition && Date.now() - cachedPosition.ts < POSITION_TTL) {
+    return Promise.resolve(cachedPosition)
+  }
+
   return new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       reject(new Error('Geolocation is not supported by your browser'))
@@ -100,64 +107,55 @@ export function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | nu
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const userLat = position.coords.latitude
-        const userLng = position.coords.longitude
-        const distance = haversineDistance(
-          userLat,
-          userLng,
-          parseFloat(stop.lat as string),
-          parseFloat(stop.long as string)
-        )
-        resolve(distance)
-      },
-      (error) => {
-        reject(error)
-      },
-      { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
-    )
-  })
-}
-
-export function findClosestStop(
-  stopMap: Record<string, CtbStop | KmbStop>
-): Promise<string | null> {
-  return new Promise((resolve, reject) => {
-    if (!navigator.geolocation) {
-      reject(new Error('Geolocation is not supported by your browser'))
-      return
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const userLat = position.coords.latitude
-        const userLng = position.coords.longitude
-        let minDistance = Infinity
-        let closestStop = ''
-
-        for (const stop of Object.values(stopMap)) {
-          const distance = haversineDistance(
-            userLat,
-            userLng,
-            parseFloat(stop.lat as string),
-            parseFloat(stop.long as string)
-          )
-
-          if (distance < minDistance) {
-            minDistance = distance
-            closestStop = stop.stop
-          }
+        cachedPosition = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          ts: Date.now(),
         }
-
-        if (closestStop && minDistance <= 500) {
-          console.log('Closest stop:', closestStop, 'Distance:', minDistance.toFixed(2), 'm')
-          resolve(closestStop)
-        } else {
-          console.log(`Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`)
-          resolve(null)
-        }
+        resolve(cachedPosition)
       },
       (error) => reject(error),
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
     )
   })
+}
+
+export async function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | null> {
+  const { lat, lng } = await getUserPosition()
+  return haversineDistance(
+    lat,
+    lng,
+    parseFloat(stop.lat as string),
+    parseFloat(stop.long as string)
+  )
+}
+
+export async function findClosestStop(
+  stopMap: Record<string, CtbStop | KmbStop>
+): Promise<string | null> {
+  const { lat, lng } = await getUserPosition()
+  let minDistance = Infinity
+  let closestStop = ''
+
+  for (const stop of Object.values(stopMap)) {
+    const distance = haversineDistance(
+      lat,
+      lng,
+      parseFloat(stop.lat as string),
+      parseFloat(stop.long as string)
+    )
+
+    if (distance < minDistance) {
+      minDistance = distance
+      closestStop = stop.stop
+    }
+  }
+
+  if (closestStop && minDistance <= 500) {
+    console.log('Closest stop:', closestStop, 'Distance:', minDistance.toFixed(2), 'm')
+    return closestStop
+  } else {
+    console.log(`Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`)
+    return null
+  }
 }

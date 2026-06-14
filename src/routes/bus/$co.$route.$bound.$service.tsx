@@ -123,7 +123,7 @@ function RouteComponent() {
                 if (canGoBack) {
                   router.history.back()
                 } else {
-                  navigate({ to: '/' })
+                  navigate({ to: '/bus' })
                 }
               }}
             >

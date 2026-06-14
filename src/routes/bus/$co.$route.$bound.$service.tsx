@@ -1,6 +1,6 @@
 import { BusStopIcon } from '@/assets/icons'
-import { BusEta } from '@/components/BusEta'
-import NowRouteInfo from '@/components/BusRouteInfo'
+import { BusEta } from '@/components/bus/BusEta'
+import NowRouteInfo from '@/components/bus/BusRouteInfo'
 import { Loading } from '@/components/Loading'
 import {
   Accordion,

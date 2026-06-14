@@ -11,10 +11,10 @@ export function NavBar() {
   return (
     <header className="w-full border-b px-2 py-1 dark:bg-black">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center">
-        <a href="https://github.com/chapmankoo28/check-eta">
-          <div className="flex items-center gap-2">
+        <a href="https://github.com/chapmankoo28/check-eta" target="_blank">
+          <div className="flex items-center gap-1">
             <Logo />
-            <span className="cursor-pointer rounded-md p-2 text-2xl select-none">幾時到</span>
+            <span className="hidden rounded-md text-2xl select-none sm:inline">幾時到</span>
           </div>
         </a>
 

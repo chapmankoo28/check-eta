@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import { ArrowSquareOutIcon } from '@phosphor-icons/react'
 import { useNavigate, useParams } from '@tanstack/react-router'
 
-export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: RouteListEntry }) {
+export default function BusRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: RouteListEntry }) {
   const params = useParams({ from: '/bus/$co/$route/$bound/$service' })
   const navigate = useNavigate({ from: '/bus/$co/$route/$bound/$service' })
 

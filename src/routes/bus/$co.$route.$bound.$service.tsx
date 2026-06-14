@@ -1,6 +1,6 @@
 import { BusStopIcon } from '@/assets/icons'
 import { BusEta } from '@/components/bus/BusEta'
-import NowRouteInfo from '@/components/bus/BusRouteInfo'
+import BusRouteInfo from '@/components/bus/BusRouteInfo'
 import { Loading } from '@/components/Loading'
 import {
   Accordion,
@@ -142,7 +142,7 @@ function RouteComponent() {
   if (!routeStops || routeStops.length === 0) {
     return (
       <div>
-        <NowRouteInfo co={co} nowRoute={nowRouteInfo} />
+        <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
         <Empty>
           <EmptyHeader>
             <EmptyMedia>
@@ -158,7 +158,7 @@ function RouteComponent() {
 
   return (
     <div className="flex flex-col items-center">
-      <NowRouteInfo co={co} nowRoute={nowRouteInfo} />
+      <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
       <Accordion
         className="max-w-xl rounded-lg border"
         value={stop ? [stop] : []}

@@ -90,7 +90,7 @@ function RouteComponent() {
   useEffect(() => {
     const find = async () => {
       // wait for stopMap
-      if (!stop && !autoDetected.current && Object.keys(stopMap).length > 0) {
+      if (!stop && !autoDetected.current && !isStopInfoPending && Object.keys(stopMap).length > 0) {
         autoDetected.current = true
         const closest = await findClosestStop(stopMap)
         // user may have scrolled to a different stop
@@ -106,7 +106,7 @@ function RouteComponent() {
       }
     }
     find()
-  }, [stopMap, navigate])
+  }, [stopMap, navigate, isStopInfoPending])
 
   if (stop && shouldScroll.current) {
     shouldScroll.current = false

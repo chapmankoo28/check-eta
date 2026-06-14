@@ -85,3 +85,4 @@ This app was rewritten in 2026. Here's the diff:
 ## Acknowledgements
 
 - The bus route header design was inspired by [hcrk9/signmaker/](https://github.com/hcrk9/signmaker/).
+- The bus ETA display was based on my group project for COMP3423 Human Computer Interaction.

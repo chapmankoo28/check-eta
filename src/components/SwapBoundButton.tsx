@@ -14,9 +14,13 @@ export function SwapBoundButton({
     <Tooltip>
       <TooltipTrigger
         onClick={handleSwapBound}
-        className={cn(buttonVariants({ variant: 'secondary', size: 'icon-sm' }), className)}
+        className={cn(
+          buttonVariants({ variant: 'secondary', size: 'icon' }),
+          'shadow-none',
+          className
+        )}
       >
-        <ArrowsDownUpIcon className={'text-foreground'} data-icon="inline-start" />
+        <ArrowsDownUpIcon data-icon="inline-start" className="size-5 text-foreground" />
       </TooltipTrigger>
       <TooltipContent>調轉方向</TooltipContent>
     </Tooltip>

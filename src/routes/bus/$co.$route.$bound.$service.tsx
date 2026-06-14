@@ -192,8 +192,8 @@ function RouteComponent() {
               <div
                 className={cn(
                   'absolute left-8 w-px',
-                  isFirst && 'top-1/2 h-1/2',
-                  isLast && 'top-0 h-1/2',
+                  isFirst && 'top-8 h-[calc(100%-2rem)]',
+                  isLast && 'top-0 h-8',
                   !isFirst && !isLast && 'top-0 h-full',
                   busCoBg[coCode]
                 )}

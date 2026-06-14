@@ -56,7 +56,7 @@ export function BusEta({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1 font-light">
           {dest !== null && <span>{`距離 ${dest.toFixed(0)} 米`} </span>}
-          {dest !== null && <span>&bull;</span>}
+          {dest !== null && <span>&middot;</span>}
 
           <span>最後更新於 {lastUpdated}</span>
         </div>

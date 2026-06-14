@@ -24,12 +24,12 @@ export function BusRouteCard({
       params={{ co: operator, route, bound, service: serviceType ?? '1' }}
     >
       <div className="flex flex-row items-center justify-between rounded-md border p-1 hover:bg-muted">
-        <div className="flex w-35 items-baseline gap-1">
-          <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
-          <span className="text-5xl font-medium">{route}</span>
+        <div className="flex min-w-30 items-center gap-1">
+          <div className={cn('h-8 w-3', busCoBg[coCode])}></div>
+          <span className="text-4xl font-medium">{route}</span>
         </div>
         <div className="flex flex-1 flex-col items-start">
-          <span className="text-2xl">{destination}</span>
+          <span className="text-xl">{destination}</span>
           {serviceType !== '1' ? <span className="text-sm text-muted-foreground">特別班</span> : ''}
         </div>
         <ArrowRightIcon className="size-6" />

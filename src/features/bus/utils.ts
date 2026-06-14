@@ -20,6 +20,12 @@ const companyNames = {
   LWB: '龍運',
 } as const
 
+export const coWebsites = {
+  KMB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=`,
+  LWB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=`,
+  CTB: `https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=`,
+} as const
+
 export function getBusCompanyInfo(
   co: string,
   route: string

@@ -23,3 +23,22 @@ export function scrollToElement(elementId: string): void {
     document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }, 200)
 }
+
+/**
+ * Formats a Date object as a string in the format "HH:MM:SS".
+ */
+export function formatTime(date: Date): string {
+  const hr = date.getHours().toString().padStart(2, '0')
+  const min = date.getMinutes().toString().padStart(2, '0')
+  const sec = date.getSeconds().toString().padStart(2, '0')
+  const time = `${hr}:${min}:${sec}`
+  return time
+}
+
+/**
+ * Returns the time difference between two Date objects in minutes.
+ */
+export function timeDiffInMinutes(date: Date, from: Date): number {
+  const diff = from.getTime() - date.getTime()
+  return diff / 1000 / 60
+}

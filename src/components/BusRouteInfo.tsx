@@ -1,7 +1,7 @@
 import { SwapBoundButton } from '@/components/SwapBoundButton'
 import { buttonVariants } from '@/components/ui/button'
 import type { BusCo, RouteListEntry } from '@/features/bus/types'
-import { busCoBg, getBusCompanyCode } from '@/features/bus/utils'
+import { busCoBg, coWebsites, getBusCompanyCode } from '@/features/bus/utils'
 import { cn } from '@/lib/utils'
 import { ArrowSquareOutIcon } from '@phosphor-icons/react'
 import { useNavigate, useParams } from '@tanstack/react-router'
@@ -11,11 +11,6 @@ export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
   const navigate = useNavigate({ from: '/bus/$co/$route/$bound/$service' })
 
   const coCode = getBusCompanyCode(co, nowRoute.route)
-  const coWebsites = {
-    KMB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=${nowRoute.route}`,
-    LWB: `https://search.kmb.hk/KMBWebSite/?action=routesearch&route=${nowRoute.route}`,
-    CTB: `https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=${nowRoute.route}`,
-  }
 
   return (
     <>
@@ -40,7 +35,7 @@ export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
       </div>
       <a
         target="_blank"
-        href={coWebsites[co]}
+        href={`${coWebsites[co]}${nowRoute.route}`}
         className={cn(buttonVariants({ variant: 'link', size: 'xs' }), 'my-2')}
         rel="noreferrer"
       >

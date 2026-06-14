@@ -1,5 +1,7 @@
 import { BusStopIcon } from '@/assets/icons'
-import NowRouteInfo from '@/components/NowBusRouteInfo'
+import { BusEta } from '@/components/BusEta'
+import NowRouteInfo from '@/components/BusRouteInfo'
+import { Loading } from '@/components/Loading'
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +10,6 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
-import { Spinner } from '@/components/ui/spinner'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
 import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
@@ -76,10 +77,14 @@ function RouteComponent() {
     }),
   })
 
+  const autoDetected = useRef(false)
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Don't want to find when "stop" changes
   useEffect(() => {
     const find = async () => {
       // wait for stopMap
-      if (!stop && Object.keys(stopMap).length > 0) {
+      if (!stop && !autoDetected.current && Object.keys(stopMap).length > 0) {
+        autoDetected.current = true
         const closest = await findClosestStop(stopMap)
         // user may have scrolled to a different stop
         // before the closest stop is found
@@ -132,14 +137,7 @@ function RouteComponent() {
   }
 
   if (isStopInfoPending || isLoadingRouteStops) {
-    return (
-      <div className="flex flex-col items-center">
-        <NowRouteInfo co={co} nowRoute={nowRouteInfo} />
-        <div className="my-10">
-          <Spinner className="size-8" />
-        </div>
-      </div>
-    )
+    return <Loading />
   }
 
   if (!routeStops || routeStops.length === 0) {
@@ -177,6 +175,10 @@ function RouteComponent() {
           return (
             <BusStop
               key={`${i.route}-${i.seq}-${i.stop}`}
+              co={co}
+              route={route}
+              bound={bound}
+              service={service}
               nameTc={stopNameMap.get(i.stop)}
               stopId={i.stop}
               seq={i.seq}
@@ -188,13 +190,25 @@ function RouteComponent() {
   )
 }
 
-function BusStop({ nameTc, stopId, seq }: { nameTc?: string; stopId: string; seq: number }) {
+function BusStop({
+  co,
+  route,
+  bound,
+  service,
+  nameTc,
+  stopId,
+  seq,
+}: {
+  co: string
+  route: string
+  bound: string
+  service: string
+  nameTc?: string
+  stopId: string
+  seq: number
+}) {
   return (
-    <AccordionItem
-      id={stopId}
-      value={stopId}
-      className="border-b px-4 last:border-b-0 hover:bg-accent"
-    >
+    <AccordionItem id={stopId} value={stopId} className="border-b px-4 last:border-b-0">
       <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
         <div
           className={cn(`grid size-7 shrink-0 place-content-center rounded-md border font-medium`)}
@@ -203,7 +217,9 @@ function BusStop({ nameTc, stopId, seq }: { nameTc?: string; stopId: string; seq
         </div>
         <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${stopId}」的巴士站`}</div>
       </AccordionTrigger>
-      <AccordionContent className="text-base">{seq}</AccordionContent>
+      <AccordionContent>
+        <BusEta co={co} route={route} bound={bound} service={service} stop={stopId} />
+      </AccordionContent>
     </AccordionItem>
   )
 }

@@ -23,7 +23,7 @@ export function BusRouteCard({
       to="/bus/$co/$route/$bound/$service"
       params={{ co: operator, route, bound, service: serviceType ?? '1' }}
     >
-      <div className="flex flex-row items-center justify-between rounded-md border p-1 hover:bg-accent">
+      <div className="flex flex-row items-center justify-between rounded-md border p-1 hover:bg-muted">
         <div className="flex w-35 items-baseline gap-1">
           <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
           <span className="text-5xl font-medium">{route}</span>

@@ -91,6 +91,33 @@ export function getRouteInfo(
   return routeInfoMap.get(swapKey) ?? null
 }
 
+export function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | null> {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error('Geolocation is not supported by your browser'))
+      return
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLat = position.coords.latitude
+        const userLng = position.coords.longitude
+        const distance = haversineDistance(
+          userLat,
+          userLng,
+          parseFloat(stop.lat as string),
+          parseFloat(stop.long as string)
+        )
+        resolve(distance)
+      },
+      (error) => {
+        reject(error)
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 }
+    )
+  })
+}
+
 export function findClosestStop(
   stopMap: Record<string, CtbStop | KmbStop>
 ): Promise<string | null> {

@@ -25,15 +25,15 @@ export function useBusEta({
   co,
   route,
   service,
-  stop,
+  stopId,
 }: {
   co: string
   route: string
   service: string
-  stop: string
+  stopId: string
 }) {
   return useQuery({
-    queryKey: ['bus-eta', co, route, service, stop],
+    queryKey: ['bus-eta', co, route, service, stopId],
     queryFn: async ({ signal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase()
@@ -44,7 +44,7 @@ export function useBusEta({
       }
 
       const s = co.toLowerCase() === 'kmb' ? `/${service}` : ''
-      const url = `${api.baseUrl}${api.api.eta}${stop.toUpperCase()}/${route.toUpperCase()}${s}`
+      const url = `${api.baseUrl}${api.api.eta}${stopId.toUpperCase()}/${route.toUpperCase()}${s}`
 
       const response = await fetch(url, { signal })
       if (!response.ok) {

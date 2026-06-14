@@ -12,7 +12,13 @@ import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
-import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
+import {
+  busCo,
+  busCoBg,
+  findClosestStop,
+  getBusCompanyCode,
+  getRouteInfo,
+} from '@/features/bus/utils'
 import { cn, scrollToElement } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
@@ -34,6 +40,7 @@ function RouteComponent() {
 
   const { co, route, bound, service } = Route.useParams()
   const { stop } = Route.useSearch()
+  const coCode = getBusCompanyCode(co, route)
 
   // Scrolls to the stop element only when:
   // 1. A stop is already in the URL on first page load
@@ -171,55 +178,52 @@ function RouteComponent() {
           })
         }
       >
-        {routeStops.map((i) => {
+        {routeStops.map((i, idx, arr) => {
+          const isFirst = idx === 0
+          const isLast = idx === arr.length - 1
+          const nameTc = stopNameMap.get(i.stop)
           return (
-            <BusStop
-              key={`${i.route}-${i.seq}-${i.stop}`}
-              co={co}
-              route={route}
-              bound={bound}
-              service={service}
-              nameTc={stopNameMap.get(i.stop)}
-              stopId={i.stop}
-              seq={i.seq}
-            />
+            <AccordionItem
+              key={`${i.seq}-${i.stop}`}
+              id={i.stop}
+              value={i.stop}
+              className="relative border-b px-4 last:border-b-0"
+            >
+              <div
+                className={cn(
+                  'absolute left-8 w-px',
+                  isFirst && 'top-1/2 h-1/2',
+                  isLast && 'top-0 h-1/2',
+                  !isFirst && !isLast && 'top-0 h-full',
+                  busCoBg[coCode]
+                )}
+              />
+              <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
+                <div
+                  className={cn(
+                    `relative z-10 grid size-8 shrink-0 place-content-center rounded-full border bg-background font-medium`,
+                    coCode === 'KMB' && 'border-kmb',
+                    coCode === 'CTB' && 'border-ctb',
+                    coCode === 'LWB' && 'border-lwb'
+                  )}
+                >
+                  {i.seq}
+                </div>
+                <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${i.stop}」的巴士站`}</div>
+              </AccordionTrigger>
+              <AccordionContent className={'ml-10'}>
+                <BusEta
+                  co={co}
+                  route={route}
+                  bound={bound}
+                  service={service}
+                  stop={stopMap[i.stop]}
+                />
+              </AccordionContent>
+            </AccordionItem>
           )
         })}
       </Accordion>
     </div>
-  )
-}
-
-function BusStop({
-  co,
-  route,
-  bound,
-  service,
-  nameTc,
-  stopId,
-  seq,
-}: {
-  co: string
-  route: string
-  bound: string
-  service: string
-  nameTc?: string
-  stopId: string
-  seq: number
-}) {
-  return (
-    <AccordionItem id={stopId} value={stopId} className="border-b px-4 last:border-b-0">
-      <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
-        <div
-          className={cn(`grid size-7 shrink-0 place-content-center rounded-md border font-medium`)}
-        >
-          {seq}
-        </div>
-        <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${stopId}」的巴士站`}</div>
-      </AccordionTrigger>
-      <AccordionContent>
-        <BusEta co={co} route={route} bound={bound} service={service} stop={stopId} />
-      </AccordionContent>
-    </AccordionItem>
   )
 }

@@ -3,7 +3,8 @@ import { buttonVariants } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useBusEta } from '@/features/bus/hooks'
-import type { CtbEta, KmbEta } from '@/features/bus/types'
+import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
+import { userDistanceToStop } from '@/features/bus/utils'
 import { cn, formatTime, timeDiffInMinutes } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
@@ -19,18 +20,24 @@ export function BusEta({
   route: string
   bound: string
   service: string
-  stop: string
+  stop: CtbStop | KmbStop
 }) {
+  const stopId = stop.stop
   const {
     data,
     isLoading: isLoadingEta,
     isFetching,
     dataUpdatedAt,
     refetch,
-  } = useBusEta({ co, route, service, stop })
+  } = useBusEta({ co, route, service, stopId })
   const lastUpdated = formatTime(new Date(dataUpdatedAt))
   const eta = data?.filter((i) => i.dir === bound.toUpperCase()) as CtbEta[] | KmbEta[]
+  const [dest, setDest] = useState<number | null>(null)
   const [showTick, setShowTick] = useState(false)
+
+  useEffect(() => {
+    userDistanceToStop(stop).then(setDest)
+  }, [stop])
 
   useEffect(() => {
     if (!isFetching && dataUpdatedAt > 0) {
@@ -45,9 +52,14 @@ export function BusEta({
   }
 
   return (
-    <div className="my-2 flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="font-light">最後更新於 {lastUpdated}</span>
+        <div className="flex items-center gap-1 font-light">
+          {dest !== null && <span>{`距離 ${dest.toFixed(0)} 米`} </span>}
+          {dest !== null && <span>&bull;</span>}
+
+          <span>最後更新於 {lastUpdated}</span>
+        </div>
         <Tooltip>
           <TooltipTrigger
             className={cn(buttonVariants({ variant: 'secondary', size: 'icon' }))}
@@ -106,7 +118,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
         const etaInMin = Math.ceil(timeDiffInMinutes(now, etaDate))
         return (
           <div
-            key={`eta-${i.seq}`}
+            key={`eta-${i.seq}-${i.eta_seq}`}
             className={cn(
               'flex flex-col items-center justify-center rounded-md border bg-secondary',
               index === 0 ? 'h-30 w-30' : 'h-24 w-24'
@@ -115,7 +127,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
             <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>
               {etaInMin > 0 ? etaInMin : '–'}
             </div>
-            <div className={cn(index === 0 ? 'text-lg' : 'text-sm')}>分鐘</div>
+            <div className={cn(index === 0 ? 'text-base' : 'text-sm')}>分鐘</div>
             {i.rmk_tc && (
               <div className="text-sm font-light text-secondary-foreground italic">
                 {i.rmk_tc === '原定班次' ? '未開出' : i.rmk_tc}

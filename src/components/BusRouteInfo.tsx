@@ -14,7 +14,7 @@ export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
 
   return (
     <>
-      <div className="sticky top-0 z-10 w-full bg-background">
+      <div className="sticky top-0 z-20 w-full bg-background">
         <div className="mx-auto flex w-full max-w-xl items-center justify-between gap-1 py-1">
           <div className="mr-1 flex place-items-baseline gap-1.5">
             <div className={cn('h-9 w-3', busCoBg[coCode])}></div>

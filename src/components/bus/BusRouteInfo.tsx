@@ -36,7 +36,7 @@ export default function NowRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
       <a
         target="_blank"
         href={`${coWebsites[co]}${nowRoute.route}`}
-        className={cn(buttonVariants({ variant: 'link', size: 'xs' }), 'my-2')}
+        className={cn(buttonVariants({ variant: 'link' }), 'my-2')}
         rel="noreferrer"
       >
         按此查詢巴士公司網站之資料

@@ -99,6 +99,12 @@ export type MtrStationCode =
   | 'YMT'
   | 'YUL'
 
+export type LineListEntry = {
+  line: MtrLine
+  name_tc: string
+  name_en: string
+}
+
 export interface TrainSchedule {
   ttnt: string
   valid: string

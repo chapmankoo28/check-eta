@@ -3,8 +3,14 @@ import { buttonVariants } from '@/components/ui/button'
 import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useMetroEta } from '@/features/metro/hooks'
-import type { MtrDirection, MtrLine, MtrStation, TrainSchedule } from '@/features/metro/types'
-import { mtrDirection, mtrLineBorder } from '@/features/metro/utils'
+import type {
+  MtrDirection,
+  MtrLine,
+  MtrStation,
+  MtrStationCode,
+  TrainSchedule,
+} from '@/features/metro/types'
+import { getStationName, mtrDirection, mtrLineBorder } from '@/features/metro/utils'
 import { cn, formatTime } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
@@ -48,6 +54,14 @@ export function MetroEta({
     return <Loading />
   }
 
+  if (line === 'DRL') {
+    return (
+      <div className="text-center">
+        <span className="text-lg text-secondary-foreground">迪士尼線暫無ETA</span>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col gap-2 sm:ml-10">
       <div className="flex items-center justify-between">
@@ -87,15 +101,18 @@ export function MetroEta({
                 key={`eta-${i.seq}-${i.time}`}
                 className={cn(
                   'flex flex-col items-center justify-center rounded-md border bg-secondary',
-                  index === 0 ? 'h-30 w-30' : 'h-24 w-24',
+                  index === 0 ? 'h-32 w-32' : 'h-24 w-24',
                   mtrLineBorder[line]
                 )}
               >
+                <div className={cn(index === 0 ? 'text-sm' : 'text-xs')}>
+                  往 {getStationName({ line, dir, station: i.dest as MtrStationCode })}
+                </div>
                 <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>
                   {etaText({ eta: i, line })}
                 </div>
-                <div className={cn(index === 0 ? 'text-base' : 'text-sm')}>分鐘</div>
-                <div className="text-sm font-light text-secondary-foreground italic">
+                <div className={cn(index === 0 ? 'text-sm' : 'text-xs')}>分鐘</div>
+                <div className="text-xs font-light text-secondary-foreground italic">
                   {i.plat} 號月台
                 </div>
               </div>

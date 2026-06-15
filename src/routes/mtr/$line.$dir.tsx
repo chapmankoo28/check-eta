@@ -9,12 +9,13 @@ import {
 import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import type { MtrDirection, MtrLine, MtrLineData } from '@/features/metro/types'
-import { mtrLine } from '@/features/metro/utils'
+import { getStations, mtrLine } from '@/features/metro/utils'
+import { scrollToElement } from '@/lib/utils'
 import allMtrData from '@/res/json/mtr_lines_and_stations.json'
 import { QuestionMarkIcon } from '@phosphor-icons/react'
 import { SubwayIcon } from '@phosphor-icons/react/dist/ssr'
 import { createFileRoute, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
-import { useMemo } from 'react'
+import { useMemo, useRef } from 'react'
 import z from 'zod'
 
 export const Route = createFileRoute('/mtr/$line/$dir')({
@@ -41,13 +42,19 @@ function RouteComponent() {
   }, [line])
 
   const stations = useMemo(() => {
-    const found = allMtrData.data[line] as MtrLineData | undefined
-    if (!found) {
-      return []
-    }
-    const dirData = found[dir as MtrDirection]
-    return Array.isArray(dirData) ? dirData : []
+    return getStations({ line, dir })
   }, [line, dir])
+
+  // Scrolls to the stop element only when:
+  // 1. A stop is already in the URL on first page load
+  // 2. The closest stop was auto-detected
+  // Clicking an accordion item does NOT trigger scroll.
+  const shouldScroll = useRef(Boolean(stop))
+
+  if (station && shouldScroll.current) {
+    shouldScroll.current = false
+    scrollToElement(station)
+  }
 
   if (!nowLine) {
     return (
@@ -124,13 +131,7 @@ function RouteComponent() {
               <div className="flex-1">{i.name_tc ?? `搵唔到 ID 為「${i.code}」的地鐡站`}</div>
             </AccordionTrigger>
             <AccordionContent>
-              {line === 'DRL' ? (
-                <div className="text-center">
-                  <span className="text-lg text-secondary-foreground">迪士尼線暫無ETA</span>
-                </div>
-              ) : (
-                <MetroEta line={line} dir={dir} station={i} />
-              )}
+              <MetroEta line={line} dir={dir} station={i} />
             </AccordionContent>
           </AccordionItem>
         ))}

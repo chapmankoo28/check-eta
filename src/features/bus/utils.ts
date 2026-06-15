@@ -15,6 +15,12 @@ export const busCoBg = {
   LWB: 'bg-lwb text-white',
 } as const
 
+export const busCoBorder = {
+  KMB: 'border-kmb',
+  CTB: 'border-ctb-yellow',
+  LWB: 'border-lwb',
+} as const
+
 const companyNames = {
   CTB: '城巴',
   KMB: '九巴',

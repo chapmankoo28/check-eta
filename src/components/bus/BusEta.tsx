@@ -4,7 +4,7 @@ import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useBusEta } from '@/features/bus/hooks'
 import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
-import { getBusCompanyCode, userDistanceToStop } from '@/features/bus/utils'
+import { busCoBorder, getBusCompanyCode, userDistanceToStop } from '@/features/bus/utils'
 import { cn, formatTime, timeDiffInMinutes } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
@@ -124,9 +124,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
             className={cn(
               'flex flex-col items-center justify-center rounded-md border bg-secondary',
               index === 0 ? 'h-30 w-30' : 'h-24 w-24',
-              coCode === 'KMB' && 'border-kmb',
-              coCode === 'CTB' && 'border-ctb-yellow',
-              coCode === 'LWB' && 'border-lwb'
+              busCoBorder[coCode]
             )}
           >
             <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>

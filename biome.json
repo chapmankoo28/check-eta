@@ -52,12 +52,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "src/features/bus/types.ts",
-        "src/features/metro/types.ts",
-        "src/features/bus/api.ts",
-        "src/features/bus/utils.ts"
-      ],
+      "includes": ["src/features/bus/types.ts", "src/features/metro/types.ts"],
       "linter": {
         "rules": {
           "style": {

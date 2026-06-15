@@ -12,9 +12,7 @@ import { Main } from '@/layouts/Main'
 import '@/styles/global.css'
 import { HouseIcon } from '@phosphor-icons/react'
 import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr'
-import { TanStackDevtools } from '@tanstack/react-devtools'
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -30,15 +28,6 @@ function RootComponent() {
           <Outlet />
         </Main>
       </div>
-      <TanStackDevtools
-        config={{ position: 'bottom-right' }}
-        plugins={[
-          {
-            name: 'TanStack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
     </Providers>
   )
 }

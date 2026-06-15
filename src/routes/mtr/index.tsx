@@ -17,7 +17,7 @@ function Mtr() {
   return (
     <>
       <div className="grid place-content-center p-5">
-        <h1 className="text-3xl font-bold">鐡路幾時到</h1>
+        <h1 className="text-3xl font-bold">地鐡幾時到</h1>
       </div>
       <div className="mx-auto flex max-w-xl flex-col gap-2 px-5">
         {lines.map((i) => (

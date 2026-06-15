@@ -8,18 +8,9 @@ import type {
 } from '@/features/bus/types'
 import { busCo } from '@/features/bus/utils'
 import { ETA_REFETCH_INTERVAL } from '@/lib/constants'
+import type { ApiConfigEntry } from '@/lib/types'
 import apiConfig from '@/res/json/api_config.json'
 import { useQuery } from '@tanstack/react-query'
-
-type ApiConfigEntry = {
-  co: string
-  baseUrl: string
-  api: {
-    eta: string
-    routeStop: string
-    stop: string
-  }
-}
 
 export function useBusEta({
   co,

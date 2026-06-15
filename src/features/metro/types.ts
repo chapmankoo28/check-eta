@@ -1,4 +1,8 @@
-export type MtrLine = 'AEL' | 'TCL' | 'TML' | 'TKL' | 'EAL' | 'SIL' | 'TWL' | 'ISL' | 'KTL' | 'DRL'
+import type { mtrDirection, mtrLine } from '@/features/metro/utils'
+
+export type MtrDirection = keyof typeof mtrDirection
+
+export type MtrLine = keyof typeof mtrLine
 
 export type MtrStationCode =
   | 'ADM'
@@ -99,11 +103,22 @@ export type MtrStationCode =
   | 'YMT'
   | 'YUL'
 
-export type LineListEntry = {
-  line: MtrLine
+export interface MtrStation {
+  code: MtrStationCode
   name_tc: string
-  name_en: string
+  seq: number
 }
+
+export interface MtrLineData {
+  DT: MtrStation[]
+  UT: MtrStation[]
+  'LMC-DT'?: MtrStation[]
+  'LMC-UT'?: MtrStation[]
+  'TKS-DT'?: MtrStation[]
+  'TKS-UT'?: MtrStation[]
+}
+
+export type MtrLinesAndStations = Record<MtrLine, MtrLineData>
 
 export interface TrainSchedule {
   ttnt: string

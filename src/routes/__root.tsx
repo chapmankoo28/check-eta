@@ -30,17 +30,15 @@ function RootComponent() {
           <Outlet />
         </Main>
       </div>
-      {import.meta.env.DEV && (
-        <TanStackDevtools
-          config={{ position: 'bottom-right' }}
-          plugins={[
-            {
-              name: 'TanStack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
-      )}
+      <TanStackDevtools
+        config={{ position: 'bottom-right' }}
+        plugins={[
+          {
+            name: 'TanStack Router',
+            render: <TanStackRouterDevtoolsPanel />,
+          },
+        ]}
+      />
     </Providers>
   )
 }

@@ -1,4 +1,5 @@
 import { BusRouteCard } from '@/components/bus/BusRouteCard'
+import { BusRouteLegend } from '@/components/bus/BusRouteLegend'
 import { SearchBar } from '@/components/SearchBar'
 import allRoutesData from '@/res/json/all_route_list.json'
 import { useState } from 'react'
@@ -12,6 +13,7 @@ export function BusRouteList() {
         <SearchBar q={q} onSearch={setQ} />
       </div>
       <RouteList q={q} />
+      {!q.trim() && <BusRouteLegend />}
     </div>
   )
 }
@@ -23,11 +25,7 @@ function RouteList({ q }: { q: string }) {
       : allRoutesData.data.filter((i) => i.route.toLowerCase().includes(q.toLowerCase()))
 
   if (!q) {
-    return (
-      <div className="grid flex-1 place-content-center">
-        <span className="text-muted-foreground">請輸入路線</span>
-      </div>
-    )
+    return null
   }
 
   if (routes.length === 0) {

@@ -109,7 +109,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
 
   const now = new Date()
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-1 sm:gap-3">
       {eta.map((i, index) => {
         if (!i.eta) {
           return null

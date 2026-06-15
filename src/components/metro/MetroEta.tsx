@@ -80,7 +80,7 @@ export function MetroEta({
           <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
         </div>
       ) : (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           {eta.map((i, index) => {
             return (
               <div

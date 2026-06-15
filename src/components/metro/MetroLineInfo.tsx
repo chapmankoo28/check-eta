@@ -15,11 +15,11 @@ export default function MetroRouteInfo({ nowLine, dir }: { nowLine: MtrLineData;
       <div className="mx-auto flex w-full max-w-xl items-center justify-between gap-1 py-1">
         <div className="mr-1 flex items-center gap-1.5">
           <div className={cn('h-9 w-3', mtrLineBg[line])}></div>
-          <span className="text-4xl font-medium">{mtrLineName['zh-hant'][line]}</span>
+          <span className="text-3xl font-medium sm:text-4xl">{mtrLineName['zh-hant'][line]}</span>
         </div>
         <div className="flex flex-1 items-baseline justify-center gap-1 text-center">
-          <span className="text-2xl">往</span>
-          <span className="text-4xl">{dest}</span>
+          <span className="text-lg sm:text-2xl">往</span>
+          <span className="text-3xl sm:text-4xl">{dest}</span>
         </div>
         <SwapBoundButton
           className="shrink-0"

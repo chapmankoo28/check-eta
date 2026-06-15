@@ -16,11 +16,11 @@ export default function BusRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
     <>
       <div className="sticky top-0 z-20 w-full bg-background">
         <div className="mx-auto flex w-full max-w-xl items-center justify-between gap-1 py-1">
-          <div className="mr-1 flex place-items-baseline gap-1.5">
+          <div className="mr-1 flex items-center gap-1.5">
             <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
-            <span className="text-5xl font-medium">{nowRoute.route}</span>
+            <span className="text-4xl font-medium sm:text-5xl">{nowRoute.route}</span>
           </div>
-          <span className="flex-1 text-center text-2xl">{nowRoute.dest_tc}</span>
+          <span className="flex-1 text-center text-xl sm:text-2xl">{nowRoute.dest_tc}</span>
           <SwapBoundButton
             className="shrink-0"
             handleSwapBound={() =>

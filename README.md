@@ -68,13 +68,13 @@ This app was rewritten in 2026. The legacy version ([https://chapmankoo28.github
 
 Here's the diff:
 
-| Before                | After                |
-| --------------------- | -------------------- |
-| JavaScript            | TypeScript           |
-| CSS                   | Tailwind CSS         |
-| Radix UI              | shadcn/ui components |
-| React Router          | Tanstack Router      |
-| Material Design Icons | Phosphor Icons       |
+| Before                | After                             |
+| --------------------- | --------------------------------- |
+| JavaScript            | TypeScript                        |
+| CSS                   | Tailwind CSS                      |
+| Radix UI              | shadcn/ui components with Base UI |
+| React Router          | Tanstack Router                   |
+| Material Design Icons | Phosphor Icons                    |
 
 ## Acknowledgements
 

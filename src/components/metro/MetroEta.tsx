@@ -30,11 +30,12 @@ export function MetroEta({
     data,
     isLoading: isLoadingEta,
     isFetching,
+    isError,
     dataUpdatedAt,
     refetch,
   } = useMetroEta({ line, station: stationId })
   const lastUpdated = formatTime(new Date(dataUpdatedAt))
-  const eta = data?.[mtrDirection[dir]] as TrainSchedule[]
+  const eta = (data?.[mtrDirection[dir]] as TrainSchedule[]) ?? []
   // const [dest, setDest] = useState<number | null>(null)
   const [showTick, setShowTick] = useState(false)
 
@@ -89,10 +90,16 @@ export function MetroEta({
         </Tooltip>
       </div>
 
-      {!eta || eta.length === 0 ? (
-        <div className="text-center">
-          <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
-        </div>
+      {!eta || eta?.length === 0 ? (
+        isError ? (
+          <div className="text-center">
+            <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
+          </div>
+        ) : (
+          <div className="text-center">
+            <span className="text-lg text-secondary-foreground">暫無班次</span>
+          </div>
+        )
       ) : (
         <div className="flex items-center gap-1 sm:gap-3">
           {eta.map((i, index) => {

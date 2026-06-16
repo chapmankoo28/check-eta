@@ -28,11 +28,13 @@ export function BusEta({
     data,
     isLoading: isLoadingEta,
     isFetching,
+    isError,
     dataUpdatedAt,
     refetch,
   } = useBusEta({ co, route, service, stopId })
   const lastUpdated = formatTime(new Date(dataUpdatedAt))
-  const eta = data?.filter((i) => i.dir === bound.toUpperCase()) as CtbEta[] | KmbEta[]
+  const eta = (data?.filter((i) => i.dir === bound.toUpperCase()) as CtbEta[] | KmbEta[]) ?? []
+
   const [dest, setDest] = useState<number | null>(null)
   const [showTick, setShowTick] = useState(false)
 
@@ -79,18 +81,20 @@ export function BusEta({
         </Tooltip>
       </div>
 
-      {!eta || eta.length === 0 ? (
-        <div className="text-center">
-          <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
-        </div>
-      ) : (
-        <EtaInner eta={eta} />
-      )}
+      <EtaInner eta={eta} isError={isError} />
     </div>
   )
 }
 
-function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
+function EtaInner({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean }) {
+  if (eta.length === 0 || isError) {
+    return (
+      <div className="text-center">
+        <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
+      </div>
+    )
+  }
+
   if (eta.every((i) => !i.eta && !i.rmk_tc)) {
     return (
       <div className="text-center">
@@ -99,7 +103,7 @@ function EtaInner({ eta }: { eta: CtbEta[] | KmbEta[] }) {
     )
   }
 
-  if (eta.every((i) => !i.eta && !i.rmk_tc)) {
+  if (eta.every((i) => !i.eta && i.rmk_tc)) {
     return eta.map((i) => (
       <div key={`rmk-${i.seq}`} className="text-center">
         <span className="text-lg">{i.rmk_tc}</span>

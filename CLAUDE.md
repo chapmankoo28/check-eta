@@ -25,7 +25,7 @@ This project is named Check ETA. It is a React app that allows users to check th
 Run these checks in order after every code change. Focus ONLY on errors directly related to your changes. Do NOT fix unrelated errors.
 
 ```bash
-bunx tsgo --noEmit    # 1. type-check (tsgo is used in this project)
+bunx tsc --noEmit                      # 1. type-check
 bunx biome check --write <file_path>   # 2. lint + auto-fix
 bunx prettier --write <file_path>      # 3. format
 ```
@@ -47,7 +47,7 @@ bunx --bun shadcn@latest add <component>    # Add a component
 ## TOOLCHAIN
 
 - "@biomejs/biome": "2.3.8"
-- "@typescript/native-preview": "^7.0.0-dev.20260607.1"
+- "typescript": "^7.0.1-rc",
 - "@tanstack/react-query": "^5.101.0"
 - "@tanstack/react-router": "latest"
 - "react": "^19.2.7"

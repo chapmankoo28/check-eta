@@ -109,3 +109,22 @@ export function getStations({ line, dir }: { line: MtrLine; dir: MtrDirection })
 
   return dirData
 }
+
+export function getDest({
+  nowLine,
+  dir,
+  line,
+}: {
+  nowLine: MtrLineData
+  dir: MtrDirection
+  line: MtrLine
+}) {
+  const lastStation = nowLine[dir]?.at(-1)
+
+  if (line === 'EAL' && (dir === 'UT' || dir === 'LMC-UT')) {
+    const lmcStationName = nowLine['LMC-UT']?.at(-1)?.name_tc
+    return `${lastStation?.name_tc} · ${lmcStationName}`
+  }
+
+  return lastStation?.name_tc ?? ''
+}

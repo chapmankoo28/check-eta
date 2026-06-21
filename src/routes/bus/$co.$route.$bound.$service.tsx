@@ -10,7 +10,11 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
-import { getStopInfoQueryOptions, useBusRouteStops } from '@/features/bus/hooks'
+import {
+  getBusRouteStopsQueryOptions,
+  getStopInfoQueryOptions,
+  useBusRouteStops,
+} from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
 import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
 import { cn, scrollToElement } from '@/lib/utils'
@@ -21,10 +25,31 @@ import { useEffect, useMemo, useRef } from 'react'
 import z from 'zod'
 
 export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
+  loader: async ({ params, context: { queryClient } }) => {
+    const { co, route, bound, service } = params
+
+    const stops = await queryClient.ensureQueryData(
+      getBusRouteStopsQueryOptions(co, route, bound, service)
+    )
+    const stopIds = [...new Set(stops.map((s) => s.stop))]
+    await Promise.all(
+      stopIds.map((id) => queryClient.ensureQueryData(getStopInfoQueryOptions(co, id)))
+    )
+
+    return getRouteInfo(co, route, bound, service)
+  },
   validateSearch: z.object({
     stop: z.coerce.string().optional(),
   }),
   component: RouteComponent,
+  head: ({ loaderData }) => {
+    if (loaderData?.route && loaderData?.dest_tc) {
+      return {
+        meta: [{ title: `${loaderData.route} 往 ${loaderData.dest_tc} | 幾時到` }],
+      }
+    }
+    return {}
+  },
 })
 
 function RouteComponent() {
@@ -34,6 +59,7 @@ function RouteComponent() {
 
   const { co, route, bound, service } = Route.useParams()
   const { stop } = Route.useSearch()
+  const nowRouteInfo = Route.useLoaderData()
 
   // Scrolls to the stop element only when:
   // 1. A stop is already in the URL on first page load
@@ -42,7 +68,6 @@ function RouteComponent() {
   const shouldScroll = useRef(Boolean(stop))
   const autoDetected = useRef(false)
 
-  const nowRouteInfo = getRouteInfo(co, route, bound, service)
   const { data: routeStops, isLoading: isLoadingRouteStops } = useBusRouteStops({
     co,
     route,

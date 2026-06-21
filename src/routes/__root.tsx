@@ -10,11 +10,12 @@ import {
 } from '@/components/ui/empty'
 import { Main } from '@/layouts/Main'
 import '@/styles/global.css'
+import type { queryClient } from '@/lib/queryClient'
 import { HouseIcon } from '@phosphor-icons/react'
 import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr'
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack/react-router'
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{ queryClient: typeof queryClient }>()({
   component: RootComponent,
   notFoundComponent: NotFound,
 })
@@ -22,6 +23,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <Providers>
+      <HeadContent />
       <div className="flex flex-col justify-start">
         <NavBar />
         <Main>

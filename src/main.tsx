@@ -1,11 +1,13 @@
-import ReactDom from 'react-dom/client'
+import { queryClient } from '@/lib/queryClient'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import ReactDom from 'react-dom/client'
 import { routeTree } from './routeTree.gen'
 
 const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
   scrollRestoration: true,
+  context: { queryClient },
 })
 
 declare module '@tanstack/react-router' {

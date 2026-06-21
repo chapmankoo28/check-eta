@@ -8,8 +8,9 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
+import { getMetroEtaQueryOptions } from '@/features/metro/hooks'
 import type { MtrDirection, MtrLine, MtrLineData } from '@/features/metro/types'
-import { getStations, mtrLine } from '@/features/metro/utils'
+import { getDest, getStations, mtrLine, mtrLineName } from '@/features/metro/utils'
 import { scrollToElement } from '@/lib/utils'
 import allMtrData from '@/res/json/mtr_lines_and_stations.json'
 import { QuestionMarkIcon } from '@phosphor-icons/react'
@@ -22,7 +23,33 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
   validateSearch: z.object({
     station: z.coerce.string().optional(),
   }),
+  loader: async ({ params, context: { queryClient } }) => {
+    const { line: lineParams, dir: dirParams } = params
+    const line = mtrLine[lineParams.toUpperCase() as MtrLine]
+    const dir = dirParams.toUpperCase() as MtrDirection
+    if (!line) {
+      return { line, dir }
+    }
+    const nowLine = allMtrData.data[line] as MtrLineData | undefined
+    const lineName = mtrLineName['zh-hant'][line]
+    const dest = nowLine ? getDest({ nowLine, dir, line }) : ''
+
+    const stationList = getStations({ line, dir })
+    await Promise.all(
+      stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code)))
+    )
+
+    return { line, dir, lineName, dest }
+  },
   component: RouteComponent,
+  head: ({ loaderData }) => {
+    if (loaderData?.lineName && loaderData?.dest) {
+      return {
+        meta: [{ title: `${loaderData.lineName} 往 ${loaderData.dest} | 幾時到` }],
+      }
+    }
+    return {}
+  },
 })
 
 function RouteComponent() {
@@ -30,11 +57,8 @@ function RouteComponent() {
   const navigate = useNavigate({ from: '/mtr/$line/$dir' })
   const canGoBack = useCanGoBack()
 
-  const { line: lineParams, dir: dirParams } = Route.useParams()
-  const { station: stationParams } = Route.useSearch()
-  const line = mtrLine[lineParams.toUpperCase() as MtrLine]
-  const dir = dirParams.toUpperCase() as MtrDirection
-  const station = stationParams?.toUpperCase()
+  const { line, dir, lineName, dest } = Route.useLoaderData()
+  const { station } = Route.useSearch()
 
   const nowLine = useMemo(() => {
     const found = allMtrData.data[line]
@@ -49,14 +73,14 @@ function RouteComponent() {
   // 1. A stop is already in the URL on first page load
   // 2. The closest stop was auto-detected
   // Clicking an accordion item does NOT trigger scroll.
-  const shouldScroll = useRef(Boolean(stop))
+  const shouldScroll = useRef(Boolean(station))
 
   if (station && shouldScroll.current) {
     shouldScroll.current = false
     scrollToElement(station)
   }
 
-  if (!nowLine) {
+  if (!nowLine || !lineName) {
     return (
       <div className="flex flex-col items-center">
         <Empty>
@@ -89,7 +113,7 @@ function RouteComponent() {
   if (!stations || stations.length === 0) {
     return (
       <div>
-        <MetroRouteInfo nowLine={nowLine} dir={dir} />
+        <MetroRouteInfo line={line} lineName={lineName} dest={dest ?? ''} />
         <Empty>
           <EmptyHeader>
             <EmptyMedia>
@@ -105,7 +129,7 @@ function RouteComponent() {
 
   return (
     <div className="flex flex-col items-center">
-      <MetroRouteInfo nowLine={nowLine} dir={dir} />
+      <MetroRouteInfo line={line} lineName={lineName} dest={dest ?? ''} />
       <Accordion
         className="mt-5 max-w-xl rounded-lg border"
         value={station ? [station] : []}

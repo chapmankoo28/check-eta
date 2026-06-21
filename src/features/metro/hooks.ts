@@ -3,10 +3,10 @@ import { ETA_REFETCH_INTERVAL } from '@/lib/constants'
 import apiConfig from '@/res/json/api_config.json'
 import { useQuery } from '@tanstack/react-query'
 
-export function useMetroEta({ line, station }: { line: string; station: string }) {
-  return useQuery({
-    queryKey: ['metro-eta', line, station],
-    queryFn: async ({ signal }) => {
+export function getMetroEtaQueryOptions(line: string, station: string) {
+  return {
+    queryKey: ['metro-eta', line, station] as const,
+    queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = apiConfig.data.find((i) => {
         return i.co.toUpperCase() === 'MTR'
       })
@@ -27,5 +27,9 @@ export function useMetroEta({ line, station }: { line: string; station: string }
       return result.data[`${line}-${station}`] as StationData
     },
     refetchInterval: ETA_REFETCH_INTERVAL,
-  })
+  } as const
+}
+
+export function useMetroEta({ line, station }: { line: string; station: string }) {
+  return useQuery(getMetroEtaQueryOptions(line, station))
 }

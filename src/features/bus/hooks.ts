@@ -12,20 +12,10 @@ import type { ApiConfigEntry } from '@/lib/types'
 import apiConfig from '@/res/json/api_config.json'
 import { useQuery } from '@tanstack/react-query'
 
-export function useBusEta({
-  co,
-  route,
-  service,
-  stopId,
-}: {
-  co: string
-  route: string
-  service: string
-  stopId: string
-}) {
-  return useQuery({
-    queryKey: ['bus-eta', co, route, service, stopId],
-    queryFn: async ({ signal }) => {
+export function getBusEtaQueryOptions(co: string, route: string, service: string, stopId: string) {
+  return {
+    queryKey: ['bus-eta', co, route, service, stopId] as const,
+    queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase()
       )
@@ -50,23 +40,32 @@ export function useBusEta({
       }
     },
     refetchInterval: ETA_REFETCH_INTERVAL,
-  })
+  } as const
 }
 
-export function useBusRouteStops({
+export function useBusEta({
   co,
   route,
-  bound,
   service,
+  stopId,
 }: {
   co: string
   route: string
-  bound: string
   service: string
+  stopId: string
 }) {
-  return useQuery({
-    queryKey: ['bus-route-stops', co, route, bound, service],
-    queryFn: async ({ signal }) => {
+  return useQuery(getBusEtaQueryOptions(co, route, service, stopId))
+}
+
+export function getBusRouteStopsQueryOptions(
+  co: string,
+  route: string,
+  bound: string,
+  service: string
+) {
+  return {
+    queryKey: ['bus-route-stops', co, route, bound, service] as const,
+    queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase()
       )
@@ -93,7 +92,21 @@ export function useBusRouteStops({
     },
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-  })
+  } as const
+}
+
+export function useBusRouteStops({
+  co,
+  route,
+  bound,
+  service,
+}: {
+  co: string
+  route: string
+  bound: string
+  service: string
+}) {
+  return useQuery(getBusRouteStopsQueryOptions(co, route, bound, service))
 }
 
 export function getStopInfoQueryOptions(co: string, stopId: string) {

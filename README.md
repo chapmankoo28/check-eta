@@ -25,9 +25,13 @@ For the latest information, please visit their official website above.
 
 ![bus search page](public/bus-1.webp)
 
-3. Choose the stop
+3. Choose the stop (or let the app pick the closest one for you)
 
 ![bus stop list](public/bus-2.webp)
+
+- When you grant location permission, the app automatically selects the stop closest to you (within 500 m).
+
+![location permission](public/location-permission.webp)
 
 - You can swap the route direction
 - ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.

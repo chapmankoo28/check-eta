@@ -1,6 +1,5 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "js/ts.experimental.useTsgo": true,
   "recommendations": [],
   "unwantedRecommendations": [],
   "files.watcherExclude": {

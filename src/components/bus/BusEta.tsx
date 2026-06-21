@@ -87,15 +87,14 @@ export function BusEta({
 }
 
 function EtaInner({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean }) {
-  if (eta.length === 0 || isError) {
-    return (
-      <div className="text-center">
-        <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
-      </div>
-    )
-  }
-
-  if (eta.every((i) => !i.eta && !i.rmk_tc)) {
+  if (eta.length === 0 || eta.every((i) => !i.eta && !i.rmk_tc)) {
+    if (isError) {
+      return (
+        <div className="text-center">
+          <span className="text-lg text-destructive">搵唔到班次，請再試一次</span>
+        </div>
+      )
+    }
     return (
       <div className="text-center">
         <span className="text-lg text-secondary-foreground">暫無班次</span>

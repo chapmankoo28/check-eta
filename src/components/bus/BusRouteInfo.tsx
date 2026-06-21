@@ -20,7 +20,12 @@ export default function BusRouteInfo({ co, nowRoute }: { co: BusCo; nowRoute: Ro
             <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
             <span className="text-4xl font-medium sm:text-5xl">{nowRoute.route}</span>
           </div>
-          <span className="flex-1 text-center text-xl sm:text-2xl">{nowRoute.dest_tc}</span>
+          <div className="flex flex-1 items-baseline justify-center text-center">
+            <span className="text-3xl sm:text-4xl">
+              <span className="mr-0.5 text-lg sm:text-2xl">往</span>
+              {nowRoute.dest_tc}
+            </span>
+          </div>
           <SwapBoundButton
             className="shrink-0"
             handleSwapBound={() =>

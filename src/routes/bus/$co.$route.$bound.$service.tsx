@@ -32,15 +32,16 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
       getBusRouteStopsQueryOptions(co, route, bound, service)
     )
     const stopIds = [...new Set(stops.map((s) => s.stop))]
-    await Promise.all(
-      stopIds.map((id) => queryClient.ensureQueryData(getStopInfoQueryOptions(co, id)))
-    )
+
+    Promise.all(stopIds.map((id) => queryClient.prefetchQuery(getStopInfoQueryOptions(co, id))))
 
     return getRouteInfo(co, route, bound, service)
   },
   validateSearch: z.object({
     stop: z.coerce.string().optional(),
   }),
+  pendingComponent: () => <Loading />,
+  pendingMs: 0,
   component: RouteComponent,
   head: ({ loaderData }) => {
     if (loaderData?.route && loaderData?.dest_tc) {

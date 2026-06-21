@@ -1,3 +1,4 @@
+import { Loading } from '@/components/Loading'
 import { MetroEta } from '@/components/metro/MetroEta'
 import MetroRouteInfo from '@/components/metro/MetroLineInfo'
 import {
@@ -35,12 +36,12 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
     const dest = nowLine ? getDest({ nowLine, dir, line }) : ''
 
     const stationList = getStations({ line, dir })
-    await Promise.all(
-      stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code)))
-    )
+    stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code)))
 
     return { line, dir, lineName, dest }
   },
+  pendingComponent: () => <Loading />,
+  pendingMs: 0,
   component: RouteComponent,
   head: ({ loaderData }) => {
     if (loaderData?.lineName && loaderData?.dest) {

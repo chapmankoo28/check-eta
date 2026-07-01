@@ -1,6 +1,6 @@
-import type { CtbStop, KmbStop, RouteListEntry } from '@/features/bus/types'
+import type { CtbStop, KmbEta, KmbStop, RouteEtaGroup, RouteListEntry } from '@/features/bus/types'
 import { POSITION_TTL } from '@/lib/constants'
-import { haversineDistance } from '@/lib/utils'
+import { haversineDistance, timeDiffInMinutes } from '@/lib/utils'
 import allRoutesData from '@/res/json/all_route_list.json'
 
 export const busCo = {
@@ -164,4 +164,49 @@ export async function findClosestStop(
     console.log(`Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`)
     return null
   }
+}
+
+export function getEtaInMinutes(eta: string | null): number | null {
+  if (!eta) {
+    return null
+  }
+  return Math.ceil(timeDiffInMinutes(new Date(), new Date(eta)))
+}
+
+export function formatEtaText(eta: { eta: string | null; rmk_tc: string }): string {
+  if (eta.rmk_tc) {
+    return eta.rmk_tc === '原定班次' ? '未開出' : eta.rmk_tc
+  }
+  if (!eta.eta) {
+    return '–'
+  }
+  const etaInMin = getEtaInMinutes(eta.eta)
+  return etaInMin !== null && etaInMin > 0 ? `${etaInMin} 分鐘` : '–'
+}
+
+export function groupEtasByRoute(etas: KmbEta[]): RouteEtaGroup[] {
+  const routeGroups = new Map<string, KmbEta[]>()
+  for (const e of etas) {
+    const key = `${e.route}|${e.dir}|${String(e.service_type)}`
+    if (!routeGroups.has(key)) {
+      routeGroups.set(key, [])
+    }
+    routeGroups.get(key)?.push(e)
+  }
+
+  return [...routeGroups.entries()]
+    .map(([key, etas]) => {
+      const [route, dir, serviceType] = key.split('|') as [string, string, string]
+      const firstWithEta = etas.find((e) => e.eta)
+      const firstEtaTime = firstWithEta?.eta ? new Date(firstWithEta.eta).getTime() : Infinity
+      return {
+        route,
+        bound: dir,
+        serviceType,
+        destTc: etas[0].dest_tc,
+        etas,
+        etaTime: firstEtaTime,
+      }
+    })
+    .sort((a, b) => a.etaTime - b.etaTime)
 }

@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import {
   getBusRouteStopsQueryOptions,
@@ -20,7 +20,7 @@ import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
 import { cn, scrollToElement } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
-import { createFileRoute, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
+import { createFileRoute, Link, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
 import { useEffect, useMemo, useRef } from 'react'
 import z from 'zod'
 
@@ -215,7 +215,7 @@ function RouteComponent() {
                 </div>
                 <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${i.stop}」的巴士站`}</div>
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="flex flex-col gap-5">
                 <BusEta
                   co={co}
                   route={route}
@@ -223,6 +223,16 @@ function RouteComponent() {
                   service={service}
                   stop={stopMap[i.stop]}
                 />
+                {co === busCo.kmb && (
+                  <Link
+                    to="/bus/$co/stop/$stopId"
+                    params={{ co, stopId: i.stop }}
+                    className={cn(buttonVariants({ variant: 'secondary' }))}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    同站巴士
+                  </Link>
+                )}
               </AccordionContent>
             </AccordionItem>
           )

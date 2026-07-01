@@ -160,3 +160,12 @@ export type RouteListEntry = {
 }
 export type KmbStopETAResponse = ApiResponse<KmbEta[]>
 export type KmbRouteETAResponse = ApiResponse<KmbEta[]>
+
+export interface RouteEtaGroup {
+  route: string
+  bound: string
+  serviceType: string
+  destTc: string
+  etas: KmbEta[]
+  etaTime: number
+}

@@ -4,8 +4,14 @@ import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useBusEta } from '@/features/bus/hooks'
 import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
-import { busCoBorder, getBusCompanyCode, userDistanceToStop } from '@/features/bus/utils'
-import { cn, formatTime, timeDiffInMinutes } from '@/lib/utils'
+import {
+  busCoBorder,
+  formatEtaText,
+  getBusCompanyCode,
+  getEtaInMinutes,
+  userDistanceToStop,
+} from '@/features/bus/utils'
+import { cn, formatTime } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 
@@ -105,12 +111,11 @@ function EtaInner({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean
   if (eta.every((i) => !i.eta && i.rmk_tc)) {
     return eta.map((i) => (
       <div key={`rmk-${i.seq}`} className="text-center">
-        <span className="text-lg">{i.rmk_tc}</span>
+        <span className="text-lg">{formatEtaText(i)}</span>
       </div>
     ))
   }
 
-  const now = new Date()
   return (
     <div className="flex items-center gap-1 sm:gap-3">
       {eta.map((i, index) => {
@@ -119,8 +124,7 @@ function EtaInner({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean
         }
 
         const coCode = getBusCompanyCode(i.co, i.route)
-        const etaDate = new Date(i.eta)
-        const etaInMin = Math.ceil(timeDiffInMinutes(now, etaDate))
+        const etaInMin = getEtaInMinutes(i.eta)
         return (
           <div
             key={`eta-${i.seq}-${i.eta_seq}`}
@@ -131,12 +135,12 @@ function EtaInner({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean
             )}
           >
             <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>
-              {etaInMin > 0 ? etaInMin : '–'}
+              {etaInMin !== null && etaInMin > 0 ? etaInMin : '–'}
             </div>
             <div className={cn(index === 0 ? 'text-base' : 'text-sm')}>分鐘</div>
             {i.rmk_tc && (
               <div className="text-sm font-light text-secondary-foreground italic">
-                {i.rmk_tc === '原定班次' ? '未開出' : i.rmk_tc}
+                {formatEtaText(i)}
               </div>
             )}
           </div>

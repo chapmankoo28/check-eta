@@ -19,7 +19,8 @@
         "route": "route/",
         "stop": "stop/",
         "routeStop": "route-stop/",
-        "eta": "eta/"
+        "eta": "eta/",
+        "stopEta": "stop-eta/"
       }
     },
     {

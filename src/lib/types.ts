@@ -5,5 +5,6 @@ export type ApiConfigEntry = {
     eta: string
     routeStop: string
     stop: string
+    stopEta?: string
   }
 }

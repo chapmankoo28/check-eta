@@ -139,3 +139,40 @@ export function getStopInfoQueryOptions(co: string, stopId: string) {
 export function useBusStopInfo({ co, stopId }: { co: string; stopId: string }) {
   return useQuery(getStopInfoQueryOptions(co, stopId))
 }
+
+export function getBusStopEtaQueryOptions(co: string, stopId: string) {
+  return {
+    queryKey: ['bus-stop-eta', co, stopId] as const,
+    queryFn: async ({ signal }: { signal: AbortSignal }) => {
+      const api = (apiConfig.data as ApiConfigEntry[]).find(
+        (item) => item.co.toLowerCase() === co.toLowerCase()
+      )
+      if (!api?.api.stopEta) {
+        console.error('ERROR: stopEta api not found.')
+        return []
+      }
+
+      const url = `${api.baseUrl}${api.api.stopEta}${stopId.toUpperCase()}`
+
+      const response = await fetch(url, { signal })
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      return (await response.json()).data as KmbEta[]
+    },
+    refetchInterval: ETA_REFETCH_INTERVAL,
+  } as const
+}
+
+export function useBusStopEta({
+  co,
+  stopId,
+  enabled = true,
+}: {
+  co: string
+  stopId: string
+  enabled?: boolean
+}) {
+  return useQuery({ ...getBusStopEtaQueryOptions(co, stopId), enabled })
+}

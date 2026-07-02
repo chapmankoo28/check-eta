@@ -175,7 +175,6 @@
     @apply font-sans;
     font-optical-sizing: auto;
     font-feature-settings:
-      'ss01',
       'liga' 1,
       'calt' 1;
   }

@@ -9,7 +9,7 @@
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "bun run build && wrangler deploy",
+    "deploy": "bun run build && wrangler deploy --message \"$(git log -1 --pretty=%s)\" --tag \"$(git rev-parse --short HEAD)\"",
     "lint": "biome check --write",
     "format": "prettier --write src"
   },

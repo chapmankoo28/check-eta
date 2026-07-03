@@ -170,18 +170,14 @@ export function getEtaInMinutes(eta: string | null): number | null {
   if (!eta) {
     return null
   }
-  return Math.ceil(timeDiffInMinutes(new Date(), new Date(eta)))
+  return Math.round(timeDiffInMinutes(new Date(), new Date(eta)))
 }
 
-export function formatEtaText(eta: { eta: string | null; rmk_tc: string }): string {
+export function formatEtaRemark(eta: { rmk_tc: string }): string {
   if (eta.rmk_tc) {
     return eta.rmk_tc === '原定班次' ? '未開出' : eta.rmk_tc
   }
-  if (!eta.eta) {
-    return '–'
-  }
-  const etaInMin = getEtaInMinutes(eta.eta)
-  return etaInMin !== null && etaInMin > 0 ? `${etaInMin} 分鐘` : '–'
+  return ''
 }
 
 export function groupEtasByRoute(etas: KmbEta[]): RouteEtaGroup[] {

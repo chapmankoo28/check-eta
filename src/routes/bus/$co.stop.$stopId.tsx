@@ -1,3 +1,4 @@
+import { EtaBoxes } from '@/components/bus/EtaBoxes'
 import { Loading } from '@/components/Loading'
 import { buttonVariants } from '@/components/ui/button'
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
@@ -9,15 +10,7 @@ import {
   useBusStopEta,
 } from '@/features/bus/hooks'
 import type { KmbEta } from '@/features/bus/types'
-import {
-  busCo,
-  busCoBg,
-  busCoBorder,
-  formatEtaText,
-  getBusCompanyCode,
-  getEtaInMinutes,
-  groupEtasByRoute,
-} from '@/features/bus/utils'
+import { busCo, busCoBg, getBusCompanyCode, groupEtasByRoute } from '@/features/bus/utils'
 import { cn, formatTime } from '@/lib/utils'
 import { ArrowClockwiseIcon, ArrowRightIcon, BusIcon, CheckIcon } from '@phosphor-icons/react'
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -207,59 +200,8 @@ function StopRouteCard({
         </div>
       </Link>
       <div className="px-2 pb-2">
-        <EtaBoxes etas={etas} coCode={coCode} />
+        <EtaBoxes eta={etas} isError={false} />
       </div>
-    </div>
-  )
-}
-
-function EtaBoxes({ etas, coCode }: { etas: KmbEta[]; coCode: string }) {
-  if (etas.length === 0 || etas.every((i) => !i.eta && !i.rmk_tc)) {
-    return (
-      <div className="text-center">
-        <span className="text-lg text-secondary-foreground">暫無班次</span>
-      </div>
-    )
-  }
-
-  if (etas.every((i) => !i.eta && i.rmk_tc)) {
-    return etas.map((i) => (
-      <div key={`rmk-${i.seq}`} className="text-center">
-        <span className="text-lg">{formatEtaText(i)}</span>
-      </div>
-    ))
-  }
-
-  return (
-    <div className="flex items-center gap-1 sm:gap-3">
-      {etas.map((i, index) => {
-        if (!i.eta) {
-          return null
-        }
-
-        const etaInMin = getEtaInMinutes(i.eta)
-
-        return (
-          <div
-            key={`eta-${i.seq}-${i.eta_seq}`}
-            className={cn(
-              'flex flex-col items-center justify-center rounded-md border bg-secondary',
-              index === 0 ? 'h-30 w-30' : 'h-24 w-24',
-              busCoBorder[coCode as keyof typeof busCoBorder]
-            )}
-          >
-            <div className={cn(index === 0 ? 'text-5xl font-bold' : 'text-2xl font-medium')}>
-              {etaInMin !== null && etaInMin > 0 ? etaInMin : '–'}
-            </div>
-            <div className={cn(index === 0 ? 'text-base' : 'text-sm')}>分鐘</div>
-            {i.rmk_tc && (
-              <div className="text-sm font-light text-secondary-foreground italic">
-                {formatEtaText(i)}
-              </div>
-            )}
-          </div>
-        )
-      })}
     </div>
   )
 }

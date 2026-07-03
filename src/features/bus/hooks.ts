@@ -27,7 +27,11 @@ export function getBusEtaQueryOptions(co: string, route: string, service: string
       const s = co.toLowerCase() === 'kmb' ? `/${service}` : ''
       const url = `${api.baseUrl}${api.api.eta}${stopId.toUpperCase()}/${route.toUpperCase()}${s}`
 
-      const response = await fetch(url, { signal })
+      const response = await fetch(url, {
+        signal,
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' },
+      })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
@@ -154,7 +158,11 @@ export function getBusStopEtaQueryOptions(co: string, stopId: string) {
 
       const url = `${api.baseUrl}${api.api.stopEta}${stopId.toUpperCase()}`
 
-      const response = await fetch(url, { signal })
+      const response = await fetch(url, {
+        signal,
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' },
+      })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }

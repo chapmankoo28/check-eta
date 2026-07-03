@@ -29,12 +29,17 @@ For the latest information, please visit their official website above.
 
 ![bus stop list](public/bus-2.webp)
 
-- When you grant location permission, the app automatically selects the stop closest to you (within 500 m).
+When you grant location permission, the app automatically selects the stop closest to you (within 500 m).
 
 ![location permission](public/location-permission.webp)
 
 - You can swap the route direction
-- ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.
+- ETA refreshes every 30 seconds. You can also tap the update button to get the latest ETA.
+- You can also view the ETA for every route serving a specific bus stop. On the bus stop list page, tap "同站巴士" to open the page below.
+
+![bus stop eta page](public/bus-stop-1.webp)
+
+- You can tap a route to see its full stop list
 
 ### For MTR
 
@@ -47,7 +52,7 @@ For the latest information, please visit their official website above.
 ![metro stop list](public/mtr-2.webp)
 
 - You can swap the line direction
-- ETA will be updated every 30 sec. You can also get the latest ETA by clicking the update button.
+- ETA refreshes every 30 seconds. You can also tap the update button to get the latest ETA.
 
 ### Light and Dark Mode
 

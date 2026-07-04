@@ -1,4 +1,5 @@
 import { BusStopIcon } from '@/assets/icons'
+import { useLandsDStyle } from '@/components/map/use-lands-dpt-style'
 import { UserPositionMarker } from '@/components/map/UserPositionMarker'
 import {
   MapControls,
@@ -7,11 +8,11 @@ import {
   MarkerContent,
   MarkerPopup,
 } from '@/components/ui/map'
+import { Spinner } from '@/components/ui/spinner'
 import type { BusCo } from '@/features/bus/types'
 import { busCoTextColor } from '@/features/bus/utils'
 import type { MapLocation } from '@/lib/types'
 import { cn } from '@/lib/utils'
-import { landsdStyle } from './landsd-basemap-style'
 
 type Marker = MapLocation & { id: string; name: string }
 
@@ -30,17 +31,26 @@ export function LandsDptRouteMapView({
   userLocation?: MapLocation | null
   onLocate?: (coords: { longitude: number; latitude: number }) => void
 }) {
+  const { data: style, isLoading } = useLandsDStyle()
   const markerOffset = 32 + 5
   const { lat, long } = center
+
+  if (isLoading || !style) {
+    return (
+      <div className="flex h-[300px] w-full items-center justify-center">
+        <Spinner />
+      </div>
+    )
+  }
 
   return (
     <div className="relative h-[300px] w-full">
       <MapView
         center={[long, lat]}
-        zoom={16}
+        zoom={15}
         minZoom={9}
-        maxZoom={18}
-        styles={{ light: landsdStyle, dark: landsdStyle }}
+        maxZoom={15}
+        styles={{ light: style, dark: style }}
       >
         <MapControls position="top-right" showZoom showCompass showLocate onLocate={onLocate} />
         {userLocation && (

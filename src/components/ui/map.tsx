@@ -1,6 +1,6 @@
 'use client'
 
-import { CornersOutIcon, CrosshairIcon, MinusIcon, PlusIcon, XIcon } from '@phosphor-icons/react'
+import { CornersOutIcon, GpsFixIcon, MinusIcon, PlusIcon, XIcon } from '@phosphor-icons/react'
 import type * as GeoJSON from 'geojson'
 import MapLibreGL, { type MarkerOptions, type PopupOptions } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
@@ -914,7 +914,7 @@ function MapControls({
             label="Find my location"
             disabled={waitingForLocation}
           >
-            {waitingForLocation ? <Spinner /> : <CrosshairIcon className="size-4" />}
+            {waitingForLocation ? <Spinner /> : <GpsFixIcon className="size-4" />}
           </ControlButton>
         </ControlGroup>
       )}

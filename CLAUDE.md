@@ -54,3 +54,4 @@ bunx --bun shadcn@latest add <component>    # Add a component
 - "tailwindcss": "^4.1.16"
 - "vite": "^8.0.0"
 - "zod": "^4.4.3"
+- "maplibre-gl": "^5.24.0"

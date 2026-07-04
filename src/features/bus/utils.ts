@@ -1,5 +1,6 @@
 import type { CtbStop, KmbEta, KmbStop, RouteEtaGroup, RouteListEntry } from '@/features/bus/types'
 import { POSITION_TTL } from '@/lib/constants'
+import type { MapLocation } from '@/lib/types'
 import { haversineDistance, timeDiffInMinutes } from '@/lib/utils'
 import allRoutesData from '@/res/json/all_route_list.json'
 
@@ -21,6 +22,12 @@ export const busCoBorder = {
   LWB: 'border-lwb',
 } as const
 
+export const busCoTextColor = {
+  KMB: 'text-kmb',
+  CTB: 'text-ctb-yellow',
+  LWB: 'text-lwb',
+} as const
+
 const companyNames = {
   CTB: '城巴',
   KMB: '九巴',
@@ -33,7 +40,8 @@ export const coWebsites = {
   CTB: `https://mobile.citybus.com.hk/nwp3/?f=1&dsmode=1&l=0&ds=`,
 } as const
 
-let cachedPosition: { lat: number; lng: number; ts: number } | null = null
+export type CachedPosition = (MapLocation & { ts: number }) | null
+let cachedPosition: CachedPosition = null
 
 export function getBusCompanyInfo(
   co: string,
@@ -100,7 +108,7 @@ export function getRouteInfo(
   return routeInfoMap.get(swapKey) ?? null
 }
 
-function getUserPosition(): Promise<{ lat: number; lng: number }> {
+export function getUserPosition(): Promise<NonNullable<CachedPosition>> {
   if (cachedPosition && Date.now() - cachedPosition.ts < POSITION_TTL) {
     return Promise.resolve(cachedPosition)
   }
@@ -115,7 +123,7 @@ function getUserPosition(): Promise<{ lat: number; lng: number }> {
       (position) => {
         cachedPosition = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude,
+          long: position.coords.longitude,
           ts: Date.now(),
         }
         resolve(cachedPosition)
@@ -127,10 +135,10 @@ function getUserPosition(): Promise<{ lat: number; lng: number }> {
 }
 
 export async function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | null> {
-  const { lat, lng } = await getUserPosition()
+  const { lat, long } = await getUserPosition()
   return haversineDistance(
     lat,
-    lng,
+    long,
     parseFloat(stop.lat as string),
     parseFloat(stop.long as string)
   )
@@ -139,7 +147,7 @@ export async function userDistanceToStop(stop: CtbStop | KmbStop): Promise<numbe
 export async function findClosestStop(
   stopMap: Record<string, CtbStop | KmbStop>
 ): Promise<string | null> {
-  const { lat, lng } = await getUserPosition()
+  const { lat, long: lng } = await getUserPosition()
   let minDistance = Infinity
   let closestStop = ''
 

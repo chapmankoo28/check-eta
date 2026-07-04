@@ -2,6 +2,7 @@ import { BusStopIcon } from '@/assets/icons'
 import { BusEta } from '@/components/bus/BusEta'
 import BusRouteInfo from '@/components/bus/BusRouteInfo'
 import { Loading } from '@/components/Loading'
+import { LandsDptRouteMapView } from '@/components/map/LandsDptRouteMapView'
 import {
   Accordion,
   AccordionContent,
@@ -16,12 +17,13 @@ import {
   useBusRouteStops,
 } from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
-import { busCo, findClosestStop, getRouteInfo } from '@/features/bus/utils'
+import { busCo, findClosestStop, getRouteInfo, getUserPosition } from '@/features/bus/utils'
+import type { MapLocation } from '@/lib/types'
 import { cn, scrollToElement } from '@/lib/utils'
 import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
 import { createFileRoute, Link, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import z from 'zod'
 
 export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
@@ -68,6 +70,13 @@ function RouteComponent() {
   // Clicking an accordion item does NOT trigger scroll.
   const shouldScroll = useRef(Boolean(stop))
   const autoDetected = useRef(false)
+  const [userLocation, setUserLocation] = useState<MapLocation | null>(null)
+
+  useEffect(() => {
+    getUserPosition()
+      .then((pos) => setUserLocation({ lat: pos.lat, long: pos.long }))
+      .catch(() => setUserLocation(null))
+  }, [])
 
   const { data: routeStops, isLoading: isLoadingRouteStops } = useBusRouteStops({
     co,
@@ -103,6 +112,21 @@ function RouteComponent() {
       ),
     }),
   })
+
+  const markers = useMemo(
+    () =>
+      routeStops?.flatMap((i) => {
+        const info = stopMap[i.stop]
+        const name = stopNameMap.get(i.stop)
+        if (!info || name === undefined) {
+          return []
+        }
+        const long = typeof info.long === 'number' ? info.long : parseFloat(info.long)
+        const lat = typeof info.lat === 'number' ? info.lat : parseFloat(info.lat)
+        return [{ id: i.stop, long, lat, name }]
+      }) ?? [],
+    [routeStops, stopMap, stopNameMap]
+  )
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: Don't want to find when "stop" changes
   useEffect(() => {
@@ -198,6 +222,10 @@ function RouteComponent() {
       >
         {routeStops.map((i) => {
           const nameTc = stopNameMap.get(i.stop)
+          const stopInfo = stopMap[i.stop]
+          const stopLong =
+            typeof stopInfo.long === 'number' ? stopInfo.long : parseFloat(stopInfo.long)
+          const stopLat = typeof stopInfo.lat === 'number' ? stopInfo.lat : parseFloat(stopInfo.lat)
           return (
             <AccordionItem
               key={`${i.seq}-${i.stop}`}
@@ -215,13 +243,26 @@ function RouteComponent() {
                 </div>
                 <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${i.stop}」的巴士站`}</div>
               </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-5">
+              <AccordionContent className="flex flex-col gap-3">
+                {stopInfo && stop === i.stop && (
+                  <LandsDptRouteMapView
+                    center={{ lat: stopLat, long: stopLong }}
+                    markers={markers}
+                    stopId={i.stop}
+                    co={co}
+                    userLocation={userLocation}
+                    onLocate={(coords) =>
+                      setUserLocation({ lat: coords.latitude, long: coords.longitude })
+                    }
+                  />
+                )}
                 <BusEta
                   co={co}
                   route={route}
                   bound={bound}
                   service={service}
                   stop={stopMap[i.stop]}
+                  userLocation={userLocation}
                 />
                 {co === busCo.kmb && (
                   <Link

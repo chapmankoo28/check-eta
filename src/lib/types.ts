@@ -8,3 +8,8 @@ export type ApiConfigEntry = {
     stopEta?: string
   }
 }
+
+export type MapLocation = {
+  lat: number
+  long: number
+}

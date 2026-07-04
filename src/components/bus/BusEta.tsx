@@ -5,8 +5,8 @@ import { Spinner } from '@/components/ui/spinner'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { useBusEta } from '@/features/bus/hooks'
 import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
-import { userDistanceToStop } from '@/features/bus/utils'
-import { cn, formatTime } from '@/lib/utils'
+import type { MapLocation } from '@/lib/types'
+import { cn, formatTime, haversineDistance } from '@/lib/utils'
 import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 
@@ -16,12 +16,14 @@ export function BusEta({
   bound,
   service,
   stop,
+  userLocation,
 }: {
   co: string
   route: string
   bound: string
   service: string
   stop: CtbStop | KmbStop
+  userLocation?: MapLocation | null
 }) {
   const stopId = stop.stop
 
@@ -40,8 +42,18 @@ export function BusEta({
   const [showTick, setShowTick] = useState(false)
 
   useEffect(() => {
-    userDistanceToStop(stop).then(setDest)
-  }, [stop])
+    if (!userLocation) {
+      setDest(null)
+      return
+    }
+    const distance = haversineDistance(
+      userLocation.lat,
+      userLocation.long,
+      parseFloat(stop.lat as string),
+      parseFloat(stop.long as string)
+    )
+    setDest(distance)
+  }, [stop, userLocation])
 
   useEffect(() => {
     if (!isFetching && dataUpdatedAt > 0) {

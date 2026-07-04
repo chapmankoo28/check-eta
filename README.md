@@ -62,13 +62,15 @@ You can toggle between light and dark mode using the theme toggle button in the 
 
 ## Built With
 
-- Phosphor Icons
 - React 19
 - shadcn/ui components
 - Tailwind CSS
+- Phosphor Icons
 - Tanstack/react-query
 - Tanstack/react-router
-- typescript/native-preview (tsgo)
+- mapcn
+- Lands Department Vector Map
+- typescript
 - Vite
 
 ## Differences from legacy version

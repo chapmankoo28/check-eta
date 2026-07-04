@@ -53,7 +53,7 @@ export function LandsDptRouteMapView({
         {markers.map((m) => (
           <MapMarker key={m.id} longitude={m.long} latitude={m.lat} anchor="bottom">
             <MarkerContent>
-              <BusStopIcon className={cn(busCoTextColor[co])} />
+              <BusStopIcon className={cn(busCoTextColor[co])} middleFill="var(--foreground)" />
             </MarkerContent>
             <MarkerPopup offset={markerOffset} className="p-1" defaultOpen={m.id === stopId}>
               <p className="text-base text-foreground">{m.name}</p>

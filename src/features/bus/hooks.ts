@@ -30,7 +30,6 @@ export function getBusEtaQueryOptions(co: string, route: string, service: string
       const response = await fetch(url, {
         signal,
         cache: 'no-store',
-        headers: { 'Cache-Control': 'no-cache' },
       })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -161,7 +160,6 @@ export function getBusStopEtaQueryOptions(co: string, stopId: string) {
       const response = await fetch(url, {
         signal,
         cache: 'no-store',
-        headers: { 'Cache-Control': 'no-cache' },
       })
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)

@@ -1,4 +1,4 @@
-import { BusStopIcon } from '@/assets/icons'
+import { BusStopIcon, CtbBusStopIcon, KmbBusStopIcon } from '@/assets/icons'
 import { useLandsDStyle } from '@/components/map/use-lands-dpt-style'
 import { UserPositionMarker } from '@/components/map/UserPositionMarker'
 import {
@@ -11,9 +11,8 @@ import {
 } from '@/components/ui/map'
 import { Spinner } from '@/components/ui/spinner'
 import type { BusCo } from '@/features/bus/types'
-import { busCoTextColor } from '@/features/bus/utils'
+import { busCo } from '@/features/bus/utils'
 import type { MapLocation } from '@/lib/types'
-import { cn } from '@/lib/utils'
 import { useEffect, useRef } from 'react'
 
 type Marker = MapLocation & { id: string; name: string }
@@ -84,7 +83,13 @@ export function LandsDptRouteMapView({
         {markers.map((m) => (
           <MapMarker key={m.id} longitude={m.long} latitude={m.lat} anchor="bottom">
             <MarkerContent>
-              <BusStopIcon className={cn(busCoTextColor[co])} middleFill="#ffffff" />
+              {co === busCo.ctb ? (
+                <CtbBusStopIcon />
+              ) : co === busCo.kmb ? (
+                <KmbBusStopIcon />
+              ) : (
+                <BusStopIcon className="text-primary" />
+              )}
             </MarkerContent>
             <MarkerPopup offset={markerOffset} className="p-1" defaultOpen={m.id === stopId}>
               <p className="text-base text-foreground">{m.name}</p>

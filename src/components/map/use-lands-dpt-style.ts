@@ -21,13 +21,21 @@ function resolveGlyphs(glyphs: string, styleUrl: string): string {
 }
 
 function processSource(
-  source: { type: string; url: string; [key: string]: unknown },
+  source: { type: string; url: string; maxzoom?: number; [key: string]: unknown },
   styleUrl: string
 ) {
-  const { url, ...rest } = source
+  const { url, maxzoom, ...rest } = source
   const resolved = new URL(url, styleUrl).href
   const tiles = [`${resolved.replace(/\/$/, '')}/tile/{z}/{y}/{x}.pbf`]
-  return { ...rest, tiles, type: 'vector' as const }
+
+  // CSDI's WGS84 tiles cap at 15 despite style JSON reporting 19;
+  // forcing 'maxzoom: 15' to avoid 204
+  return {
+    ...rest,
+    tiles,
+    type: 'vector' as const,
+    maxzoom: 15,
+  }
 }
 
 function useLandsDStyle() {

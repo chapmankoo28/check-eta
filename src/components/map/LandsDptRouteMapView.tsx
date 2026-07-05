@@ -47,9 +47,9 @@ export function LandsDptRouteMapView({
     <div className="relative h-[300px] w-full">
       <MapView
         center={[long, lat]}
-        zoom={15}
+        zoom={16}
         minZoom={9}
-        maxZoom={15}
+        maxZoom={19}
         styles={{ light: style, dark: style }}
       >
         <MapControls position="top-right" showZoom showCompass showLocate onLocate={onLocate} />

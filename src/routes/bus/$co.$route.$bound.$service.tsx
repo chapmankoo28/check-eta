@@ -17,10 +17,16 @@ import {
   useBusRouteStops,
 } from '@/features/bus/hooks'
 import type { CtbStop, KmbStop } from '@/features/bus/types'
-import { busCo, findClosestStop, getRouteInfo, getUserPosition } from '@/features/bus/utils'
+import {
+  busCo,
+  coWebsites,
+  findClosestStop,
+  getRouteInfo,
+  getUserPosition,
+} from '@/features/bus/utils'
 import type { MapLocation } from '@/lib/types'
 import { cn, scrollToElement } from '@/lib/utils'
-import { BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
+import { ArrowSquareOutIcon, BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
 import { useQueries } from '@tanstack/react-query'
 import { createFileRoute, Link, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -70,6 +76,7 @@ function RouteComponent() {
   // Clicking an accordion item does NOT trigger scroll.
   const shouldScroll = useRef(Boolean(stop))
   const autoDetected = useRef(false)
+  const stickyHeaderRef = useRef<HTMLDivElement>(null)
   const [userLocation, setUserLocation] = useState<MapLocation | null>(null)
 
   useEffect(() => {
@@ -150,10 +157,13 @@ function RouteComponent() {
     find()
   }, [stopMap, navigate, isStopInfoPending])
 
-  if (stop && shouldScroll.current) {
+  useEffect(() => {
+    if (!shouldScroll.current || !stop) {
+      return
+    }
     shouldScroll.current = false
-    scrollToElement(stop)
-  }
+    scrollToElement(stop, stickyHeaderRef.current?.offsetHeight ?? 0)
+  }, [stop])
 
   if ((co !== busCo.kmb && co !== busCo.ctb) || !nowRouteInfo) {
     return (
@@ -206,9 +216,40 @@ function RouteComponent() {
     )
   }
 
+  const fallbackStopId = routeStops?.[0]?.stop ?? null
+  const effectiveStopId = stop ?? fallbackStopId
+  const mapStopInfo = effectiveStopId ? stopMap[effectiveStopId] : null
+
   return (
     <div className="flex flex-col items-center">
-      <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
+      {/* sticky */}
+      <div ref={stickyHeaderRef} className="sticky top-0 z-20 flex w-full flex-col bg-background">
+        <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
+        {mapStopInfo && effectiveStopId && (
+          <div className="mx-auto w-full max-w-xl pb-2">
+            <LandsDptRouteMapView
+              center={{
+                lat:
+                  typeof mapStopInfo.lat === 'number'
+                    ? mapStopInfo.lat
+                    : parseFloat(mapStopInfo.lat),
+                long:
+                  typeof mapStopInfo.long === 'number'
+                    ? mapStopInfo.long
+                    : parseFloat(mapStopInfo.long),
+              }}
+              markers={markers}
+              stopId={effectiveStopId}
+              co={co}
+              userLocation={userLocation}
+              onLocate={(coords) =>
+                setUserLocation({ lat: coords.latitude, long: coords.longitude })
+              }
+            />
+          </div>
+        )}
+      </div>
+      {/* sticky */}
       <Accordion
         className="max-w-xl rounded-lg border"
         value={stop ? [stop] : []}
@@ -222,10 +263,6 @@ function RouteComponent() {
       >
         {routeStops.map((i) => {
           const nameTc = stopNameMap.get(i.stop)
-          const stopInfo = stopMap[i.stop]
-          const stopLong =
-            typeof stopInfo.long === 'number' ? stopInfo.long : parseFloat(stopInfo.long)
-          const stopLat = typeof stopInfo.lat === 'number' ? stopInfo.lat : parseFloat(stopInfo.lat)
           return (
             <AccordionItem
               key={`${i.seq}-${i.stop}`}
@@ -244,18 +281,6 @@ function RouteComponent() {
                 <div className="flex-1">{nameTc ?? `搵唔到 ID 為「${i.stop}」的巴士站`}</div>
               </AccordionTrigger>
               <AccordionContent className="flex flex-col gap-3">
-                {stopInfo && stop === i.stop && (
-                  <LandsDptRouteMapView
-                    center={{ lat: stopLat, long: stopLong }}
-                    markers={markers}
-                    stopId={i.stop}
-                    co={co}
-                    userLocation={userLocation}
-                    onLocate={(coords) =>
-                      setUserLocation({ lat: coords.latitude, long: coords.longitude })
-                    }
-                  />
-                )}
                 <BusEta
                   co={co}
                   route={route}
@@ -279,6 +304,15 @@ function RouteComponent() {
           )
         })}
       </Accordion>
+      <a
+        target="_blank"
+        href={`${coWebsites[co]}${nowRouteInfo.route}`}
+        className={cn(buttonVariants({ variant: 'link' }), 'my-2')}
+        rel="noreferrer"
+      >
+        按此查詢巴士公司網站之資料
+        <ArrowSquareOutIcon size={10} />
+      </a>
     </div>
   )
 }

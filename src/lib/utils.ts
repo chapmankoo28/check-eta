@@ -17,10 +17,15 @@ export function haversineDistance(lat1: number, lng1: number, lat2: number, lng2
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
 }
 
-/** Scrolls to an element by ID. */
-export function scrollToElement(elementId: string): void {
+/** Scrolls to an element by ID, accounting for a sticky header offset. */
+export function scrollToElement(elementId: string, offset = 0): void {
   setTimeout(() => {
-    document.getElementById(elementId)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    const el = document.getElementById(elementId)
+    if (!el) {
+      return
+    }
+    const top = el.getBoundingClientRect().top + window.scrollY - offset - 16
+    window.scrollTo({ top, behavior: 'smooth' })
   }, 200)
 }
 

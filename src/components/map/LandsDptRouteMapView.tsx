@@ -7,14 +7,34 @@ import {
   Map as MapView,
   MarkerContent,
   MarkerPopup,
+  useMap,
 } from '@/components/ui/map'
 import { Spinner } from '@/components/ui/spinner'
 import type { BusCo } from '@/features/bus/types'
 import { busCoTextColor } from '@/features/bus/utils'
 import type { MapLocation } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { useEffect, useRef } from 'react'
 
 type Marker = MapLocation & { id: string; name: string }
+
+function MapFocusController({ stopId, center }: { stopId: string; center: MapLocation }) {
+  const { map, isLoaded } = useMap()
+  const prevStopId = useRef(stopId)
+
+  useEffect(() => {
+    if (!isLoaded || !map) {
+      return
+    }
+    if (prevStopId.current === stopId) {
+      return
+    }
+    prevStopId.current = stopId
+    map.flyTo({ center: [center.long, center.lat], duration: 1000 })
+  }, [map, isLoaded, stopId, center])
+
+  return null
+}
 
 export function LandsDptRouteMapView({
   center,
@@ -44,7 +64,7 @@ export function LandsDptRouteMapView({
   }
 
   return (
-    <div className="relative h-[300px] w-full">
+    <div className="relative h-[300px] w-full overflow-hidden rounded-md">
       <MapView
         center={[long, lat]}
         zoom={16}
@@ -52,6 +72,7 @@ export function LandsDptRouteMapView({
         maxZoom={19}
         styles={{ light: style, dark: style }}
       >
+        <MapFocusController stopId={stopId} center={center} />
         <MapControls position="top-right" showZoom showCompass showLocate onLocate={onLocate} />
         {userLocation && (
           <MapMarker longitude={userLocation.long} latitude={userLocation.lat} anchor="center">

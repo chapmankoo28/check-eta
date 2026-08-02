@@ -24,6 +24,7 @@ import {
   getRouteInfo,
   getUserPosition,
 } from '@/features/bus/utils'
+import { POSITION_TTL } from '@/lib/constants'
 import type { MapLocation } from '@/lib/types'
 import { cn, scrollToElement } from '@/lib/utils'
 import { ArrowSquareOutIcon, BusIcon, QuestionMarkIcon } from '@phosphor-icons/react'
@@ -80,9 +81,28 @@ function RouteComponent() {
   const [userLocation, setUserLocation] = useState<MapLocation | null>(null)
 
   useEffect(() => {
-    getUserPosition()
-      .then((pos) => setUserLocation({ lat: pos.lat, long: pos.long }))
-      .catch(() => setUserLocation(null))
+    let isActive = true
+
+    const update = () => {
+      getUserPosition()
+        .then((pos) => {
+          if (isActive) {
+            setUserLocation({ lat: pos.lat, long: pos.long })
+          }
+        })
+        .catch(() => {
+          if (isActive) {
+            setUserLocation(null)
+          }
+        })
+    }
+
+    update()
+    const id = setInterval(update, POSITION_TTL)
+    return () => {
+      isActive = false
+      clearInterval(id)
+    }
   }, [])
 
   const { data: routeStops, isLoading: isLoadingRouteStops } = useBusRouteStops({
@@ -216,16 +236,14 @@ function RouteComponent() {
     )
   }
 
-  const fallbackStopId = routeStops?.[0]?.stop ?? null
-  const effectiveStopId = stop ?? fallbackStopId
-  const mapStopInfo = effectiveStopId ? stopMap[effectiveStopId] : null
+  const mapStopInfo = stop ? stopMap[stop] : null
 
   return (
     <div className="flex flex-col items-center">
       {/* sticky */}
       <div ref={stickyHeaderRef} className="sticky top-0 z-20 flex w-full flex-col bg-background">
         <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
-        {mapStopInfo && effectiveStopId && (
+        {mapStopInfo && (
           <div className="mx-auto w-full max-w-xl pb-2">
             <LandsDptRouteMapView
               center={{
@@ -239,7 +257,7 @@ function RouteComponent() {
                     : parseFloat(mapStopInfo.long),
               }}
               markers={markers}
-              stopId={effectiveStopId}
+              stopId={stop}
               co={co}
               userLocation={userLocation}
               onLocate={(coords) =>

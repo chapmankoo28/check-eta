@@ -17,18 +17,33 @@ import { useEffect, useRef } from 'react'
 
 type Marker = MapLocation & { id: string; name: string }
 
-function MapFocusController({ stopId, center }: { stopId: string; center: MapLocation }) {
+function MapFocusController({ stopId, center }: { stopId?: string; center: MapLocation }) {
   const { map, isLoaded } = useMap()
+  const isInitialMount = useRef(true)
   const prevStopId = useRef(stopId)
 
   useEffect(() => {
     if (!isLoaded || !map) {
       return
     }
+
+    if (isInitialMount.current) {
+      map.flyTo({ center: [center.long, center.lat], duration: 1000 })
+      isInitialMount.current = false
+      prevStopId.current = stopId
+      return
+    }
+
     if (prevStopId.current === stopId) {
       return
     }
+
     prevStopId.current = stopId
+
+    if (!stopId) {
+      return
+    }
+
     map.flyTo({ center: [center.long, center.lat], duration: 1000 })
   }, [map, isLoaded, stopId, center])
 
@@ -45,7 +60,7 @@ export function LandsDptRouteMapView({
 }: {
   center: MapLocation
   markers: Marker[]
-  stopId: string
+  stopId?: string
   co: BusCo
   userLocation?: MapLocation | null
   onLocate?: (coords: { longitude: number; latitude: number }) => void

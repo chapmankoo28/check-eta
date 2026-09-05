@@ -1,5 +1,6 @@
 import { EtaBoxes } from '@/components/bus/EtaBoxes'
 import { Loading } from '@/components/Loading'
+import { LandsDptRouteMapView } from '@/components/map/LandsDptRouteMapView'
 import { buttonVariants } from '@/components/ui/button'
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
 import { Spinner } from '@/components/ui/spinner'
@@ -10,7 +11,15 @@ import {
   useBusStopEta,
 } from '@/features/bus/hooks'
 import type { KmbEta } from '@/features/bus/types'
-import { busCo, busCoBg, getBusCompanyCode, groupEtasByRoute } from '@/features/bus/utils'
+import {
+  busCo,
+  busCoBg,
+  getBusCompanyCode,
+  getUserPosition,
+  groupEtasByRoute,
+} from '@/features/bus/utils'
+import { POSITION_TTL } from '@/lib/constants'
+import type { MapLocation } from '@/lib/types'
 import { cn, formatTime } from '@/lib/utils'
 import { ArrowClockwiseIcon, ArrowRightIcon, BusIcon, CheckIcon } from '@phosphor-icons/react'
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -54,6 +63,32 @@ function RouteComponent() {
   const lastUpdated = formatTime(new Date(dataUpdatedAt))
 
   const [showTick, setShowTick] = useState(false)
+  const [userLocation, setUserLocation] = useState<MapLocation | null>(null)
+
+  useEffect(() => {
+    let isActive = true
+
+    const update = () => {
+      getUserPosition()
+        .then((pos) => {
+          if (isActive) {
+            setUserLocation({ lat: pos.lat, long: pos.long })
+          }
+        })
+        .catch(() => {
+          if (isActive) {
+            setUserLocation(null)
+          }
+        })
+    }
+
+    update()
+    const id = setInterval(update, POSITION_TTL)
+    return () => {
+      isActive = false
+      clearInterval(id)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isFetching && dataUpdatedAt > 0) {
@@ -101,14 +136,8 @@ function RouteComponent() {
   return (
     <div className="flex flex-col items-center">
       <div className="sticky top-0 z-20 w-full bg-background">
-        <div className="mx-auto flex w-full max-w-xl items-center justify-between py-1">
-          <span className="mx-auto text-3xl sm:text-4xl">
-            {stop?.name_tc ?? `巴士站 ${stopId}`}
-          </span>
-        </div>
-        <div className="mx-auto flex w-full max-w-xl items-center justify-between">
-          <div></div>
-          <span className="text-sm font-light text-muted-foreground">最後更新於 {lastUpdated}</span>
+        <div className="mx-auto flex w-full max-w-xl flex-row items-center justify-between py-1">
+          <span className="flex-1 text-3xl sm:text-4xl">{stop?.name_tc ?? `巴士站 ${stopId}`}</span>
           <Tooltip>
             <TooltipTrigger
               className={cn(buttonVariants({ variant: 'secondary', size: 'icon' }))}
@@ -126,6 +155,33 @@ function RouteComponent() {
             <TooltipContent>更新</TooltipContent>
           </Tooltip>
         </div>
+        <div className="mx-auto flex w-full max-w-xl items-center justify-between py-1">
+          <span className="text-sm font-light text-muted-foreground">最後更新於 {lastUpdated}</span>
+        </div>
+        {stop && (
+          <div className="mx-auto w-full max-w-xl pb-2">
+            <LandsDptRouteMapView
+              center={{
+                lat: typeof stop.lat === 'number' ? stop.lat : parseFloat(stop.lat),
+                long: typeof stop.long === 'number' ? stop.long : parseFloat(stop.long),
+              }}
+              markers={[
+                {
+                  id: stopId,
+                  lat: typeof stop.lat === 'number' ? stop.lat : parseFloat(stop.lat),
+                  long: typeof stop.long === 'number' ? stop.long : parseFloat(stop.long),
+                  name: stop.name_tc,
+                },
+              ]}
+              stopId={stopId}
+              co={co}
+              userLocation={userLocation}
+              onLocate={(coords) =>
+                setUserLocation({ lat: coords.latitude, long: coords.longitude })
+              }
+            />
+          </div>
+        )}
       </div>
 
       {routeGroups.length === 0 ? (

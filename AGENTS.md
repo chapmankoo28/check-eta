@@ -9,14 +9,9 @@ This project is named Check ETA. It is a React app that allows users to check th
 - Write code that is short, obvious, and self-explanatory.
 - Avoid tricky expressions and comments that simply explain what the code does.
 - No cross-package relative imports: Use like `@/lib/auth` not `../../lib/auth/...` (they are defined in `compilerOptions.paths` in the `tsconfig.json` file).
-- When coding, adhere to the Google TypeScript Style Guide.
+- Adhere to the Google TypeScript Style Guide.
 - Recommend existing libraries instead of custom solutions when available.
-- Always use icons from @phosphor-icons/react
-
-### Shadcn/ui Components Specific
-
-- Call shadcn agent skills when writing or modifying shadcn/ui components.
-- Never use size sm and xs like `size="sm"` or `text-xs`, ask before adding or removing them.
+- Always use icons from `@phosphor-icons/react`.
 
 ## COMMANDS
 
@@ -26,15 +21,17 @@ Run these checks in order after every code change. Focus ONLY on errors directly
 
 ```bash
 bunx tsc --noEmit                      # 1. type-check
-bunx biome check --write <file_path>   # 2. lint + auto-fix
-bunx prettier --write <file_path>      # 3. format
+bunx biome check --write <file_path>   # 2. lint + auto-fix + format
 ```
 
 ### Run Development Server
 
 - NEVER execute development servers or long-running processes like `bun run dev` or `npm run start`. Instead, instruct the user to run these commands.
 
-### Shadcn/ui Docs
+### Shadcn/ui
+
+- shadcn/ui and some custom components are located in `@/components/ui`.
+- Use shadcn skill when adding or modifying shadcn/ui components.
 
 Query shadcn/ui component documentation from the command line:
 
@@ -46,12 +43,12 @@ bunx --bun shadcn@latest add <component>    # Add a component
 
 ## TOOLCHAIN
 
-- "@biomejs/biome": "2.3.8"
-- "typescript": "^7.0.1-rc",
+- "@biomejs/biome": "2.5.13"
+- "typescript": "^7.0.2"
 - "@tanstack/react-query": "^5.101.0"
 - "@tanstack/react-router": "latest"
 - "react": "^19.2.7"
-- "tailwindcss": "^4.1.16"
-- "vite": "^8.0.0"
+- "tailwindcss": "^4.3.0"
+- "vite": "^8.1.3"
 - "zod": "^4.4.3"
 - "maplibre-gl": "^5.24.0"

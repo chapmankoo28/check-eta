@@ -1,4 +1,4 @@
-import type { busCo } from "@/features/bus/utils";
+import type { busCo } from '@/features/bus/utils';
 
 export type BusCo = (typeof busCo)[keyof typeof busCo];
 
@@ -58,7 +58,7 @@ export type CtbStopResponse = ApiResponse<CtbStop>;
 export interface CtbRouteStop {
   co: typeof busCo.ctb;
   route: string;
-  dir: "I" | "O";
+  dir: 'I' | 'O';
   seq: number;
   stop: string;
   data_timestamp: string;
@@ -69,7 +69,7 @@ export type CTBRouteStopResponse = ApiResponse<CtbRouteStop[]>;
 export interface CtbEta {
   co: typeof busCo.ctb;
   route: string;
-  dir: "I" | "O";
+  dir: 'I' | 'O';
   seq: number;
   stop: string;
   dest_tc: string;
@@ -90,7 +90,7 @@ export type CTBETAResponse = ApiResponse<CtbEta[]>;
 export interface KmbRoute {
   co: typeof busCo.kmb;
   route: string;
-  bound: "I" | "O";
+  bound: 'I' | 'O';
   service_type: string;
   orig_en: string;
   orig_tc: string;
@@ -120,7 +120,7 @@ export type KmbStopListResponse = ApiResponse<KmbStop[]>;
 export interface KmbRouteStop {
   co: typeof busCo.kmb;
   route: string;
-  bound: "I" | "O";
+  bound: 'I' | 'O';
   service_type: string;
   seq: number;
   stop: string;
@@ -133,7 +133,7 @@ export type KmbRouteStopListResponse = ApiResponse<KmbRouteStop[]>;
 export interface KmbEta {
   co: typeof busCo.kmb;
   route: string;
-  dir: "I" | "O";
+  dir: 'I' | 'O';
   service_type: number;
   seq: number;
   stop: string;
@@ -153,7 +153,7 @@ export type KmbETAResponse = ApiResponse<KmbEta[]>;
 export type RouteListEntry = {
   co: typeof busCo.kmb | typeof busCo.ctb;
   route: string;
-  bound: "I" | "O";
+  bound: 'I' | 'O';
   service_type: string;
   dest_en: string;
   dest_tc: string;

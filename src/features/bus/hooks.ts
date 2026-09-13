@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 import type {
   CtbEta,
   CtbRouteStop,
@@ -6,35 +6,30 @@ import type {
   KmbEta,
   KmbRouteStop,
   KmbStop,
-} from "@/features/bus/types";
-import { busCo } from "@/features/bus/utils";
-import { ETA_REFETCH_INTERVAL } from "@/lib/constants";
-import type { ApiConfigEntry } from "@/lib/types";
-import apiConfig from "@/res/json/api_config.json";
+} from '@/features/bus/types';
+import { busCo } from '@/features/bus/utils';
+import { ETA_REFETCH_INTERVAL } from '@/lib/constants';
+import type { ApiConfigEntry } from '@/lib/types';
+import apiConfig from '@/res/json/api_config.json';
 
-export function getBusEtaQueryOptions(
-  co: string,
-  route: string,
-  service: string,
-  stopId: string,
-) {
+export function getBusEtaQueryOptions(co: string, route: string, service: string, stopId: string) {
   return {
-    queryKey: ["bus-eta", co, route, service, stopId] as const,
+    queryKey: ['bus-eta', co, route, service, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase(),
       );
       if (!api) {
-        console.error("ERROR: Api not found.");
+        console.error('ERROR: Api not found.');
         return null;
       }
 
-      const s = co.toLowerCase() === "kmb" ? `/${service}` : "";
+      const s = co.toLowerCase() === 'kmb' ? `/${service}` : '';
       const url = `${api.baseUrl}${api.api.eta}${stopId.toUpperCase()}/${route.toUpperCase()}${s}`;
 
       const response = await fetch(url, {
         signal,
-        cache: "no-store",
+        cache: 'no-store',
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -72,18 +67,18 @@ export function getBusRouteStopsQueryOptions(
   service: string,
 ) {
   return {
-    queryKey: ["bus-route-stops", co, route, bound, service] as const,
+    queryKey: ['bus-route-stops', co, route, bound, service] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase(),
       );
       if (!api) {
-        console.error("ERROR: Api not found.");
+        console.error('ERROR: Api not found.');
         return [];
       }
 
-      const b = bound.toLowerCase() === "o" ? "/outbound" : "/inbound";
-      const s = co.toLowerCase() === "kmb" ? `/${service}` : "";
+      const b = bound.toLowerCase() === 'o' ? '/outbound' : '/inbound';
+      const s = co.toLowerCase() === 'kmb' ? `/${service}` : '';
       const url = `${api.baseUrl}${api.api.routeStop}${route.toUpperCase()}${b}${s}`;
 
       const response = await fetch(url, { signal });
@@ -119,7 +114,7 @@ export function useBusRouteStops({
 
 export function getStopInfoQueryOptions(co: string, stopId: string) {
   return {
-    queryKey: ["bus-stop-info", co, stopId],
+    queryKey: ['bus-stop-info', co, stopId],
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = ((apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toUpperCase() === co.toUpperCase(),
@@ -150,13 +145,13 @@ export function useBusStopInfo({ co, stopId }: { co: string; stopId: string }) {
 
 export function getBusStopEtaQueryOptions(co: string, stopId: string) {
   return {
-    queryKey: ["bus-stop-eta", co, stopId] as const,
+    queryKey: ['bus-stop-eta', co, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
         (item) => item.co.toLowerCase() === co.toLowerCase(),
       );
       if (!api?.api.stopEta) {
-        console.error("ERROR: stopEta api not found.");
+        console.error('ERROR: stopEta api not found.');
         return [];
       }
 
@@ -164,7 +159,7 @@ export function getBusStopEtaQueryOptions(co: string, stopId: string) {
 
       const response = await fetch(url, {
         signal,
-        cache: "no-store",
+        cache: 'no-store',
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

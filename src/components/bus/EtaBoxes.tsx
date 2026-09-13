@@ -1,11 +1,11 @@
-import type { CtbEta, KmbEta } from "@/features/bus/types";
+import type { CtbEta, KmbEta } from '@/features/bus/types';
 import {
   busCoBorder,
   formatEtaRemark,
   getBusCompanyCode,
   getEtaInMinutes,
-} from "@/features/bus/utils";
-import { cn } from "@/lib/utils";
+} from '@/features/bus/utils';
+import { cn } from '@/lib/utils';
 
 export function EtaBoxes({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: boolean }) {
   if (eta.length === 0 || eta.every((i) => !i.eta && !i.rmk_tc)) {
@@ -44,20 +44,20 @@ export function EtaBoxes({ eta, isError }: { eta: CtbEta[] | KmbEta[]; isError: 
           <div
             key={`eta-${i.seq}-${i.eta_seq}`}
             className={cn(
-              "flex flex-col items-center justify-center rounded-md border bg-secondary",
-              index === 0 ? "h-30 w-30" : "h-24 w-24",
-              busCoBorder[coCode]
+              'flex flex-col items-center justify-center rounded-md border bg-secondary',
+              index === 0 ? 'h-30 w-30' : 'h-24 w-24',
+              busCoBorder[coCode],
             )}
           >
             {etaInMin !== null && etaInMin >= 0 ? (
               <>
-                <div className={cn(index === 0 ? "font-bold text-5xl" : "font-medium text-2xl")}>
+                <div className={cn(index === 0 ? 'font-bold text-5xl' : 'font-medium text-2xl')}>
                   {etaInMin}
                 </div>
-                <div className={cn(index === 0 ? "text-base" : "text-sm")}>分鐘</div>
+                <div className={cn(index === 0 ? 'text-base' : 'text-sm')}>分鐘</div>
               </>
             ) : (
-              <div className={cn(index === 0 ? "text-lg" : "text-base")}>已過站</div>
+              <div className={cn(index === 0 ? 'text-lg' : 'text-base')}>已過站</div>
             )}
             {i.rmk_tc && (
               <div className="font-light text-secondary-foreground text-sm italic">

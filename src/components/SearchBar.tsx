@@ -1,12 +1,12 @@
-import { MagnifyingGlassIcon, XIcon } from "@phosphor-icons/react";
-import { type ChangeEvent, useEffect, useRef } from "react";
+import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react';
+import { type ChangeEvent, useEffect, useRef } from 'react';
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/input-group';
+import { cn } from '@/lib/utils';
 
 export function SearchBar({
   q,
@@ -22,16 +22,16 @@ export function SearchBar({
   const updateUrl = (newQ: string) => {
     const url = new URL(window.location.href);
     if (newQ) {
-      url.searchParams.set("q", newQ);
+      url.searchParams.set('q', newQ);
     } else {
-      url.searchParams.delete("q");
+      url.searchParams.delete('q');
     }
-    window.history.replaceState({}, "", url);
+    window.history.replaceState({}, '', url);
   };
 
   const clearInputBox = () => {
-    onSearch("");
-    updateUrl("");
+    onSearch('');
+    updateUrl('');
     inputRef.current?.focus();
   };
 
@@ -45,7 +45,7 @@ export function SearchBar({
   }, []);
 
   return (
-    <InputGroup className={cn("w-full max-w-xl", className)}>
+    <InputGroup className={cn('w-full max-w-xl', className)}>
       <InputGroupAddon align="inline-start">
         <MagnifyingGlassIcon />
       </InputGroupAddon>

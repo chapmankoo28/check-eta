@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { BusRouteList } from "@/components/bus/BusRouteList";
+import { createFileRoute } from '@tanstack/react-router';
+import { BusRouteList } from '@/components/bus/BusRouteList';
 
-export const Route = createFileRoute("/bus/")({
+export const Route = createFileRoute('/bus/')({
   component: Bus,
 });
 

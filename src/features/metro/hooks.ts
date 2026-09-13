@@ -1,18 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
-import type { StationData } from "@/features/metro/types";
-import { ETA_REFETCH_INTERVAL } from "@/lib/constants";
-import apiConfig from "@/res/json/api_config.json";
+import { useQuery } from '@tanstack/react-query';
+import type { StationData } from '@/features/metro/types';
+import { ETA_REFETCH_INTERVAL } from '@/lib/constants';
+import apiConfig from '@/res/json/api_config.json';
 
 export function getMetroEtaQueryOptions(line: string, station: string) {
   return {
-    queryKey: ["metro-eta", line, station] as const,
+    queryKey: ['metro-eta', line, station] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = apiConfig.data.find((i) => {
-        return i.co.toUpperCase() === "MTR";
+        return i.co.toUpperCase() === 'MTR';
       });
 
       if (!api) {
-        console.error("ERROR: Api not found.");
+        console.error('ERROR: Api not found.');
         return null;
       }
 
@@ -30,12 +30,6 @@ export function getMetroEtaQueryOptions(line: string, station: string) {
   } as const;
 }
 
-export function useMetroEta({
-  line,
-  station,
-}: {
-  line: string;
-  station: string;
-}) {
+export function useMetroEta({ line, station }: { line: string; station: string }) {
   return useQuery(getMetroEtaQueryOptions(line, station));
 }

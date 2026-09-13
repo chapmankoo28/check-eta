@@ -1,17 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { MetroLineCard } from "@/components/metro/MetroLineCard";
-import type { MtrLine } from "@/features/metro/types";
-import { mtrLineName } from "@/features/metro/utils";
-import allMtrData from "@/res/json/mtr_lines_and_stations.json";
+import { createFileRoute } from '@tanstack/react-router';
+import { MetroLineCard } from '@/components/metro/MetroLineCard';
+import type { MtrLine } from '@/features/metro/types';
+import { mtrLineName } from '@/features/metro/utils';
+import allMtrData from '@/res/json/mtr_lines_and_stations.json';
 
-export const Route = createFileRoute("/mtr/")({
+export const Route = createFileRoute('/mtr/')({
   component: Mtr,
 });
 
 function Mtr() {
   const lines = Object.entries(allMtrData.data).map(([code]) => ({
     line: code as MtrLine,
-    name_tc: mtrLineName["zh-hant"][code as MtrLine],
+    name_tc: mtrLineName['zh-hant'][code as MtrLine],
   }));
 
   return (

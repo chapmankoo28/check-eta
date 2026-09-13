@@ -1,43 +1,37 @@
-import type {
-  CtbStop,
-  KmbEta,
-  KmbStop,
-  RouteEtaGroup,
-  RouteListEntry,
-} from "@/features/bus/types";
-import { POSITION_TTL } from "@/lib/constants";
-import type { MapLocation } from "@/lib/types";
-import { haversineDistance, timeDiffInMinutes } from "@/lib/utils";
-import allRoutesData from "@/res/json/all_route_list.json";
+import type { CtbStop, KmbEta, KmbStop, RouteEtaGroup, RouteListEntry } from '@/features/bus/types';
+import { POSITION_TTL } from '@/lib/constants';
+import type { MapLocation } from '@/lib/types';
+import { haversineDistance, timeDiffInMinutes } from '@/lib/utils';
+import allRoutesData from '@/res/json/all_route_list.json';
 
 export const busCo = {
-  kmb: "KMB",
-  ctb: "CTB",
-  lwb: "LWB",
+  kmb: 'KMB',
+  ctb: 'CTB',
+  lwb: 'LWB',
 } as const;
 
 export const busCoBg = {
-  KMB: "bg-kmb text-white",
-  CTB: "bg-ctb text-black",
-  LWB: "bg-lwb text-white",
+  KMB: 'bg-kmb text-white',
+  CTB: 'bg-ctb text-black',
+  LWB: 'bg-lwb text-white',
 } as const;
 
 export const busCoBorder = {
-  KMB: "border-kmb",
-  CTB: "border-ctb-yellow",
-  LWB: "border-lwb",
+  KMB: 'border-kmb',
+  CTB: 'border-ctb-yellow',
+  LWB: 'border-lwb',
 } as const;
 
 export const busCoTextColor = {
-  KMB: "text-kmb",
-  CTB: "text-ctb-yellow",
-  LWB: "text-lwb",
+  KMB: 'text-kmb',
+  CTB: 'text-ctb-yellow',
+  LWB: 'text-lwb',
 } as const;
 
 const companyNames = {
-  CTB: "城巴",
-  KMB: "九巴",
-  LWB: "龍運",
+  CTB: '城巴',
+  KMB: '九巴',
+  LWB: '龍運',
 } as const;
 
 export const coWebsites = {
@@ -54,25 +48,25 @@ export function getBusCompanyInfo(
   route: string,
 ): { name: string; code: keyof typeof busCoBg } {
   const notLwbRoutes = [
-    "SP1",
-    "SP3",
-    "SP5A",
-    "SP6",
-    "SP7",
-    "SP10",
-    "SP12",
-    "X6C",
-    "X42C",
-    "X42P",
-    "X89D",
-    "X90",
+    'SP1',
+    'SP3',
+    'SP5A',
+    'SP6',
+    'SP7',
+    'SP10',
+    'SP12',
+    'X6C',
+    'X42C',
+    'X42P',
+    'X89D',
+    'X90',
   ];
   const isLwbRoute = (route: string) =>
     /^(A|E|NA|R|S|X)/.test(route) && !notLwbRoutes.includes(route);
-  if (co === "CTB") {
+  if (co === 'CTB') {
     return { name: companyNames.CTB, code: busCo.ctb };
   }
-  if (co === "KMB" && isLwbRoute(route)) {
+  if (co === 'KMB' && isLwbRoute(route)) {
     return { name: companyNames.LWB, code: busCo.lwb };
   }
   return { name: companyNames.KMB, code: busCo.kmb };
@@ -82,10 +76,7 @@ export function getBusCompanyName(co: string, route: string): string {
   return getBusCompanyInfo(co, route).name;
 }
 
-export function getBusCompanyCode(
-  co: string,
-  route: string,
-): keyof typeof busCoBg {
+export function getBusCompanyCode(co: string, route: string): keyof typeof busCoBg {
   return getBusCompanyInfo(co, route).code;
 }
 
@@ -112,7 +103,7 @@ export function getRouteInfo(
     return direct;
   }
 
-  const swapBound = bound === "O" ? "I" : "O";
+  const swapBound = bound === 'O' ? 'I' : 'O';
   const swapKey = `${co}|${route}|${swapBound}|${service}`;
   return routeInfoMap.get(swapKey) ?? null;
 }
@@ -124,7 +115,7 @@ export function getUserPosition(): Promise<NonNullable<CachedPosition>> {
 
   return new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
-      reject(new Error("Geolocation is not supported by your browser"));
+      reject(new Error('Geolocation is not supported by your browser'));
       return;
     }
 
@@ -143,9 +134,7 @@ export function getUserPosition(): Promise<NonNullable<CachedPosition>> {
   });
 }
 
-export async function userDistanceToStop(
-  stop: CtbStop | KmbStop,
-): Promise<number | null> {
+export async function userDistanceToStop(stop: CtbStop | KmbStop): Promise<number | null> {
   const { lat, long } = await getUserPosition();
   return haversineDistance(
     lat,
@@ -160,7 +149,7 @@ export async function findClosestStop(
 ): Promise<string | null> {
   const { lat, long: lng } = await getUserPosition();
   let minDistance = Infinity;
-  let closestStop = "";
+  let closestStop = '';
 
   for (const stop of Object.values(stopMap)) {
     const distance = haversineDistance(
@@ -177,18 +166,10 @@ export async function findClosestStop(
   }
 
   if (closestStop && minDistance <= 500) {
-    console.log(
-      "Closest stop:",
-      closestStop,
-      "Distance:",
-      minDistance.toFixed(2),
-      "m",
-    );
+    console.log('Closest stop:', closestStop, 'Distance:', minDistance.toFixed(2), 'm');
     return closestStop;
   } else {
-    console.log(
-      `Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`,
-    );
+    console.log(`Closest stop is too far: ${minDistance.toFixed(2)}m (>500m). Not selecting.`);
     return null;
   }
 }
@@ -202,9 +183,9 @@ export function getEtaInMinutes(eta: string | null): number | null {
 
 export function formatEtaRemark(eta: { rmk_tc: string }): string {
   if (eta.rmk_tc) {
-    return eta.rmk_tc === "原定班次" ? "未開出" : eta.rmk_tc;
+    return eta.rmk_tc === '原定班次' ? '未開出' : eta.rmk_tc;
   }
-  return "";
+  return '';
 }
 
 export function groupEtasByRoute(etas: KmbEta[]): RouteEtaGroup[] {
@@ -219,15 +200,9 @@ export function groupEtasByRoute(etas: KmbEta[]): RouteEtaGroup[] {
 
   return [...routeGroups.entries()]
     .map(([key, etas]) => {
-      const [route, dir, serviceType] = key.split("|") as [
-        string,
-        string,
-        string,
-      ];
+      const [route, dir, serviceType] = key.split('|') as [string, string, string];
       const firstWithEta = etas.find((e) => e.eta);
-      const firstEtaTime = firstWithEta?.eta
-        ? new Date(firstWithEta.eta).getTime()
-        : Infinity;
+      const firstEtaTime = firstWithEta?.eta ? new Date(firstWithEta.eta).getTime() : Infinity;
       return {
         route,
         bound: dir,

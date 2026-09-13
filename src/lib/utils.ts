@@ -1,12 +1,7 @@
-export { cn } from "cn";
+export { cn } from 'cn';
 
 /** Returns the distance between two points in meters. */
-export function haversineDistance(
-  lat1: number,
-  lng1: number,
-  lat2: number,
-  lng2: number,
-): number {
+export function haversineDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371000;
   const toRad = (d: number) => (d * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
@@ -25,7 +20,7 @@ export function scrollToElement(elementId: string, offset = 0): void {
       return;
     }
     const top = el.getBoundingClientRect().top + window.scrollY - offset - 16;
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({ top, behavior: 'smooth' });
   }, 200);
 }
 
@@ -33,9 +28,9 @@ export function scrollToElement(elementId: string, offset = 0): void {
  * Formats a Date object as a string in the format "HH:MM:SS".
  */
 export function formatTime(date: Date): string {
-  const hr = date.getHours().toString().padStart(2, "0");
-  const min = date.getMinutes().toString().padStart(2, "0");
-  const sec = date.getSeconds().toString().padStart(2, "0");
+  const hr = date.getHours().toString().padStart(2, '0');
+  const min = date.getMinutes().toString().padStart(2, '0');
+  const sec = date.getSeconds().toString().padStart(2, '0');
   const time = `${hr}:${min}:${sec}`;
   return time;
 }

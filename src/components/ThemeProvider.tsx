@@ -1,9 +1,9 @@
-import { ScriptOnce } from "@tanstack/react-router";
-import { createContext, useContext, useEffect, useState } from "react";
+import { ScriptOnce } from '@tanstack/react-router';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export const themeMode = {
-  light: "light",
-  dark: "dark",
+  light: 'light',
+  dark: 'dark',
 } as const;
 
 export type Theme = (typeof themeMode)[keyof typeof themeMode];
@@ -33,7 +33,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>({
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
-  root.classList.remove("light", "dark");
+  root.classList.remove('light', 'dark');
   root.classList.add(theme);
   root.style.colorScheme = theme;
 }
@@ -41,19 +41,19 @@ function applyTheme(theme: Theme) {
 export function ThemeProvider({
   children,
   defaultTheme = themeMode.light,
-  storageKey = "theme",
+  storageKey = 'theme',
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(defaultTheme);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(storageKey);
-    if (stored === "light" || stored === "dark") {
+    if (stored === 'light' || stored === 'dark') {
       setThemeState(stored);
     } else {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
       setThemeState(systemTheme);
     }
     setMounted(true);
@@ -82,7 +82,7 @@ export function ThemeProvider({
 export function useTheme() {
   const context = useContext(ThemeProviderContext);
   if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 }

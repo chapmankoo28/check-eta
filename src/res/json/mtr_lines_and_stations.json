@@ -1,1 +1,343 @@
-{"timestamp":"2026-06-15T16:58:25+08:00","data":{"AEL":{"DT":[{"code":"AWE","name_tc":"博覽館","seq":1},{"code":"AIR","name_tc":"機場","seq":2},{"code":"TSY","name_tc":"青衣","seq":3},{"code":"KOW","name_tc":"九龍","seq":4},{"code":"HOK","name_tc":"香港","seq":5}],"UT":[{"code":"HOK","name_tc":"香港","seq":1},{"code":"KOW","name_tc":"九龍","seq":2},{"code":"TSY","name_tc":"青衣","seq":3},{"code":"AIR","name_tc":"機場","seq":4},{"code":"AWE","name_tc":"博覽館","seq":5}]},"DRL":{"DT":[{"code":"SUN","name_tc":"欣澳","seq":1},{"code":"DIS","name_tc":"迪士尼","seq":2}],"UT":[{"code":"DIS","name_tc":"迪士尼","seq":1},{"code":"SUN","name_tc":"欣澳","seq":2}]},"EAL":{"DT":[{"code":"LOW","name_tc":"羅湖","seq":1},{"code":"SHS","name_tc":"上水","seq":2},{"code":"FAN","name_tc":"粉嶺","seq":3},{"code":"TWO","name_tc":"太和","seq":4},{"code":"TAP","name_tc":"大埔墟","seq":5},{"code":"UNI","name_tc":"大學","seq":6},{"code":"FOT","name_tc":"火炭","seq":7},{"code":"SHT","name_tc":"沙田","seq":8},{"code":"TAW","name_tc":"大圍","seq":9},{"code":"KOT","name_tc":"九龍塘","seq":10},{"code":"MKK","name_tc":"旺角東","seq":11},{"code":"HUH","name_tc":"紅磡","seq":12},{"code":"EXC","name_tc":"會展","seq":13},{"code":"ADM","name_tc":"金鐘","seq":14}],"LMC-DT":[{"code":"LMC","name_tc":"落馬洲","seq":1},{"code":"SHS","name_tc":"上水","seq":2},{"code":"FAN","name_tc":"粉嶺","seq":3},{"code":"TWO","name_tc":"太和","seq":4},{"code":"TAP","name_tc":"大埔墟","seq":5},{"code":"UNI","name_tc":"大學","seq":6},{"code":"FOT","name_tc":"火炭","seq":7},{"code":"SHT","name_tc":"沙田","seq":8},{"code":"TAW","name_tc":"大圍","seq":9},{"code":"KOT","name_tc":"九龍塘","seq":10},{"code":"MKK","name_tc":"旺角東","seq":11},{"code":"HUH","name_tc":"紅磡","seq":12},{"code":"EXC","name_tc":"會展","seq":13},{"code":"ADM","name_tc":"金鐘","seq":14}],"LMC-UT":[{"code":"ADM","name_tc":"金鐘","seq":1},{"code":"EXC","name_tc":"會展","seq":2},{"code":"HUH","name_tc":"紅磡","seq":3},{"code":"MKK","name_tc":"旺角東","seq":4},{"code":"KOT","name_tc":"九龍塘","seq":5},{"code":"TAW","name_tc":"大圍","seq":6},{"code":"SHT","name_tc":"沙田","seq":7},{"code":"FOT","name_tc":"火炭","seq":8},{"code":"UNI","name_tc":"大學","seq":9},{"code":"TAP","name_tc":"大埔墟","seq":10},{"code":"TWO","name_tc":"太和","seq":11},{"code":"FAN","name_tc":"粉嶺","seq":12},{"code":"SHS","name_tc":"上水","seq":13},{"code":"LMC","name_tc":"落馬洲","seq":14}],"UT":[{"code":"ADM","name_tc":"金鐘","seq":1},{"code":"EXC","name_tc":"會展","seq":2},{"code":"HUH","name_tc":"紅磡","seq":3},{"code":"MKK","name_tc":"旺角東","seq":4},{"code":"KOT","name_tc":"九龍塘","seq":5},{"code":"TAW","name_tc":"大圍","seq":6},{"code":"SHT","name_tc":"沙田","seq":7},{"code":"FOT","name_tc":"火炭","seq":8},{"code":"UNI","name_tc":"大學","seq":9},{"code":"TAP","name_tc":"大埔墟","seq":10},{"code":"TWO","name_tc":"太和","seq":11},{"code":"FAN","name_tc":"粉嶺","seq":12},{"code":"SHS","name_tc":"上水","seq":13},{"code":"LOW","name_tc":"羅湖","seq":14}]},"ISL":{"DT":[{"code":"CHW","name_tc":"柴灣","seq":1},{"code":"HFC","name_tc":"杏花邨","seq":2},{"code":"SKW","name_tc":"筲箕灣","seq":3},{"code":"SWH","name_tc":"西灣河","seq":4},{"code":"TAK","name_tc":"太古","seq":5},{"code":"QUB","name_tc":"鰂魚涌","seq":6},{"code":"NOP","name_tc":"北角","seq":7},{"code":"FOH","name_tc":"炮台山","seq":8},{"code":"TIH","name_tc":"天后","seq":9},{"code":"CAB","name_tc":"銅鑼灣","seq":10},{"code":"WAC","name_tc":"灣仔","seq":11},{"code":"ADM","name_tc":"金鐘","seq":12},{"code":"CEN","name_tc":"中環","seq":13},{"code":"SHW","name_tc":"上環","seq":14},{"code":"SYP","name_tc":"西營盤","seq":15},{"code":"HKU","name_tc":"香港大學","seq":16},{"code":"KET","name_tc":"堅尼地城","seq":17}],"UT":[{"code":"KET","name_tc":"堅尼地城","seq":1},{"code":"HKU","name_tc":"香港大學","seq":2},{"code":"SYP","name_tc":"西營盤","seq":3},{"code":"SHW","name_tc":"上環","seq":4},{"code":"CEN","name_tc":"中環","seq":5},{"code":"ADM","name_tc":"金鐘","seq":6},{"code":"WAC","name_tc":"灣仔","seq":7},{"code":"CAB","name_tc":"銅鑼灣","seq":8},{"code":"TIH","name_tc":"天后","seq":9},{"code":"FOH","name_tc":"炮台山","seq":10},{"code":"NOP","name_tc":"北角","seq":11},{"code":"QUB","name_tc":"鰂魚涌","seq":12},{"code":"TAK","name_tc":"太古","seq":13},{"code":"SWH","name_tc":"西灣河","seq":14},{"code":"SKW","name_tc":"筲箕灣","seq":15},{"code":"HFC","name_tc":"杏花邨","seq":16},{"code":"CHW","name_tc":"柴灣","seq":17}]},"KTL":{"DT":[{"code":"TIK","name_tc":"調景嶺","seq":1},{"code":"YAT","name_tc":"油塘","seq":2},{"code":"LAT","name_tc":"藍田","seq":3},{"code":"KWT","name_tc":"觀塘","seq":4},{"code":"NTK","name_tc":"牛頭角","seq":5},{"code":"KOB","name_tc":"九龍灣","seq":6},{"code":"CHH","name_tc":"彩虹","seq":7},{"code":"DIH","name_tc":"鑽石山","seq":8},{"code":"WTS","name_tc":"黃大仙","seq":9},{"code":"LOF","name_tc":"樂富","seq":10},{"code":"KOT","name_tc":"九龍塘","seq":11},{"code":"SKM","name_tc":"石硤尾","seq":12},{"code":"PRE","name_tc":"太子","seq":13},{"code":"MOK","name_tc":"旺角","seq":14},{"code":"YMT","name_tc":"油麻地","seq":15},{"code":"HOM","name_tc":"何文田","seq":16},{"code":"WHA","name_tc":"黃埔","seq":17}],"UT":[{"code":"WHA","name_tc":"黃埔","seq":1},{"code":"HOM","name_tc":"何文田","seq":2},{"code":"YMT","name_tc":"油麻地","seq":3},{"code":"MOK","name_tc":"旺角","seq":4},{"code":"PRE","name_tc":"太子","seq":5},{"code":"SKM","name_tc":"石硤尾","seq":6},{"code":"KOT","name_tc":"九龍塘","seq":7},{"code":"LOF","name_tc":"樂富","seq":8},{"code":"WTS","name_tc":"黃大仙","seq":9},{"code":"DIH","name_tc":"鑽石山","seq":10},{"code":"CHH","name_tc":"彩虹","seq":11},{"code":"KOB","name_tc":"九龍灣","seq":12},{"code":"NTK","name_tc":"牛頭角","seq":13},{"code":"KWT","name_tc":"觀塘","seq":14},{"code":"LAT","name_tc":"藍田","seq":15},{"code":"YAT","name_tc":"油塘","seq":16},{"code":"TIK","name_tc":"調景嶺","seq":17}]},"SIL":{"DT":[{"code":"SOH","name_tc":"海怡半島","seq":1},{"code":"LET","name_tc":"利東","seq":2},{"code":"WCH","name_tc":"黃竹坑","seq":3},{"code":"OCP","name_tc":"海洋公園","seq":4},{"code":"ADM","name_tc":"金鐘","seq":5}],"UT":[{"code":"ADM","name_tc":"金鐘","seq":1},{"code":"OCP","name_tc":"海洋公園","seq":2},{"code":"WCH","name_tc":"黃竹坑","seq":3},{"code":"LET","name_tc":"利東","seq":4},{"code":"SOH","name_tc":"海怡半島","seq":5}]},"TCL":{"DT":[{"code":"TUC","name_tc":"東涌","seq":1},{"code":"SUN","name_tc":"欣澳","seq":2},{"code":"TSY","name_tc":"青衣","seq":3},{"code":"LAK","name_tc":"茘景","seq":4},{"code":"NAC","name_tc":"南昌","seq":5},{"code":"OLY","name_tc":"奧運","seq":6},{"code":"KOW","name_tc":"九龍","seq":7},{"code":"HOK","name_tc":"香港","seq":8}],"UT":[{"code":"HOK","name_tc":"香港","seq":1},{"code":"KOW","name_tc":"九龍","seq":2},{"code":"OLY","name_tc":"奧運","seq":3},{"code":"NAC","name_tc":"南昌","seq":4},{"code":"LAK","name_tc":"茘景","seq":5},{"code":"TSY","name_tc":"青衣","seq":6},{"code":"SUN","name_tc":"欣澳","seq":7},{"code":"TUC","name_tc":"東涌","seq":8}]},"TKL":{"DT":[{"code":"POA","name_tc":"寶琳","seq":1},{"code":"HAH","name_tc":"坑口","seq":2},{"code":"TKO","name_tc":"將軍澳","seq":3},{"code":"TIK","name_tc":"調景嶺","seq":4},{"code":"YAT","name_tc":"油塘","seq":5},{"code":"QUB","name_tc":"鰂魚涌","seq":6},{"code":"NOP","name_tc":"北角","seq":7}],"TKS-DT":[{"code":"LHP","name_tc":"康城","seq":1},{"code":"TKO","name_tc":"將軍澳","seq":2},{"code":"TIK","name_tc":"調景嶺","seq":3}],"TKS-UT":[{"code":"TIK","name_tc":"調景嶺","seq":1},{"code":"TKO","name_tc":"將軍澳","seq":2},{"code":"LHP","name_tc":"康城","seq":3}],"UT":[{"code":"NOP","name_tc":"北角","seq":1},{"code":"QUB","name_tc":"鰂魚涌","seq":2},{"code":"YAT","name_tc":"油塘","seq":3},{"code":"TIK","name_tc":"調景嶺","seq":4},{"code":"TKO","name_tc":"將軍澳","seq":5},{"code":"HAH","name_tc":"坑口","seq":6},{"code":"POA","name_tc":"寶琳","seq":7}]},"TML":{"DT":[{"code":"TUM","name_tc":"屯門","seq":1},{"code":"SIH","name_tc":"兆康","seq":2},{"code":"TIS","name_tc":"天水圍","seq":3},{"code":"LOP","name_tc":"朗屏","seq":4},{"code":"YUL","name_tc":"元朗","seq":5},{"code":"KSR","name_tc":"錦上路","seq":6},{"code":"TWW","name_tc":"荃灣西","seq":7},{"code":"MEF","name_tc":"美孚","seq":8},{"code":"NAC","name_tc":"南昌","seq":9},{"code":"AUS","name_tc":"柯士甸","seq":10},{"code":"ETS","name_tc":"尖東","seq":11},{"code":"HUH","name_tc":"紅磡","seq":12},{"code":"HOM","name_tc":"何文田","seq":13},{"code":"TKW","name_tc":"土瓜灣","seq":14},{"code":"SUW","name_tc":"宋皇臺","seq":15},{"code":"KAT","name_tc":"啟德","seq":16},{"code":"DIH","name_tc":"鑽石山","seq":17},{"code":"HIK","name_tc":"顯徑","seq":18},{"code":"TAW","name_tc":"大圍","seq":19},{"code":"CKT","name_tc":"車公廟","seq":20},{"code":"STW","name_tc":"沙田圍","seq":21},{"code":"CIO","name_tc":"第一城","seq":22},{"code":"SHM","name_tc":"石門","seq":23},{"code":"TSH","name_tc":"大水坑","seq":24},{"code":"HEO","name_tc":"恆安","seq":25},{"code":"MOS","name_tc":"馬鞍山","seq":26},{"code":"WKS","name_tc":"烏溪沙","seq":27}],"UT":[{"code":"WKS","name_tc":"烏溪沙","seq":1},{"code":"MOS","name_tc":"馬鞍山","seq":2},{"code":"HEO","name_tc":"恆安","seq":3},{"code":"TSH","name_tc":"大水坑","seq":4},{"code":"SHM","name_tc":"石門","seq":5},{"code":"CIO","name_tc":"第一城","seq":6},{"code":"STW","name_tc":"沙田圍","seq":7},{"code":"CKT","name_tc":"車公廟","seq":8},{"code":"TAW","name_tc":"大圍","seq":9},{"code":"HIK","name_tc":"顯徑","seq":10},{"code":"DIH","name_tc":"鑽石山","seq":11},{"code":"KAT","name_tc":"啟德","seq":12},{"code":"SUW","name_tc":"宋皇臺","seq":13},{"code":"TKW","name_tc":"土瓜灣","seq":14},{"code":"HOM","name_tc":"何文田","seq":15},{"code":"HUH","name_tc":"紅磡","seq":16},{"code":"ETS","name_tc":"尖東","seq":17},{"code":"AUS","name_tc":"柯士甸","seq":18},{"code":"NAC","name_tc":"南昌","seq":19},{"code":"MEF","name_tc":"美孚","seq":20},{"code":"TWW","name_tc":"荃灣西","seq":21},{"code":"KSR","name_tc":"錦上路","seq":22},{"code":"YUL","name_tc":"元朗","seq":23},{"code":"LOP","name_tc":"朗屏","seq":24},{"code":"TIS","name_tc":"天水圍","seq":25},{"code":"SIH","name_tc":"兆康","seq":26},{"code":"TUM","name_tc":"屯門","seq":27}]},"TWL":{"DT":[{"code":"TSW","name_tc":"荃灣","seq":1},{"code":"TWH","name_tc":"大窩口","seq":2},{"code":"KWH","name_tc":"葵興","seq":3},{"code":"KWF","name_tc":"葵芳","seq":4},{"code":"LAK","name_tc":"茘景","seq":5},{"code":"MEF","name_tc":"美孚","seq":6},{"code":"LCK","name_tc":"茘枝角","seq":7},{"code":"CSW","name_tc":"長沙灣","seq":8},{"code":"SSP","name_tc":"深水埗","seq":9},{"code":"PRE","name_tc":"太子","seq":10},{"code":"MOK","name_tc":"旺角","seq":11},{"code":"YMT","name_tc":"油麻地","seq":12},{"code":"JOR","name_tc":"佐敦","seq":13},{"code":"TST","name_tc":"尖沙咀","seq":14},{"code":"ADM","name_tc":"金鐘","seq":15},{"code":"CEN","name_tc":"中環","seq":16}],"UT":[{"code":"CEN","name_tc":"中環","seq":1},{"code":"ADM","name_tc":"金鐘","seq":2},{"code":"TST","name_tc":"尖沙咀","seq":3},{"code":"JOR","name_tc":"佐敦","seq":4},{"code":"YMT","name_tc":"油麻地","seq":5},{"code":"MOK","name_tc":"旺角","seq":6},{"code":"PRE","name_tc":"太子","seq":7},{"code":"SSP","name_tc":"深水埗","seq":8},{"code":"CSW","name_tc":"長沙灣","seq":9},{"code":"LCK","name_tc":"茘枝角","seq":10},{"code":"MEF","name_tc":"美孚","seq":11},{"code":"LAK","name_tc":"茘景","seq":12},{"code":"KWF","name_tc":"葵芳","seq":13},{"code":"KWH","name_tc":"葵興","seq":14},{"code":"TWH","name_tc":"大窩口","seq":15},{"code":"TSW","name_tc":"荃灣","seq":16}]}}}
+{
+  "timestamp": "2026-06-15T16:58:25+08:00",
+  "data": {
+    "AEL": {
+      "DT": [
+        { "code": "AWE", "name_tc": "博覽館", "seq": 1 },
+        { "code": "AIR", "name_tc": "機場", "seq": 2 },
+        { "code": "TSY", "name_tc": "青衣", "seq": 3 },
+        { "code": "KOW", "name_tc": "九龍", "seq": 4 },
+        { "code": "HOK", "name_tc": "香港", "seq": 5 }
+      ],
+      "UT": [
+        { "code": "HOK", "name_tc": "香港", "seq": 1 },
+        { "code": "KOW", "name_tc": "九龍", "seq": 2 },
+        { "code": "TSY", "name_tc": "青衣", "seq": 3 },
+        { "code": "AIR", "name_tc": "機場", "seq": 4 },
+        { "code": "AWE", "name_tc": "博覽館", "seq": 5 }
+      ]
+    },
+    "DRL": {
+      "DT": [
+        { "code": "SUN", "name_tc": "欣澳", "seq": 1 },
+        { "code": "DIS", "name_tc": "迪士尼", "seq": 2 }
+      ],
+      "UT": [
+        { "code": "DIS", "name_tc": "迪士尼", "seq": 1 },
+        { "code": "SUN", "name_tc": "欣澳", "seq": 2 }
+      ]
+    },
+    "EAL": {
+      "DT": [
+        { "code": "LOW", "name_tc": "羅湖", "seq": 1 },
+        { "code": "SHS", "name_tc": "上水", "seq": 2 },
+        { "code": "FAN", "name_tc": "粉嶺", "seq": 3 },
+        { "code": "TWO", "name_tc": "太和", "seq": 4 },
+        { "code": "TAP", "name_tc": "大埔墟", "seq": 5 },
+        { "code": "UNI", "name_tc": "大學", "seq": 6 },
+        { "code": "FOT", "name_tc": "火炭", "seq": 7 },
+        { "code": "SHT", "name_tc": "沙田", "seq": 8 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 9 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 10 },
+        { "code": "MKK", "name_tc": "旺角東", "seq": 11 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 12 },
+        { "code": "EXC", "name_tc": "會展", "seq": 13 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 14 }
+      ],
+      "LMC-DT": [
+        { "code": "LMC", "name_tc": "落馬洲", "seq": 1 },
+        { "code": "SHS", "name_tc": "上水", "seq": 2 },
+        { "code": "FAN", "name_tc": "粉嶺", "seq": 3 },
+        { "code": "TWO", "name_tc": "太和", "seq": 4 },
+        { "code": "TAP", "name_tc": "大埔墟", "seq": 5 },
+        { "code": "UNI", "name_tc": "大學", "seq": 6 },
+        { "code": "FOT", "name_tc": "火炭", "seq": 7 },
+        { "code": "SHT", "name_tc": "沙田", "seq": 8 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 9 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 10 },
+        { "code": "MKK", "name_tc": "旺角東", "seq": 11 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 12 },
+        { "code": "EXC", "name_tc": "會展", "seq": 13 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 14 }
+      ],
+      "LMC-UT": [
+        { "code": "ADM", "name_tc": "金鐘", "seq": 1 },
+        { "code": "EXC", "name_tc": "會展", "seq": 2 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 3 },
+        { "code": "MKK", "name_tc": "旺角東", "seq": 4 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 5 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 6 },
+        { "code": "SHT", "name_tc": "沙田", "seq": 7 },
+        { "code": "FOT", "name_tc": "火炭", "seq": 8 },
+        { "code": "UNI", "name_tc": "大學", "seq": 9 },
+        { "code": "TAP", "name_tc": "大埔墟", "seq": 10 },
+        { "code": "TWO", "name_tc": "太和", "seq": 11 },
+        { "code": "FAN", "name_tc": "粉嶺", "seq": 12 },
+        { "code": "SHS", "name_tc": "上水", "seq": 13 },
+        { "code": "LMC", "name_tc": "落馬洲", "seq": 14 }
+      ],
+      "UT": [
+        { "code": "ADM", "name_tc": "金鐘", "seq": 1 },
+        { "code": "EXC", "name_tc": "會展", "seq": 2 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 3 },
+        { "code": "MKK", "name_tc": "旺角東", "seq": 4 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 5 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 6 },
+        { "code": "SHT", "name_tc": "沙田", "seq": 7 },
+        { "code": "FOT", "name_tc": "火炭", "seq": 8 },
+        { "code": "UNI", "name_tc": "大學", "seq": 9 },
+        { "code": "TAP", "name_tc": "大埔墟", "seq": 10 },
+        { "code": "TWO", "name_tc": "太和", "seq": 11 },
+        { "code": "FAN", "name_tc": "粉嶺", "seq": 12 },
+        { "code": "SHS", "name_tc": "上水", "seq": 13 },
+        { "code": "LOW", "name_tc": "羅湖", "seq": 14 }
+      ]
+    },
+    "ISL": {
+      "DT": [
+        { "code": "CHW", "name_tc": "柴灣", "seq": 1 },
+        { "code": "HFC", "name_tc": "杏花邨", "seq": 2 },
+        { "code": "SKW", "name_tc": "筲箕灣", "seq": 3 },
+        { "code": "SWH", "name_tc": "西灣河", "seq": 4 },
+        { "code": "TAK", "name_tc": "太古", "seq": 5 },
+        { "code": "QUB", "name_tc": "鰂魚涌", "seq": 6 },
+        { "code": "NOP", "name_tc": "北角", "seq": 7 },
+        { "code": "FOH", "name_tc": "炮台山", "seq": 8 },
+        { "code": "TIH", "name_tc": "天后", "seq": 9 },
+        { "code": "CAB", "name_tc": "銅鑼灣", "seq": 10 },
+        { "code": "WAC", "name_tc": "灣仔", "seq": 11 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 12 },
+        { "code": "CEN", "name_tc": "中環", "seq": 13 },
+        { "code": "SHW", "name_tc": "上環", "seq": 14 },
+        { "code": "SYP", "name_tc": "西營盤", "seq": 15 },
+        { "code": "HKU", "name_tc": "香港大學", "seq": 16 },
+        { "code": "KET", "name_tc": "堅尼地城", "seq": 17 }
+      ],
+      "UT": [
+        { "code": "KET", "name_tc": "堅尼地城", "seq": 1 },
+        { "code": "HKU", "name_tc": "香港大學", "seq": 2 },
+        { "code": "SYP", "name_tc": "西營盤", "seq": 3 },
+        { "code": "SHW", "name_tc": "上環", "seq": 4 },
+        { "code": "CEN", "name_tc": "中環", "seq": 5 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 6 },
+        { "code": "WAC", "name_tc": "灣仔", "seq": 7 },
+        { "code": "CAB", "name_tc": "銅鑼灣", "seq": 8 },
+        { "code": "TIH", "name_tc": "天后", "seq": 9 },
+        { "code": "FOH", "name_tc": "炮台山", "seq": 10 },
+        { "code": "NOP", "name_tc": "北角", "seq": 11 },
+        { "code": "QUB", "name_tc": "鰂魚涌", "seq": 12 },
+        { "code": "TAK", "name_tc": "太古", "seq": 13 },
+        { "code": "SWH", "name_tc": "西灣河", "seq": 14 },
+        { "code": "SKW", "name_tc": "筲箕灣", "seq": 15 },
+        { "code": "HFC", "name_tc": "杏花邨", "seq": 16 },
+        { "code": "CHW", "name_tc": "柴灣", "seq": 17 }
+      ]
+    },
+    "KTL": {
+      "DT": [
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 1 },
+        { "code": "YAT", "name_tc": "油塘", "seq": 2 },
+        { "code": "LAT", "name_tc": "藍田", "seq": 3 },
+        { "code": "KWT", "name_tc": "觀塘", "seq": 4 },
+        { "code": "NTK", "name_tc": "牛頭角", "seq": 5 },
+        { "code": "KOB", "name_tc": "九龍灣", "seq": 6 },
+        { "code": "CHH", "name_tc": "彩虹", "seq": 7 },
+        { "code": "DIH", "name_tc": "鑽石山", "seq": 8 },
+        { "code": "WTS", "name_tc": "黃大仙", "seq": 9 },
+        { "code": "LOF", "name_tc": "樂富", "seq": 10 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 11 },
+        { "code": "SKM", "name_tc": "石硤尾", "seq": 12 },
+        { "code": "PRE", "name_tc": "太子", "seq": 13 },
+        { "code": "MOK", "name_tc": "旺角", "seq": 14 },
+        { "code": "YMT", "name_tc": "油麻地", "seq": 15 },
+        { "code": "HOM", "name_tc": "何文田", "seq": 16 },
+        { "code": "WHA", "name_tc": "黃埔", "seq": 17 }
+      ],
+      "UT": [
+        { "code": "WHA", "name_tc": "黃埔", "seq": 1 },
+        { "code": "HOM", "name_tc": "何文田", "seq": 2 },
+        { "code": "YMT", "name_tc": "油麻地", "seq": 3 },
+        { "code": "MOK", "name_tc": "旺角", "seq": 4 },
+        { "code": "PRE", "name_tc": "太子", "seq": 5 },
+        { "code": "SKM", "name_tc": "石硤尾", "seq": 6 },
+        { "code": "KOT", "name_tc": "九龍塘", "seq": 7 },
+        { "code": "LOF", "name_tc": "樂富", "seq": 8 },
+        { "code": "WTS", "name_tc": "黃大仙", "seq": 9 },
+        { "code": "DIH", "name_tc": "鑽石山", "seq": 10 },
+        { "code": "CHH", "name_tc": "彩虹", "seq": 11 },
+        { "code": "KOB", "name_tc": "九龍灣", "seq": 12 },
+        { "code": "NTK", "name_tc": "牛頭角", "seq": 13 },
+        { "code": "KWT", "name_tc": "觀塘", "seq": 14 },
+        { "code": "LAT", "name_tc": "藍田", "seq": 15 },
+        { "code": "YAT", "name_tc": "油塘", "seq": 16 },
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 17 }
+      ]
+    },
+    "SIL": {
+      "DT": [
+        { "code": "SOH", "name_tc": "海怡半島", "seq": 1 },
+        { "code": "LET", "name_tc": "利東", "seq": 2 },
+        { "code": "WCH", "name_tc": "黃竹坑", "seq": 3 },
+        { "code": "OCP", "name_tc": "海洋公園", "seq": 4 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 5 }
+      ],
+      "UT": [
+        { "code": "ADM", "name_tc": "金鐘", "seq": 1 },
+        { "code": "OCP", "name_tc": "海洋公園", "seq": 2 },
+        { "code": "WCH", "name_tc": "黃竹坑", "seq": 3 },
+        { "code": "LET", "name_tc": "利東", "seq": 4 },
+        { "code": "SOH", "name_tc": "海怡半島", "seq": 5 }
+      ]
+    },
+    "TCL": {
+      "DT": [
+        { "code": "TUC", "name_tc": "東涌", "seq": 1 },
+        { "code": "SUN", "name_tc": "欣澳", "seq": 2 },
+        { "code": "TSY", "name_tc": "青衣", "seq": 3 },
+        { "code": "LAK", "name_tc": "茘景", "seq": 4 },
+        { "code": "NAC", "name_tc": "南昌", "seq": 5 },
+        { "code": "OLY", "name_tc": "奧運", "seq": 6 },
+        { "code": "KOW", "name_tc": "九龍", "seq": 7 },
+        { "code": "HOK", "name_tc": "香港", "seq": 8 }
+      ],
+      "UT": [
+        { "code": "HOK", "name_tc": "香港", "seq": 1 },
+        { "code": "KOW", "name_tc": "九龍", "seq": 2 },
+        { "code": "OLY", "name_tc": "奧運", "seq": 3 },
+        { "code": "NAC", "name_tc": "南昌", "seq": 4 },
+        { "code": "LAK", "name_tc": "茘景", "seq": 5 },
+        { "code": "TSY", "name_tc": "青衣", "seq": 6 },
+        { "code": "SUN", "name_tc": "欣澳", "seq": 7 },
+        { "code": "TUC", "name_tc": "東涌", "seq": 8 }
+      ]
+    },
+    "TKL": {
+      "DT": [
+        { "code": "POA", "name_tc": "寶琳", "seq": 1 },
+        { "code": "HAH", "name_tc": "坑口", "seq": 2 },
+        { "code": "TKO", "name_tc": "將軍澳", "seq": 3 },
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 4 },
+        { "code": "YAT", "name_tc": "油塘", "seq": 5 },
+        { "code": "QUB", "name_tc": "鰂魚涌", "seq": 6 },
+        { "code": "NOP", "name_tc": "北角", "seq": 7 }
+      ],
+      "TKS-DT": [
+        { "code": "LHP", "name_tc": "康城", "seq": 1 },
+        { "code": "TKO", "name_tc": "將軍澳", "seq": 2 },
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 3 }
+      ],
+      "TKS-UT": [
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 1 },
+        { "code": "TKO", "name_tc": "將軍澳", "seq": 2 },
+        { "code": "LHP", "name_tc": "康城", "seq": 3 }
+      ],
+      "UT": [
+        { "code": "NOP", "name_tc": "北角", "seq": 1 },
+        { "code": "QUB", "name_tc": "鰂魚涌", "seq": 2 },
+        { "code": "YAT", "name_tc": "油塘", "seq": 3 },
+        { "code": "TIK", "name_tc": "調景嶺", "seq": 4 },
+        { "code": "TKO", "name_tc": "將軍澳", "seq": 5 },
+        { "code": "HAH", "name_tc": "坑口", "seq": 6 },
+        { "code": "POA", "name_tc": "寶琳", "seq": 7 }
+      ]
+    },
+    "TML": {
+      "DT": [
+        { "code": "TUM", "name_tc": "屯門", "seq": 1 },
+        { "code": "SIH", "name_tc": "兆康", "seq": 2 },
+        { "code": "TIS", "name_tc": "天水圍", "seq": 3 },
+        { "code": "LOP", "name_tc": "朗屏", "seq": 4 },
+        { "code": "YUL", "name_tc": "元朗", "seq": 5 },
+        { "code": "KSR", "name_tc": "錦上路", "seq": 6 },
+        { "code": "TWW", "name_tc": "荃灣西", "seq": 7 },
+        { "code": "MEF", "name_tc": "美孚", "seq": 8 },
+        { "code": "NAC", "name_tc": "南昌", "seq": 9 },
+        { "code": "AUS", "name_tc": "柯士甸", "seq": 10 },
+        { "code": "ETS", "name_tc": "尖東", "seq": 11 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 12 },
+        { "code": "HOM", "name_tc": "何文田", "seq": 13 },
+        { "code": "TKW", "name_tc": "土瓜灣", "seq": 14 },
+        { "code": "SUW", "name_tc": "宋皇臺", "seq": 15 },
+        { "code": "KAT", "name_tc": "啟德", "seq": 16 },
+        { "code": "DIH", "name_tc": "鑽石山", "seq": 17 },
+        { "code": "HIK", "name_tc": "顯徑", "seq": 18 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 19 },
+        { "code": "CKT", "name_tc": "車公廟", "seq": 20 },
+        { "code": "STW", "name_tc": "沙田圍", "seq": 21 },
+        { "code": "CIO", "name_tc": "第一城", "seq": 22 },
+        { "code": "SHM", "name_tc": "石門", "seq": 23 },
+        { "code": "TSH", "name_tc": "大水坑", "seq": 24 },
+        { "code": "HEO", "name_tc": "恆安", "seq": 25 },
+        { "code": "MOS", "name_tc": "馬鞍山", "seq": 26 },
+        { "code": "WKS", "name_tc": "烏溪沙", "seq": 27 }
+      ],
+      "UT": [
+        { "code": "WKS", "name_tc": "烏溪沙", "seq": 1 },
+        { "code": "MOS", "name_tc": "馬鞍山", "seq": 2 },
+        { "code": "HEO", "name_tc": "恆安", "seq": 3 },
+        { "code": "TSH", "name_tc": "大水坑", "seq": 4 },
+        { "code": "SHM", "name_tc": "石門", "seq": 5 },
+        { "code": "CIO", "name_tc": "第一城", "seq": 6 },
+        { "code": "STW", "name_tc": "沙田圍", "seq": 7 },
+        { "code": "CKT", "name_tc": "車公廟", "seq": 8 },
+        { "code": "TAW", "name_tc": "大圍", "seq": 9 },
+        { "code": "HIK", "name_tc": "顯徑", "seq": 10 },
+        { "code": "DIH", "name_tc": "鑽石山", "seq": 11 },
+        { "code": "KAT", "name_tc": "啟德", "seq": 12 },
+        { "code": "SUW", "name_tc": "宋皇臺", "seq": 13 },
+        { "code": "TKW", "name_tc": "土瓜灣", "seq": 14 },
+        { "code": "HOM", "name_tc": "何文田", "seq": 15 },
+        { "code": "HUH", "name_tc": "紅磡", "seq": 16 },
+        { "code": "ETS", "name_tc": "尖東", "seq": 17 },
+        { "code": "AUS", "name_tc": "柯士甸", "seq": 18 },
+        { "code": "NAC", "name_tc": "南昌", "seq": 19 },
+        { "code": "MEF", "name_tc": "美孚", "seq": 20 },
+        { "code": "TWW", "name_tc": "荃灣西", "seq": 21 },
+        { "code": "KSR", "name_tc": "錦上路", "seq": 22 },
+        { "code": "YUL", "name_tc": "元朗", "seq": 23 },
+        { "code": "LOP", "name_tc": "朗屏", "seq": 24 },
+        { "code": "TIS", "name_tc": "天水圍", "seq": 25 },
+        { "code": "SIH", "name_tc": "兆康", "seq": 26 },
+        { "code": "TUM", "name_tc": "屯門", "seq": 27 }
+      ]
+    },
+    "TWL": {
+      "DT": [
+        { "code": "TSW", "name_tc": "荃灣", "seq": 1 },
+        { "code": "TWH", "name_tc": "大窩口", "seq": 2 },
+        { "code": "KWH", "name_tc": "葵興", "seq": 3 },
+        { "code": "KWF", "name_tc": "葵芳", "seq": 4 },
+        { "code": "LAK", "name_tc": "茘景", "seq": 5 },
+        { "code": "MEF", "name_tc": "美孚", "seq": 6 },
+        { "code": "LCK", "name_tc": "茘枝角", "seq": 7 },
+        { "code": "CSW", "name_tc": "長沙灣", "seq": 8 },
+        { "code": "SSP", "name_tc": "深水埗", "seq": 9 },
+        { "code": "PRE", "name_tc": "太子", "seq": 10 },
+        { "code": "MOK", "name_tc": "旺角", "seq": 11 },
+        { "code": "YMT", "name_tc": "油麻地", "seq": 12 },
+        { "code": "JOR", "name_tc": "佐敦", "seq": 13 },
+        { "code": "TST", "name_tc": "尖沙咀", "seq": 14 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 15 },
+        { "code": "CEN", "name_tc": "中環", "seq": 16 }
+      ],
+      "UT": [
+        { "code": "CEN", "name_tc": "中環", "seq": 1 },
+        { "code": "ADM", "name_tc": "金鐘", "seq": 2 },
+        { "code": "TST", "name_tc": "尖沙咀", "seq": 3 },
+        { "code": "JOR", "name_tc": "佐敦", "seq": 4 },
+        { "code": "YMT", "name_tc": "油麻地", "seq": 5 },
+        { "code": "MOK", "name_tc": "旺角", "seq": 6 },
+        { "code": "PRE", "name_tc": "太子", "seq": 7 },
+        { "code": "SSP", "name_tc": "深水埗", "seq": 8 },
+        { "code": "CSW", "name_tc": "長沙灣", "seq": 9 },
+        { "code": "LCK", "name_tc": "茘枝角", "seq": 10 },
+        { "code": "MEF", "name_tc": "美孚", "seq": 11 },
+        { "code": "LAK", "name_tc": "茘景", "seq": 12 },
+        { "code": "KWF", "name_tc": "葵芳", "seq": 13 },
+        { "code": "KWH", "name_tc": "葵興", "seq": 14 },
+        { "code": "TWH", "name_tc": "大窩口", "seq": 15 },
+        { "code": "TSW", "name_tc": "荃灣", "seq": 16 }
+      ]
+    }
+  }
+}

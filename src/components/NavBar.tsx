@@ -1,9 +1,9 @@
-import { BusIcon, SubwayIcon } from "@phosphor-icons/react";
-import { Link, useLocation } from "@tanstack/react-router";
-import type { PropsWithChildren } from "react";
-import { Logo } from "@/assets/logo";
-import { ThemeToggler } from "@/components/ThemeToggler";
-import { cn } from "@/lib/utils";
+import { BusIcon, SubwayIcon } from '@phosphor-icons/react';
+import { Link, useLocation } from '@tanstack/react-router';
+import type { PropsWithChildren } from 'react';
+import { Logo } from '@/assets/logo';
+import { ThemeToggler } from '@/components/ThemeToggler';
+import { cn } from '@/lib/utils';
 
 export function NavBar() {
   const { pathname } = useLocation();
@@ -19,15 +19,15 @@ export function NavBar() {
         </a>
 
         <div className="flex gap-2">
-          <NavBarItem className={cn(pathname.includes("/bus") && "border-primary")} path="/bus">
-            <BusIcon className="size-8" weight={pathname.includes("/bus") ? "fill" : undefined} />
+          <NavBarItem className={cn(pathname.includes('/bus') && 'border-primary')} path="/bus">
+            <BusIcon className="size-8" weight={pathname.includes('/bus') ? 'fill' : undefined} />
             <span className="text-lg">巴士</span>
           </NavBarItem>
 
-          <NavBarItem className={cn(pathname.includes("/mtr") && "border-primary")} path="/mtr">
+          <NavBarItem className={cn(pathname.includes('/mtr') && 'border-primary')} path="/mtr">
             <SubwayIcon
               className="size-8"
-              weight={pathname.includes("/mtr") ? "fill" : undefined}
+              weight={pathname.includes('/mtr') ? 'fill' : undefined}
             />
             <span className="text-lg">鐡路</span>
           </NavBarItem>
@@ -49,8 +49,8 @@ function NavBarItem({
     <Link to={path}>
       <div
         className={cn(
-          "flex cursor-pointer select-none flex-row items-center justify-between gap-1 rounded-md border-2 border-transparent px-3 py-1 text-foreground hover:bg-muted",
-          className
+          'flex cursor-pointer select-none flex-row items-center justify-between gap-1 rounded-md border-2 border-transparent px-3 py-1 text-foreground hover:bg-muted',
+          className,
         )}
       >
         {children}

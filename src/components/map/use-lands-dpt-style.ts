@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import type { StyleSpecification } from "maplibre-gl";
+import { useQuery } from '@tanstack/react-query';
+import type { StyleSpecification } from 'maplibre-gl';
 
 const BASEMAP_STYLE_URL =
-  "https://mapapi.geodata.gov.hk/gs/api/v1.0.0/vt/basemap/WGS84/resources/styles/root.json";
+  'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/vt/basemap/WGS84/resources/styles/root.json';
 const LABEL_STYLE_URL =
-  "https://mapapi.geodata.gov.hk/gs/api/v1.0.0/vt/label/hk/tc/WGS84/resources/styles/root.json";
+  'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/vt/label/hk/tc/WGS84/resources/styles/root.json';
 
 interface FetchedStyle {
   version: number;
@@ -15,32 +15,32 @@ interface FetchedStyle {
 }
 
 function resolveGlyphs(glyphs: string, styleUrl: string): string {
-  const baseDir = new URL(".", styleUrl).href;
-  const resourcesDir = new URL("..", baseDir).href;
-  return resourcesDir + glyphs.replace(/^\.\.\//, "");
+  const baseDir = new URL('.', styleUrl).href;
+  const resourcesDir = new URL('..', baseDir).href;
+  return resourcesDir + glyphs.replace(/^\.\.\//, '');
 }
 
 function processSource(
   source: { type: string; url: string; maxzoom?: number; [key: string]: unknown },
-  styleUrl: string
+  styleUrl: string,
 ) {
   const { url, maxzoom, ...rest } = source;
   const resolved = new URL(url, styleUrl).href;
-  const tiles = [`${resolved.replace(/\/$/, "")}/tile/{z}/{y}/{x}.pbf`];
+  const tiles = [`${resolved.replace(/\/$/, '')}/tile/{z}/{y}/{x}.pbf`];
 
   // CSDI's WGS84 tiles cap at 15 despite style JSON reporting 19;
   // forcing 'maxzoom: 15' to avoid 204
   return {
     ...rest,
     tiles,
-    type: "vector" as const,
+    type: 'vector' as const,
     maxzoom: 15,
   };
 }
 
 function useLandsDStyle() {
   return useQuery({
-    queryKey: ["landsd-style"],
+    queryKey: ['landsd-style'],
     queryFn: async () => {
       const [basemapResp, labelResp] = await Promise.all([
         fetch(BASEMAP_STYLE_URL),
@@ -56,7 +56,7 @@ function useLandsDStyle() {
 
       const labelLayers = label.layers.map((layer) => ({
         ...layer,
-        source: "esri-labels",
+        source: 'esri-labels',
       }));
 
       return {
@@ -65,7 +65,7 @@ function useLandsDStyle() {
         glyphs: resolvedGlyphs,
         sources: {
           esri: basemapSource,
-          "esri-labels": labelSource,
+          'esri-labels': labelSource,
         },
         layers: [...basemap.layers, ...labelLayers],
       } as unknown as StyleSpecification;

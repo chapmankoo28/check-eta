@@ -17,6 +17,9 @@
     ]
   },
   "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "attributePosition": "auto",
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100,
@@ -26,7 +29,15 @@
     "enabled": true,
     "rules": {
       "preset": "recommended",
-      "nursery": { "useSortedClasses": "warn" },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "fix": "unsafe",
+          "options": {
+            "functions": ["cn"]
+          }
+        }
+      },
       "style": {
         "useBlockStatements": "warn",
         "useConsistentMemberAccessibility": "error",
@@ -48,10 +59,20 @@
   },
   "javascript": {
     "formatter": {
-      "trailingCommas": "es5",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "delimiterSpacing": false,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
       "semicolons": "always",
-      "quoteStyle": "double",
-      "arrowParentheses": "always"
+      "trailingCommas": "all"
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
     }
   },
   "css": {

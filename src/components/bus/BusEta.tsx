@@ -1,14 +1,14 @@
-import { ArrowClockwiseIcon, CheckIcon } from "@phosphor-icons/react";
-import { useEffect, useState } from "react";
-import { EtaBoxes } from "@/components/bus/EtaBoxes";
-import { Loading } from "@/components/Loading";
-import { buttonVariants } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { useBusEta } from "@/features/bus/hooks";
-import type { CtbEta, CtbStop, KmbEta, KmbStop } from "@/features/bus/types";
-import type { MapLocation } from "@/lib/types";
-import { cn, formatTime, haversineDistance } from "@/lib/utils";
+import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react';
+import { useEffect, useState } from 'react';
+import { EtaBoxes } from '@/components/bus/EtaBoxes';
+import { Loading } from '@/components/Loading';
+import { buttonVariants } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { useBusEta } from '@/features/bus/hooks';
+import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types';
+import type { MapLocation } from '@/lib/types';
+import { cn, formatTime, haversineDistance } from '@/lib/utils';
 
 export function BusEta({
   co,
@@ -50,7 +50,7 @@ export function BusEta({
       userLocation.lat,
       userLocation.long,
       parseFloat(stop.lat as string),
-      parseFloat(stop.long as string)
+      parseFloat(stop.long as string),
     );
     setDest(distance);
   }, [stop, userLocation]);
@@ -78,7 +78,7 @@ export function BusEta({
         </div>
         <Tooltip>
           <TooltipTrigger
-            className={cn(buttonVariants({ variant: "secondary", size: "icon" }))}
+            className={cn(buttonVariants({ variant: 'secondary', size: 'icon' }))}
             onClick={() => refetch()}
             disabled={isFetching}
           >

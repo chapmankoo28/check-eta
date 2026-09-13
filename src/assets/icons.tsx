@@ -1,6 +1,6 @@
 export function BusStopIcon({
   h = 32,
-  middleFill = "var(--background)",
+  middleFill = 'var(--background)',
   className,
 }: {
   h?: number;

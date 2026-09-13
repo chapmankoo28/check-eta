@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { BusRouteCard } from "@/components/bus/BusRouteCard";
-import { BusRouteLegend } from "@/components/bus/BusRouteLegend";
-import { SearchBar } from "@/components/SearchBar";
-import allRoutesData from "@/res/json/all_route_list.json";
+import { useState } from 'react';
+import { BusRouteCard } from '@/components/bus/BusRouteCard';
+import { BusRouteLegend } from '@/components/bus/BusRouteLegend';
+import { SearchBar } from '@/components/SearchBar';
+import allRoutesData from '@/res/json/all_route_list.json';
 
 export function BusRouteList() {
-  const [q, setQ] = useState(() => new URL(window.location.href).searchParams.get("q") || "");
+  const [q, setQ] = useState(() => new URL(window.location.href).searchParams.get('q') || '');
 
   return (
     <div className="mx-auto flex max-w-xl flex-col">

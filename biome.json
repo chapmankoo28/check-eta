@@ -13,8 +13,7 @@
       "!!**/src/components/ui",
       "!!**/node_modules",
       "!!**/dist",
-      "!**/src/routeTree.gen.ts",
-      "!**/src/styles/global.css"
+      "!**/src/routeTree.gen.ts"
     ]
   },
   "formatter": {
@@ -56,8 +55,8 @@
     }
   },
   "css": {
-    "linter": {
-      "enabled": false
+    "parser": {
+      "tailwindDirectives": true
     }
   },
   "assist": { "enabled": true, "actions": { "preset": "recommended" } },

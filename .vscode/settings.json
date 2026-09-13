@@ -1,6 +1,6 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "recommendations": [],
+  "editor.defaultFormatter": "biomejs.biome",
+  "recommendations": ["biomejs.biome"],
   "unwantedRecommendations": [],
   "files.watcherExclude": {
     "**/routeTree.gen.ts": true,

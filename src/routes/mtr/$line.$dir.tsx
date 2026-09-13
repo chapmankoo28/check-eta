@@ -17,6 +17,7 @@ import { Empty, EmptyContent, EmptyHeader, EmptyMedia, EmptyTitle } from '@/comp
 import { getMetroEtaQueryOptions } from '@/features/metro/hooks';
 import type { MtrDirection, MtrLine, MtrLineData } from '@/features/metro/types';
 import { getDest, getStations, mtrLine, mtrLineName } from '@/features/metro/utils';
+import { pageHead } from '@/lib/seo';
 import { scrollToElement } from '@/lib/utils';
 import allMtrData from '@/res/json/mtr_lines_and_stations.json';
 
@@ -43,14 +44,12 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) => {
-    if (loaderData?.lineName && loaderData?.dest) {
-      return {
-        meta: [{ title: `${loaderData.lineName} 往 ${loaderData.dest} | 幾時到` }],
-      };
-    }
-    return {};
-  },
+  head: ({ loaderData }) =>
+    pageHead(
+      loaderData?.lineName && loaderData?.dest
+        ? `${loaderData.lineName} 往 ${loaderData.dest}`
+        : '地鐡',
+    ),
 });
 
 function RouteComponent() {
@@ -149,7 +148,7 @@ function RouteComponent() {
             value={i.code}
             className="relative border-b px-4 last:border-b-0"
           >
-            <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
+            <AccordionTrigger className="flex items-center gap-2 font-normal text-lg hover:no-underline">
               <div className="relative z-10 grid size-8 shrink-0 place-content-center rounded-full border bg-background font-medium">
                 {i.seq}
               </div>

@@ -22,6 +22,7 @@ import {
   groupEtasByRoute,
 } from '@/features/bus/utils';
 import { POSITION_TTL } from '@/lib/constants';
+import { pageHead } from '@/lib/seo';
 import type { MapLocation } from '@/lib/types';
 import { cn, formatTime } from '@/lib/utils';
 
@@ -39,14 +40,7 @@ export const Route = createFileRoute('/bus/$co/stop/$stopId')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) => {
-    if (loaderData?.stop?.name_tc) {
-      return {
-        meta: [{ title: `${loaderData.stop.name_tc} | 幾時到` }],
-      };
-    }
-    return {};
-  },
+  head: ({ loaderData }) => pageHead(loaderData?.stop?.name_tc ?? '巴士'),
 });
 
 function RouteComponent() {
@@ -156,7 +150,7 @@ function RouteComponent() {
           </Tooltip>
         </div>
         <div className="mx-auto flex w-full max-w-xl items-center justify-between py-1">
-          <span className="text-sm font-light text-muted-foreground">最後更新於 {lastUpdated}</span>
+          <span className="font-light text-muted-foreground text-sm">最後更新於 {lastUpdated}</span>
         </div>
         {stop && (
           <div className="mx-auto w-full max-w-xl pb-2">
@@ -177,7 +171,10 @@ function RouteComponent() {
               co={co}
               userLocation={userLocation}
               onLocate={(coords) =>
-                setUserLocation({ lat: coords.latitude, long: coords.longitude })
+                setUserLocation({
+                  lat: coords.latitude,
+                  long: coords.longitude,
+                })
               }
             />
           </div>
@@ -244,12 +241,12 @@ function StopRouteCard({
         <div className="flex flex-row items-center justify-between p-2 hover:bg-muted">
           <div className="flex min-w-30 items-center gap-1">
             <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
-            <span className="text-4xl font-medium">{route}</span>
+            <span className="font-medium text-4xl">{route}</span>
           </div>
           <div className="flex flex-1 flex-col items-start">
             <span className="text-xl">{destTc}</span>
             {serviceType !== '1' ? (
-              <span className="text-sm text-muted-foreground">特別班</span>
+              <span className="text-muted-foreground text-sm">特別班</span>
             ) : null}
           </div>
           <ArrowRightIcon className="size-6" />

@@ -2,10 +2,12 @@ import { createFileRoute } from '@tanstack/react-router';
 import { MetroLineCard } from '@/components/metro/MetroLineCard';
 import type { MtrLine } from '@/features/metro/types';
 import { mtrLineName } from '@/features/metro/utils';
+import { pageHead } from '@/lib/seo';
 import allMtrData from '@/res/json/mtr_lines_and_stations.json';
 
 export const Route = createFileRoute('/mtr/')({
   component: Mtr,
+  head: () => pageHead('地鐡'),
 });
 
 function Mtr() {

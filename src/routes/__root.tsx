@@ -18,6 +18,9 @@ import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack
 export const Route = createRootRouteWithContext<{
   queryClient: typeof queryClient;
 }>()({
+  head: () => ({
+    meta: [{ title: '幾時到' }, { name: 'description', content: '香港巴士地鐡到站時間' }],
+  }),
   component: RootComponent,
   notFoundComponent: NotFound,
 });

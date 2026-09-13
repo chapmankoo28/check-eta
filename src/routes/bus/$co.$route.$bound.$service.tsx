@@ -36,6 +36,7 @@ import {
   getUserPosition,
 } from '@/features/bus/utils';
 import { POSITION_TTL } from '@/lib/constants';
+import { pageHead } from '@/lib/seo';
 import type { MapLocation } from '@/lib/types';
 import { cn, scrollToElement } from '@/lib/utils';
 
@@ -58,14 +59,12 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) => {
-    if (loaderData?.route && loaderData?.dest_tc) {
-      return {
-        meta: [{ title: `${loaderData.route} 往 ${loaderData.dest_tc} | 幾時到` }],
-      };
-    }
-    return {};
-  },
+  head: ({ loaderData }) =>
+    pageHead(
+      loaderData?.route && loaderData?.dest_tc
+        ? `${loaderData.route} 往 ${loaderData.dest_tc}`
+        : '巴士',
+    ),
 });
 
 function RouteComponent() {

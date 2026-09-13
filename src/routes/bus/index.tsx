@@ -1,8 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { BusRouteList } from '@/components/bus/BusRouteList';
+import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/bus/')({
   component: Bus,
+  head: () => pageHead('巴士'),
 });
 
 function Bus() {

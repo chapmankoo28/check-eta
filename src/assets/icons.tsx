@@ -1,11 +1,11 @@
 export function BusStopIcon({
   h = 32,
-  middleFill = 'var(--background)',
+  middleFill = "var(--background)",
   className,
 }: {
-  h?: number
-  middleFill?: string
-  className?: string
+  h?: number;
+  middleFill?: string;
+  className?: string;
 }) {
   return (
     <svg
@@ -24,7 +24,7 @@ export function BusStopIcon({
       />
       <path d="M33.9799 10.7996H6.52728V29.3795H33.9799V10.7996Z" fill={middleFill} />
     </svg>
-  )
+  );
 }
 
 export function CtbBusStopIcon({ h = 32, className }: { h?: number; className?: string }) {
@@ -65,7 +65,7 @@ export function CtbBusStopIcon({ h = 32, className }: { h?: number; className?: 
         stroke="black"
       />
     </svg>
-  )
+  );
 }
 
 export function KmbBusStopIcon({ h = 32, className }: { h?: number; className?: string }) {
@@ -86,5 +86,5 @@ export function KmbBusStopIcon({ h = 32, className }: { h?: number; className?: 
       />
       <path d="M211.4 63.765H39.4481V185.222H211.4V63.765Z" fill="white" />
     </svg>
-  )
+  );
 }

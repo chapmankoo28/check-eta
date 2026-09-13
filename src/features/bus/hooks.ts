@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import type {
   CtbEta,
   CtbRouteStop,
@@ -5,45 +6,49 @@ import type {
   KmbEta,
   KmbRouteStop,
   KmbStop,
-} from '@/features/bus/types'
-import { busCo } from '@/features/bus/utils'
-import { ETA_REFETCH_INTERVAL } from '@/lib/constants'
-import type { ApiConfigEntry } from '@/lib/types'
-import apiConfig from '@/res/json/api_config.json'
-import { useQuery } from '@tanstack/react-query'
+} from "@/features/bus/types";
+import { busCo } from "@/features/bus/utils";
+import { ETA_REFETCH_INTERVAL } from "@/lib/constants";
+import type { ApiConfigEntry } from "@/lib/types";
+import apiConfig from "@/res/json/api_config.json";
 
-export function getBusEtaQueryOptions(co: string, route: string, service: string, stopId: string) {
+export function getBusEtaQueryOptions(
+  co: string,
+  route: string,
+  service: string,
+  stopId: string,
+) {
   return {
-    queryKey: ['bus-eta', co, route, service, stopId] as const,
+    queryKey: ["bus-eta", co, route, service, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase()
-      )
+        (item) => item.co.toLowerCase() === co.toLowerCase(),
+      );
       if (!api) {
-        console.error('ERROR: Api not found.')
-        return null
+        console.error("ERROR: Api not found.");
+        return null;
       }
 
-      const s = co.toLowerCase() === 'kmb' ? `/${service}` : ''
-      const url = `${api.baseUrl}${api.api.eta}${stopId.toUpperCase()}/${route.toUpperCase()}${s}`
+      const s = co.toLowerCase() === "kmb" ? `/${service}` : "";
+      const url = `${api.baseUrl}${api.api.eta}${stopId.toUpperCase()}/${route.toUpperCase()}${s}`;
 
       const response = await fetch(url, {
         signal,
-        cache: 'no-store',
-      })
+        cache: "no-store",
+      });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json()
+      const result = await response.json();
       if (co === busCo.ctb) {
-        return result.data as CtbEta[]
+        return result.data as CtbEta[];
       } else {
-        return result.data as KmbEta[]
+        return result.data as KmbEta[];
       }
     },
     refetchInterval: ETA_REFETCH_INTERVAL,
-  } as const
+  } as const;
 }
 
 export function useBusEta({
@@ -52,50 +57,50 @@ export function useBusEta({
   service,
   stopId,
 }: {
-  co: string
-  route: string
-  service: string
-  stopId: string
+  co: string;
+  route: string;
+  service: string;
+  stopId: string;
 }) {
-  return useQuery(getBusEtaQueryOptions(co, route, service, stopId))
+  return useQuery(getBusEtaQueryOptions(co, route, service, stopId));
 }
 
 export function getBusRouteStopsQueryOptions(
   co: string,
   route: string,
   bound: string,
-  service: string
+  service: string,
 ) {
   return {
-    queryKey: ['bus-route-stops', co, route, bound, service] as const,
+    queryKey: ["bus-route-stops", co, route, bound, service] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase()
-      )
+        (item) => item.co.toLowerCase() === co.toLowerCase(),
+      );
       if (!api) {
-        console.error('ERROR: Api not found.')
-        return []
+        console.error("ERROR: Api not found.");
+        return [];
       }
 
-      const b = bound.toLowerCase() === 'o' ? '/outbound' : '/inbound'
-      const s = co.toLowerCase() === 'kmb' ? `/${service}` : ''
-      const url = `${api.baseUrl}${api.api.routeStop}${route.toUpperCase()}${b}${s}`
+      const b = bound.toLowerCase() === "o" ? "/outbound" : "/inbound";
+      const s = co.toLowerCase() === "kmb" ? `/${service}` : "";
+      const url = `${api.baseUrl}${api.api.routeStop}${route.toUpperCase()}${b}${s}`;
 
-      const response = await fetch(url, { signal })
+      const response = await fetch(url, { signal });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json()
+      const result = await response.json();
       if (co === busCo.ctb) {
-        return result.data as CtbRouteStop[]
+        return result.data as CtbRouteStop[];
       } else {
-        return result.data as KmbRouteStop[]
+        return result.data as KmbRouteStop[];
       }
     },
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-  } as const
+  } as const;
 }
 
 export function useBusRouteStops({
@@ -104,71 +109,71 @@ export function useBusRouteStops({
   bound,
   service,
 }: {
-  co: string
-  route: string
-  bound: string
-  service: string
+  co: string;
+  route: string;
+  bound: string;
+  service: string;
 }) {
-  return useQuery(getBusRouteStopsQueryOptions(co, route, bound, service))
+  return useQuery(getBusRouteStopsQueryOptions(co, route, bound, service));
 }
 
 export function getStopInfoQueryOptions(co: string, stopId: string) {
   return {
-    queryKey: ['bus-stop-info', co, stopId],
+    queryKey: ["bus-stop-info", co, stopId],
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = ((apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toUpperCase() === co.toUpperCase()
-      ) ?? {}) as ApiConfigEntry
+        (item) => item.co.toUpperCase() === co.toUpperCase(),
+      ) ?? {}) as ApiConfigEntry;
 
-      const url = api.baseUrl + api.api.stop + stopId.toUpperCase()
+      const url = api.baseUrl + api.api.stop + stopId.toUpperCase();
 
-      const response = await fetch(url, { signal })
+      const response = await fetch(url, { signal });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json()
+      const result = await response.json();
       if (co === busCo.ctb) {
-        return result.data as CtbStop
+        return result.data as CtbStop;
       } else {
-        return result.data as KmbStop
+        return result.data as KmbStop;
       }
     },
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
-  } as const
+  } as const;
 }
 
 export function useBusStopInfo({ co, stopId }: { co: string; stopId: string }) {
-  return useQuery(getStopInfoQueryOptions(co, stopId))
+  return useQuery(getStopInfoQueryOptions(co, stopId));
 }
 
 export function getBusStopEtaQueryOptions(co: string, stopId: string) {
   return {
-    queryKey: ['bus-stop-eta', co, stopId] as const,
+    queryKey: ["bus-stop-eta", co, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
       const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase()
-      )
+        (item) => item.co.toLowerCase() === co.toLowerCase(),
+      );
       if (!api?.api.stopEta) {
-        console.error('ERROR: stopEta api not found.')
-        return []
+        console.error("ERROR: stopEta api not found.");
+        return [];
       }
 
-      const url = `${api.baseUrl}${api.api.stopEta}${stopId.toUpperCase()}`
+      const url = `${api.baseUrl}${api.api.stopEta}${stopId.toUpperCase()}`;
 
       const response = await fetch(url, {
         signal,
-        cache: 'no-store',
-      })
+        cache: "no-store",
+      });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      return (await response.json()).data as KmbEta[]
+      return (await response.json()).data as KmbEta[];
     },
     refetchInterval: ETA_REFETCH_INTERVAL,
-  } as const
+  } as const;
 }
 
 export function useBusStopEta({
@@ -176,9 +181,9 @@ export function useBusStopEta({
   stopId,
   enabled = true,
 }: {
-  co: string
-  stopId: string
-  enabled?: boolean
+  co: string;
+  stopId: string;
+  enabled?: boolean;
 }) {
-  return useQuery({ ...getBusStopEtaQueryOptions(co, stopId), enabled })
+  return useQuery({ ...getBusStopEtaQueryOptions(co, stopId), enabled });
 }

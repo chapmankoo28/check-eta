@@ -1,40 +1,40 @@
-import { EtaBoxes } from '@/components/bus/EtaBoxes'
-import { Loading } from '@/components/Loading'
-import { LandsDptRouteMapView } from '@/components/map/LandsDptRouteMapView'
-import { buttonVariants } from '@/components/ui/button'
-import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty'
-import { Spinner } from '@/components/ui/spinner'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { ArrowClockwiseIcon, ArrowRightIcon, BusIcon, CheckIcon } from "@phosphor-icons/react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
+import { EtaBoxes } from "@/components/bus/EtaBoxes";
+import { Loading } from "@/components/Loading";
+import { LandsDptRouteMapView } from "@/components/map/LandsDptRouteMapView";
+import { buttonVariants } from "@/components/ui/button";
+import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
+import { Spinner } from "@/components/ui/spinner";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import {
   getBusStopEtaQueryOptions,
   getStopInfoQueryOptions,
   useBusStopEta,
-} from '@/features/bus/hooks'
-import type { KmbEta } from '@/features/bus/types'
+} from "@/features/bus/hooks";
+import type { KmbEta } from "@/features/bus/types";
 import {
   busCo,
   busCoBg,
   getBusCompanyCode,
   getUserPosition,
   groupEtasByRoute,
-} from '@/features/bus/utils'
-import { POSITION_TTL } from '@/lib/constants'
-import type { MapLocation } from '@/lib/types'
-import { cn, formatTime } from '@/lib/utils'
-import { ArrowClockwiseIcon, ArrowRightIcon, BusIcon, CheckIcon } from '@phosphor-icons/react'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useMemo, useState } from 'react'
+} from "@/features/bus/utils";
+import { POSITION_TTL } from "@/lib/constants";
+import type { MapLocation } from "@/lib/types";
+import { cn, formatTime } from "@/lib/utils";
 
-export const Route = createFileRoute('/bus/$co/stop/$stopId')({
+export const Route = createFileRoute("/bus/$co/stop/$stopId")({
   loader: async ({ params, context: { queryClient } }) => {
-    const { co, stopId } = params
+    const { co, stopId } = params;
 
-    const stop = await queryClient.ensureQueryData(getStopInfoQueryOptions(co, stopId))
+    const stop = await queryClient.ensureQueryData(getStopInfoQueryOptions(co, stopId));
     if (co === busCo.kmb) {
-      await queryClient.ensureQueryData(getBusStopEtaQueryOptions(co, stopId))
+      await queryClient.ensureQueryData(getBusStopEtaQueryOptions(co, stopId));
     }
 
-    return { stop }
+    return { stop };
   },
   pendingComponent: () => <Loading />,
   pendingMs: 0,
@@ -43,70 +43,70 @@ export const Route = createFileRoute('/bus/$co/stop/$stopId')({
     if (loaderData?.stop?.name_tc) {
       return {
         meta: [{ title: `${loaderData.stop.name_tc} | 幾時到` }],
-      }
+      };
     }
-    return {}
+    return {};
   },
-})
+});
 
 function RouteComponent() {
-  const { co, stopId } = Route.useParams()
-  const { stop } = Route.useLoaderData()
-  const isKmb = co === busCo.kmb
+  const { co, stopId } = Route.useParams();
+  const { stop } = Route.useLoaderData();
+  const isKmb = co === busCo.kmb;
   const {
     data: allEtas,
     isLoading: isEtaLoading,
     isFetching,
     dataUpdatedAt,
     refetch,
-  } = useBusStopEta({ co, stopId, enabled: isKmb })
-  const lastUpdated = formatTime(new Date(dataUpdatedAt))
+  } = useBusStopEta({ co, stopId, enabled: isKmb });
+  const lastUpdated = formatTime(new Date(dataUpdatedAt));
 
-  const [showTick, setShowTick] = useState(false)
-  const [userLocation, setUserLocation] = useState<MapLocation | null>(null)
+  const [showTick, setShowTick] = useState(false);
+  const [userLocation, setUserLocation] = useState<MapLocation | null>(null);
 
   useEffect(() => {
-    let isActive = true
+    let isActive = true;
 
     const update = () => {
       getUserPosition()
         .then((pos) => {
           if (isActive) {
-            setUserLocation({ lat: pos.lat, long: pos.long })
+            setUserLocation({ lat: pos.lat, long: pos.long });
           }
         })
         .catch(() => {
           if (isActive) {
-            setUserLocation(null)
+            setUserLocation(null);
           }
-        })
-    }
+        });
+    };
 
-    update()
-    const id = setInterval(update, POSITION_TTL)
+    update();
+    const id = setInterval(update, POSITION_TTL);
     return () => {
-      isActive = false
-      clearInterval(id)
-    }
-  }, [])
+      isActive = false;
+      clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isFetching && dataUpdatedAt > 0) {
-      setShowTick(true)
-      const id = setTimeout(() => setShowTick(false), 1000)
-      return () => clearTimeout(id)
+      setShowTick(true);
+      const id = setTimeout(() => setShowTick(false), 1000);
+      return () => clearTimeout(id);
     }
-  }, [isFetching, dataUpdatedAt])
+  }, [isFetching, dataUpdatedAt]);
 
   const routeGroups = useMemo(() => {
     if (!allEtas || !isKmb) {
-      return []
+      return [];
     }
-    return groupEtasByRoute(allEtas)
-  }, [allEtas, isKmb])
+    return groupEtasByRoute(allEtas);
+  }, [allEtas, isKmb]);
 
   if (isEtaLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   if (!isKmb) {
@@ -130,7 +130,7 @@ function RouteComponent() {
           </Empty>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -140,7 +140,7 @@ function RouteComponent() {
           <span className="flex-1 text-3xl sm:text-4xl">{stop?.name_tc ?? `巴士站 ${stopId}`}</span>
           <Tooltip>
             <TooltipTrigger
-              className={cn(buttonVariants({ variant: 'secondary', size: 'icon' }))}
+              className={cn(buttonVariants({ variant: "secondary", size: "icon" }))}
               onClick={() => refetch()}
               disabled={isFetching}
             >
@@ -162,14 +162,14 @@ function RouteComponent() {
           <div className="mx-auto w-full max-w-xl pb-2">
             <LandsDptRouteMapView
               center={{
-                lat: typeof stop.lat === 'number' ? stop.lat : parseFloat(stop.lat),
-                long: typeof stop.long === 'number' ? stop.long : parseFloat(stop.long),
+                lat: typeof stop.lat === "number" ? stop.lat : parseFloat(stop.lat),
+                long: typeof stop.long === "number" ? stop.long : parseFloat(stop.long),
               }}
               markers={[
                 {
                   id: stopId,
-                  lat: typeof stop.lat === 'number' ? stop.lat : parseFloat(stop.lat),
-                  long: typeof stop.long === 'number' ? stop.long : parseFloat(stop.long),
+                  lat: typeof stop.lat === "number" ? stop.lat : parseFloat(stop.lat),
+                  long: typeof stop.long === "number" ? stop.long : parseFloat(stop.long),
                   name: stop.name_tc,
                 },
               ]}
@@ -212,7 +212,7 @@ function RouteComponent() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 function StopRouteCard({
@@ -224,15 +224,15 @@ function StopRouteCard({
   destTc,
   etas,
 }: {
-  co: string
-  stopId: string
-  route: string
-  bound: string
-  serviceType: string
-  destTc: string
-  etas: KmbEta[]
+  co: string;
+  stopId: string;
+  route: string;
+  bound: string;
+  serviceType: string;
+  destTc: string;
+  etas: KmbEta[];
 }) {
-  const coCode = getBusCompanyCode(co, route)
+  const coCode = getBusCompanyCode(co, route);
 
   return (
     <div className="flex flex-col gap-2 rounded-md border">
@@ -243,12 +243,12 @@ function StopRouteCard({
       >
         <div className="flex flex-row items-center justify-between p-2 hover:bg-muted">
           <div className="flex min-w-30 items-center gap-1">
-            <div className={cn('h-9 w-3', busCoBg[coCode])}></div>
+            <div className={cn("h-9 w-3", busCoBg[coCode])}></div>
             <span className="text-4xl font-medium">{route}</span>
           </div>
           <div className="flex flex-1 flex-col items-start">
             <span className="text-xl">{destTc}</span>
-            {serviceType !== '1' ? (
+            {serviceType !== "1" ? (
               <span className="text-sm text-muted-foreground">特別班</span>
             ) : null}
           </div>
@@ -259,5 +259,5 @@ function StopRouteCard({
         <EtaBoxes eta={etas} isError={false} />
       </div>
     </div>
-  )
+  );
 }

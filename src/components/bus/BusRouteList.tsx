@@ -1,11 +1,11 @@
-import { BusRouteCard } from '@/components/bus/BusRouteCard'
-import { BusRouteLegend } from '@/components/bus/BusRouteLegend'
-import { SearchBar } from '@/components/SearchBar'
-import allRoutesData from '@/res/json/all_route_list.json'
-import { useState } from 'react'
+import { useState } from "react";
+import { BusRouteCard } from "@/components/bus/BusRouteCard";
+import { BusRouteLegend } from "@/components/bus/BusRouteLegend";
+import { SearchBar } from "@/components/SearchBar";
+import allRoutesData from "@/res/json/all_route_list.json";
 
 export function BusRouteList() {
-  const [q, setQ] = useState(() => new URL(window.location.href).searchParams.get('q') || '')
+  const [q, setQ] = useState(() => new URL(window.location.href).searchParams.get("q") || "");
 
   return (
     <div className="mx-auto flex max-w-xl flex-col">
@@ -15,17 +15,17 @@ export function BusRouteList() {
       <RouteList q={q} />
       {!q.trim() && <BusRouteLegend />}
     </div>
-  )
+  );
 }
 
 function RouteList({ q }: { q: string }) {
   const routes =
     !q.trim() || /^[^0-9a-zA-Z]+$/g.test(q)
       ? []
-      : allRoutesData.data.filter((i) => i.route.toLowerCase().includes(q.toLowerCase()))
+      : allRoutesData.data.filter((i) => i.route.toLowerCase().includes(q.toLowerCase()));
 
   if (!q) {
-    return null
+    return null;
   }
 
   if (routes.length === 0) {
@@ -33,7 +33,7 @@ function RouteList({ q }: { q: string }) {
       <div className="grid flex-1 place-content-center">
         <span className="text-destructive">搵唔到您輸入的路線</span>
       </div>
-    )
+    );
   }
 
   return (
@@ -49,5 +49,5 @@ function RouteList({ q }: { q: string }) {
         />
       ))}
     </div>
-  )
+  );
 }

@@ -1,51 +1,51 @@
+import { MagnifyingGlassIcon, XIcon } from "@phosphor-icons/react";
+import { type ChangeEvent, useEffect, useRef } from "react";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from '@/components/ui/input-group'
-import { cn } from '@/lib/utils'
-import { MagnifyingGlassIcon, XIcon } from '@phosphor-icons/react'
-import { useEffect, useRef, type ChangeEvent } from 'react'
+} from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 
 export function SearchBar({
   q,
   onSearch,
   className,
 }: {
-  q: string
-  onSearch: (q: string) => void
-  className?: string
+  q: string;
+  onSearch: (q: string) => void;
+  className?: string;
 }) {
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const updateUrl = (newQ: string) => {
-    const url = new URL(window.location.href)
+    const url = new URL(window.location.href);
     if (newQ) {
-      url.searchParams.set('q', newQ)
+      url.searchParams.set("q", newQ);
     } else {
-      url.searchParams.delete('q')
+      url.searchParams.delete("q");
     }
-    window.history.replaceState({}, '', url)
-  }
+    window.history.replaceState({}, "", url);
+  };
 
   const clearInputBox = () => {
-    onSearch('')
-    updateUrl('')
-    inputRef.current?.focus()
-  }
+    onSearch("");
+    updateUrl("");
+    inputRef.current?.focus();
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onSearch(e.target.value)
-    updateUrl(e.target.value)
-  }
+    onSearch(e.target.value);
+    updateUrl(e.target.value);
+  };
 
   useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
+    inputRef.current?.focus();
+  }, []);
 
   return (
-    <InputGroup className={cn('w-full max-w-xl', className)}>
+    <InputGroup className={cn("w-full max-w-xl", className)}>
       <InputGroupAddon align="inline-start">
         <MagnifyingGlassIcon />
       </InputGroupAddon>
@@ -70,5 +70,5 @@ export function SearchBar({
         </InputGroupAddon>
       )}
     </InputGroup>
-  )
+  );
 }

@@ -1,24 +1,31 @@
-import { NavBar } from '@/components/NavBar'
-import { Providers } from '@/components/Providers'
-import { Button } from '@/components/ui/button'
+import { NavBar } from "@/components/NavBar";
+import { Providers } from "@/components/Providers";
+import { Button } from "@/components/ui/button";
 import {
   Empty,
   EmptyContent,
   EmptyDescription,
   EmptyMedia,
   EmptyTitle,
-} from '@/components/ui/empty'
-import { Main } from '@/layouts/Main'
-import '@/styles/global.css'
-import type { queryClient } from '@/lib/queryClient'
-import { HouseIcon } from '@phosphor-icons/react'
-import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr'
-import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack/react-router'
+} from "@/components/ui/empty";
+import { Main } from "@/layouts/Main";
+import type { queryClient } from "@/lib/queryClient";
+import "@/styles/global.css";
+import { HouseIcon } from "@phosphor-icons/react";
+import { QuestionMarkIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  createRootRouteWithContext,
+  HeadContent,
+  Link,
+  Outlet,
+} from "@tanstack/react-router";
 
-export const Route = createRootRouteWithContext<{ queryClient: typeof queryClient }>()({
+export const Route = createRootRouteWithContext<{
+  queryClient: typeof queryClient;
+}>()({
   component: RootComponent,
   notFoundComponent: NotFound,
-})
+});
 
 function RootComponent() {
   return (
@@ -31,7 +38,7 @@ function RootComponent() {
         </Main>
       </div>
     </Providers>
-  )
+  );
 }
 
 function NotFound() {
@@ -55,5 +62,5 @@ function NotFound() {
         </EmptyContent>
       </Empty>
     </div>
-  )
+  );
 }

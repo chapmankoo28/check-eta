@@ -1,6 +1,7 @@
-import { BusStopIcon, CtbBusStopIcon, KmbBusStopIcon } from '@/assets/icons'
-import { useLandsDStyle } from '@/components/map/use-lands-dpt-style'
-import { UserPositionMarker } from '@/components/map/UserPositionMarker'
+import { useEffect, useRef } from "react";
+import { BusStopIcon, CtbBusStopIcon, KmbBusStopIcon } from "@/assets/icons";
+import { UserPositionMarker } from "@/components/map/UserPositionMarker";
+import { useLandsDStyle } from "@/components/map/use-lands-dpt-style";
 import {
   MapControls,
   MapMarker,
@@ -8,46 +9,45 @@ import {
   MarkerContent,
   MarkerPopup,
   useMap,
-} from '@/components/ui/map'
-import { Spinner } from '@/components/ui/spinner'
-import type { BusCo } from '@/features/bus/types'
-import { busCo } from '@/features/bus/utils'
-import type { MapLocation } from '@/lib/types'
-import { useEffect, useRef } from 'react'
+} from "@/components/ui/map";
+import { Spinner } from "@/components/ui/spinner";
+import type { BusCo } from "@/features/bus/types";
+import { busCo } from "@/features/bus/utils";
+import type { MapLocation } from "@/lib/types";
 
-type Marker = MapLocation & { id: string; name: string }
+type Marker = MapLocation & { id: string; name: string };
 
 function MapFocusController({ stopId, center }: { stopId?: string; center: MapLocation }) {
-  const { map, isLoaded } = useMap()
-  const isInitialMount = useRef(true)
-  const prevStopId = useRef(stopId)
+  const { map, isLoaded } = useMap();
+  const isInitialMount = useRef(true);
+  const prevStopId = useRef(stopId);
 
   useEffect(() => {
     if (!isLoaded || !map) {
-      return
+      return;
     }
 
     if (isInitialMount.current) {
-      map.flyTo({ center: [center.long, center.lat], duration: 1000 })
-      isInitialMount.current = false
-      prevStopId.current = stopId
-      return
+      map.flyTo({ center: [center.long, center.lat], duration: 1000 });
+      isInitialMount.current = false;
+      prevStopId.current = stopId;
+      return;
     }
 
     if (prevStopId.current === stopId) {
-      return
+      return;
     }
 
-    prevStopId.current = stopId
+    prevStopId.current = stopId;
 
     if (!stopId) {
-      return
+      return;
     }
 
-    map.flyTo({ center: [center.long, center.lat], duration: 1000 })
-  }, [map, isLoaded, stopId, center])
+    map.flyTo({ center: [center.long, center.lat], duration: 1000 });
+  }, [map, isLoaded, stopId, center]);
 
-  return null
+  return null;
 }
 
 export function LandsDptRouteMapView({
@@ -58,23 +58,23 @@ export function LandsDptRouteMapView({
   userLocation,
   onLocate,
 }: {
-  center: MapLocation
-  markers: Marker[]
-  stopId?: string
-  co: BusCo
-  userLocation?: MapLocation | null
-  onLocate?: (coords: { longitude: number; latitude: number }) => void
+  center: MapLocation;
+  markers: Marker[];
+  stopId?: string;
+  co: BusCo;
+  userLocation?: MapLocation | null;
+  onLocate?: (coords: { longitude: number; latitude: number }) => void;
 }) {
-  const { data: style, isLoading } = useLandsDStyle()
-  const markerOffset = 32 + 5
-  const { lat, long } = center
+  const { data: style, isLoading } = useLandsDStyle();
+  const markerOffset = 32 + 5;
+  const { lat, long } = center;
 
   if (isLoading || !style) {
     return (
       <div className="flex h-[300px] w-full items-center justify-center">
         <Spinner />
       </div>
-    )
+    );
   }
 
   return (
@@ -126,5 +126,5 @@ export function LandsDptRouteMapView({
         </a>
       </MapView>
     </div>
-  )
+  );
 }

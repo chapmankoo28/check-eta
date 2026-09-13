@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -10,7 +10,7 @@
     "ignoreUnknown": true,
     "includes": [
       "**",
-      "!!**/src/components/ui/*",
+      "!!**/src/components/ui",
       "!!**/node_modules",
       "!!**/dist",
       "!**/src/routeTree.gen.ts",
@@ -18,12 +18,16 @@
     ]
   },
   "formatter": {
-    "enabled": false
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
+      "nursery": { "useSortedClasses": "warn" },
       "style": {
         "useBlockStatements": "warn",
         "useConsistentMemberAccessibility": "error",
@@ -39,7 +43,16 @@
       "complexity": { "useArrowFunction": "error" }
     },
     "domains": {
-      "react": "recommended"
+      "react": "recommended",
+      "tailwind": "recommended"
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "es5",
+      "semicolons": "always",
+      "quoteStyle": "double",
+      "arrowParentheses": "always"
     }
   },
   "css": {
@@ -47,9 +60,7 @@
       "enabled": false
     }
   },
-  "assist": {
-    "enabled": false
-  },
+  "assist": { "enabled": true, "actions": { "preset": "recommended" } },
   "overrides": [
     {
       "includes": ["src/features/bus/types.ts", "src/features/metro/types.ts"],

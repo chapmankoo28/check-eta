@@ -1,12 +1,12 @@
-import { Logo } from '@/assets/logo'
-import { ThemeToggler } from '@/components/ThemeToggler'
-import { cn } from '@/lib/utils'
-import { BusIcon, SubwayIcon } from '@phosphor-icons/react'
-import { Link, useLocation } from '@tanstack/react-router'
-import type { PropsWithChildren } from 'react'
+import { BusIcon, SubwayIcon } from "@phosphor-icons/react";
+import { Link, useLocation } from "@tanstack/react-router";
+import type { PropsWithChildren } from "react";
+import { Logo } from "@/assets/logo";
+import { ThemeToggler } from "@/components/ThemeToggler";
+import { cn } from "@/lib/utils";
 
 export function NavBar() {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   return (
     <header className="w-full border-b px-2 py-1 dark:bg-black">
@@ -14,20 +14,20 @@ export function NavBar() {
         <a href="https://github.com/chapmankoo28/check-eta" target="_blank" rel="noopener">
           <div className="flex items-center gap-1">
             <Logo />
-            <span className="hidden rounded-md text-2xl select-none sm:inline">幾時到</span>
+            <span className="hidden select-none rounded-md text-2xl sm:inline">幾時到</span>
           </div>
         </a>
 
         <div className="flex gap-2">
-          <NavBarItem className={cn(pathname.includes('/bus') && 'border-primary')} path="/bus">
-            <BusIcon className="size-8" weight={pathname.includes('/bus') ? 'fill' : undefined} />
+          <NavBarItem className={cn(pathname.includes("/bus") && "border-primary")} path="/bus">
+            <BusIcon className="size-8" weight={pathname.includes("/bus") ? "fill" : undefined} />
             <span className="text-lg">巴士</span>
           </NavBarItem>
 
-          <NavBarItem className={cn(pathname.includes('/mtr') && 'border-primary')} path="/mtr">
+          <NavBarItem className={cn(pathname.includes("/mtr") && "border-primary")} path="/mtr">
             <SubwayIcon
               className="size-8"
-              weight={pathname.includes('/mtr') ? 'fill' : undefined}
+              weight={pathname.includes("/mtr") ? "fill" : undefined}
             />
             <span className="text-lg">鐡路</span>
           </NavBarItem>
@@ -37,7 +37,7 @@ export function NavBar() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
 function NavBarItem({
@@ -49,12 +49,12 @@ function NavBarItem({
     <Link to={path}>
       <div
         className={cn(
-          'flex cursor-pointer flex-row items-center justify-between gap-1 rounded-md border-2 border-transparent px-3 py-1 text-foreground select-none hover:bg-muted',
+          "flex cursor-pointer select-none flex-row items-center justify-between gap-1 rounded-md border-2 border-transparent px-3 py-1 text-foreground hover:bg-muted",
           className
         )}
       >
         {children}
       </div>
     </Link>
-  )
+  );
 }

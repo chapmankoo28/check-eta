@@ -1,14 +1,14 @@
-import { EtaBoxes } from '@/components/bus/EtaBoxes'
-import { Loading } from '@/components/Loading'
-import { buttonVariants } from '@/components/ui/button'
-import { Spinner } from '@/components/ui/spinner'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { useBusEta } from '@/features/bus/hooks'
-import type { CtbEta, CtbStop, KmbEta, KmbStop } from '@/features/bus/types'
-import type { MapLocation } from '@/lib/types'
-import { cn, formatTime, haversineDistance } from '@/lib/utils'
-import { ArrowClockwiseIcon, CheckIcon } from '@phosphor-icons/react'
-import { useEffect, useState } from 'react'
+import { ArrowClockwiseIcon, CheckIcon } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
+import { EtaBoxes } from "@/components/bus/EtaBoxes";
+import { Loading } from "@/components/Loading";
+import { buttonVariants } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useBusEta } from "@/features/bus/hooks";
+import type { CtbEta, CtbStop, KmbEta, KmbStop } from "@/features/bus/types";
+import type { MapLocation } from "@/lib/types";
+import { cn, formatTime, haversineDistance } from "@/lib/utils";
 
 export function BusEta({
   co,
@@ -18,14 +18,14 @@ export function BusEta({
   stop,
   userLocation,
 }: {
-  co: string
-  route: string
-  bound: string
-  service: string
-  stop: CtbStop | KmbStop
-  userLocation?: MapLocation | null
+  co: string;
+  route: string;
+  bound: string;
+  service: string;
+  stop: CtbStop | KmbStop;
+  userLocation?: MapLocation | null;
 }) {
-  const stopId = stop.stop
+  const stopId = stop.stop;
 
   const {
     data,
@@ -34,37 +34,37 @@ export function BusEta({
     isError,
     dataUpdatedAt,
     refetch,
-  } = useBusEta({ co, route, service, stopId })
-  const lastUpdated = formatTime(new Date(dataUpdatedAt))
-  const eta = (data?.filter((i) => i.dir === bound.toUpperCase()) as CtbEta[] | KmbEta[]) ?? []
+  } = useBusEta({ co, route, service, stopId });
+  const lastUpdated = formatTime(new Date(dataUpdatedAt));
+  const eta = (data?.filter((i) => i.dir === bound.toUpperCase()) as CtbEta[] | KmbEta[]) ?? [];
 
-  const [dest, setDest] = useState<number | null>(null)
-  const [showTick, setShowTick] = useState(false)
+  const [dest, setDest] = useState<number | null>(null);
+  const [showTick, setShowTick] = useState(false);
 
   useEffect(() => {
     if (!userLocation) {
-      setDest(null)
-      return
+      setDest(null);
+      return;
     }
     const distance = haversineDistance(
       userLocation.lat,
       userLocation.long,
       parseFloat(stop.lat as string),
       parseFloat(stop.long as string)
-    )
-    setDest(distance)
-  }, [stop, userLocation])
+    );
+    setDest(distance);
+  }, [stop, userLocation]);
 
   useEffect(() => {
     if (!isFetching && dataUpdatedAt > 0) {
-      setShowTick(true)
-      const id = setTimeout(() => setShowTick(false), 1000)
-      return () => clearTimeout(id)
+      setShowTick(true);
+      const id = setTimeout(() => setShowTick(false), 1000);
+      return () => clearTimeout(id);
     }
-  }, [isFetching, dataUpdatedAt])
+  }, [isFetching, dataUpdatedAt]);
 
   if (isLoadingEta) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -78,7 +78,7 @@ export function BusEta({
         </div>
         <Tooltip>
           <TooltipTrigger
-            className={cn(buttonVariants({ variant: 'secondary', size: 'icon' }))}
+            className={cn(buttonVariants({ variant: "secondary", size: "icon" }))}
             onClick={() => refetch()}
             disabled={isFetching}
           >
@@ -96,5 +96,5 @@ export function BusEta({
 
       <EtaBoxes eta={eta} isError={isError} />
     </div>
-  )
+  );
 }

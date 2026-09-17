@@ -1,5 +1,4 @@
 import { NavBar } from '@/components/NavBar';
-import { Providers } from '@/components/Providers';
 import { Button } from '@/components/ui/button';
 import {
   Empty,
@@ -9,14 +8,14 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty';
 import { Main } from '@/layouts/Main';
-import type { queryClient } from '@/lib/queryClient';
 import '@/styles/global.css';
 import { HouseIcon } from '@phosphor-icons/react';
 import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr';
+import type { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack/react-router';
 
 export const Route = createRootRouteWithContext<{
-  queryClient: typeof queryClient;
+  queryClient: QueryClient;
 }>()({
   head: () => ({
     meta: [{ title: '幾時到' }, { name: 'description', content: '香港巴士地鐡到站時間' }],
@@ -27,15 +26,13 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-    <Providers>
+    <div className="flex flex-col justify-start">
       <HeadContent />
-      <div className="flex flex-col justify-start">
-        <NavBar />
-        <Main>
-          <Outlet />
-        </Main>
-      </div>
-    </Providers>
+      <NavBar />
+      <Main>
+        <Outlet />
+      </Main>
+    </div>
   );
 }
 

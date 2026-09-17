@@ -37,7 +37,9 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
     const dest = nowLine ? getDest({ nowLine, dir, line }) : '';
 
     const stationList = getStations({ line, dir });
-    stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code)));
+    await Promise.all(
+      stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code))),
+    );
 
     return { line, dir, lineName, dest };
   },

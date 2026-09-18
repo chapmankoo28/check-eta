@@ -1,11 +1,11 @@
 import { NavBar } from '@/components/NavBar';
 import { Button } from '@/components/ui/button';
 import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyMedia,
-  EmptyTitle,
+    Empty,
+    EmptyContent,
+    EmptyDescription,
+    EmptyMedia,
+    EmptyTitle,
 } from '@/components/ui/empty';
 import { Main } from '@/layouts/Main';
 import '@/styles/global.css';

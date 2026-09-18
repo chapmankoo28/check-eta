@@ -16,28 +16,28 @@ For the latest information, please visit their official website above.
 
 ## Usage
 
-![image of the home page](public/home-page.webp)
+![image of the home page](src/images/home-page.webp)
 
 ### For Buses
 
 1. Search the route you want to check
 2. Choose the route
 
-![bus search page](public/bus-1.webp)
+![bus search page](src/images/bus-1.webp)
 
 3. Choose the stop (or let the app pick the closest one for you)
 
-![bus stop list](public/bus-2.webp)
+![bus stop list](src/images/bus-2.webp)
 
 When you grant location permission, the app automatically selects the stop closest to you (within 500 m).
 
-![location permission](public/location-permission.webp)
+![location permission](src/images/location-permission.webp)
 
 - You can swap the route direction
 - ETA refreshes every 30 seconds. You can also tap the update button to get the latest ETA.
 - You can also view the ETA for every route serving a specific bus stop. On the bus stop list page, tap "同站巴士" to open the page below.
 
-![bus stop eta page](public/bus-stop-1.webp)
+![bus stop eta page](src/images/bus-stop-1.webp)
 
 - You can tap a route to see its full stop list
 
@@ -45,11 +45,11 @@ When you grant location permission, the app automatically selects the stop close
 
 1. Choose the line you want to check
 
-![metro line page](public/mtr-1.webp)
+![metro line page](src/images/mtr-1.webp)
 
 2. Choose the station
 
-![metro stop list](public/mtr-2.webp)
+![metro stop list](src/images/mtr-2.webp)
 
 - You can swap the line direction
 - ETA refreshes every 30 seconds. You can also tap the update button to get the latest ETA.
@@ -58,7 +58,7 @@ When you grant location permission, the app automatically selects the stop close
 
 You can toggle between light and dark mode using the theme toggle button in the top right corner.
 
-![theme toggle](public/theme.webp)
+![theme toggle](src/images/theme.webp)
 
 ## Built With
 

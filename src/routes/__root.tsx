@@ -1,18 +1,24 @@
 import { NavBar } from '@/components/NavBar';
 import { Button } from '@/components/ui/button';
 import {
-    Empty,
-    EmptyContent,
-    EmptyDescription,
-    EmptyMedia,
-    EmptyTitle,
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyMedia,
+  EmptyTitle,
 } from '@/components/ui/empty';
 import { Main } from '@/layouts/Main';
 import '@/styles/global.css';
-import { HouseIcon } from '@phosphor-icons/react';
+import { ArrowClockwiseIcon, HouseIcon, WarningCircleIcon } from '@phosphor-icons/react';
 import { QuestionMarkIcon } from '@phosphor-icons/react/dist/ssr';
 import type { QueryClient } from '@tanstack/react-query';
-import { createRootRouteWithContext, HeadContent, Link, Outlet } from '@tanstack/react-router';
+import {
+  createRootRouteWithContext,
+  type ErrorComponentProps,
+  HeadContent,
+  Link,
+  Outlet,
+} from '@tanstack/react-router';
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
@@ -22,6 +28,7 @@ export const Route = createRootRouteWithContext<{
   }),
   component: RootComponent,
   notFoundComponent: NotFound,
+  errorComponent: ErrorComponent,
 });
 
 function RootComponent() {
@@ -54,6 +61,28 @@ function NotFound() {
               Back to home page
             </Button>
           </Link>
+        </EmptyContent>
+      </Empty>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  console.error(error.cause);
+  console.error(error.message);
+  return (
+    <div className="grid flex-1 place-content-center">
+      <Empty>
+        <EmptyMedia variant="icon">
+          <WarningCircleIcon className="size-8 text-destructive" weight="fill" />
+        </EmptyMedia>
+        <EmptyTitle>Something went wrong</EmptyTitle>
+        <EmptyDescription></EmptyDescription>
+        <EmptyContent>
+          <Button aria-label="Try again" onClick={reset}>
+            <ArrowClockwiseIcon data-icon="inline-start" />
+            Try again
+          </Button>
         </EmptyContent>
       </Empty>
     </div>

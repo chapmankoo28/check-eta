@@ -1,8 +1,7 @@
-import type { CtbStop, KmbEta, KmbStop, RouteEtaGroup, RouteListEntry } from '@/features/bus/types';
+import type { CtbStop, KmbEta, KmbStop, RouteEtaGroup } from '@/features/bus/types';
 import { POSITION_TTL } from '@/lib/constants';
 import type { MapLocation } from '@/lib/types';
 import { haversineDistance, timeDiffInMinutes } from '@/lib/utils';
-import allRoutesData from '@/res/json/all_route_list.json';
 
 export const busCo = {
   kmb: 'KMB',
@@ -78,34 +77,6 @@ export function getBusCompanyName(co: string, route: string): string {
 
 export function getBusCompanyCode(co: string, route: string): keyof typeof busCoBg {
   return getBusCompanyInfo(co, route).code;
-}
-
-const routeInfoMap = new Map<string, RouteListEntry>(
-  allRoutesData.data.map((entry) => [
-    `${entry.co}|${entry.route}|${entry.bound}|${entry.service_type}`,
-    entry as RouteListEntry,
-  ]),
-);
-
-export function getRouteInfo(
-  co: string,
-  route: string,
-  bound: string,
-  service: string,
-): RouteListEntry | null {
-  if (!co || !route || !bound || !service) {
-    return null;
-  }
-
-  const key = `${co}|${route}|${bound}|${service}`;
-  const direct = routeInfoMap.get(key);
-  if (direct) {
-    return direct;
-  }
-
-  const swapBound = bound === 'O' ? 'I' : 'O';
-  const swapKey = `${co}|${route}|${swapBound}|${service}`;
-  return routeInfoMap.get(swapKey) ?? null;
 }
 
 export function getUserPosition(): Promise<NonNullable<CachedPosition>> {

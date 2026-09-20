@@ -26,7 +26,9 @@ export function getMetroEtaQueryOptions(line: string, station: string) {
       const result = await response.json();
       return result.data[`${line}-${station}`] as StationData;
     },
-    refetchInterval: ETA_REFETCH_INTERVAL,
+    retry: false,
+    refetchInterval: (query: { state: { status: string } }) =>
+      query.state.status === 'error' ? false : ETA_REFETCH_INTERVAL,
   } as const;
 }
 

@@ -2,7 +2,6 @@ import { QuestionMarkIcon } from '@phosphor-icons/react';
 import { SubwayIcon } from '@phosphor-icons/react/dist/ssr';
 import { createFileRoute, useCanGoBack, useNavigate, useRouter } from '@tanstack/react-router';
 import { useMemo, useRef } from 'react';
-import z from 'zod';
 import { Loading } from '@/components/Loading';
 import { MetroEta } from '@/components/metro/MetroEta';
 import MetroRouteInfo from '@/components/metro/MetroLineInfo';
@@ -22,8 +21,8 @@ import { scrollToElement } from '@/lib/utils';
 import allMtrData from '@/res/json/mtr_lines_and_stations.json';
 
 export const Route = createFileRoute('/mtr/$line/$dir')({
-  validateSearch: z.object({
-    station: z.coerce.string().optional(),
+  validateSearch: (search: Record<string, unknown>): { station?: string } => ({
+    station: typeof search.station === 'string' ? search.station : undefined,
   }),
   loader: async ({ params, context: { queryClient } }) => {
     const { line: lineParams, dir: dirParams } = params;
@@ -37,8 +36,8 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
     const dest = nowLine ? getDest({ nowLine, dir, line }) : '';
 
     const stationList = getStations({ line, dir });
-    await Promise.all(
-      stationList.map((s) => queryClient.ensureQueryData(getMetroEtaQueryOptions(line, s.code))),
+    Promise.all(
+      stationList.map((s) => queryClient.prefetchQuery(getMetroEtaQueryOptions(line, s.code))),
     );
 
     return { line, dir, lineName, dest };

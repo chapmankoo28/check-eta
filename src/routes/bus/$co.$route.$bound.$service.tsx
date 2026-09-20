@@ -8,12 +8,11 @@ import {
   useRouter,
 } from '@tanstack/react-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import z from 'zod';
 import { BusStopIcon } from '@/assets/icons';
 import { BusEta } from '@/components/bus/BusEta';
 import BusRouteInfo from '@/components/bus/BusRouteInfo';
 import { Loading } from '@/components/Loading';
-import { LandsDptRouteMapView } from '@/components/map/LandsDptRouteMapView';
+import { LandsDptRouteMapViewLazy } from '@/components/map/LandsDptRouteMapViewLazy';
 import {
   Accordion,
   AccordionContent,
@@ -27,14 +26,9 @@ import {
   getStopInfoQueryOptions,
   useBusRouteStops,
 } from '@/features/bus/hooks';
+import { findRouteInfo, getRouteListQueryOptions } from '@/features/bus/route-list';
 import type { CtbStop, KmbStop } from '@/features/bus/types';
-import {
-  busCo,
-  coWebsites,
-  findClosestStop,
-  getRouteInfo,
-  getUserPosition,
-} from '@/features/bus/utils';
+import { busCo, coWebsites, findClosestStop, getUserPosition } from '@/features/bus/utils';
 import { POSITION_TTL } from '@/lib/constants';
 import { pageHead } from '@/lib/seo';
 import type { MapLocation } from '@/lib/types';
@@ -51,10 +45,11 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
 
     Promise.all(stopIds.map((id) => queryClient.prefetchQuery(getStopInfoQueryOptions(co, id))));
 
-    return getRouteInfo(co, route, bound, service);
+    const routeList = await queryClient.ensureQueryData(getRouteListQueryOptions());
+    return findRouteInfo(routeList, co, route, bound, service);
   },
-  validateSearch: z.object({
-    stop: z.coerce.string().optional(),
+  validateSearch: (search: Record<string, unknown>): { stop?: string } => ({
+    stop: typeof search.stop === 'string' ? search.stop : undefined,
   }),
   pendingComponent: () => <Loading />,
   pendingMs: 0,
@@ -250,7 +245,7 @@ function RouteComponent() {
         <BusRouteInfo co={co} nowRoute={nowRouteInfo} />
         {mapStopInfo && (
           <div className="mx-auto w-full max-w-xl pb-2">
-            <LandsDptRouteMapView
+            <LandsDptRouteMapViewLazy
               center={{
                 lat:
                   typeof mapStopInfo.lat === 'number'
@@ -296,7 +291,7 @@ function RouteComponent() {
               value={i.stop}
               className="relative border-b px-4 last:border-b-0"
             >
-              <AccordionTrigger className="flex items-center gap-2 text-lg font-normal hover:no-underline">
+              <AccordionTrigger className="flex items-center gap-2 font-normal text-lg hover:no-underline">
                 <div
                   className={cn(
                     `relative z-10 grid size-8 shrink-0 place-content-center rounded-full border bg-background font-medium`,

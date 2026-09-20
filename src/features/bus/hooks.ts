@@ -8,7 +8,7 @@ import type {
   KmbStop,
 } from '@/features/bus/types';
 import { busCo } from '@/features/bus/utils';
-import { ETA_REFETCH_INTERVAL } from '@/lib/constants';
+import { DAY, ETA_REFETCH_INTERVAL } from '@/lib/constants';
 import type { ApiConfigEntry } from '@/lib/types';
 import apiConfig from '@/res/json/api_config.json';
 
@@ -42,7 +42,9 @@ export function getBusEtaQueryOptions(co: string, route: string, service: string
         return result.data as KmbEta[];
       }
     },
-    refetchInterval: ETA_REFETCH_INTERVAL,
+    retry: false,
+    refetchInterval: (query: { state: { status: string } }) =>
+      query.state.status === 'error' ? false : ETA_REFETCH_INTERVAL,
   } as const;
 }
 
@@ -93,6 +95,8 @@ export function getBusRouteStopsQueryOptions(
         return result.data as KmbRouteStop[];
       }
     },
+    staleTime: DAY,
+    gcTime: DAY,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
   } as const;
@@ -134,6 +138,8 @@ export function getStopInfoQueryOptions(co: string, stopId: string) {
         return result.data as KmbStop;
       }
     },
+    staleTime: DAY,
+    gcTime: DAY,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
   } as const;
@@ -167,7 +173,9 @@ export function getBusStopEtaQueryOptions(co: string, stopId: string) {
 
       return (await response.json()).data as KmbEta[];
     },
-    refetchInterval: ETA_REFETCH_INTERVAL,
+    retry: false,
+    refetchInterval: (query: { state: { status: string } }) =>
+      query.state.status === 'error' ? false : ETA_REFETCH_INTERVAL,
   } as const;
 }
 

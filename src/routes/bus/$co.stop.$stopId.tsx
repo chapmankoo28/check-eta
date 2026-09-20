@@ -3,7 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { useEffect, useMemo, useState } from 'react';
 import { EtaBoxes } from '@/components/bus/EtaBoxes';
 import { Loading } from '@/components/Loading';
-import { LandsDptRouteMapView } from '@/components/map/LandsDptRouteMapView';
+import { LandsDptRouteMapViewLazy } from '@/components/map/LandsDptRouteMapViewLazy';
 import { buttonVariants } from '@/components/ui/button';
 import { Empty, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
 import { Spinner } from '@/components/ui/spinner';
@@ -32,7 +32,7 @@ export const Route = createFileRoute('/bus/$co/stop/$stopId')({
 
     const stop = await queryClient.ensureQueryData(getStopInfoQueryOptions(co, stopId));
     if (co === busCo.kmb) {
-      await queryClient.ensureQueryData(getBusStopEtaQueryOptions(co, stopId));
+      queryClient.prefetchQuery(getBusStopEtaQueryOptions(co, stopId));
     }
 
     return { stop };
@@ -154,7 +154,7 @@ function RouteComponent() {
         </div>
         {stop && (
           <div className="mx-auto w-full max-w-xl pb-2">
-            <LandsDptRouteMapView
+            <LandsDptRouteMapViewLazy
               center={{
                 lat: typeof stop.lat === 'number' ? stop.lat : parseFloat(stop.lat),
                 long: typeof stop.long === 'number' ? stop.long : parseFloat(stop.long),

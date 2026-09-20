@@ -93,7 +93,7 @@ export function MetroEta({
       {!eta || eta?.length === 0 ? (
         isError ? (
           <div className="text-center">
-            <span className="text-destructive text-lg">搵唔到班次，請再試一次</span>
+            <span className="text-destructive text-lg">無法取得班次，請稍後再試</span>
           </div>
         ) : (
           <div className="text-center">

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { BusRouteCard } from '@/components/bus/BusRouteCard';
 import { BusRouteLegend } from '@/components/bus/BusRouteLegend';
+import { Loading } from '@/components/Loading';
 import { SearchBar } from '@/components/SearchBar';
-import allRoutesData from '@/res/json/all_route_list.json';
+import { useRouteList } from '@/features/bus/route-list';
 
 export function BusRouteList() {
   const [q, setQ] = useState(() => new URL(window.location.href).searchParams.get('q') || '');
@@ -19,13 +20,18 @@ export function BusRouteList() {
 }
 
 function RouteList({ q }: { q: string }) {
+  const { data: routeList, isPending } = useRouteList();
   const routes =
     !q.trim() || /^[^0-9a-zA-Z]+$/g.test(q)
       ? []
-      : allRoutesData.data.filter((i) => i.route.toLowerCase().includes(q.toLowerCase()));
+      : (routeList ?? []).filter((i) => i.route.toLowerCase().includes(q.toLowerCase()));
 
   if (!q) {
     return null;
+  }
+
+  if (isPending) {
+    return <Loading />;
   }
 
   if (routes.length === 0) {

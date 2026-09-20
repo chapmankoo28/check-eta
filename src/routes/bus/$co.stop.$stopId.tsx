@@ -40,7 +40,14 @@ export const Route = createFileRoute('/bus/$co/stop/$stopId')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) => pageHead(loaderData?.stop?.name_tc ?? '巴士'),
+  head: ({ params, loaderData }) =>
+    pageHead({
+      title: loaderData?.stop?.name_tc ?? '巴士',
+      description: loaderData?.stop?.name_tc
+        ? `${loaderData.stop.name_tc}巴士站各條路線嘅實時到站時間。`
+        : undefined,
+      path: `/bus/${params.co}/stop/${params.stopId}`,
+    }),
 });
 
 function RouteComponent() {

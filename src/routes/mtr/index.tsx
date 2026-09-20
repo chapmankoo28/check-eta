@@ -7,7 +7,12 @@ import allMtrData from '@/res/json/mtr_lines_and_stations.json';
 
 export const Route = createFileRoute('/mtr/')({
   component: Mtr,
-  head: () => pageHead('地鐡'),
+  head: () =>
+    pageHead({
+      title: '地鐡',
+      description: '查閱港鐡各條路線嘅實時到站時間。',
+      path: '/mtr',
+    }),
 });
 
 function Mtr() {

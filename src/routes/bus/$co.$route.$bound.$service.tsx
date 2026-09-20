@@ -54,12 +54,18 @@ export const Route = createFileRoute('/bus/$co/$route/$bound/$service')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) =>
-    pageHead(
-      loaderData?.route && loaderData?.dest_tc
-        ? `${loaderData.route} 往 ${loaderData.dest_tc}`
-        : '巴士',
-    ),
+  head: ({ params, loaderData }) =>
+    pageHead({
+      title:
+        loaderData?.route && loaderData?.dest_tc
+          ? `${loaderData.route} 往 ${loaderData.dest_tc}`
+          : '巴士',
+      description:
+        loaderData?.route && loaderData?.dest_tc
+          ? `巴士路線 ${loaderData.route} 往 ${loaderData.dest_tc} 嘅實時到站時間。`
+          : undefined,
+      path: `/bus/${params.co}/${params.route}/${params.bound}/${params.service}`,
+    }),
 });
 
 function RouteComponent() {

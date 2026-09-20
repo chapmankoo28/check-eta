@@ -25,6 +25,9 @@ pnpm-debug.log*
 __unconfig*
 todos.json
 
+# generated
+public/sitemap.xml
+
 # tmp files
 tmp/
 docs/

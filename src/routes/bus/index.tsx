@@ -4,7 +4,12 @@ import { pageHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/bus/')({
   component: Bus,
-  head: () => pageHead('巴士'),
+  head: () =>
+    pageHead({
+      title: '巴士',
+      description: '搜尋香港巴士路線：查閱九巴、城巴同龍運嘅實時到站時間。',
+      path: '/bus',
+    }),
 });
 
 function Bus() {

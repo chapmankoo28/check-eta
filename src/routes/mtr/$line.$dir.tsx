@@ -45,12 +45,18 @@ export const Route = createFileRoute('/mtr/$line/$dir')({
   pendingComponent: () => <Loading />,
   pendingMs: 0,
   component: RouteComponent,
-  head: ({ loaderData }) =>
-    pageHead(
-      loaderData?.lineName && loaderData?.dest
-        ? `${loaderData.lineName} 往 ${loaderData.dest}`
-        : '地鐡',
-    ),
+  head: ({ params, loaderData }) =>
+    pageHead({
+      title:
+        loaderData?.lineName && loaderData?.dest
+          ? `${loaderData.lineName} 往 ${loaderData.dest}`
+          : '地鐡',
+      description:
+        loaderData?.lineName && loaderData?.dest
+          ? `${loaderData.lineName}往${loaderData.dest}嘅實時到站時間。`
+          : undefined,
+      path: `/mtr/${params.line}/${params.dir}`,
+    }),
 });
 
 function RouteComponent() {

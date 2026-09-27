@@ -3,7 +3,7 @@ import { MetroLineCard } from '@/components/metro/MetroLineCard';
 import type { MtrLine } from '@/features/metro/types';
 import { mtrLineName } from '@/features/metro/utils';
 import { pageHead } from '@/lib/seo';
-import allMtrData from '@/res/json/mtr_lines_and_stations.json';
+import allMtrData from '@/res/json/mtrLinesStations.json';
 
 export const Route = createFileRoute('/mtr/')({
   component: Mtr,

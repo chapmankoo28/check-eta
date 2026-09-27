@@ -5,7 +5,7 @@ export function getRouteListQueryOptions() {
   return {
     queryKey: ['bus-route-list'] as const,
     queryFn: async () => {
-      const mod = await import('@/res/json/all_route_list.json');
+      const mod = await import('@/res/json/busRoutes.json');
       return mod.default.data as RouteListEntry[];
     },
     staleTime: Infinity,

@@ -8,17 +8,14 @@ import type {
   KmbStop,
 } from '@/features/bus/types';
 import { busCo } from '@/features/bus/utils';
+import { getApiConfig } from '@/lib/api-config';
 import { DAY, ETA_REFETCH_INTERVAL } from '@/lib/constants';
-import type { ApiConfigEntry } from '@/lib/types';
-import apiConfig from '@/res/json/api_config.json';
 
 export function getBusEtaQueryOptions(co: string, route: string, service: string, stopId: string) {
   return {
     queryKey: ['bus-eta', co, route, service, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
-      const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase(),
-      );
+      const api = getApiConfig(co);
       if (!api) {
         console.error('ERROR: Api not found.');
         return null;
@@ -71,9 +68,7 @@ export function getBusRouteStopsQueryOptions(
   return {
     queryKey: ['bus-route-stops', co, route, bound, service] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
-      const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase(),
-      );
+      const api = getApiConfig(co);
       if (!api) {
         console.error('ERROR: Api not found.');
         return [];
@@ -120,9 +115,11 @@ export function getStopInfoQueryOptions(co: string, stopId: string) {
   return {
     queryKey: ['bus-stop-info', co, stopId],
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
-      const api = ((apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toUpperCase() === co.toUpperCase(),
-      ) ?? {}) as ApiConfigEntry;
+      const api = getApiConfig(co);
+      if (!api) {
+        console.error('ERROR: Api not found.');
+        return null;
+      }
 
       const url = api.baseUrl + api.api.stop + stopId.toUpperCase();
 
@@ -153,9 +150,7 @@ export function getBusStopEtaQueryOptions(co: string, stopId: string) {
   return {
     queryKey: ['bus-stop-eta', co, stopId] as const,
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
-      const api = (apiConfig.data as ApiConfigEntry[]).find(
-        (item) => item.co.toLowerCase() === co.toLowerCase(),
-      );
+      const api = getApiConfig(co);
       if (!api?.api.stopEta) {
         console.error('ERROR: stopEta api not found.');
         return [];

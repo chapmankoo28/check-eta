@@ -1,5 +1,5 @@
 import type { MtrDirection, MtrLine, MtrLineData, MtrStationCode } from '@/features/metro/types';
-import allMtrData from '@/res/json/mtr_lines_and_stations.json';
+import allMtrData from '@/res/json/mtrLinesStations.json';
 
 export const mtrLineName = {
   en: {

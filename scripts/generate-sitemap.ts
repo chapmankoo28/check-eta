@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs';
 import { SITE_URL } from '@/lib/seo';
-import allRouteList from '@/res/json/all_route_list.json';
-import mtrData from '@/res/json/mtr_lines_and_stations.json';
+import allRouteList from '@/res/json/busRoutes.json';
+import mtrData from '@/res/json/mtrLinesStations.json';
 
 const paths = ['/bus', '/mtr'];
 

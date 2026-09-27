@@ -18,7 +18,7 @@ import type { MtrDirection, MtrLine, MtrLineData } from '@/features/metro/types'
 import { getDest, getStations, mtrLine, mtrLineName } from '@/features/metro/utils';
 import { pageHead } from '@/lib/seo';
 import { scrollToElement } from '@/lib/utils';
-import allMtrData from '@/res/json/mtr_lines_and_stations.json';
+import allMtrData from '@/res/json/mtrLinesStations.json';
 
 export const Route = createFileRoute('/mtr/$line/$dir')({
   validateSearch: (search: Record<string, unknown>): { station?: string } => ({

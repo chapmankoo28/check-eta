@@ -10,8 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MtrIndexRouteImport } from './routes/mtr/index'
 import { Route as BusIndexRouteImport } from './routes/bus/index'
+import { Route as MtrIndexRouteImport } from './routes/mtr/index'
 import { Route as MtrLineDirRouteImport } from './routes/mtr/$line.$dir'
 import { Route as BusCoStopStopIdRouteImport } from './routes/bus/$co.stop.$stopId'
 import { Route as BusCoRouteBoundServiceRouteImport } from './routes/bus/$co.$route.$bound.$service'
@@ -21,14 +21,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MtrIndexRoute = MtrIndexRouteImport.update({
-  id: '/mtr/',
-  path: '/mtr/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BusIndexRoute = BusIndexRouteImport.update({
   id: '/bus/',
   path: '/bus/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MtrIndexRoute = MtrIndexRouteImport.update({
+  id: '/mtr/',
+  path: '/mtr/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MtrLineDirRoute = MtrLineDirRouteImport.update({
@@ -117,18 +117,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mtr/': {
-      id: '/mtr/'
-      path: '/mtr'
-      fullPath: '/mtr/'
-      preLoaderRoute: typeof MtrIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/bus/': {
       id: '/bus/'
       path: '/bus'
       fullPath: '/bus/'
       preLoaderRoute: typeof BusIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mtr/': {
+      id: '/mtr/'
+      path: '/mtr'
+      fullPath: '/mtr/'
+      preLoaderRoute: typeof MtrIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mtr/$line/$dir': {

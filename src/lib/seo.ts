@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://check-eta.chapman-2cb.workers.dev';
+export const SITE_URL = 'https://checketa.chapmankoo.com';
 const SITE_NAME = '幾時到';
 const DEFAULT_DESCRIPTION = '香港巴士同地鐡實時到站時間。';
 

@@ -2,7 +2,7 @@
 
 Check ETA is a React app that allows users to check the estimated time of arrival (ETA) for buses and MTR in Hong Kong.
 
-This app has been deployed on https://check-eta.chapman-2cb.workers.dev/. The [GitHub Pages version](https://chapmankoo28.github.io/check-eta/) is the legacy version.
+This app has been deployed on https://checketa.chapmankoo.com/. The [GitHub Pages version](https://chapmankoo28.github.io/check-eta/) is the legacy version.
 
 This app can check the ETA of these companies for now:
 

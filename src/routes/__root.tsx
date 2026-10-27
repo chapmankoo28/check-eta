@@ -71,8 +71,7 @@ function NotFound() {
 }
 
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
-  console.error(error.cause);
-  console.error(error.message);
+  console.error(error);
   return (
     <div className="grid flex-1 place-content-center">
       <Empty>
